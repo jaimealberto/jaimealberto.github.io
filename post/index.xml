@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>https://jaimealberto.github.io/post/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 04 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gestores paquetes MacOS</title>
+      <link>https://jaimealberto.github.io/post/04_gestorespaquetesbrew/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/04_gestorespaquetesbrew/</guid>
+      <description>&lt;p&gt;En el sistema operativo de nuestro Mac no tenemos un gestor de paquetes oficial como tal proporcionado por Apple, pero si tenemos alternativas para potenciar nuestra productividad en la terminal. Los mas conocidos son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Homebrew&lt;/li&gt;
+&lt;li&gt;MacPorts&lt;/li&gt;
+&lt;li&gt;Fink&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks MacOS III de ?</title>
+      <link>https://jaimealberto.github.io/post/03_tipsmacos03/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/03_tipsmacos03/</guid>
+      <description>&lt;p&gt;Después de Trucos para MacOs I y II , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa de aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico. Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks MacOS II de ?.</title>
+      <link>https://jaimealberto.github.io/post/02_tipsmacos02/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/02_tipsmacos02/</guid>
+      <description>&lt;p&gt;Después de la primera entrega de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SSH</title>
+      <link>https://jaimealberto.github.io/post/ssh/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/ssh/</guid>
+      <description>sadfsdf
+:penguin:
+😁
+\U+1F4A9\
+emo::ji(&amp;ldquo;face&amp;rdquo;)
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Imágenes destacadas</title>
+      <link>https://jaimealberto.github.io/post/featured-images/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/featured-images/</guid>
+      <description>&lt;p&gt;La imagen destacada es la imagen que aparece en los resúmenes en las páginas de la lista y en la parte superior de las páginas de contenido. Cada página de contenido
+en este tema puede tener una imagen destacada.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
