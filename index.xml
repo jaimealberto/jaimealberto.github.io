@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://jaimealberto.github.io/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 04 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>La causa ...</title>
+      <link>https://jaimealberto.github.io/about/</link>
+      <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/about/</guid>
+      <description>&amp;hellip; son varias, algunas de ellas:
+  Tener un site con referencias y guiás técnicas que me han permitido realizar mejor mi trabajo con la intención que le pueda ser útil a mas gente.
+  Compartir algunas de mis experiencias laborales que tal vez puedan resultar curiosas o graciosas.
+  Poder expresar mis ideas y pensamientos libremente.
+  Todo el contenido tiene licencia CC BY-NC-SA 4.</description>
+    </item>
+    
+    <item>
+      <title>Recursos</title>
+      <link>https://jaimealberto.github.io/recursos/</link>
+      <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recursos/</guid>
+      <description>Canales Youtube Aquí colocare los canales de Youtube que sigo por mis intereses personales a modo de recordatorio propio. Espero que alguno sea de utilidad.
+Programación  Canal de John Ortiz Ordoñez  Herramientas on-line Sitios  Unsplash, banco de imagenes free.  Servicios GitHub  Repo Mindcrytp, libros de criptografia.  </description>
+    </item>
+    
+    <item>
+      <title>Universo Ssh I</title>
+      <link>https://jaimealberto.github.io/post/07_universosshi/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/07_universosshi/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un tunel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Utilidades terminal I</title>
+      <link>https://jaimealberto.github.io/post/08_utilidadesterminali/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/08_utilidadesterminali/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de escribir el articulo sobre la grabación del terminal me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks MacOS I de ?</title>
+      <link>https://jaimealberto.github.io/post/01_tipsmacos01/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/01_tipsmacos01/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trick.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;
+&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Finder</title>
+      <link>https://jaimealberto.github.io/post/05_finder/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/05_finder/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/finder.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Algo sobre mí ...</title>
+      <link>https://jaimealberto.github.io/aboutme/</link>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/aboutme/</guid>
+      <description>&amp;hellip; pues según mi ADN un ser humano ;-) . Me encanta ver la vida desde un terminal, aun que de vez en cuando tienes que verla a través de una ventana.
+Considero que tengo la suerte de llevar muchos años trabajando en lo que me apasiona, que es el mundo IT.
+Al igual que en otros aspectos de mi vida, me encanta y disfruto pudiendo compartir mis conocimientos y experiencias con los demás al igual que poder apredner de ell@s.</description>
+    </item>
+    
+    <item>
+      <title>Licencia CC BY-NC-SA 4.0</title>
+      <link>https://jaimealberto.github.io/licencia/</link>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/licencia/</guid>
+      <description>Licencia Creative Commons Atribución-NoComercial-SinDerivar 4.0 Internacional (CC BY-NC-SA 4.0)
+Usted es libre para:
+Compartir — copiar y redistribuir el material en cualquier medio o formato
+Adaptar — remezclar, transformar y construir a partir del material
+El licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia.
+Bajo los siguientes términos:
+ Atribución — Usted debe darle crédito a esta obra de manera adecuada, proporcionando un enlace a la licencia, e indicando si se han realizado cambios.</description>
+    </item>
+    
+  </channel>
+</rss>
