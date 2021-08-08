@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminal on </title>
+    <link>https://jaimealberto.github.io/tags/terminal/</link>
+    <description>Recent content in Terminal on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 04 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gestores paquetes MacOS</title>
+      <link>https://jaimealberto.github.io/post/04_gestorespaquetesbrew/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/04_gestorespaquetesbrew/</guid>
+      <description>&lt;p&gt;En el sistema operativo de nuestro Mac no tenemos un gestor de paquetes oficial como tal proporcionado por Apple, pero si tenemos alternativas para potenciar nuestra productividad en la terminal. Los mas conocidos son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Homebrew&lt;/li&gt;
+&lt;li&gt;MacPorts&lt;/li&gt;
+&lt;li&gt;Fink&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks MacOS III de ?</title>
+      <link>https://jaimealberto.github.io/post/03_tipsmacos03/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/03_tipsmacos03/</guid>
+      <description>&lt;p&gt;Después de Trucos para MacOs I y II , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa de aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico. Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks MacOS II de ?.</title>
+      <link>https://jaimealberto.github.io/post/02_tipsmacos02/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/02_tipsmacos02/</guid>
+      <description>&lt;p&gt;Después de la primera entrega de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks MacOS I de ?</title>
+      <link>https://jaimealberto.github.io/post/01_tipsmacos01/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/01_tipsmacos01/</guid>
+      <description>&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;
+&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
