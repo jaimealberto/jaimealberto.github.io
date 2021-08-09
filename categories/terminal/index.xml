@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminal on </title>
+    <link>https://jaimealberto.github.io/categories/terminal/</link>
+    <description>Recent content in Terminal on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Utilidades terminal I</title>
+      <link>https://jaimealberto.github.io/post/08_utilidadesterminali/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/08_utilidadesterminali/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.github.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Grabar el terminal</title>
+      <link>https://jaimealberto.github.io/post/06_grabarterminal/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/06_grabarterminal/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
