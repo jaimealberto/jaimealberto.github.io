@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Utilidades terminal II - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Segunda enntrega de la saga">
+		<meta property="og:title" content="Utilidades terminal II" />
+<meta property="og:description" content="Segunda enntrega de la saga" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/10_utilidadesterminalii/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-05T00:00:00+00:00" />
+
+
+		<meta itemprop="name" content="Utilidades terminal II">
+<meta itemprop="description" content="Segunda enntrega de la saga"><meta itemprop="datePublished" content="2021-08-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-08-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="565">
+<meta itemprop="keywords" content="Utilidades," />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Ago sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/todo/">
+				
+				<span class="menu__text">Todo en uno</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Utilidades terminal II</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-05T00:00:00Z">05-08-2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/terminal/" rel="category">Terminal</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#wifi-password">Wifi-password</a></li>
+    <li><a href="#códigos-qr">Códigos QR</a>
+      <ul>
+        <li><a href="#qrencode">QrEncode</a></li>
+        <li><a href="#zbar">Zbar</a></li>
+      </ul>
+    </li>
+    <li><a href="#speedtest-cli">Speedtest-cli</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure><img src="/img/tool2.jpg"/>
+</figure>
+
+<p>Bueno ya estamos aquí de nuevo, despues de la <a href="https://jaimealberto.github.io/post/08_utilidadesterminali/">primera entrega</a> hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.</p>
+<h2 id="wifi-password">Wifi-password</h2>
+<p>Después del articulo en el cual trate el tema de las contraseña wifi que teníamos almacenadas en nuestros equipos, como visualizarlas en el terminal. Encontré esta curiosa herramienta para MacOS. Vamos a ver como funciona. Lo primero la instalamos en nuestro Mac:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install wifi-password</code></pre></div>
+<p>Al ejecutarla en nuestro terminal, con la wifi conectada, nos mostrara la contraseña de la wifi a la que estamos conectados:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wifi-password</code></pre></div>
+<p>Nos muestra una ventana donde nos solicita usuario y contraseña:</p>
+<figure><img src="/img/terminalwifi.png"/>
+</figure>
+
+<p>… getting password for &ldquo;MiCasaWifi&rdquo;.
+… keychain prompt incoming.
+✓ &ldquo;M1C0ntr4s3ñ4&rdquo;</p>
+<p>Podemos utilizar las siguientes opciones:</p>
+<pre><code>-q	Nos muestra solo la contraseña
+-V	Nos indica la versión
+</code></pre><p>Si queremos saber la contraseña que tengamos almacenada de alguna de las redes wifi que hemos estado conectados el algún momento con nuestro Mac seria de la siguiente naneara:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wifi-password NonmbreSSID</code></pre></div>
+<h2 id="códigos-qr">Códigos QR</h2>
+<p>Los códigos QR son una buena herramienta para intercambio de información que nos pueda interesar compartir.. A continuación vamos a ver como generarlos con información que nos interese compartir desde nuestro querido terminal, como mostrarlos, etc. Con algunos ejemplos de caso de uso.</p>
+<h3 id="qrencode">QrEncode</h3>
+<p>Utilizaremos qrencode para generar los códigos con la información que nos interese desde nuestro terminal. Vamos a instalarla:</p>
+<p>MacOs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install qrencode</code></pre></div>
+<p>Debian y derivados</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install qrencode</code></pre></div>
+<p>Generamos códigos del siguiente modo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">qrencode -o codigo.png <span style="color:#e6db74">&#34;https://jaimealberto.github.io/&#34;</span></code></pre></div>
+<p>Opciones más comunes:</p>
+<pre><code>-o Indica fichero de salida
+-m &lt;NUMBER&gt; Especificamos el margen, por defecto 4
+-d &lt;NUMBER&gt; Especificamos los DPI, por defecto 72
+-t Formato de salida, por defecto png
+</code></pre><h3 id="zbar">Zbar</h3>
+<p>Para extraer la información de códigos Qr utilizaremos zbarimg, que forma parte del paquete zbar, este paquete nos provee de varias utilidades. Vamos a instalar el paquete:</p>
+<p>MacOs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install zbar</code></pre></div>
+<p>Debian y derivados</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install zbar</code></pre></div>
+<p>Vamos a leer la información del Qr generado anteriormente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">zbarimg code.png</code></pre></div>
+<p>Opciones más comunes:</p>
+<pre><code>-q Salida mínima, solo información
+-d Muestra el código en el terminal, si lo soporta
+-D No muestra el código en el terminal, por defecto
+--xml Muestra la salida en xml
+--raw Muestra la salida en raw
+</code></pre><h2 id="speedtest-cli">Speedtest-cli</h2>
+<p>Alguna que otra vez queremos hacer una prueba de velocidad de nuestra conexión a Internet. Una de las webs mas fiables para esto es speedtest.net, en la cual se basan una gran cantidad de aplicaciones graficas. Pues bien tambien tenemos en nuestros repositorios una utilidad que nos permite realizar esto desde nuestro terminal. Lo primero como siempre vamos a instalar:</p>
+<p>MacOs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install speedtest-cli</code></pre></div>
+<p>Debian y derivados</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install speedtest-cli</code></pre></div>
+<p>Vamos a realizar una prueba simple de velocidad</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">speedtest-cli</code></pre></div>
+<p>Esto nos muestra como realiza la prueba en modo verbose y el resultado final, pero tenemos una serie de parámetros que nos pueden ser útiles para almacenar la información y luego tratarla. Los mas habituales son:</p>
+<pre><code>--no-download No realiza el test de descarga
+--no-upload No realiza el test de subida
+--bytes Utiliza bytes para la medición
+--json Muestra la información de salida en json
+--simple Muestra la información en modo simple
+--csv Muestra la información de salida en csv
+--csv-header Añade a la salida CSV las cabeceras descriptivas
+--list Muestra los servidores siponibles en speedtest.net ordenados 			por distancia
+--server Indica el servidor a utilizar en la prueba
+</code></pre>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/utilidades/" rel="tag">Utilidades</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/07_universosshi/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Anterior</span>
+			<p class="pager__title">Universo Ssh I</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/09_passwordwifi/" rel="next">
+			<span class="pager__subtitle">Siguiente&thinsp;»</span>
+			<p class="pager__title">Donde están mis contraseñas Wifi</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2021 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
