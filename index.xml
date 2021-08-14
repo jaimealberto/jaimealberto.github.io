@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://jaimealberto.github.io/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform I</title>
+      <link>https://jaimealberto.github.io/post/16_terraformi/</link>
+      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/16_terraformi/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/terraform.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://es.wikipedia.org/wiki/Terraform_(software)&#34;&gt;Terraform&lt;/a&gt; es un software que trata la infraestructura como código  desarrollado por HashiCorp. Esto permite al usuario mediante ejecución de código desplegar infraestructuras rápidamente.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Utilidades terminal III</title>
+      <link>https://jaimealberto.github.io/post/15_utilidadesterminaliii/</link>
+      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/15_utilidadesterminaliii/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool3.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>La causa ...</title>
+      <link>https://jaimealberto.github.io/about/</link>
+      <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/about/</guid>
+      <description>&amp;hellip; son varias, algunas de ellas:
+  Tener un site con referencias y guiás técnicas que me han permitido realizar mejor mi trabajo con la intención que le pueda ser útil a mas gente.
+  Compartir algunas de mis experiencias laborales que tal vez puedan resultar curiosas o graciosas.
+  Poder expresar mis ideas y pensamientos libremente.
+  Todo el contenido tiene licencia CC BY-NC-SA 4.</description>
+    </item>
+    
+    <item>
+      <title>Recursos</title>
+      <link>https://jaimealberto.github.io/recursos/</link>
+      <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recursos/</guid>
+      <description>Canales Youtube Aquí colocare los canales de Youtube que sigo por mis intereses personales a modo de recordatorio propio. Espero que alguno sea de utilidad.
+Programación  Canal de John Ortiz Ordoñez  Herramientas on-line Sitios  Unsplash, banco de imagenes free. WikiMediaCommons, contenido con licencia CC.  Servicios GitHub  Repo Mindcrytp, libros de criptografia.  </description>
+    </item>
+    
+    <item>
+      <title>Universo Ssh II</title>
+      <link>https://jaimealberto.github.io/post/11_universosshii/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/11_universosshii/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh2.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.github.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Donde están mis contraseñas Wifi</title>
+      <link>https://jaimealberto.github.io/post/09_passwordwifi/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/09_passwordwifi/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/pwdwifi.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Utilidades terminal II</title>
+      <link>https://jaimealberto.github.io/post/10_utilidadesterminalii/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/10_utilidadesterminalii/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool2.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.github.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Universo Ssh I</title>
+      <link>https://jaimealberto.github.io/post/07_universosshi/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/07_universosshi/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un tunel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Utilidades terminal I</title>
+      <link>https://jaimealberto.github.io/post/08_utilidadesterminali/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/08_utilidadesterminali/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.github.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks MacOS I de ?</title>
+      <link>https://jaimealberto.github.io/post/01_tipsmacos01/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/01_tipsmacos01/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trick.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;
+&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Finder</title>
+      <link>https://jaimealberto.github.io/post/05_finder/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/05_finder/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/finder.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Grabar el terminal</title>
+      <link>https://jaimealberto.github.io/post/06_grabarterminal/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/06_grabarterminal/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Algo sobre mí ...</title>
+      <link>https://jaimealberto.github.io/aboutme/</link>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/aboutme/</guid>
+      <description>&amp;hellip; pues según mi ADN un ser humano ;-) . Me encanta ver la vida desde un terminal, aun que de vez en cuando tienes que verla a través de una ventana.
+Considero que tengo la suerte de llevar muchos años trabajando en lo que me apasiona, que es el mundo IT.
+Al igual que en otros aspectos de mi vida, me encanta y disfruto pudiendo compartir mis conocimientos y experiencias con los demás al igual que poder apredner de ell@s.</description>
+    </item>
+    
+    <item>
+      <title>Licencia CC BY-NC-SA 4.0</title>
+      <link>https://jaimealberto.github.io/licencia/</link>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/licencia/</guid>
+      <description>Licencia Creative Commons Atribución-NoComercial-SinDerivar 4.0 Internacional (CC BY-NC-SA 4.0)
+Usted es libre para:
+Compartir — copiar y redistribuir el material en cualquier medio o formato
+Adaptar — remezclar, transformar y construir a partir del material
+El licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia.
+Bajo los siguientes términos:
+ Atribución — Usted debe darle crédito a esta obra de manera adecuada, proporcionando un enlace a la licencia, e indicando si se han realizado cambios.</description>
+    </item>
+    
+    <item>
+      <title>Comandos en bucle</title>
+      <link>https://jaimealberto.github.io/todo/02_buclecomandos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/todo/02_buclecomandos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Comprimir, descomprimir, empaquetar y desempaquetar</title>
+      <link>https://jaimealberto.github.io/recetas/01_comprimir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/01_comprimir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firefox Send, envio ficheros</title>
+      <link>https://jaimealberto.github.io/todo/01_envio_fsend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/todo/01_envio_fsend/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
