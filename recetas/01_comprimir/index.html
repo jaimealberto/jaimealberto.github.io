@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Comprimir, descomprimir, empaquetar y desempaquetar - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Referencia rapida">
+		<meta property="og:title" content="Comprimir, descomprimir, empaquetar y desempaquetar" />
+<meta property="og:description" content="Referencia rapida" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/recetas/01_comprimir/" /><meta property="article:section" content="Recetas" />
+
+
+
+
+		<meta itemprop="name" content="Comprimir, descomprimir, empaquetar y desempaquetar">
+<meta itemprop="description" content="Referencia rapida">
+
+<meta itemprop="wordCount" content="254">
+<meta itemprop="keywords" content="" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Ago sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/todo/">
+				
+				<span class="menu__text">Todo en uno</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Comprimir, descomprimir, empaquetar y desempaquetar</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<h2 id="tar-tar">.tar (tar)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empaquetar</td>
+<td>tar cvf destino.tar /directorio_origen/ficheros_origen</td>
+</tr>
+<tr>
+<td>Desempaquetar</td>
+<td>tar xvf fichero.tar</td>
+</tr>
+<tr>
+<td>Ver el contenido (sin extraer)</td>
+<td>tar tvf fichero.tar</td>
+</tr>
+</tbody>
+</table>
+<h2 id="targz---tarz---tgz-tar-con-gzip">.tar.gz - .tar.z - .tgz (tar con gzip)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empaquetar y comprimir</td>
+<td>tar czvf fichero.tar.gz /directorio_origen/ficheros_origen</td>
+</tr>
+<tr>
+<td>Desempaquetar y descomprimir</td>
+<td>tar xzvf fichero.tar.gz</td>
+</tr>
+<tr>
+<td>Ver el contenido (sin extraer)</td>
+<td>tar tzvf fichero.tar.gz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gz-gzip">.gz (gzip)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+<th>Comentario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprimir</td>
+<td>gzip -q fichero</td>
+<td>El fichero lo comprime y lo renombra como &ldquo;fichero.gz&rdquo;</td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>gzip -d fichero.gz</td>
+<td>El fichero lo descomprime y lo deja como &ldquo;fichero&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p><em>Nota: gzip solo comprime ficheros, no directorios.</em></p>
+<h2 id="bz2-bzip2">.bz2 (bzip2)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+<th>Comentario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprimir</td>
+<td>bzip2 fichero</td>
+<td></td>
+</tr>
+<tr>
+<td>Comprimir</td>
+<td>bunzip2 fichero</td>
+<td>El fichero lo comprime y lo renombra como &ldquo;fichero.bz2&rdquo;</td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>bzip2 -d fichero.bz2</td>
+<td></td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>bunzip2 fichero.bz2</td>
+<td>El fichero lo descomprime y lo deja como &ldquo;fichero&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p><em>Nota: bzip2 solo comprime ficheros, no directorios.</em></p>
+<h2 id="tarbz2-tar-con-bzip2">.tar.bz2 (tar con bzip2)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprimir</td>
+<td>tar -c ficheros | bzip2 &gt; fichero.tar.bz2</td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>bzip2 -dc fichero.tar.bz2 | tar -xv</td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>tar jvxf fichero.tar.bz2 (versiones recientes de tar)</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>bzip2 -dc fichero.tar.bz2 | tar -tv</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zip-zip">.zip (zip)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprimir</td>
+<td>zip fichero.zip /directorio_origen/ficheros</td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>unzip fichero.zip</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>unzip -v fichero.zip</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lha-lha">.lha (lha)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprimir</td>
+<td>lha fichero.lha /mayo/ficheros</td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>lha -x fichero.lha</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>lha -v fichero.lha</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>lha -l fichero.lha</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zoo-zoo">.zoo (zoo)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprimir</td>
+<td>zoo -a fichero.zoo /mayo/ficheros</td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>zoo -x fichero.zoo</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>zoo -v fichero.zoo</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>zoo -L fichero.zoo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rar-rar">.rar (rar)</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Comando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprimir	rar -a fichero.rar /mayo/ficheros</td>
+<td></td>
+</tr>
+<tr>
+<td>Descomprimir</td>
+<td>rar -x fichero.rar</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>rar -v fichero.rar</td>
+</tr>
+<tr>
+<td>Ver contenido</td>
+<td>rar -l fichero.rar</td>
+</tr>
+</tbody>
+</table>
+		</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2021 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
