@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on </title>
+    <link>https://jaimealberto.github.io/tags/shell/</link>
+    <description>Recent content in Shell on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iTerm2 &#43; Zsh</title>
+      <link>https://jaimealberto.github.io/post/23_itermzsh/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/23_itermzsh/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/iterm2zsh.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href=&#34;https://iterm2.com/&#34;&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
