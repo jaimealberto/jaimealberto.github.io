@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Combos on </title>
+    <link>https://jaimealberto.github.io/combos/</link>
+    <description>Recent content in Combos on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language><atom:link href="https://jaimealberto.github.io/combos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Combo I, la VPN del pobre</title>
+      <link>https://jaimealberto.github.io/combos/01_comboi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/combos/01_comboi/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/comboI.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Recordando viejos tiempos, que uno tiene ya una edad, en aquellos días de los buenos &lt;a href=&#34;https://es.wikipedia.org/wiki/Arcade&#34;&gt;arcades&lt;/a&gt;. Todos andábamos locos con los &lt;a href=&#34;https://es.wikipedia.org/wiki/Combo_(videojuegos)&#34;&gt;combos.&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
