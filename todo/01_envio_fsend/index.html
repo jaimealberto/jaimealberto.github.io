@@ -59,7 +59,7 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/aboutme/">
 				
-				<span class="menu__text">Ago sobre mí ...</span>
+				<span class="menu__text">Algo sobre mí ...</span>
 				
 			</a>
 		</li>
@@ -115,7 +115,7 @@
 </ul>
 <p>Ejemplo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ffsend u &lt;FILE_NAME&gt; --password &gt; test <span style="color:#f92672">&amp;&amp;</span> awk <span style="color:#e6db74">&#39;{print $3}&#39;</span> test &gt; link.txt <span style="color:#f92672">&amp;&amp;</span> rm -rf test <span style="color:#f92672">&amp;&amp;</span> sendemail -f &lt;MAIL_FROM&gt; -t &lt;MAIL_TO&gt; -s smtp.gmail.com:587 -o tls<span style="color:#f92672">=</span>yes -xu &lt;USER_MAIL_FROM&gt; -u <span style="color:#e6db74">&#34;Link descarga&#34;</span> -o message-file<span style="color:#f92672">=</span>link.txt <span style="color:#f92672">&amp;&amp;</span> rm -rf link.txt <span style="color:#f92672">&amp;&amp;</span> clear</code></pre></div>
-<pre><code>-i trabajara de incógnito ffsend, no deja historial.
+<pre tabindex="0"><code>-i trabajara de incógnito ffsend, no deja historial.
 -xp cuando se utiliza SendEmail se puede especificar la password de quien envía el correo, no es aconsejable.
 </code></pre><p>Al ejecutar pide dos password, la primera para el fichero que no se ve. La segunda
 es la del correo que se ve en el terminal.

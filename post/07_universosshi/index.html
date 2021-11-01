@@ -59,7 +59,7 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/aboutme/">
 				
-				<span class="menu__text">Ago sobre mí ...</span>
+				<span class="menu__text">Algo sobre mí ...</span>
 				
 			</a>
 		</li>
@@ -143,10 +143,10 @@
 <h2 id="administración-remota">Administración remota</h2>
 <p>El comando ssh esta ampliamente extendido en cualquiera de los sistemas operativos de la familia *nix ( Linux, Bsd, Unix, etc ). En sistemas Windows es necesario instalar un cliente, entre los mas populares esta <a href="https://www.putty.org/">PuTTY</a>. Pero existen muchísimos mas, para gustos los colores.Lo mas habitual es su utilización para conseguir una <a href="https://es.wikipedia.org/wiki/Shell_de_Unix">Shell</a>remota, por ejemplo, de la siguiente manera:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh usuario@host_remmoto</code></pre></div>
-<pre><code>host_remoto Nombre si un dns resuelve o bien dirección ip
+<pre tabindex="0"><code>host_remoto Nombre si un dns resuelve o bien dirección ip
 </code></pre><p><strong>Nota:</strong> si no se indica usuario se utilizara el que se este logueado en el host desde el que se inicia la comunicación.</p>
 <p>Al cliente se le pueden indicar varios parámetros, los mas habituales son:</p>
-<pre><code>-p Puerto, por defecto el 22
+<pre tabindex="0"><code>-p Puerto, por defecto el 22
 -4 Fuerza a utilizar IPv4
 -6 Fuerza a utilizar IPv6
 -B Si tenemos varios interfaces red, indicamos cual utilizar
@@ -176,7 +176,7 @@
 <p>Gestión de paquetes deb :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;dpkg --get-selections&#39;</span> | dpkg --set-selections <span style="color:#f92672">&amp;&amp;</span> dselect install</code></pre></div>
 <p>De este modo podemos recuperar sesiones remotas utilizando <a href="http://www.gnu.org/software/screen/">Screen</a>, monitorizar un sistema mediante <a href="http://nmon.sourceforge.net/">Nmon</a>, editar ficheros remotos, instalar software remotamente, analizar trafico mediante <a href="https://www.wireshark.org/docs/man-pages/tshark.html">Tshark</a>y capturarlo en un fichero local, etc. Prácticamente lo cualquier cosa que se nos ocurra. Yo por ejemplo en mi fichero .zshrc, utilizo como <a href="https://es.wikipedia.org/wiki/Shell_de_Unix">Shell</a> <a href="https://es.wikipedia.org/wiki/Zsh">Zsh</a>, alguno de los alias que tengo para mi trabajo diario son:</p>
-<pre><code>alias h1nmon=&quot;ssh -t host1 'nmon'&quot;
+<pre tabindex="0"><code>alias h1nmon=&quot;ssh -t host1 'nmon'&quot;
 alias h1vtop=&quot;ssh -t host1 'vtop'&quot;
 alias h1auth=&quot;ssh -t host1 'tail -f /var/log/auth.log | ccze'&quot;
 </code></pre><p><strong>Nota:</strong> host1 es un alias configurado previamente en el cliente, configuración que veremos mas adelante.</p>
@@ -201,7 +201,7 @@ alias h1auth=&quot;ssh -t host1 'tail -f /var/log/auth.log | ccze'&quot;
 <p>Esto copia fichero1.txt informe.odt e imagen.png al host remoto en directorio.</p>
 <p>Todo esto es aplicable también a directorios. Podemos combinar todo lo anterior como queramos, el limite nuestra imaginación o necesidad.</p>
 <p>Resumen parámetros mas utilizados:</p>
-<pre><code>-r Recursivo. 
+<pre tabindex="0"><code>-r Recursivo. 
 -P Puerto, por defecto 22.
 -p Conserva atributos del origen de la copia.
 -c Algoritmo de cifrado, por defecto Triple-DES.
@@ -238,7 +238,7 @@ version   Muestra información sobre la versión.
 <p>En la mayoría de los sistemas *nix ( Linux, MacOs, BSD, etc ) tenemos como herramienta disponible para nuestro terminal sshfs, el cual nos permite montar mediante protocolo Ssh un directorio remoto en un directorio local. Su uso desde el terminal es el siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sshfs usuario@host_remoto:/directorio_remoto /directorio_local &lt;parámetros&gt;</code></pre></div>
 <p>Los parámetros mas habituales son:</p>
-<pre><code>-p Puerto si no se usa el estándar.
+<pre tabindex="0"><code>-p Puerto si no se usa el estándar.
 -C Usar compresión.
 </code></pre><h2 id="llaves">Llaves</h2>
 <p>Después de leer todo lo anterior suelen surgir una serie de dudas o tu mente inquieta  a divagar.</p>
@@ -258,7 +258,7 @@ version   Muestra información sobre la versión.
 </figure>
 
 <p>Explicación de los parámetros utilizados:</p>
-<pre><code>ssh-keygen Comando que genera el par de llaves.
+<pre tabindex="0"><code>ssh-keygen Comando que genera el par de llaves.
 -b 4096    Tamaño de clave simétrica sea de de 4096 bits.
 -t rsa     Algoritmo que utilizaremos para generar el par de llaves.
 -C         Inserta un comentario.«$(whoami)@$(hostname)-$(date -I)», opcional.
@@ -270,13 +270,13 @@ version   Muestra información sobre la versión.
 <p>Para copiar nuestra llave publica utilizaremos la siguiente linea de comando desde nuestro home de usuario en un terminal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh-copy-id usuario@host_remoto</code></pre></div>
 <p>Parámetros :</p>
-<pre><code>ssh-copy-id Comando que copia la llaves
+<pre tabindex="0"><code>ssh-copy-id Comando que copia la llaves
 -i          Indica el fichero de la llave, si fuera necesario
 -p          Puerto, por si no fuera el estándar
 </code></pre><p>Yo personalmente prefiero utilizar <a href="http://magic-wormhole.io/">Magic-Wormhole</a> para el intercambio de llaves. Esto lo explicare en otro post.</p>
 <h2 id="configuración">Configuración</h2>
 <p>La configuración de las herramientas de uso del terminal relacionadas protocolo Ssh ( ssh, scp, sftp, etc ) se almacenan en el directorio .ssh de cada usuario. Dentro de este directorio podemos encontrar varios ficheros:</p>
-<pre><code>id_rsa.pub  Llave publica
+<pre tabindex="0"><code>id_rsa.pub  Llave publica
 id_rsa      Llave privada
 known_hosts Lista de llaves publicas conocidas
 </code></pre><p>Bien ahora vamos a añadir un fichero con el nombre config, el cual nos servirá para crear alias, parámetros comunes a uso de las herramientas de terminal, etc, entre otras cosas. Las cuales nos facilitara el trabajo diario. Vamos a ver un ejemplo y comentarlo:</p>
@@ -292,7 +292,7 @@ known_hosts Lista de llaves publicas conocidas
      <span style="color:#a6e22e">ServerAliveCountMax 30</span></code></pre></div>
 <p><strong>Nota:</strong> el símbolo ~ es path del home de usuario.</p>
 <p>Vamos a ir revisando y explicando cada linea del bloque:</p>
-<pre><code>#:                   Nos permite añadir comentarios, no se procesa.
+<pre tabindex="0"><code>#:                   Nos permite añadir comentarios, no se procesa.
 Host:                Define para qué host o hosts se aplica la sección, podemos utilizar comodines como expresión regular (*,!,?). La sección termina con una nueva sección de Host.
 User:                Usuario que se utilizara para la conexión.
 Port:                Puerto que se utilizara para la conexión.
@@ -309,7 +309,7 @@ ServerAliveCountMax: Establece el número veces que se repetirá e “ServerAliv
      <span style="color:#a6e22e">Port 4242</span>
      <span style="color:#a6e22e">IdentityFile /nfs/shared/users/lobezno/keys/server1/id_rsa</span></code></pre></div>
 <p>Que cambia o añade al bloque general:</p>
-<pre><code>Hostname:     Indica la ip o nombre de dns al que se conecta.
+<pre tabindex="0"><code>Hostname:     Indica la ip o nombre de dns al que se conecta.
 User:         Indica un usuario especifico distinto al general.
 Port:         Indica un puerto especifico distinto al general.
 IdentityFile: Indica una llave distinta a la general.

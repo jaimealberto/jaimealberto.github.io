@@ -59,7 +59,7 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/aboutme/">
 				
-				<span class="menu__text">Ago sobre mí ...</span>
+				<span class="menu__text">Algo sobre mí ...</span>
 				
 			</a>
 		</li>
@@ -145,7 +145,7 @@
 … keychain prompt incoming.
 ✓ &ldquo;M1C0ntr4s3ñ4&rdquo;</p>
 <p>Podemos utilizar las siguientes opciones:</p>
-<pre><code>-q	Nos muestra solo la contraseña
+<pre tabindex="0"><code>-q	Nos muestra solo la contraseña
 -V	Nos indica la versión
 </code></pre><p>Si queremos saber la contraseña que tengamos almacenada de alguna de las redes wifi que hemos estado conectados el algún momento con nuestro Mac seria de la siguiente naneara:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wifi-password NonmbreSSID</code></pre></div>
@@ -160,7 +160,7 @@
 <p>Generamos códigos del siguiente modo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">qrencode -o codigo.png <span style="color:#e6db74">&#34;https://jaimealberto.github.io/&#34;</span></code></pre></div>
 <p>Opciones más comunes:</p>
-<pre><code>-o Indica fichero de salida
+<pre tabindex="0"><code>-o Indica fichero de salida
 -m &lt;NUMBER&gt; Especificamos el margen, por defecto 4
 -d &lt;NUMBER&gt; Especificamos los DPI, por defecto 72
 -t Formato de salida, por defecto png
@@ -173,7 +173,7 @@
 <p>Vamos a leer la información del Qr generado anteriormente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">zbarimg code.png</code></pre></div>
 <p>Opciones más comunes:</p>
-<pre><code>-q Salida mínima, solo información
+<pre tabindex="0"><code>-q Salida mínima, solo información
 -d Muestra el código en el terminal, si lo soporta
 -D No muestra el código en el terminal, por defecto
 --xml Muestra la salida en xml
@@ -187,7 +187,7 @@
 <p>Vamos a realizar una prueba simple de velocidad</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">speedtest-cli</code></pre></div>
 <p>Esto nos muestra como realiza la prueba en modo verbose y el resultado final, pero tenemos una serie de parámetros que nos pueden ser útiles para almacenar la información y luego tratarla. Los mas habituales son:</p>
-<pre><code>--no-download No realiza el test de descarga
+<pre tabindex="0"><code>--no-download No realiza el test de descarga
 --no-upload No realiza el test de subida
 --bytes Utiliza bytes para la medición
 --json Muestra la información de salida en json

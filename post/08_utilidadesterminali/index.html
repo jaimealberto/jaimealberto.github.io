@@ -59,7 +59,7 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/aboutme/">
 				
-				<span class="menu__text">Ago sobre mí ...</span>
+				<span class="menu__text">Algo sobre mí ...</span>
 				
 			</a>
 		</li>
@@ -136,9 +136,9 @@
 <p>Ahora lo mejor es poner un ejemplo practico :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">echo <span style="color:#e6db74">&#39;texto&#39;</span> | pastebinit -a <span style="color:#e6db74">&#39;jaimealberto&#39;</span> -b <span style="color:#e6db74">&#39;paste.openstack.org&#39;</span></code></pre></div>
 <p>Al ejecutar nos retorna la url donde publica en texto:</p>
-<pre><code>http://paste.openstack.org/show/796233
+<pre tabindex="0"><code>http://paste.openstack.org/show/796233
 </code></pre><p>Para Ver los servicios disponibles donde podemos publicar:</p>
-<pre><code>pastebinit -l
+<pre tabindex="0"><code>pastebinit -l
 
 Supported pastebins:
 - cxg.de
@@ -156,7 +156,7 @@ Supported pastebins:
 - slexy.org
 - sprunge.us
 </code></pre><p>Argumentos mas utillizados:</p>
-<pre><code>-a author: por defecto nombre usuario logueado en la consola
+<pre tabindex="0"><code>-a author: por defecto nombre usuario logueado en la consola
 -b servicio donde se publica, por defecto 'pastebin.com'
 -t titulo, por defecto en blanco
 -u usuario -p contraseña
@@ -174,7 +174,7 @@ Supported pastebins:
 <p>Podemos utilizar nuestras cuentas correo de cualquier servicio de correo. Por estos y mas motivos es ideal para muchas situaciones. Vamos a ver como funciona con algún caso practico para entender su funcionamiento y que como siempre empiece a volar nuestra imaginación con todo lo que podemos hacer. Envio de correos con alertas, al terminal una ejecucion de un script, etc.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sendemail -f origencorreo@gmail.com -t destinocorreo@outlook.com -xp mipassword -m <span style="color:#e6db74">&#34;Texto del mensaje&#34;</span> -s smtp.gmail.com:587 -o tls<span style="color:#f92672">=</span>yes -xu usuario -u <span style="color:#e6db74">&#34;Asunto del mensaje&#34;</span> -a ficheroadjunto.txt</code></pre></div>
 <p>Opciones utilizadas:</p>
-<pre><code>-f Quien enviá el correo (from)
+<pre tabindex="0"><code>-f Quien enviá el correo (from)
 -t Destinatario del correo (to)
 -u &quot;Asunto&quot; (subjet)
 -m &quot;Contenido del mensaje&quot;. Podemos refeccionar el contenido de un fichero
@@ -183,7 +183,7 @@ Supported pastebins:
 -xu usuario de la cuenta de correo
 -a Fichero adjunto
 </code></pre><p><em>Nota:</em> si no indicamos la contraseña del usuario del servidor del correo que enviá, la solicita. Para indicarla es del modo siguiente, como se observa en el ejemplo:</p>
-<pre><code>-xp mipassword
+<pre tabindex="0"><code>-xp mipassword
 </code></pre><h2 id="magic-wormhole">Magic Wormhole</h2>
 <p>Utilidad escrita en <a href="https://www.python.org/">Python</a> la cual nos permite enviar y recibir ficheros, directorios, texto, etc desde un host a otro de manera cifrada utilizando PAKE ( Password-Authenticated Key Exchange ) aplicando algoritmo SPAKE2. La comunicación utiliza un servidor intermedio el cual se encarga de crear un túnel TCP entre los hosts. Tenemos dispoible tanto la utilidad pro linea de comando, como el servicio web y una la propira biblioteca para utulizar en nuestros desarrollos.  El proyecto en <a href="https://github.com/warner/magic-wormhole">Github</a> y su <a href="https://magic-wormhole.readthedocs.io/en/latest/">documentación</a>.</p>
 <p>La instalación la podemos realizar desde los fuentes y compilar o bien desde los distintos sistemas operativos utilizando sus correspondientes gestores de paquetes, por ejemplo:</p>
