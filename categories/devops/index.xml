@@ -6,7 +6,19 @@
     <description>Recent content in DevOps on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digital Ocean, utilidades</title>
+      <link>https://jaimealberto.github.io/post/19_doutils/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/19_doutils/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/doutils.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Ámsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Terraform II</title>
       <link>https://jaimealberto.github.io/post/17_terraformii/</link>

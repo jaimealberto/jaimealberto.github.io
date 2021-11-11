@@ -3,21 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jaimealberto.github.io/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/categories/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/categories/devops/</loc>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/post/19_doutils/</loc>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/post/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/tags/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.github.io/categories/terminal/</loc>
-    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+    <loc>https://jaimealberto.github.io/tags/terminal/</loc>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/tags/utilidades/</loc>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/categories/terminal/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/post/21_utilidadesterminaliv/</loc>
@@ -32,14 +41,8 @@
     <loc>https://jaimealberto.github.io/tags/so/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.github.io/tags/terminal/</loc>
-    <lastmod>2021-08-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.github.io/post/03_tipsmacos03/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/categories/devops/</loc>
-    <lastmod>2021-08-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/tags/terraform/</loc>
     <lastmod>2021-08-14T00:00:00+00:00</lastmod>
