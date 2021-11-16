@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Teclas rápidas on </title>
-    <link>https://jaimealberto.github.io/tags/teclas-r%C3%A1pidas/</link>
-    <description>Recent content in Teclas rápidas on </description>
+    <title>Windows on </title>
+    <link>https://jaimealberto.github.io/categories/windows/</link>
+    <description>Recent content in Windows on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/teclas-r%C3%A1pidas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Organizar escritorio en Windows</title>
       <link>https://jaimealberto.github.io/post/24_windows1/</link>
@@ -17,18 +17,6 @@
 &lt;/figure&gt;
 
 &lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Finder</title>
-      <link>https://jaimealberto.github.io/post/05_finder/</link>
-      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/post/05_finder/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/finder.jpg&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description>
     </item>
     
   </channel>
