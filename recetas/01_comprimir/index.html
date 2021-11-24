@@ -118,15 +118,15 @@
 <tbody>
 <tr>
 <td>Empaquetar</td>
-<td>tar cvf destino.tar /directorio_origen/ficheros_origen</td>
+<td>tar cvf destino.tar /directorio_origen/archivos_origen</td>
 </tr>
 <tr>
 <td>Desempaquetar</td>
-<td>tar xvf fichero.tar</td>
+<td>tar xvf archivo.tar</td>
 </tr>
 <tr>
 <td>Ver el contenido (sin extraer)</td>
-<td>tar tvf fichero.tar</td>
+<td>tar tvf archivo.tar</td>
 </tr>
 </tbody>
 </table>
@@ -141,15 +141,15 @@
 <tbody>
 <tr>
 <td>Empaquetar y comprimir</td>
-<td>tar czvf fichero.tar.gz /directorio_origen/ficheros_origen</td>
+<td>tar czvf archivo.tar.gz /directorio_origen/archivos_origen</td>
 </tr>
 <tr>
 <td>Desempaquetar y descomprimir</td>
-<td>tar xzvf fichero.tar.gz</td>
+<td>tar xzvf archivo.tar.gz</td>
 </tr>
 <tr>
 <td>Ver el contenido (sin extraer)</td>
-<td>tar tzvf fichero.tar.gz</td>
+<td>tar tzvf archivo.tar.gz</td>
 </tr>
 </tbody>
 </table>
@@ -165,17 +165,17 @@
 <tbody>
 <tr>
 <td>Comprimir</td>
-<td>gzip -q fichero</td>
-<td>El fichero lo comprime y lo renombra como &ldquo;fichero.gz&rdquo;</td>
+<td>gzip -q archivo</td>
+<td>El archivo lo comprime y lo renombra como &ldquo;archivo.gz&rdquo;</td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>gzip -d fichero.gz</td>
-<td>El fichero lo descomprime y lo deja como &ldquo;fichero&rdquo;</td>
+<td>gzip -d archivo.gz</td>
+<td>El archivo lo descomprime y lo deja como &ldquo;archivo&rdquo;</td>
 </tr>
 </tbody>
 </table>
-<p><em>Nota: gzip solo comprime ficheros, no directorios.</em></p>
+<p><em>Nota: gzip solo comprime archivos, no directorios.</em></p>
 <h2 id="bz2-bzip2">.bz2 (bzip2)</h2>
 <table>
 <thead>
@@ -188,27 +188,27 @@
 <tbody>
 <tr>
 <td>Comprimir</td>
-<td>bzip2 fichero</td>
+<td>bzip2 archivo</td>
 <td></td>
 </tr>
 <tr>
 <td>Comprimir</td>
-<td>bunzip2 fichero</td>
-<td>El fichero lo comprime y lo renombra como &ldquo;fichero.bz2&rdquo;</td>
+<td>bunzip2 archivo</td>
+<td>El archivo lo comprime y lo renombra como &ldquo;archivo.bz2&rdquo;</td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>bzip2 -d fichero.bz2</td>
+<td>bzip2 -d archivo.bz2</td>
 <td></td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>bunzip2 fichero.bz2</td>
-<td>El fichero lo descomprime y lo deja como &ldquo;fichero&rdquo;</td>
+<td>bunzip2 archivo.bz2</td>
+<td>El archivo lo descomprime y lo deja como &ldquo;archivo&rdquo;</td>
 </tr>
 </tbody>
 </table>
-<p><em>Nota: bzip2 solo comprime ficheros, no directorios.</em></p>
+<p><em>Nota: bzip2 solo comprime archivos, no directorios.</em></p>
 <h2 id="tarbz2-tar-con-bzip2">.tar.bz2 (tar con bzip2)</h2>
 <table>
 <thead>
@@ -220,19 +220,19 @@
 <tbody>
 <tr>
 <td>Comprimir</td>
-<td>tar -c ficheros | bzip2 &gt; fichero.tar.bz2</td>
+<td>tar -c archivos | bzip2 &gt; archivo.tar.bz2</td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>bzip2 -dc fichero.tar.bz2 | tar -xv</td>
+<td>bzip2 -dc archivo.tar.bz2 | tar -xv</td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>tar jvxf fichero.tar.bz2 (versiones recientes de tar)</td>
+<td>tar jvxf archivo.tar.bz2 (versiones recientes de tar)</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>bzip2 -dc fichero.tar.bz2 | tar -tv</td>
+<td>bzip2 -dc archivo.tar.bz2 | tar -tv</td>
 </tr>
 </tbody>
 </table>
@@ -247,15 +247,15 @@
 <tbody>
 <tr>
 <td>Comprimir</td>
-<td>zip fichero.zip /directorio_origen/ficheros</td>
+<td>zip archivo.zip /directorio_origen/archivos</td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>unzip fichero.zip</td>
+<td>unzip archivo.zip</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>unzip -v fichero.zip</td>
+<td>unzip -v archivo.zip</td>
 </tr>
 </tbody>
 </table>
@@ -270,19 +270,19 @@
 <tbody>
 <tr>
 <td>Comprimir</td>
-<td>lha fichero.lha /mayo/ficheros</td>
+<td>lha archivo.lha /mayo/archivos</td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>lha -x fichero.lha</td>
+<td>lha -x archivo.lha</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>lha -v fichero.lha</td>
+<td>lha -v archivo.lha</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>lha -l fichero.lha</td>
+<td>lha -l archivo.lha</td>
 </tr>
 </tbody>
 </table>
@@ -297,19 +297,19 @@
 <tbody>
 <tr>
 <td>Comprimir</td>
-<td>zoo -a fichero.zoo /mayo/ficheros</td>
+<td>zoo -a archivo.zoo /mayo/archivos</td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>zoo -x fichero.zoo</td>
+<td>zoo -x archivo.zoo</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>zoo -v fichero.zoo</td>
+<td>zoo -v archivo.zoo</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>zoo -L fichero.zoo</td>
+<td>zoo -L archivo.zoo</td>
 </tr>
 </tbody>
 </table>
@@ -323,20 +323,20 @@
 </thead>
 <tbody>
 <tr>
-<td>Comprimir	rar -a fichero.rar /mayo/ficheros</td>
+<td>Comprimir	rar -a archivo.rar /mayo/archivos</td>
 <td></td>
 </tr>
 <tr>
 <td>Descomprimir</td>
-<td>rar -x fichero.rar</td>
+<td>rar -x archivo.rar</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>rar -v fichero.rar</td>
+<td>rar -v archivo.rar</td>
 </tr>
 <tr>
 <td>Ver contenido</td>
-<td>rar -l fichero.rar</td>
+<td>rar -l archivo.rar</td>
 </tr>
 </tbody>
 </table>

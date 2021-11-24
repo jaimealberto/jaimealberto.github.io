@@ -117,10 +117,10 @@
 <p>Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.</p>
 <p>Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.</p>
 <h2 id="llamar-al-vscode-desde-terminal">Llamar al VSCode desde terminal</h2>
-<p>Muchas veces estando en el terminal de nuestro Mac tenemos la necesidad de editar un fichero con VSCode, para ser rápidos y productivos lo idea seria poder llamar al editor desde el terminal indicando a continuación el nombre del fichero. Pues bien la manera de habilitar esto es simple. En nuestro directorio de usuario tenemos un fichero llamado .zshrc, lo editamos y añadimos la siguiente linea:</p>
+<p>Muchas veces estando en el terminal de nuestro Mac tenemos la necesidad de editar un archivo con VSCode, para ser rápidos y productivos lo idea seria poder llamar al editor desde el terminal indicando a continuación el nombre del archivo. Pues bien la manera de habilitar esto es simple. En nuestro directorio de usuario tenemos un archivo llamado .zshrc, lo editamos y añadimos la siguiente linea:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">code <span style="color:#f92672">()</span> <span style="color:#f92672">{</span> VSCODE_CWD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> open -n -b <span style="color:#e6db74">&#34;com.microsoft.VSCode&#34;</span> --args $* ;<span style="color:#f92672">}</span></code></pre></div>
-<p>De este modo al teclear en el terminal code fichero, aparcera el editor con el fichero listo para editar. En este caso utilizamos “code” como alias para la llamada al editor, pero podemos sustituirlo por la palabra que queramos. El fichero que se indica para la modificación es el de configuración de entorno en nuestra shell, en este caso es zsh que es la de defecto en MacOS 10.15 Catalina. Si utilizas otra shell, como por ejemplo bash, se tiene que añadir en .bashrc.</p>
-<h2 id="mover-ficheros-en-finder">Mover ficheros en Finder</h2>
+<p>De este modo al teclear en el terminal code archivo, aparcera el editor con el archivo listo para editar. En este caso utilizamos “code” como alias para la llamada al editor, pero podemos sustituirlo por la palabra que queramos. El archivo que se indica para la modificación es el de configuración de entorno en nuestra shell, en este caso es zsh que es la de defecto en MacOS 10.15 Catalina. Si utilizas otra shell, como por ejemplo bash, se tiene que añadir en .bashrc.</p>
+<h2 id="mover-archivos-en-finder">Mover archivos en Finder</h2>
 <p>Creo que es de sobra conocidas la combinación de teclas copiar pegar en macOS:</p>
 <pre tabindex="0"><code>⌘ + c		copiar
 ⌘ + v		pegar
@@ -167,7 +167,7 @@ Documents, se ha de poner en ingles, independientemente del idioma utilizado</p>
 <p>Por defecto el nombre del archivo es  «captura de pantalla». Para cambiar esto desde el terminal ejecutamos lo siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">defaults write com.apple.screencapture name <span style="color:#e6db74">&#34;Nombre&#34;</span>
 killall SystemUIServer</code></pre></div>
-<p>Lo que va entre comillas es el nombre que le dará al fichero.</p>
+<p>Lo que va entre comillas es el nombre que le dará al archivo.</p>
 <p>También podemos eliminar la fecha y hora en el nombre del archivo desde la siguiente manera.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">defaults write com.apple.screencapture «include-date» <span style="color:#ae81ff">0</span>
 killall SystemUIServer</code></pre></div>

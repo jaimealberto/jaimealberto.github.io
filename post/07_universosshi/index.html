@@ -117,13 +117,13 @@
 		<nav id="TableOfContents">
   <ul>
     <li><a href="#administración-remota">Administración remota</a></li>
-    <li><a href="#transferencia-de-ficheros">Transferencia de ficheros</a>
+    <li><a href="#transferencia-de-archivos">Transferencia de archivos</a>
       <ul>
         <li><a href="#scp">Scp</a></li>
         <li><a href="#sftp">Sftp</a></li>
       </ul>
     </li>
-    <li><a href="#sistema-de-ficheros-remoto">Sistema de ficheros remoto</a></li>
+    <li><a href="#sistema-de-archivos-remoto">Sistema de archivos remoto</a></li>
     <li><a href="#llaves">Llaves</a>
       <ul>
         <li><a href="#generar-identidad-las-llaves">Generar identidad, las llaves</a></li>
@@ -168,37 +168,37 @@
 <p>Probar rendimiento de la red en tiempo real:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">yes | pv | ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat &gt; /dev/null&#34;</span></code></pre></div>
 <p><strong>Nota:</strong> Lo cortamos con ctrl+c, es continuo si no.</p>
-<p>Podemos comparar un fichero local con uno remoto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat fichero_remoto&#34;</span> | diff – fichero_local</code></pre></div>
+<p>Podemos comparar un archivo local con uno remoto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat archivo_remoto&#34;</span> | diff – archivo_local</code></pre></div>
 <p><strong>Nota:</strong> Importante respetar las comillas en la ejecución de cat.</p>
 <p>Gestión de paquetes rpm / yum :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;rpm -qa&#39;</span> | xargs yum -y install</code></pre></div>
 <p>Gestión de paquetes deb :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;dpkg --get-selections&#39;</span> | dpkg --set-selections <span style="color:#f92672">&amp;&amp;</span> dselect install</code></pre></div>
-<p>De este modo podemos recuperar sesiones remotas utilizando <a href="http://www.gnu.org/software/screen/">Screen</a>, monitorizar un sistema mediante <a href="http://nmon.sourceforge.net/">Nmon</a>, editar ficheros remotos, instalar software remotamente, analizar trafico mediante <a href="https://www.wireshark.org/docs/man-pages/tshark.html">Tshark</a>y capturarlo en un fichero local, etc. Prácticamente lo cualquier cosa que se nos ocurra. Yo por ejemplo en mi fichero .zshrc, utilizo como <a href="https://es.wikipedia.org/wiki/Shell_de_Unix">Shell</a> <a href="https://es.wikipedia.org/wiki/Zsh">Zsh</a>, alguno de los alias que tengo para mi trabajo diario son:</p>
+<p>De este modo podemos recuperar sesiones remotas utilizando <a href="http://www.gnu.org/software/screen/">Screen</a>, monitorizar un sistema mediante <a href="http://nmon.sourceforge.net/">Nmon</a>, editar archivos remotos, instalar software remotamente, analizar trafico mediante <a href="https://www.wireshark.org/docs/man-pages/tshark.html">Tshark</a>y capturarlo en un archivo local, etc. Prácticamente lo cualquier cosa que se nos ocurra. Yo por ejemplo en mi archivo .zshrc, utilizo como <a href="https://es.wikipedia.org/wiki/Shell_de_Unix">Shell</a> <a href="https://es.wikipedia.org/wiki/Zsh">Zsh</a>, alguno de los alias que tengo para mi trabajo diario son:</p>
 <pre tabindex="0"><code>alias h1nmon=&quot;ssh -t host1 'nmon'&quot;
 alias h1vtop=&quot;ssh -t host1 'vtop'&quot;
 alias h1auth=&quot;ssh -t host1 'tail -f /var/log/auth.log | ccze'&quot;
 </code></pre><p><strong>Nota:</strong> host1 es un alias configurado previamente en el cliente, configuración que veremos mas adelante.</p>
-<h2 id="transferencia-de-ficheros">Transferencia de ficheros</h2>
-<p>La transferencia de ficheros utilizando protocolo Ssh es común por muchos motivos, los dos principales seguridad y portabilidad de la solución. Desde el terminal se realiza básicamente de manera interactiva y no interactiva. Para ello el cliente de terminal cuenta con los comandos scp y sftp. A continuación veremos su funcionamiento básico y algún truco que otro.</p>
+<h2 id="transferencia-de-archivos">Transferencia de archivos</h2>
+<p>La transferencia de archivos utilizando protocolo Ssh es común por muchos motivos, los dos principales seguridad y portabilidad de la solución. Desde el terminal se realiza básicamente de manera interactiva y no interactiva. Para ello el cliente de terminal cuenta con los comandos scp y sftp. A continuación veremos su funcionamiento básico y algún truco que otro.</p>
 <h3 id="scp">Scp</h3>
-<p>El comando scp nos permite la copia de ficheros desde un origen a un destino utilizando protocolo Ssh sin poder interactuar. Su uso básico desde un terminal es el siguiente:</p>
+<p>El comando scp nos permite la copia de archivos desde un origen a un destino utilizando protocolo Ssh sin poder interactuar. Su uso básico desde un terminal es el siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp &lt;parámetro&gt; &lt;origen&gt; &lt;destino&gt;</code></pre></div>
 <p>A continuación vamos a ver varios ejemplos para comprender mejor su funcionamiento y a su vez ver como nos puede ayudar en nuestro trabajo diario.</p>
-<p>Copia de local a remoto, fichero:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp mi_fichero.txt usuario_remoto@host_remoto:/home/usuario_remoto/</code></pre></div>
-<p>Copia de remoto a local, fichero:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp usuario_remoto@host_remoto:/home/usuario_remoto/mi_fichero.txt home/usuario_local/</code></pre></div>
+<p>Copia de local a remoto, archivo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp mi_archivo.txt usuario_remoto@host_remoto:/home/usuario_remoto/</code></pre></div>
+<p>Copia de remoto a local, archivo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp usuario_remoto@host_remoto:/home/usuario_remoto/mi_archivo.txt home/usuario_local/</code></pre></div>
 <p>Para copiar directorios añadimos el parámetro -r en cualquiera de los dos casos. Podemos aplicar comodines para indicar que copiar, o bien trabajar con . para  indicar la directorio donde se ejecuta el comando. Vamos a ver un ejemplo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp -r /home/mi_usuario/ usuario_remoto@host_remoto:/home/usuario_remoto/tmp</code></pre></div>
 <p>Con el comando anterior copiamos el home de nuestro usuario y todo su contenido recursiva mente al host remoto en un directorio llamado tmp del home de usuario remoto.</p>
 <p>Una de las partes mas interesantes del funcionamiento de scp es que donde se dice origen y destino pueden ser host remotos, no es un condicionante que el alguno de los dos campos tenga que ser el host loca. Es decir si tenemos la necesidad de copiar algo entre dos host remotos al nuestro donde estamos actualmente no tendremos que copiar del host remoto A a nuestro host local y luego de nuestro host local al host remoto B. Vamos a ver un ejemplo para entender esto mejor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp usuario_remoto1@host_remoto1:/directorio/fichero.txt usuario_remoto2@host_remoto2:/directorio/</code></pre></div>
-<p>Con el comando anterior estamos ordenando desde nuestro host que se copie fichero.txt del host remoto A la host remoto B. Esto también es aplicable a lo visto anteriormente con directorios y de manera recursiva también.</p>
-<p>Otro caso interesante es si queremos copiar solo dos o tres ficheros y no podemos utilizar comodines o no queremos hacerlo. Simplemente los separamos con un espacio. Vamos a ver un ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp fichero1.txt informe.odt imagen.png usuario_remoto@host_remoto:/directorio/</code></pre></div>
-<p>Esto copia fichero1.txt informe.odt e imagen.png al host remoto en directorio.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp usuario_remoto1@host_remoto1:/directorio/archivo.txt usuario_remoto2@host_remoto2:/directorio/</code></pre></div>
+<p>Con el comando anterior estamos ordenando desde nuestro host que se copie archivo.txt del host remoto A la host remoto B. Esto también es aplicable a lo visto anteriormente con directorios y de manera recursiva también.</p>
+<p>Otro caso interesante es si queremos copiar solo dos o tres archivos y no podemos utilizar comodines o no queremos hacerlo. Simplemente los separamos con un espacio. Vamos a ver un ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp archivo1.txt informe.odt imagen.png usuario_remoto@host_remoto:/directorio/</code></pre></div>
+<p>Esto copia archivo1.txt informe.odt e imagen.png al host remoto en directorio.</p>
 <p>Todo esto es aplicable también a directorios. Podemos combinar todo lo anterior como queramos, el limite nuestra imaginación o necesidad.</p>
 <p>Resumen parámetros mas utilizados:</p>
 <pre tabindex="0"><code>-r Recursivo. 
@@ -220,7 +220,7 @@ alias h1auth=&quot;ssh -t host1 'tail -f /var/log/auth.log | ccze'&quot;
 bye,quit,exit	Cualquiera de los tres nos permite salir del servidor.
 cd        Cambiar de directorio remoto.
 df        Nos muestra el las estadísticas del directorio actual
-get       Descarga fichero.
+get       Descarga archivo.
 lcd       Cambia de directorio local.
 lls       List contenido local.
 lmkdir    Crea directorio local.
@@ -228,13 +228,13 @@ lpwd      Muestra directorio local.
 ls        Lista contenido del del servidor.
 mkdir     Crea directorio en el servidor.
 progress  Activa la barra de proceso para la ejecución de comandos.
-put       Sube fichero al servidor.
+put       Sube archivo al servidor.
 pwd       Muestra directorio actual remoto.
-rm        Borra fichero remoto.
+rm        Borra archivo remoto.
 rmdir     Borra directorio remoto.
 version   Muestra información sobre la versión.
 !command  Ejecuta ‘command’ en la shell local.</code></pre></div>
-<h2 id="sistema-de-ficheros-remoto">Sistema de ficheros remoto</h2>
+<h2 id="sistema-de-archivos-remoto">Sistema de archivos remoto</h2>
 <p>En la mayoría de los sistemas *nix ( Linux, MacOs, BSD, etc ) tenemos como herramienta disponible para nuestro terminal sshfs, el cual nos permite montar mediante protocolo Ssh un directorio remoto en un directorio local. Su uso desde el terminal es el siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sshfs usuario@host_remoto:/directorio_remoto /directorio_local &lt;parámetros&gt;</code></pre></div>
 <p>Los parámetros mas habituales son:</p>
@@ -271,16 +271,16 @@ version   Muestra información sobre la versión.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh-copy-id usuario@host_remoto</code></pre></div>
 <p>Parámetros :</p>
 <pre tabindex="0"><code>ssh-copy-id Comando que copia la llaves
--i          Indica el fichero de la llave, si fuera necesario
+-i          Indica el archivo de la llave, si fuera necesario
 -p          Puerto, por si no fuera el estándar
 </code></pre><p>Yo personalmente prefiero utilizar <a href="http://magic-wormhole.io/">Magic-Wormhole</a> para el intercambio de llaves. Esto lo explicare en otro post.</p>
 <h2 id="configuración">Configuración</h2>
-<p>La configuración de las herramientas de uso del terminal relacionadas protocolo Ssh ( ssh, scp, sftp, etc ) se almacenan en el directorio .ssh de cada usuario. Dentro de este directorio podemos encontrar varios ficheros:</p>
+<p>La configuración de las herramientas de uso del terminal relacionadas protocolo Ssh ( ssh, scp, sftp, etc ) se almacenan en el directorio .ssh de cada usuario. Dentro de este directorio podemos encontrar varios archivos:</p>
 <pre tabindex="0"><code>id_rsa.pub  Llave publica
 id_rsa      Llave privada
 known_hosts Lista de llaves publicas conocidas
-</code></pre><p>Bien ahora vamos a añadir un fichero con el nombre config, el cual nos servirá para crear alias, parámetros comunes a uso de las herramientas de terminal, etc, entre otras cosas. Las cuales nos facilitara el trabajo diario. Vamos a ver un ejemplo y comentarlo:</p>
-<p>Añadiremos el siguiente bloque al principio del fichero:</p>
+</code></pre><p>Bien ahora vamos a añadir un archivo con el nombre config, el cual nos servirá para crear alias, parámetros comunes a uso de las herramientas de terminal, etc, entre otras cosas. Las cuales nos facilitara el trabajo diario. Vamos a ver un ejemplo y comentarlo:</p>
+<p>Añadiremos el siguiente bloque al principio del archivo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e">### configuración por defecto para todas las conexiones ##</span>
 <span style="color:#a6e22e">Host *</span>
      <span style="color:#a6e22e">User sistemas</span>
@@ -313,7 +313,7 @@ ServerAliveCountMax: Establece el número veces que se repetirá e “ServerAliv
 User:         Indica un usuario especifico distinto al general.
 Port:         Indica un puerto especifico distinto al general.
 IdentityFile: Indica una llave distinta a la general.
-</code></pre><p>Como se puede observar podemos realizar configuraciones globales o bien especificas según necesidades. Se puede jugar con una gran cantidad de parámetros . Para realizar esta tarea si disponemos de un entorno grafico, no siempre es así, tenemos herramientas como SSH Config Editor para MacOs. Pero nunca esta de mas saber como funciona el fichero para poder sacar el máximo partido. Como consejo final es importante comentar todo lo que se pueda el fichero, que luego tenemos que tocar algo y no sabemos el por que de un parámetro o valor.</p>
+</code></pre><p>Como se puede observar podemos realizar configuraciones globales o bien especificas según necesidades. Se puede jugar con una gran cantidad de parámetros . Para realizar esta tarea si disponemos de un entorno grafico, no siempre es así, tenemos herramientas como SSH Config Editor para MacOs. Pero nunca esta de mas saber como funciona el archivo para poder sacar el máximo partido. Como consejo final es importante comentar todo lo que se pueda el archivo, que luego tenemos que tocar algo y no sabemos el por que de un parámetro o valor.</p>
 <p><a href="https://hejki.org/ssheditor/">SSH Config Editor</a></p>
 		</div>
 		<footer class="post__footer">

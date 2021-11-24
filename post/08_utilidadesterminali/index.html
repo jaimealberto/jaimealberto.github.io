@@ -172,20 +172,20 @@ Supported pastebins:
 </figure>
 
 <p>Podemos utilizar nuestras cuentas correo de cualquier servicio de correo. Por estos y mas motivos es ideal para muchas situaciones. Vamos a ver como funciona con algún caso practico para entender su funcionamiento y que como siempre empiece a volar nuestra imaginación con todo lo que podemos hacer. Envio de correos con alertas, al terminal una ejecucion de un script, etc.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sendemail -f origencorreo@gmail.com -t destinocorreo@outlook.com -xp mipassword -m <span style="color:#e6db74">&#34;Texto del mensaje&#34;</span> -s smtp.gmail.com:587 -o tls<span style="color:#f92672">=</span>yes -xu usuario -u <span style="color:#e6db74">&#34;Asunto del mensaje&#34;</span> -a ficheroadjunto.txt</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sendemail -f origencorreo@gmail.com -t destinocorreo@outlook.com -xp mipassword -m <span style="color:#e6db74">&#34;Texto del mensaje&#34;</span> -s smtp.gmail.com:587 -o tls<span style="color:#f92672">=</span>yes -xu usuario -u <span style="color:#e6db74">&#34;Asunto del mensaje&#34;</span> -a archivoadjunto.txt</code></pre></div>
 <p>Opciones utilizadas:</p>
 <pre tabindex="0"><code>-f Quien enviá el correo (from)
 -t Destinatario del correo (to)
 -u &quot;Asunto&quot; (subjet)
--m &quot;Contenido del mensaje&quot;. Podemos refeccionar el contenido de un fichero
+-m &quot;Contenido del mensaje&quot;. Podemos refeccionar el contenido de un archivo
 -s servidor.correo.com:numero_puerto
 -o tls=yes, se activa tls si el servidor lo requiere 
 -xu usuario de la cuenta de correo
--a Fichero adjunto
+-a archivo adjunto
 </code></pre><p><em>Nota:</em> si no indicamos la contraseña del usuario del servidor del correo que enviá, la solicita. Para indicarla es del modo siguiente, como se observa en el ejemplo:</p>
 <pre tabindex="0"><code>-xp mipassword
 </code></pre><h2 id="magic-wormhole">Magic Wormhole</h2>
-<p>Utilidad escrita en <a href="https://www.python.org/">Python</a> la cual nos permite enviar y recibir ficheros, directorios, texto, etc desde un host a otro de manera cifrada utilizando PAKE ( Password-Authenticated Key Exchange ) aplicando algoritmo SPAKE2. La comunicación utiliza un servidor intermedio el cual se encarga de crear un túnel TCP entre los hosts. Tenemos dispoible tanto la utilidad pro linea de comando, como el servicio web y una la propira biblioteca para utulizar en nuestros desarrollos.  El proyecto en <a href="https://github.com/warner/magic-wormhole">Github</a> y su <a href="https://magic-wormhole.readthedocs.io/en/latest/">documentación</a>.</p>
+<p>Utilidad escrita en <a href="https://www.python.org/">Python</a> la cual nos permite enviar y recibir archivos, directorios, texto, etc desde un host a otro de manera cifrada utilizando PAKE ( Password-Authenticated Key Exchange ) aplicando algoritmo SPAKE2. La comunicación utiliza un servidor intermedio el cual se encarga de crear un túnel TCP entre los hosts. Tenemos dispoible tanto la utilidad pro linea de comando, como el servicio web y una la propira biblioteca para utulizar en nuestros desarrollos.  El proyecto en <a href="https://github.com/warner/magic-wormhole">Github</a> y su <a href="https://magic-wormhole.readthedocs.io/en/latest/">documentación</a>.</p>
 <p>La instalación la podemos realizar desde los fuentes y compilar o bien desde los distintos sistemas operativos utilizando sus correspondientes gestores de paquetes, por ejemplo:</p>
 <p>MacOs</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install magic-wormhole</code></pre></div>
@@ -194,7 +194,7 @@ Supported pastebins:
 <p>Fedora
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dnf install magic-wormhole</code></pre></div></p>
 <p>Vamos a ver un ejemplo de uso para entender mejor su funcionamiento.</p>
-<p>Envio de ficheros:</p>
+<p>Envio de archivos:</p>
 <p>Host que envia:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wormhole send README.md
 Sending <span style="color:#ae81ff">7924</span> byte file named <span style="color:#e6db74">&#39;README.md&#39;</span>
@@ -214,7 +214,7 @@ Receiving <span style="color:#f92672">(</span>-&gt;tcp:10.0.1.43:58986<span styl
 100%|<span style="color:#f92672">===========================</span>| 7.92K/7.92K <span style="color:#f92672">[</span>00:00&lt;00:00, 120KB/s<span style="color:#f92672">]</span>
 Received file written to README.md</code></pre></div>
 <p>Como se pede observar al comenzar el envió da un código de envío que es el que se ha de introducir en el receptor para comenzar la transferencia, este código es aleatorio y solo sirve para esta transferencia en concreto.</p>
-<p>A parte de disponer de los comandos receive y send para el envío / recepción de ficheros, directorios y texto. Adicionalmente tiene una opción para el intercambi de llaves ssh, que nos permite el intercambio de llaves publicas para conexiones ssh sin utilizar contrasña.</p>
+<p>A parte de disponer de los comandos receive y send para el envío / recepción de archivos, directorios y texto. Adicionalmente tiene una opción para el intercambi de llaves ssh, que nos permite el intercambio de llaves publicas para conexiones ssh sin utilizar contrasña.</p>
 		</div>
 		<footer class="post__footer">
 			

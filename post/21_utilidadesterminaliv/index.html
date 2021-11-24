@@ -147,7 +147,7 @@
 
 <p>Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la <a href="https://es.wikipedia.org/wiki/Star_Wars">Saga Star Wars</a>. Bueno sin mas dilaciones vamos al lio.</p>
 <h2 id="glow">Glow</h2>
-<p>Forma parte del proyecto <a href="https://charm.sh/">Charm</a> el cual se define como &quot; Una herramientas para hacer que la línea de comandos sea glamorosa &ldquo;. Esta utilidad nos permite la visualización de ficheros <a href="https://es.wikipedia.org/wiki/Markdown">MarkDown</a> desde el terminal de una manera facil y navegable. Interpreta perfectamente las etiquetas MakrDown.</p>
+<p>Forma parte del proyecto <a href="https://charm.sh/">Charm</a> el cual se define como &quot; Una herramientas para hacer que la línea de comandos sea glamorosa &ldquo;. Esta utilidad nos permite la visualización de archivos <a href="https://es.wikipedia.org/wiki/Markdown">MarkDown</a> desde el terminal de una manera facil y navegable. Interpreta perfectamente las etiquetas MakrDown.</p>
 <h3 id="instalación">Instalación</h3>
 <p>MacOs</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install glow</code></pre></div>
@@ -157,16 +157,16 @@
 dpkg -i glow_1.4.1_linux_amd64.deb
 apt install -f</code></pre></div>
 <h3 id="uso">Uso</h3>
-<p>Leer fichero:</p>
+<p>Leer archivo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">glow README.md</code></pre></div>
 <p>Lecr entrda estandar ( stdin )</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">glow -</code></pre></div>
-<p>Leer fichero README de un repositorio de  GitHub / GitLab</p>
+<p>Leer archivo README de un repositorio de  GitHub / GitLab</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">glow github.com/charmbracelet/glow</code></pre></div>
-<p>Leer fichero markdown desde HTTP</p>
+<p>Leer archivo markdown desde HTTP</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">glow https://www.dominio.es/ficero.md</code></pre></div>
 <p>Opciones más comunes:</p>
-<pre tabindex="0"><code>-a, --all          Muestra todos los ficheros del directorio actual
+<pre tabindex="0"><code>-a, --all          Muestra todos los archivos del directorio actual
 --config string    Configuración a utilizar (default .~/.config/glow/glow.yml)
 -h, --help         Muestra la ayuda
 -p, --pager        Visualizar paginado
@@ -189,7 +189,7 @@ apt install -f</code></pre></div>
 <h3 id="encriptación">Encriptación:</h3>
 <p>Podemos realizar una encriptación de los documentos MarkDown utilizando la biblioteca cd código abierto <a href="https://github.com/charmbracelet/charm">Charm</a>. Esta biblioteca genera claves simétricas y cifrándola con la clave pública SSH local generada con la misma.</p>
 <h2 id="ccze">Ccze</h2>
-<p><a href="https://github.com/cornet/ccze">Ccze</a> es una utilidad escrita en C. Su función principal es colorear logs del sistema y determinadas aplicaciones o servicios. Adicionalmente dispone de una serie de complementos ya incorporados que por defecto colorea, entre otros: apm, distcc, exim, fetchmail, ftpstats, httpd, icecast, oops, php, postfix, procmail, proftpd, squid, sulog, super, syslog, ulogd, vsftpd y xferlog. La salida estándar se puede convertir en varios formatos, lo cual premite generar ficheros informe para posteriormente enviarlos mediante mail. Generar esos informes que les encantan a los jefes.</p>
+<p><a href="https://github.com/cornet/ccze">Ccze</a> es una utilidad escrita en C. Su función principal es colorear logs del sistema y determinadas aplicaciones o servicios. Adicionalmente dispone de una serie de complementos ya incorporados que por defecto colorea, entre otros: apm, distcc, exim, fetchmail, ftpstats, httpd, icecast, oops, php, postfix, procmail, proftpd, squid, sulog, super, syslog, ulogd, vsftpd y xferlog. La salida estándar se puede convertir en varios formatos, lo cual premite generar archivos informe para posteriormente enviarlos mediante mail. Generar esos informes que les encantan a los jefes.</p>
 <h3 id="instalación-1">Instalación</h3>
 <p>MacOs</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install ccze</code></pre></div>
@@ -199,7 +199,7 @@ apt install -f</code></pre></div>
 <p>Desde nuestro terminal, nos ayudamos de nuestro amigo ‘pipe’ o tubería:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">tail -f /var/log/auth.log | ccze</code></pre></div>
 <p>La naera recomendada:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ccze <span style="color:#f92672">[</span>opciones<span style="color:#f92672">]</span> &lt; fichero.log</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ccze <span style="color:#f92672">[</span>opciones<span style="color:#f92672">]</span> &lt; archivo.log</code></pre></div>
 <p>Podemos jugar con el pipe aplicando filtros grep, etc.</p>
 <h3 id="bonus">Bonus</h3>
 <p>Ping coloreado:</p>
