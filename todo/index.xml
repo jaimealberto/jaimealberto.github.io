@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language><atom:link href="https://jaimealberto.github.io/todo/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Borrar líneas en blanco</title>
+      <link>https://jaimealberto.github.io/todo/04_lineasblanco/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/todo/04_lineasblanco/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Comandos en bucle</title>
       <link>https://jaimealberto.github.io/todo/02_buclecomandos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
