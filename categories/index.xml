@@ -26,20 +26,29 @@
     </item>
     
     <item>
-      <title>Terminal</title>
-      <link>https://jaimealberto.github.io/categories/terminal/</link>
+      <title>Linux</title>
+      <link>https://jaimealberto.github.io/categories/linux/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/categories/terminal/</guid>
+      <guid>https://jaimealberto.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MacOS </title>
       <link>https://jaimealberto.github.io/categories/macos/</link>
-      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/categories/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>https://jaimealberto.github.io/categories/terminal/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/terminal/</guid>
       <description></description>
     </item>
     

@@ -44,14 +44,17 @@
     <loc>https://jaimealberto.github.io/tags/utilidades/</loc>
     <lastmod>2021-11-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://jaimealberto.github.io/categories/linux/</loc>
+    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/categories/macos/</loc>
+    <lastmod>2021-08-16T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jaimealberto.github.io/categories/terminal/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/post/21_utilidadesterminaliv/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/categories/macos/</loc>
-    <lastmod>2021-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/post/03_tipsmacos03/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
@@ -137,9 +140,9 @@
     <loc>https://jaimealberto.github.io/licencia/</loc>
     <lastmod>1970-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.github.io/todo/04_lineasblanco/</loc>
+    <loc>https://jaimealberto.github.io/recetas/07_lineasblanco/</loc>
   </url><url>
-    <loc>https://jaimealberto.github.io/todo/02_buclecomandos/</loc>
+    <loc>https://jaimealberto.github.io/recetas/05_buclecomandos/</loc>
   </url><url>
     <loc>https://jaimealberto.github.io/combos/01_comboi/</loc>
   </url><url>
@@ -147,18 +150,16 @@
   </url><url>
     <loc>https://jaimealberto.github.io/recetas/01_comprimir/</loc>
   </url><url>
-    <loc>https://jaimealberto.github.io/todo/01_envio_fsend/</loc>
+    <loc>https://jaimealberto.github.io/recetas/04_envio_fsend/</loc>
   </url><url>
-    <loc>https://jaimealberto.github.io/todo/05_geoip/</loc>
+    <loc>https://jaimealberto.github.io/recetas/05_geoip/</loc>
   </url><url>
-    <loc>https://jaimealberto.github.io/todo/03_sorttmarkdown/</loc>
+    <loc>https://jaimealberto.github.io/recetas/06_sorttmarkdown/</loc>
   </url><url>
     <loc>https://jaimealberto.github.io/recetas/</loc>
   </url><url>
     <loc>https://jaimealberto.github.io/recetas/03_scp/</loc>
   </url><url>
     <loc>https://jaimealberto.github.io/recetas/02_screen/</loc>
-  </url><url>
-    <loc>https://jaimealberto.github.io/todo/</loc>
   </url>
 </urlset>
