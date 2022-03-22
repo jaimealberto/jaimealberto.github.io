@@ -135,7 +135,7 @@
 <p>Como en todos los procesos de comunicación tenemos un cliente y un servidor. Lo mas utilizado es un ssh cliente en un extremo y conectar a un servidor para una gestión remota de host los cuales pueden ser servidores, routers, switches, etc. En una serie de artículos nos iremos adentrando por este mundo que nos permite realizar muchas tareas no solo la anteriormente descrita. Sin mas vueltas vamos al lio ya. Algún purista dirá que en articulo falta hablar de conceptos como cifrado asimétrico, hashing, etc. Pero prefiero que sea lo mas practico posible.</p>
 <h2 id="administración-remota">Administración remota</h2>
 <p>El comando ssh esta ampliamente extendido en cualquiera de los sistemas operativos de la familia *nix ( Linux, Bsd, Unix, etc ). En sistemas Windows es necesario instalar un cliente, entre los mas populares esta <a href="https://www.putty.org/">PuTTY</a>. Pero existen muchísimos mas, para gustos los colores.Lo mas habitual es su utilización para conseguir una <a href="https://es.wikipedia.org/wiki/Shell_de_Unix">Shell</a>remota, por ejemplo, de la siguiente manera:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh usuario@host_remmoto</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@host_remmoto</span></span></code></pre></div>
 <pre tabindex="0"><code>host_remoto Nombre si un dns resuelve o bien dirección ip
 </code></pre><p><strong>Nota:</strong> si no se indica usuario se utilizara el que se este logueado en el host desde el que se inicia la comunicación.</p>
 <p>Al cliente se le pueden indicar varios parámetros, los mas habituales son:</p>
@@ -150,47 +150,47 @@
 -v Modo depuración, en el caso se tener errores, máximo 3
 </code></pre><p>Ahora vamos a ver una serie de ejemplos de uso para nuestro día a día.</p>
 <p>Conexión añadiendo utilizando varios parámetros:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh -p <span style="color:#ae81ff">2020</span> -l usuario 192.168.1.25</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh -p <span style="color:#ae81ff">2020</span> -l usuario 192.168.1.25</span></span></code></pre></div>
 <p>Nos conectamos por el puerto 2020 a la ip 192.168.1.25 con el nombre de usuario “usuario”.</p>
 <p>Ssh también nos permite la ejecucion de comandos remota de la siguiente manera:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh usuario@host_remmoto comando_ejecutar</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@host_remmoto comando_ejecutar</span></span></code></pre></div>
 <p>Si la ejecución remota necesita asignación de un tty, si por ejemplo utilizamos mc es necesario añadir el modificador -t, ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh usuario@&lt;host_remmoto&gt; mc</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@&lt;host_remmoto&gt; mc</span></span></code></pre></div>
 <p>Con este comando estaremos ejecutando <a href="https://midnight-commander.org/">Midnight Commander</a> en el host remoto. Tener en cuenta que el software que ejecutemos tiene que estar instalado en el host remoto.</p>
 <p>El uso del cliente de Ssh desde el terminal nos ofrece cantidad de posibilidades, el tope nuestra imaginación y necesidades. Se pueden hacer cosas muy útiles e interesantes como:</p>
 <p>Probar rendimiento de la red en tiempo real:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">yes | pv | ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat &gt; /dev/null&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>yes | pv | ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat &gt; /dev/null&#34;</span></span></span></code></pre></div>
 <p><strong>Nota:</strong> Lo cortamos con ctrl+c, es continuo si no.</p>
 <p>Podemos comparar un archivo local con uno remoto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat archivo_remoto&#34;</span> | diff – archivo_local</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat archivo_remoto&#34;</span> | diff – archivo_local</span></span></code></pre></div>
 <p><strong>Nota:</strong> Importante respetar las comillas en la ejecución de cat.</p>
 <p>Gestión de paquetes rpm / yum :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;rpm -qa&#39;</span> | xargs yum -y install</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;rpm -qa&#39;</span> | xargs yum -y install</span></span></code></pre></div>
 <p>Gestión de paquetes deb :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;dpkg --get-selections&#39;</span> | dpkg --set-selections <span style="color:#f92672">&amp;&amp;</span> dselect install</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;dpkg --get-selections&#39;</span> | dpkg --set-selections <span style="color:#f92672">&amp;&amp;</span> dselect install</span></span></code></pre></div>
 <p>De este modo podemos recuperar sesiones remotas utilizando <a href="http://www.gnu.org/software/screen/">Screen</a>, monitorizar un sistema mediante <a href="http://nmon.sourceforge.net/">Nmon</a>, editar archivos remotos, instalar software remotamente, analizar trafico mediante <a href="https://www.wireshark.org/docs/man-pages/tshark.html">Tshark</a>y capturarlo en un archivo local, etc. Prácticamente lo cualquier cosa que se nos ocurra. Yo por ejemplo en mi archivo .zshrc, utilizo como <a href="https://es.wikipedia.org/wiki/Shell_de_Unix">Shell</a> <a href="https://es.wikipedia.org/wiki/Zsh">Zsh</a>, alguno de los alias que tengo para mi trabajo diario son:</p>
-<pre tabindex="0"><code>alias h1nmon=&quot;ssh -t host1 'nmon'&quot;
-alias h1vtop=&quot;ssh -t host1 'vtop'&quot;
-alias h1auth=&quot;ssh -t host1 'tail -f /var/log/auth.log | ccze'&quot;
+<pre tabindex="0"><code>alias h1nmon=&#34;ssh -t host1 &#39;nmon&#39;&#34;
+alias h1vtop=&#34;ssh -t host1 &#39;vtop&#39;&#34;
+alias h1auth=&#34;ssh -t host1 &#39;tail -f /var/log/auth.log | ccze&#39;&#34;
 </code></pre><p><strong>Nota:</strong> host1 es un alias configurado previamente en el cliente, configuración que veremos mas adelante.</p>
 <h2 id="transferencia-de-archivos">Transferencia de archivos</h2>
 <p>La transferencia de archivos utilizando protocolo Ssh es común por muchos motivos, los dos principales seguridad y portabilidad de la solución. Desde el terminal se realiza básicamente de manera interactiva y no interactiva. Para ello el cliente de terminal cuenta con los comandos scp y sftp. A continuación veremos su funcionamiento básico y algún truco que otro.</p>
 <h3 id="scp">Scp</h3>
 <p>El comando scp nos permite la copia de archivos desde un origen a un destino utilizando protocolo Ssh sin poder interactuar. Su uso básico desde un terminal es el siguiente:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp &lt;parámetro&gt; &lt;origen&gt; &lt;destino&gt;</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp &lt;parámetro&gt; &lt;origen&gt; &lt;destino&gt;</span></span></code></pre></div>
 <p>A continuación vamos a ver varios ejemplos para comprender mejor su funcionamiento y a su vez ver como nos puede ayudar en nuestro trabajo diario.</p>
 <p>Copia de local a remoto, archivo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp mi_archivo.txt usuario_remoto@host_remoto:/home/usuario_remoto/</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp mi_archivo.txt usuario_remoto@host_remoto:/home/usuario_remoto/</span></span></code></pre></div>
 <p>Copia de remoto a local, archivo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp usuario_remoto@host_remoto:/home/usuario_remoto/mi_archivo.txt home/usuario_local/</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp usuario_remoto@host_remoto:/home/usuario_remoto/mi_archivo.txt home/usuario_local/</span></span></code></pre></div>
 <p>Para copiar directorios añadimos el parámetro -r en cualquiera de los dos casos. Podemos aplicar comodines para indicar que copiar, o bien trabajar con . para  indicar la directorio donde se ejecuta el comando. Vamos a ver un ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp -r /home/mi_usuario/ usuario_remoto@host_remoto:/home/usuario_remoto/tmp</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp -r /home/mi_usuario/ usuario_remoto@host_remoto:/home/usuario_remoto/tmp</span></span></code></pre></div>
 <p>Con el comando anterior copiamos el home de nuestro usuario y todo su contenido recursiva mente al host remoto en un directorio llamado tmp del home de usuario remoto.</p>
 <p>Una de las partes mas interesantes del funcionamiento de scp es que donde se dice origen y destino pueden ser host remotos, no es un condicionante que el alguno de los dos campos tenga que ser el host loca. Es decir si tenemos la necesidad de copiar algo entre dos host remotos al nuestro donde estamos actualmente no tendremos que copiar del host remoto A a nuestro host local y luego de nuestro host local al host remoto B. Vamos a ver un ejemplo para entender esto mejor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp usuario_remoto1@host_remoto1:/directorio/archivo.txt usuario_remoto2@host_remoto2:/directorio/</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp usuario_remoto1@host_remoto1:/directorio/archivo.txt usuario_remoto2@host_remoto2:/directorio/</span></span></code></pre></div>
 <p>Con el comando anterior estamos ordenando desde nuestro host que se copie archivo.txt del host remoto A la host remoto B. Esto también es aplicable a lo visto anteriormente con directorios y de manera recursiva también.</p>
 <p>Otro caso interesante es si queremos copiar solo dos o tres archivos y no podemos utilizar comodines o no queremos hacerlo. Simplemente los separamos con un espacio. Vamos a ver un ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">scp archivo1.txt informe.odt imagen.png usuario_remoto@host_remoto:/directorio/</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp archivo1.txt informe.odt imagen.png usuario_remoto@host_remoto:/directorio/</span></span></code></pre></div>
 <p>Esto copia archivo1.txt informe.odt e imagen.png al host remoto en directorio.</p>
 <p>Todo esto es aplicable también a directorios. Podemos combinar todo lo anterior como queramos, el limite nuestra imaginación o necesidad.</p>
 <p>Resumen parámetros mas utilizados:</p>
@@ -208,28 +208,28 @@ alias h1auth=&quot;ssh -t host1 'tail -f /var/log/auth.log | ccze'&quot;
 <p>El comando sftp es el que nos permite conectar con el servidor e interactuar con el. Lo primero es conectar con el servidor de la siguiente naneara:</p>
 <p>sftp usuario@host_remoto</p>
 <p>Esto nos proporciona shell interactiva. Una vez ya conectados lo mejor es teclear help o ?, es lo mismo. Lo cual nos muestra los comandos disponibles para empezar a interactuar. No todos los servidores tienen los mismos. Los mas comunes son:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sftp&gt;help
-
-bye,quit,exit	Cualquiera de los tres nos permite salir del servidor.
-cd        Cambiar de directorio remoto.
-df        Nos muestra el las estadísticas del directorio actual
-get       Descarga archivo.
-lcd       Cambia de directorio local.
-lls       List contenido local.
-lmkdir    Crea directorio local.
-lpwd      Muestra directorio local.
-ls        Lista contenido del del servidor.
-mkdir     Crea directorio en el servidor.
-progress  Activa la barra de proceso para la ejecución de comandos.
-put       Sube archivo al servidor.
-pwd       Muestra directorio actual remoto.
-rm        Borra archivo remoto.
-rmdir     Borra directorio remoto.
-version   Muestra información sobre la versión.
-!command  Ejecuta ‘command’ en la shell local.</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sftp&gt;help
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bye,quit,exit	Cualquiera de los tres nos permite salir del servidor.
+</span></span><span style="display:flex;"><span>cd        Cambiar de directorio remoto.
+</span></span><span style="display:flex;"><span>df        Nos muestra el las estadísticas del directorio actual
+</span></span><span style="display:flex;"><span>get       Descarga archivo.
+</span></span><span style="display:flex;"><span>lcd       Cambia de directorio local.
+</span></span><span style="display:flex;"><span>lls       List contenido local.
+</span></span><span style="display:flex;"><span>lmkdir    Crea directorio local.
+</span></span><span style="display:flex;"><span>lpwd      Muestra directorio local.
+</span></span><span style="display:flex;"><span>ls        Lista contenido del del servidor.
+</span></span><span style="display:flex;"><span>mkdir     Crea directorio en el servidor.
+</span></span><span style="display:flex;"><span>progress  Activa la barra de proceso para la ejecución de comandos.
+</span></span><span style="display:flex;"><span>put       Sube archivo al servidor.
+</span></span><span style="display:flex;"><span>pwd       Muestra directorio actual remoto.
+</span></span><span style="display:flex;"><span>rm        Borra archivo remoto.
+</span></span><span style="display:flex;"><span>rmdir     Borra directorio remoto.
+</span></span><span style="display:flex;"><span>version   Muestra información sobre la versión.
+</span></span><span style="display:flex;"><span>!command  Ejecuta ‘command’ en la shell local.</span></span></code></pre></div>
 <h2 id="sistema-de-archivos-remoto">Sistema de archivos remoto</h2>
 <p>En la mayoría de los sistemas *nix ( Linux, MacOs, BSD, etc ) tenemos como herramienta disponible para nuestro terminal sshfs, el cual nos permite montar mediante protocolo Ssh un directorio remoto en un directorio local. Su uso desde el terminal es el siguiente:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sshfs usuario@host_remoto:/directorio_remoto /directorio_local &lt;parámetros&gt;</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sshfs usuario@host_remoto:/directorio_remoto /directorio_local &lt;parámetros&gt;</span></span></code></pre></div>
 <p>Los parámetros mas habituales son:</p>
 <pre tabindex="0"><code>-p Puerto si no se usa el estándar.
 -C Usar compresión.
@@ -245,7 +245,7 @@ version   Muestra información sobre la versión.
 <h3 id="generar-identidad-las-llaves">Generar identidad, las llaves</h3>
 <p>Ahora vamos a proceder a generar nuestra identidad. La cual esta compuesta de dos llaves. Una publica que es la que tendremos que distribuir a los servidores que nos proporcionen acceso a servicios vía Ssh y una privada  que la guardaremos a buen recaudo.</p>
 <p>Para generar nuestras llaves utilizaremos la siguiente linea de comando desde nuestro home de usuario en un terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh-keygen -b <span style="color:#ae81ff">4096</span> -t rsa -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">@</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">-</span><span style="color:#66d9ef">$(</span>date -I<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh-keygen -b <span style="color:#ae81ff">4096</span> -t rsa -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">@</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">-</span><span style="color:#66d9ef">$(</span>date -I<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
 <p>Aqui se puede observar el proceso:</p>
 <figure><img src="/img/generatekey.gif"/>
 </figure>
@@ -261,7 +261,7 @@ version   Muestra información sobre la versión.
 <p><strong>Nota:</strong> Al no teclear una contraseña, la llave privada se almacena guarda en nuestro disco duro sin cifrar. Esto es un riesgo de seguridad. Por este motivo tendremos que ponerla a buen recaudo, podemos cifrar el disco o utilizar ssh-agent con contraseña, entre otras contramedidas. Una vez finalizado el proceso se crearan las llaves en nuestro directorio que almacena nuestra configuración ~/.ssh.</p>
 <h3 id="distribución-de-las-llaves-a-los-servidores">Distribución de las llaves a los servidores</h3>
 <p>Para copiar nuestra llave publica utilizaremos la siguiente linea de comando desde nuestro home de usuario en un terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh-copy-id usuario@host_remoto</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh-copy-id usuario@host_remoto</span></span></code></pre></div>
 <p>Parámetros :</p>
 <pre tabindex="0"><code>ssh-copy-id Comando que copia la llaves
 -i          Indica el archivo de la llave, si fuera necesario
@@ -274,15 +274,15 @@ id_rsa      Llave privada
 known_hosts Lista de llaves publicas conocidas
 </code></pre><p>Bien ahora vamos a añadir un archivo con el nombre config, el cual nos servirá para crear alias, parámetros comunes a uso de las herramientas de terminal, etc, entre otras cosas. Las cuales nos facilitara el trabajo diario. Vamos a ver un ejemplo y comentarlo:</p>
 <p>Añadiremos el siguiente bloque al principio del archivo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e">### configuración por defecto para todas las conexiones ##</span>
-<span style="color:#a6e22e">Host *</span>
-     <span style="color:#a6e22e">User sistemas</span>
-     <span style="color:#a6e22e">Port 22</span>
-     <span style="color:#a6e22e">Protocol 2</span>
-     <span style="color:#a6e22e">IdentityFile ~/.ssh/id_rsa</span>
-     <span style="color:#a6e22e">IdentitiesOnly yes</span>
-     <span style="color:#a6e22e">ServerAliveInterval 60</span>
-     <span style="color:#a6e22e">ServerAliveCountMax 30</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#75715e">### configuración por defecto para todas las conexiones ##</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Host *</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">User sistemas</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">Port 22</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">Protocol 2</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">IdentityFile ~/.ssh/id_rsa</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">IdentitiesOnly yes</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">ServerAliveInterval 60</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">ServerAliveCountMax 30</span></span></span></code></pre></div>
 <p><strong>Nota:</strong> el símbolo ~ es path del home de usuario.</p>
 <p>Vamos a ir revisando y explicando cada linea del bloque:</p>
 <pre tabindex="0"><code>#:                   Nos permite añadir comentarios, no se procesa.
@@ -295,12 +295,12 @@ IdentitiesOnly:      Indica que Ssh solo debe usar los archivos de identidad de 
 ServerAliveInterval: Establece un intervalo de tiempo de espera en segundos después del cual, si no se han recibido datos del servidor, evita corte por inactividad.
 ServerAliveCountMax: Establece el número veces que se repetirá e “ServerAliveInterval”.
 </code></pre><p>Una vez que tenemos los parámetros globales, al utilizar *, vamos a añadir bloques de host con configuraciones especificas. Veremos varios ejemplos:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e">## Alias host server1 si coincide algún parámetro general anterior sobre escribe ##</span>
-<span style="color:#a6e22e">Host server1</span>
-     <span style="color:#a6e22e">Hostname 10.0.34.10</span>
-     <span style="color:#a6e22e">User lobezno</span>
-     <span style="color:#a6e22e">Port 4242</span>
-     <span style="color:#a6e22e">IdentityFile /nfs/shared/users/lobezno/keys/server1/id_rsa</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#75715e">## Alias host server1 si coincide algún parámetro general anterior sobre escribe ##</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Host server1</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">Hostname 10.0.34.10</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">User lobezno</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">Port 4242</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">IdentityFile /nfs/shared/users/lobezno/keys/server1/id_rsa</span></span></span></code></pre></div>
 <p>Que cambia o añade al bloque general:</p>
 <pre tabindex="0"><code>Hostname:     Indica la ip o nombre de dns al que se conecta.
 User:         Indica un usuario especifico distinto al general.

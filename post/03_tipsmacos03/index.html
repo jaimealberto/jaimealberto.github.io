@@ -129,9 +129,9 @@ Seleccionar todo ⌘ + A
 <h2 id="brew-copia-seguridad">Brew, copia seguridad</h2>
 <p>Alguna que otra vez, rara vez, tendremos que reinstalar el sistema operativo o bien en un equipo nuevo queremos instalar todos los paquetes brew que tememos en nuestro equipo actual. Esto se conoce comunalmente como “ Dumping Hombrew packages “. Ahora veremos como hacerlo:</p>
 <p>Desde el terminal del equipo que tenemos todo instalado y funcionando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew bundle dump</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew bundle dump</span></span></code></pre></div>
 <p>Esto crea un archivo de texto llamado “ Brewfile “, el cual contiene de una manera estructurada todo lo instalado en el equipo mediante brew. Lo copiamos al equipo nuevo. Desde el terminal del equipo nuevo donde tengamos copiado el archivo tecleamos:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew bundle</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew bundle</span></span></code></pre></div>
 <p>Y ya instalara todo automáticamente.</p>
 <h2 id="bloqueo-entorno-grafico">Bloqueo entorno grafico</h2>
 <p>Alguna vez que otra tendremos que dejar nuestro equipo, necesidad físicas o razón de peso, y querremos bloquear el equipo. Pues bien la combinación rápida de teclado para bloquear es:</p>
@@ -141,11 +141,11 @@ Seleccionar todo ⌘ + A
 </code></pre><h2 id="acuse-de-recibo-en-mail">Acuse de recibo en Mail</h2>
 <p>Cierto es que una de las características que no tiene el gestor de correo por excelencia de Mac, Mail, es el acuse de recibo. A veces es una característica que muchos añoramos, pero no por ello tenemos que plantearnos utilizar otro gestor de correo. Tenemos dos opciones de hacer esto. Desde mi querida  terminal o utilizando alguna de las aplicaciones que hace lo mismo pero desde el entorno gráfico. A continuación veremos como hacerlo desde el terminal.</p>
 <p>Cerramos Mail y abrimos nuestro terminal, tecleamos la siguiente linea de comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">defaults write com.apple.mail UserHeaders ‘<span style="color:#f92672">{</span>”Disposition-Notification-To”<span style="color:#f92672">=</span>”tucorreo@dominio.com”;<span style="color:#f92672">}</span> </code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>defaults write com.apple.mail UserHeaders ‘<span style="color:#f92672">{</span>”Disposition-Notification-To”<span style="color:#f92672">=</span>”tucorreo@dominio.com”;<span style="color:#f92672">}</span> </span></span></code></pre></div>
 <p>“tucorreo@dominio.com” Es la dirección de correo donde queremos que nos envíen el acuse de entrega del mail.</p>
 <p>Abrirnos Mail. Ahora todos los correos que enviemos solicitaran acuse de recibo a la dirección de correo indicada. Si esto no funcionara repite el proceso revisando haber escrito bien las comillas, comillas simples, paréntesis, etc. Y recuerda que el acuse de recibo tarda en llegar.</p>
 <p>Para desactivarlo, cerramos Mail. Abrimos nuestro terminal, si lo hemos cerrado, si no vale el mismo que teníamos abierto y tecleamos la siguiente linea de comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">defaults delete com.apple.mail UserHeaders</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>defaults delete com.apple.mail UserHeaders</span></span></code></pre></div>
 <p>Abrimos Mail y todo seguirá como antes.</p>
 		</div>
 		<footer class="post__footer">

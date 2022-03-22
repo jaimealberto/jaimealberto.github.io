@@ -123,11 +123,11 @@
 <h2 id="pastebinit">Pastebinit</h2>
 <p>Utilidad escrita en Python que nos permite enviar información nuestra terminal a servicios como Pastebin y similares. Su instalación es sencilla desde nuestro terminal utilizando el gestor de pautes de nuestro sistema operativo.</p>
 <p>MacOs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install pastebinit</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install pastebinit</span></span></code></pre></div>
 <p>Debian y derivados</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install pastebinit</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install pastebinit</span></span></code></pre></div>
 <p>Ahora lo mejor es poner un ejemplo practico :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">echo <span style="color:#e6db74">&#39;texto&#39;</span> | pastebinit -a <span style="color:#e6db74">&#39;jaimealberto&#39;</span> -b <span style="color:#e6db74">&#39;paste.openstack.org&#39;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;texto&#39;</span> | pastebinit -a <span style="color:#e6db74">&#39;jaimealberto&#39;</span> -b <span style="color:#e6db74">&#39;paste.openstack.org&#39;</span></span></span></code></pre></div>
 <p>Al ejecutar nos retorna la url donde publica en texto:</p>
 <pre tabindex="0"><code>http://paste.openstack.org/show/796233
 </code></pre><p>Para Ver los servicios disponibles donde podemos publicar:</p>
@@ -150,27 +150,27 @@ Supported pastebins:
 - sprunge.us
 </code></pre><p>Argumentos mas utillizados:</p>
 <pre tabindex="0"><code>-a author: por defecto nombre usuario logueado en la consola
--b servicio donde se publica, por defecto 'pastebin.com'
+-b servicio donde se publica, por defecto &#39;pastebin.com&#39;
 -t titulo, por defecto en blanco
 -u usuario -p contraseña
 </code></pre><p>Es una utilidad que nos puede ayudar en cuestiones como por ejemplo publicar nuestra llave pgp.</p>
 <h2 id="sendemail">SendEmail</h2>
 <p>En algunas ocasiones tenemos la necesidad de mandar un correo electrónico desde el terminal para nuestros scritps o alguna otra cosas. SendEmail es un cliente de correo electrónico de ligero para el terminal. Está escrito en Perl y NO requiere MÓDULOS, con lo cual esa es una de las bases de su potencia y sencillez. Es compatible con la mayoría de los sistemas operativos: Linux, BSD, MacOs, Windows, etc. su instalación es bastante sencilla:</p>
 <p>MacOs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install sendemail</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install sendemail</span></span></code></pre></div>
 <p>Debian y derivados :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install sendemail</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install sendemail</span></span></code></pre></div>
 <p>Estas son todas sus opciones disponibles:</p>
 <figure><img src="/img/sendEmail.png"/>
 </figure>
 
 <p>Podemos utilizar nuestras cuentas correo de cualquier servicio de correo. Por estos y mas motivos es ideal para muchas situaciones. Vamos a ver como funciona con algún caso practico para entender su funcionamiento y que como siempre empiece a volar nuestra imaginación con todo lo que podemos hacer. Envio de correos con alertas, al terminal una ejecucion de un script, etc.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sendemail -f origencorreo@gmail.com -t destinocorreo@outlook.com -xp mipassword -m <span style="color:#e6db74">&#34;Texto del mensaje&#34;</span> -s smtp.gmail.com:587 -o tls<span style="color:#f92672">=</span>yes -xu usuario -u <span style="color:#e6db74">&#34;Asunto del mensaje&#34;</span> -a archivoadjunto.txt</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sendemail -f origencorreo@gmail.com -t destinocorreo@outlook.com -xp mipassword -m <span style="color:#e6db74">&#34;Texto del mensaje&#34;</span> -s smtp.gmail.com:587 -o tls<span style="color:#f92672">=</span>yes -xu usuario -u <span style="color:#e6db74">&#34;Asunto del mensaje&#34;</span> -a archivoadjunto.txt</span></span></code></pre></div>
 <p>Opciones utilizadas:</p>
 <pre tabindex="0"><code>-f Quien enviá el correo (from)
 -t Destinatario del correo (to)
--u &quot;Asunto&quot; (subjet)
--m &quot;Contenido del mensaje&quot;. Podemos refeccionar el contenido de un archivo
+-u &#34;Asunto&#34; (subjet)
+-m &#34;Contenido del mensaje&#34;. Podemos refeccionar el contenido de un archivo
 -s servidor.correo.com:numero_puerto
 -o tls=yes, se activa tls si el servidor lo requiere 
 -xu usuario de la cuenta de correo
@@ -181,31 +181,31 @@ Supported pastebins:
 <p>Utilidad escrita en <a href="https://www.python.org/">Python</a> la cual nos permite enviar y recibir archivos, directorios, texto, etc desde un host a otro de manera cifrada utilizando PAKE ( Password-Authenticated Key Exchange ) aplicando algoritmo SPAKE2. La comunicación utiliza un servidor intermedio el cual se encarga de crear un túnel TCP entre los hosts. Tenemos dispoible tanto la utilidad pro linea de comando, como el servicio web y una la propira biblioteca para utulizar en nuestros desarrollos.  El proyecto en <a href="https://github.com/warner/magic-wormhole">Github</a> y su <a href="https://magic-wormhole.readthedocs.io/en/latest/">documentación</a>.</p>
 <p>La instalación la podemos realizar desde los fuentes y compilar o bien desde los distintos sistemas operativos utilizando sus correspondientes gestores de paquetes, por ejemplo:</p>
 <p>MacOs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install magic-wormhole</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install magic-wormhole</span></span></code></pre></div>
 <p>Debian y derivados
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install magic-wormhole</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install magic-wormhole</span></span></code></pre></div></p>
 <p>Fedora
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dnf install magic-wormhole</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dnf install magic-wormhole</span></span></code></pre></div></p>
 <p>Vamos a ver un ejemplo de uso para entender mejor su funcionamiento.</p>
 <p>Envio de archivos:</p>
 <p>Host que envia:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wormhole send README.md
-Sending <span style="color:#ae81ff">7924</span> byte file named <span style="color:#e6db74">&#39;README.md&#39;</span>
-On the other computer, please run: wormhole receive
-Wormhole code is: 7-crossover-clockwork
- 
-Sending <span style="color:#f92672">(</span>&lt;-10.0.1.43:58988<span style="color:#f92672">)</span>..
-100%|<span style="color:#f92672">=========================</span>| 7.92K/7.92K <span style="color:#f92672">[</span>00:00&lt;00:00, 6.02MB/s<span style="color:#f92672">]</span>
-File sent.. waiting <span style="color:#66d9ef">for</span> confirmation
-Confirmation received. Transfer complete.</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wormhole send README.md
+</span></span><span style="display:flex;"><span>Sending <span style="color:#ae81ff">7924</span> byte file named <span style="color:#e6db74">&#39;README.md&#39;</span>
+</span></span><span style="display:flex;"><span>On the other computer, please run: wormhole receive
+</span></span><span style="display:flex;"><span>Wormhole code is: 7-crossover-clockwork
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>Sending <span style="color:#f92672">(</span>&lt;-10.0.1.43:58988<span style="color:#f92672">)</span>..
+</span></span><span style="display:flex;"><span>100%|<span style="color:#f92672">=========================</span>| 7.92K/7.92K <span style="color:#f92672">[</span>00:00&lt;00:00, 6.02MB/s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>File sent.. waiting <span style="color:#66d9ef">for</span> confirmation
+</span></span><span style="display:flex;"><span>Confirmation received. Transfer complete.</span></span></code></pre></div>
 <p>Host que recive:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wormhole receive
-Enter receive wormhole code: 7-crossover-clockwork
-Receiving file <span style="color:#f92672">(</span><span style="color:#ae81ff">7924</span> bytes<span style="color:#f92672">)</span> into: README.md
-ok? <span style="color:#f92672">(</span>y/n<span style="color:#f92672">)</span>: y
-Receiving <span style="color:#f92672">(</span>-&gt;tcp:10.0.1.43:58986<span style="color:#f92672">)</span>..
-100%|<span style="color:#f92672">===========================</span>| 7.92K/7.92K <span style="color:#f92672">[</span>00:00&lt;00:00, 120KB/s<span style="color:#f92672">]</span>
-Received file written to README.md</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wormhole receive
+</span></span><span style="display:flex;"><span>Enter receive wormhole code: 7-crossover-clockwork
+</span></span><span style="display:flex;"><span>Receiving file <span style="color:#f92672">(</span><span style="color:#ae81ff">7924</span> bytes<span style="color:#f92672">)</span> into: README.md
+</span></span><span style="display:flex;"><span>ok? <span style="color:#f92672">(</span>y/n<span style="color:#f92672">)</span>: y
+</span></span><span style="display:flex;"><span>Receiving <span style="color:#f92672">(</span>-&gt;tcp:10.0.1.43:58986<span style="color:#f92672">)</span>..
+</span></span><span style="display:flex;"><span>100%|<span style="color:#f92672">===========================</span>| 7.92K/7.92K <span style="color:#f92672">[</span>00:00&lt;00:00, 120KB/s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Received file written to README.md</span></span></code></pre></div>
 <p>Como se pede observar al comenzar el envió da un código de envío que es el que se ha de introducir en el receptor para comenzar la transferencia, este código es aleatorio y solo sirve para esta transferencia en concreto.</p>
 <p>A parte de disponer de los comandos receive y send para el envío / recepción de archivos, directorios y texto. Adicionalmente tiene una opción para el intercambi de llaves ssh, que nos permite el intercambio de llaves publicas para conexiones ssh sin utilizar contrasña.</p>
 		</div>

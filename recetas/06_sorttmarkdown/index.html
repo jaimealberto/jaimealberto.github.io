@@ -108,7 +108,7 @@
 | 9234345 | 1345345  | 234335  | Gato    |
 | 32434   | 42342ee2 | 53242   | Caballo |
 </code></pre><p>Ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">tail -n +3 file.md | sort --field-separator<span style="color:#f92672">=</span><span style="color:#ae81ff">\|</span> --key<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>tail -n +3 file.md | sort --field-separator<span style="color:#f92672">=</span><span style="color:#ae81ff">\|</span> --key<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span></span></span></code></pre></div>
 <pre tabindex="0"><code>tail -n +3                Ignora las tres primeras lineas
 file.md                   Nombre del archivo que contiene la tabla
 sort --field-separator=\| Indica el carácter separador 

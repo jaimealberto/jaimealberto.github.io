@@ -129,7 +129,7 @@
 <h2 id="instalación">Instalación</h2>
 <p>iTerm2</p>
 <p>Tenemos dos maneras de realizar la instalación mediante brew:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install --cask iterm2</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install --cask iterm2</span></span></code></pre></div>
 <p>Descargar desde la pagina oficial la ultima <a href="https://iterm2.com/downloads.html">versión</a></p>
 <p>Zsh</p>
 <p>En las versiones actuales de MacOs es la shell por defecto, con lo cual no tenemos que instalar nada.</p>
@@ -137,9 +137,9 @@
 <p>Oh My Zsh</p>
 <p>Abrimos nuestro terminal (iTerm2) y desde nuestro home de usuario tenemos dos opciones:</p>
 <p>Usar curl:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
 <p>Usar wget:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
 <p>Crea un .zshrc nuevo para su uso y personalización. El antiguo no se pierde por si tenemos algo personalizado, como por ejemplo alias. Lo guarda en uno llamado .zshrc.pre-oh-my-zsh. De este es de donde tendremos que copiar al nuevo nuestras personalizaciones anteriores.</p>
 <h2 id="configuración-oh-my-zsh">Configuración Oh My ZSH</h2>
 <h3 id="temas">Temas</h3>
@@ -151,24 +151,24 @@
 <h3 id="plugins">Plugins</h3>
 <h4 id="plugin-manager-antigen">Plugin Manager Antigen</h4>
 <p>Gestor de plugins que te permite instalar fácilmente otros plugins, ahorra tiempo  para  no tener que hacerlo manualmente</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install antigen</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install antigen</span></span></code></pre></div>
 <h4 id="plugin-zsh-syntax-highlighting">Plugin zsh-syntax-highlighting</h4>
 <p>Colorea los comandos de diferentes programas.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install zsh-syntax-highlighting</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install zsh-syntax-highlighting</span></span></code></pre></div></p>
 <p>Después de instalarlo para activarlo editamos ~/.zshrc e incluimos en los pugins:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">plugins<span style="color:#f92672">=(</span>
-    git
-    zsh-syntax-highlighting
-<span style="color:#f92672">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    git
+</span></span><span style="display:flex;"><span>    zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span></span></span></code></pre></div>
 <h4 id="plugin-zsh-autosuggestions">Plugin zsh-autosuggestions</h4>
 <p>Busca en el historial  y autocompleta los mismos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install zsh-autosuggestions</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install zsh-autosuggestions</span></span></code></pre></div>
 <p>Después de instalarlo para activarlo editamos ~/.zshrc e incluimos en los pugins:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">plugins<span style="color:#f92672">=(</span>
-    git
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-<span style="color:#f92672">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    git
+</span></span><span style="display:flex;"><span>    zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span>    zsh-autosuggestions
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span></span></span></code></pre></div>
 <h2 id="configuración-iterm2">Configuración iTerm2</h2>
 <p>La configuración de iTerm2 depende mucho del tema que escojamos, pues los iconos, tipo de letra, etc se tendrá que instalar en el sistema. Por ello se tiene que revisar la documentación de cada tema.</p>
 <h2 id="atajos-de-teclado-iterm2">Atajos de teclado iTerm2</h2>

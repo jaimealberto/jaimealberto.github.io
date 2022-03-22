@@ -147,57 +147,57 @@
 <p>Utilidad para realizar backups de los droplets creados en Digital Ocean. Dispoble en su <a href="https://github.com/jotyGill/digitalocean-backup/">repositorio</a> de GitHub.</p>
 <h3 id="instalación">Instalación</h3>
 <p>Desde un terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">python3 -m pip install --user -U dobackup</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>python3 -m pip install --user -U dobackup</span></span></code></pre></div>
 <p>Una vez instalado necesitamos inicializar la conexión del siguiente modo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --init</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --init</span></span></code></pre></div>
 <p>Esto solo se realiza una vez por cuenta, podemos administrar varias cuentas del siguiente modo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup <span style="color:#ae81ff">0</span>      <span style="color:#75715e"># 0 por defecto o cuando solo se dispone de uno</span>
-dobackup <span style="color:#ae81ff">1</span>      <span style="color:#75715e"># token 1</span>
-dobackup <span style="color:#ae81ff">2</span>      <span style="color:#75715e"># token 2</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup <span style="color:#ae81ff">0</span>      <span style="color:#75715e"># 0 por defecto o cuando solo se dispone de uno</span>
+</span></span><span style="display:flex;"><span>dobackup <span style="color:#ae81ff">1</span>      <span style="color:#75715e"># token 1</span>
+</span></span><span style="display:flex;"><span>dobackup <span style="color:#ae81ff">2</span>      <span style="color:#75715e"># token 2</span></span></span></code></pre></div>
 <h3 id="uso">Uso</h3>
 <h4 id="mostrar-información">Mostrar información</h4>
 <p>Mostrar información de los droplets y snapshots con los comandos &ndash;list.</p>
 <p>Ejemplos:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --list-droplets
-dobackup --list-snaps
-dobackup --list-backups      <span style="color:#75715e"># snapsshots creados con esta utilidad</span>
-dobakcup --list-older_than <span style="color:#ae81ff">7</span> <span style="color:#75715e"># Lista de backups creados con la utilidad en los ultimos 7 dias</span>
-dobackup --list-tags         <span style="color:#75715e"># Lista etiquetas</span>
-dobackup --list-tagged       <span style="color:#75715e"># Lista de etiquetas aplicadas a los droplets con la utilidad</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --list-droplets
+</span></span><span style="display:flex;"><span>dobackup --list-snaps
+</span></span><span style="display:flex;"><span>dobackup --list-backups      <span style="color:#75715e"># snapsshots creados con esta utilidad</span>
+</span></span><span style="display:flex;"><span>dobakcup --list-older_than <span style="color:#ae81ff">7</span> <span style="color:#75715e"># Lista de backups creados con la utilidad en los ultimos 7 dias</span>
+</span></span><span style="display:flex;"><span>dobackup --list-tags         <span style="color:#75715e"># Lista etiquetas</span>
+</span></span><span style="display:flex;"><span>dobackup --list-tagged       <span style="color:#75715e"># Lista de etiquetas aplicadas a los droplets con la utilidad</span></span></span></code></pre></div>
 <h4 id="uso-de-etiquetas--opcional-">Uso de etiquetas ( Opcional )</h4>
 <p>Se pueden utilizar etiquetas para hacer las copias de seguridad de varios servidores a la vez. Por defecto la etiqueta predeterminada es &lsquo;dobackup&rsquo;.</p>
 <p>Ejemplos:</p>
 <p>Para etiquetar un servidor con una etiqueta &ldquo;dobackup&rdquo;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --tag-server ubuntu-18-04 <span style="color:#75715e"># &#39;--tag-name dobackup&#39; por defecto.</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --tag-server ubuntu-18-04 <span style="color:#75715e"># &#39;--tag-name dobackup&#39; por defecto.</span></span></span></code></pre></div>
 <p>Etiquetar un servidor con la etiqueta &ldquo;web-server&rdquo;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --tag-server ubuntu-18-04 --tag-name web-servers</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --tag-server ubuntu-18-04 --tag-name web-servers</span></span></code></pre></div>
 <h4 id="realizar-backup">Realizar backup</h4>
 <p>El backup se puede reaalizar indicando el nombre del servidor o el id.</p>
 <p>Ejemplos:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --backup ubuntu-18-04
-dobackup --backup <span style="color:#ae81ff">1929129</span>
-dobackup --live-backup ubuntu-18-04   <span style="color:#75715e"># copia de seguridad en vivo, copia de seguridad sin apagar la máquina virtual</span>
-dobackup --backup ubuntu-18-04 --keep <span style="color:#75715e"># this won&#39;t be deleted with &#39;--delete-older-than&#39;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --backup ubuntu-18-04
+</span></span><span style="display:flex;"><span>dobackup --backup <span style="color:#ae81ff">1929129</span>
+</span></span><span style="display:flex;"><span>dobackup --live-backup ubuntu-18-04   <span style="color:#75715e"># copia de seguridad en vivo, copia de seguridad sin apagar la máquina virtual</span>
+</span></span><span style="display:flex;"><span>dobackup --backup ubuntu-18-04 --keep <span style="color:#75715e"># this won&#39;t be deleted with &#39;--delete-older-than&#39;</span></span></span></code></pre></div>
 <p>Para hacer una copia de seguridad de todos los servidores que tienen una etiqueta determinada.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --backup-all <span style="color:#75715e"># --tag-name dobackup por defecto</span>
-dobackup --backup-all --tag-name web-servers</code></pre></div>
-<p>Para configurar un cron que realice un backup todos los servidores &lsquo;etiquetados&rsquo; y borrar automáticamente backup antiguos, si las copias de seguridad se ralizaron correctamente.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> * * * ~/.local/bin/dobackup --backup-all <span style="color:#f92672">&amp;&amp;</span> ~/.local/bin/dobackup --delete-older-than <span style="color:#ae81ff">7</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --backup-all <span style="color:#75715e"># --tag-name dobackup por defecto</span>
+</span></span><span style="display:flex;"><span>dobackup --backup-all --tag-name web-servers</span></span></code></pre></div>
+<p>Para configurar un cron que realice un backup todos los servidores &rsquo;etiquetados&rsquo; y borrar automáticamente backup antiguos, si las copias de seguridad se ralizaron correctamente.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> * * * ~/.local/bin/dobackup --backup-all <span style="color:#f92672">&amp;&amp;</span> ~/.local/bin/dobackup --delete-older-than <span style="color:#ae81ff">7</span></span></span></code></pre></div>
 <h4 id="restaurar-backup">Restaurar backup</h4>
 <p>La restauración del backup se puede reaalizar indicando el nombre del servidor o el id.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --restore-droplet ubuntu-18-04 --restore-to <span style="color:#e6db74">&#34;ubuntu-18-04--dobackup--2018-06-01 14:36:07&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --restore-droplet ubuntu-18-04 --restore-to <span style="color:#e6db74">&#34;ubuntu-18-04--dobackup--2018-06-01 14:36:07&#34;</span></span></span></code></pre></div>
 <h4 id="borrado-de-backups-antiguos">Borrado de backups antiguos</h4>
 <p>Borrado de snatpshot especifico:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --delete-snap <span style="color:#e6db74">&#34;ubuntu-1gb-sgp1-01--dobackup--2018-05-31 17:43:11&#34;</span> <span style="color:#75715e"># indicando nombre o id</span>
-dobackup --delete-snap <span style="color:#e6db74">&#34;111111111,222222222,3333333333&#34;</span>                   <span style="color:#75715e"># indicando multiples nombres o id seprados por coma</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --delete-snap <span style="color:#e6db74">&#34;ubuntu-1gb-sgp1-01--dobackup--2018-05-31 17:43:11&#34;</span> <span style="color:#75715e"># indicando nombre o id</span>
+</span></span><span style="display:flex;"><span>dobackup --delete-snap <span style="color:#e6db74">&#34;111111111,222222222,3333333333&#34;</span>                   <span style="color:#75715e"># indicando multiples nombres o id seprados por coma</span></span></span></code></pre></div>
 <p>Podemos ver todas las opcionees :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --help</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dobackup --help</span></span></code></pre></div>
 <h2 id="doctl">Doctl</h2>
 <p>Utilidad que nos permite desde nuestro terminal realizar teras en Digital Ocean. <a href="https://github.com/digitalocean/doctl/">repositorio</a> de GitHub.</p>
 <h3 id="instalación-1">Instalación</h3>
 <p>MacOs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install doctl</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install doctl</span></span></code></pre></div>
 <p>Linux ( Binario )</p>
 <ul>
 <li>Nos posicinamos en el home de usuario.</li>
@@ -205,19 +205,19 @@ dobackup --delete-snap <span style="color:#e6db74">&#34;111111111,222222222,3333
 <li>Descomprimimos el binario.</li>
 <li>Copiamos el binario al path de ejecución.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">cd ~
-wget https://github.com/digitalocean/doctl/releases/download/v1.65.0/doctl-1.65.0-linux-amd64.tar.gz
-tar xf ~/doctl-1.65.0-linux-amd64.tar.gz
-sudo mv ~/doctl /usr/local/bin</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>cd ~
+</span></span><span style="display:flex;"><span>wget https://github.com/digitalocean/doctl/releases/download/v1.65.0/doctl-1.65.0-linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>tar xf ~/doctl-1.65.0-linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>sudo mv ~/doctl /usr/local/bin</span></span></code></pre></div>
 <p>Una vez instalado necesitamos inicializar la conexión del siguiente modo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">doctl auth init</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>doctl auth init</span></span></code></pre></div>
 <p>Esto solo se realiza una vez por cuenta, podemos administrar varias cuentas.</p>
 <h3 id="uso-1">Uso</h3>
 <p>Ahora veremos algunos ejemplos de uso:</p>
 <p>Listar todos los Droplets de nuestra cuenta:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">doctl compute droplet list</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>doctl compute droplet list</span></span></code></pre></div>
 <p>Crear un Droplet:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">doctl compute droplet create &lt;name&gt; --region &lt;region-slug&gt; --image &lt;image-slug&gt; --size &lt;size-slug&gt;</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>doctl compute droplet create &lt;name&gt; --region &lt;region-slug&gt; --image &lt;image-slug&gt; --size &lt;size-slug&gt;</span></span></code></pre></div>
 <p>Nos vemos en el próximo post.</p>
 		</div>
 		<footer class="post__footer">

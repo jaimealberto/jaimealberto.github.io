@@ -126,24 +126,24 @@
 <p>Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.</p>
 <h2 id="historial">Historial</h2>
 <p>El comando history nos da el histórico de todo lo teclado en el terminal. Si queremos repetir una linea es tan simple como saber el numero de linea a repetir y teclear en el terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">!&lt;Numero de linea a repetir&gt;</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>!&lt;Numero de linea a repetir&gt;</span></span></code></pre></div>
 <p>A continuación aparecerá la linea podemos modificarla antes de pulsar en Enter.</p>
 <p>La configuración del comportamiento del histórico se controla con variables cuando se define el entorno de shell. En bash en .basrc, en zsh en .zshrc.</p>
 <p>Si estamos utilizando zsh , al utilizar el comando se indica el timestamp en el lado izquierdo como se observa:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#ae81ff">10003</span>  8/14/2021 00:29  cd Documents
-<span style="color:#ae81ff">10004</span>  8/14/2021 00:29  ls
-<span style="color:#ae81ff">10005</span>  8/14/2021 00:29  cd ..
-<span style="color:#ae81ff">10006</span>  8/14/2021 00:29  ls
-<span style="color:#ae81ff">10007</span>  8/14/2021 00:30  ls -alrt
-<span style="color:#ae81ff">10008</span>  8/14/2021 00:30  du -ha
-<span style="color:#ae81ff">10009</span>  8/14/2021 00:30  ssh usuario@servidor</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#ae81ff">10003</span>  8/14/2021 00:29  cd Documents
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10004</span>  8/14/2021 00:29  ls
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10005</span>  8/14/2021 00:29  cd ..
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10006</span>  8/14/2021 00:29  ls
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10007</span>  8/14/2021 00:30  ls -alrt
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10008</span>  8/14/2021 00:30  du -ha
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10009</span>  8/14/2021 00:30  ssh usuario@servidor</span></span></code></pre></div>
 <p>Esto no ocurre con bash. Pues bien si queremos que esto pase tambien en bash, es tan sencillo como utilizar variable de entorno “HISTTIMEFORMAT”.</p>
 <p>Como ejemplo desde el terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">export HISTTIMEFORMAT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;%F %T &#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>export HISTTIMEFORMAT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;%F %T &#34;</span></span></span></code></pre></div>
 <p>De este modo establecemos que se muestre la fecha y hora en el histórico. Si queremos que esto sea permanete es tan secillo como añadirlo al  .bashrc de la siguiente forma:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">echo <span style="color:#e6db74">&#39;export HISTTIMEFORMAT=&#34;%F %T &#34;&#39;</span> &gt;&gt; ~/.bashrc</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HISTTIMEFORMAT=&#34;%F %T &#34;&#39;</span> &gt;&gt; ~/.bashrc</span></span></code></pre></div>
 <p><em>Tip:</em> Si queremos que un comando no se registre en el histórico es tan simple como deja un espacio antes de ejecutarlo.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">$ cat .bashrc</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>$ cat .bashrc</span></span></code></pre></div>
 <h2 id="teclas-rápidas">Teclas rápidas</h2>
 <pre tabindex="0"><code>CTRL + A: Llevar el cursor al principio de línea.
 CTRL + E: Lleva el curso al final de línea..
