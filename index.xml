@@ -8,13 +8,25 @@
     <language>es</language>
     <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Raspberry Pi</title>
+      <link>https://jaimealberto.github.io/raspberrypi/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/raspberrypi/</guid>
+      <description>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo
+Raspi-config Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:
+raspi-config Menus:
+ System Options  Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login  Console Text console, requiring user to login ( elegimos esta opción )   Network at Boot ( seleccionamos no para acelerar el arranque )   Inteface Options  SSH Enabled/disable remote command line access using SSH ( enable )   Location options  Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado )   Update ( actualizamos la herramienta )  Es necesario reiniciar para aplicar los cambios.</description>
+    </item>
+    
+    <item>
       <title>Recursos</title>
       <link>https://jaimealberto.github.io/recursos/</link>
-      <pubDate>Thu, 24 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/recursos/</guid>
       <description>Canales Youtube Aquí colocare los canales de Youtube que sigo por mis intereses personales a modo de recordatorio propio. Espero que alguno sea de utilidad.
-Programación  Canal de John Ortiz Ordoñez.  Herramientas on-line Diagramas  Excalidraw. Drawio.  Transferencia archivos  cend.me. Wormhole  Sitios  Unsplash, banco de imagenes free. WikiMediaCommons, contenido con licencia CC.  Servicios  DigitalOcean proveedor de servidores virtuales privados. Si no tenéis cuenta y queréis probar:</description>
+Programación  Canal de John Ortiz Ordoñez.  Herramientas on-line Diagramas  Excalidraw. Drawio.  Transferencia segura  cend.me. Wormhole. One Time Secret.  Sitios  Unsplash, banco de imagenes free. WikiMediaCommons, contenido con licencia CC.  Servicios  DigitalOcean, proveedor de servidores virtuales privados. Si no tenéis cuenta y queréis probar:</description>
     </item>
     
     <item>

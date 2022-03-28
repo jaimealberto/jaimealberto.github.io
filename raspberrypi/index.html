@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Raspberry Pi - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Notas Raspberry Pi">
+		<meta property="og:title" content="Raspberry Pi" />
+<meta property="og:description" content="Notas Raspberry Pi" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/raspberrypi/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2022-03-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-28T00:00:00+00:00" />
+
+
+		<meta itemprop="name" content="Raspberry Pi">
+<meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-03-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="442">
+<meta itemprop="keywords" content="" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item menu__item--active">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Raspberry Pi</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-03-28T00:00:00Z">28-03-2022</time></div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#raspi-config">Raspi-config</a></li>
+    <li><a href="#la-red">La red</a>
+      <ul>
+        <li><a href="#nombrar-el-interface-de-red-para-humanos">Nombrar el interface de red para humanos</a></li>
+        <li><a href="#deshabilitar-ipv6">Deshabilitar ipv6</a></li>
+        <li><a href="#configurar-dirección-ip-fija">Configurar dirección ip fija</a></li>
+        <li><a href="#configurar-wifi">Configurar Wifi</a></li>
+        <li><a href="#deshabilitar-wifi">Deshabilitar Wifi</a></li>
+      </ul>
+    </li>
+    <li><a href="#kernel-headers">Kernel headers</a></li>
+    <li><a href="#alimentación">Alimentación</a></li>
+    <li><a href="#fecha-y-hora">Fecha y hora</a></li>
+    <li><a href="#servicios">Servicios</a>
+      <ul>
+        <li><a href="#servidor-ssh">Servidor ssh</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure><img src="/img/rpi.jpg"/>
+</figure>
+
+<p>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo</p>
+<h2 id="raspi-config">Raspi-config</h2>
+<p>Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>raspi-config</span></span></code></pre></div>
+<p>Menus:</p>
+<ul>
+<li>System Options
+<ul>
+<li>Password ( cambiamos la contraseña del usuario pi )</li>
+<li>Hostname ( cambiamos el nombre de host )</li>
+<li>Boot / Auto Login
+<ul>
+<li>Console Text console, requiring user to login ( elegimos esta opción )</li>
+</ul>
+</li>
+<li>Network at Boot ( seleccionamos no para acelerar el arranque )</li>
+</ul>
+</li>
+<li>Inteface Options
+<ul>
+<li>SSH Enabled/disable remote command line access using SSH ( enable )</li>
+</ul>
+</li>
+<li>Location options
+<ul>
+<li>Locale ( configuramos correctamente el idioma )</li>
+<li>Timezone ( seleccionamos nuestra zona horaria )</li>
+<li>Keyboard ( seleccionamos nuestra distribución de teclado )</li>
+</ul>
+</li>
+<li>Update ( actualizamos la herramienta )</li>
+</ul>
+<p>Es necesario reiniciar para aplicar los cambios.</p>
+<h2 id="la-red">La red</h2>
+<p>Ahora vamos a dejar la red configurada según nuestras necesidades. Todas las operaciones son necesarias realizarlas como root y para aplicar los cambios se ha de reiniciar.</p>
+<h3 id="nombrar-el-interface-de-red-para-humanos">Nombrar el interface de red para humanos</h3>
+<p>Editamos /boot/cmdline.txt y añadimos al final &ldquo;net.ifnames=0&rdquo; quedando asi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>console<span style="color:#f92672">=</span>serial0,115200 console<span style="color:#f92672">=</span>tty1 root<span style="color:#f92672">=</span>PARTUUID<span style="color:#f92672">=</span>9b849d88-02 rootfstype<span style="color:#f92672">=</span>ext4 fsck.repair<span style="color:#f92672">=</span>yes rootwait net.ifnames<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<h3 id="deshabilitar-ipv6">Deshabilitar ipv6</h3>
+<p>Editamos /etc/sysctl.conf y añadimos al final :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>net.ipv6.conf.all.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>net.ipv6.conf.default.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>net.ipv6.conf.lo.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>net.ipv6.conf.eth0.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+<p>Editamos /etc/rc.local y añadimos al final, si no esta ya :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<h3 id="configurar-dirección-ip-fija">Configurar dirección ip fija</h3>
+<p>Editamos /etc/dhcpcd.conf  y configuramos los parámetros correspondientes, ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>interface eth0
+</span></span><span style="display:flex;"><span>static ip_address<span style="color:#f92672">=</span>192.168.1.69/24
+</span></span><span style="display:flex;"><span>static routers<span style="color:#f92672">=</span>192.168.0.1
+</span></span><span style="display:flex;"><span>static domain_name_servers<span style="color:#f92672">=</span>9.9.9.9 1.1.1.1</span></span></code></pre></div>
+<p>Donde:</p>
+<p>interface &ldquo;nombre interface de red&rdquo;
+static ip_address &ldquo;ip/mascara&rdquo;
+static routers &ldquo;default gateway&rdquo;
+static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundario&rdquo;</p>
+<p>Reiniciamos para aplicar los cambios.</p>
+<h3 id="configurar-wifi">Configurar Wifi</h3>
+<p><strong>próximamente</strong></p>
+<h3 id="deshabilitar-wifi">Deshabilitar Wifi</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>iwconfig wlan0 txpower off</span></span></code></pre></div>
+<h2 id="kernel-headers">Kernel headers</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install linux-headers-<span style="color:#66d9ef">$(</span>uname -r<span style="color:#66d9ef">)</span></span></span></code></pre></div>
+<h2 id="alimentación">Alimentación</h2>
+<p>Según el fabricante:</p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Alimentación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modelo A</td>
+<td>700mA</td>
+</tr>
+<tr>
+<td>Modelo B</td>
+<td>1,2A</td>
+</tr>
+<tr>
+<td>Modelo A+</td>
+<td>700mA</td>
+</tr>
+<tr>
+<td>Modelo B+	1,8A</td>
+<td></td>
+</tr>
+<tr>
+<td>2 Modelo B</td>
+<td>1,8A</td>
+</tr>
+<tr>
+<td>3 Modelo B</td>
+<td>2,5A</td>
+</tr>
+<tr>
+<td>3 Modelo A+</td>
+<td>2,5A</td>
+</tr>
+<tr>
+<td>3 Modelo B+</td>
+<td>2,5A</td>
+</tr>
+<tr>
+<td>4 Modelo B</td>
+<td>3A</td>
+</tr>
+<tr>
+<td>Zero W/WH</td>
+<td>1,2A</td>
+</tr>
+<tr>
+<td>Zero</td>
+<td>1,2A</td>
+</tr>
+</tbody>
+</table>
+<p>Si tenemos problemas de alimentación puede que no arranque o bien si arranca saldrá un aviso durante el arranque y posteriormente en la esquina superior derecha en el entorno grafico. Pero si no es así lo podemos comprobar desde la consola con privilegios de root:</p>
+<p>Instalamos el paquete necesario, si no lo tenemos ya:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install libraspberrypi-bin</span></span></code></pre></div>
+<p>ejecutamos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vcgencmd get_throttled</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Respuesta</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0</td>
+<td>todo ok</td>
+</tr>
+<tr>
+<td>0x50000</td>
+<td>tiene o tuvo problemas de voltaje desde el ultimo arranque</td>
+</tr>
+<tr>
+<td>0x80000</td>
+<td>tiene problemas de temperatura</td>
+</tr>
+</tbody>
+</table>
+<p>Los mensajes se guardan el el syslog del sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>/varlog/syslog</span></span></code></pre></div>
+<p>El cual podemos consultar para buscar patrones con el comando dmesg del siguinte modo, ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dmesg | grep -iC <span style="color:#ae81ff">3</span> <span style="color:#e6db74">&#34;under-voltage detected&#34;</span></span></span></code></pre></div>
+<h2 id="fecha-y-hora">Fecha y hora</h2>
+<h2 id="servicios">Servicios</h2>
+<h3 id="servidor-ssh">Servidor ssh</h3>
+<p><strong>próximamente</strong></p>
+
+		</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
