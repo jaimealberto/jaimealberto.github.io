@@ -18,7 +18,7 @@
 		<meta itemprop="name" content="Raspberry Pi">
 <meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-03-28T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-03-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="442">
+<meta itemprop="wordCount" content="499">
 <meta itemprop="keywords" content="" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -126,6 +126,7 @@
     </li>
     <li><a href="#kernel-headers">Kernel headers</a></li>
     <li><a href="#alimentación">Alimentación</a></li>
+    <li><a href="#temperatura">Temperatura</a></li>
     <li><a href="#fecha-y-hora">Fecha y hora</a></li>
     <li><a href="#servicios">Servicios</a>
       <ul>
@@ -188,7 +189,7 @@
 <h3 id="configurar-dirección-ip-fija">Configurar dirección ip fija</h3>
 <p>Editamos /etc/dhcpcd.conf  y configuramos los parámetros correspondientes, ejemplo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>interface eth0
-</span></span><span style="display:flex;"><span>static ip_address<span style="color:#f92672">=</span>192.168.1.69/24
+</span></span><span style="display:flex;"><span>static ip_address<span style="color:#f92672">=</span>192.168.0.69/24
 </span></span><span style="display:flex;"><span>static routers<span style="color:#f92672">=</span>192.168.0.1
 </span></span><span style="display:flex;"><span>static domain_name_servers<span style="color:#f92672">=</span>9.9.9.9 1.1.1.1</span></span></code></pre></div>
 <p>Donde:</p>
@@ -226,8 +227,8 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 <td>700mA</td>
 </tr>
 <tr>
-<td>Modelo B+	1,8A</td>
-<td></td>
+<td>Modelo B+</td>
+<td>1,8A</td>
 </tr>
 <tr>
 <td>2 Modelo B</td>
@@ -290,10 +291,17 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>/varlog/syslog</span></span></code></pre></div>
 <p>El cual podemos consultar para buscar patrones con el comando dmesg del siguinte modo, ejemplo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dmesg | grep -iC <span style="color:#ae81ff">3</span> <span style="color:#e6db74">&#34;under-voltage detected&#34;</span></span></span></code></pre></div>
+<h2 id="temperatura">Temperatura</h2>
+<p>Como todos sabemos uno de los problemas que nos podemos encontrar es la temperatura. La podemos leer de dos maneras:</p>
+<p>En formato bruto con tres decimales grados centígrados:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>cat /sys/class/thermal/thermal_zone0/temp</span></span></code></pre></div>
+<p>Con la utilidad vcgencmd la cual nos lo muestra con un decimal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vcgencmd measure_temp</span></span></code></pre></div>
+<p>Esta información la podemos utilizar para monitorizar, tomar acciones con scripts, etc.</p>
+<p><strong>próximamente</strong></p>
 <h2 id="fecha-y-hora">Fecha y hora</h2>
 <h2 id="servicios">Servicios</h2>
 <h3 id="servidor-ssh">Servidor ssh</h3>
-<p><strong>próximamente</strong></p>
 
 		</div>
 	</article>
