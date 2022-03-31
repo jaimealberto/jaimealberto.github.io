@@ -11,14 +11,14 @@
 <meta property="og:description" content="Notas Raspberry Pi" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jaimealberto.github.io/raspberrypi/" /><meta property="article:section" content="" />
-<meta property="article:published_time" content="2022-03-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-28T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-03-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-31T00:00:00+00:00" />
 
 
 		<meta itemprop="name" content="Raspberry Pi">
-<meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-03-28T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="499">
+<meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-03-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="583">
 <meta itemprop="keywords" content="" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -107,7 +107,7 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-03-28T00:00:00Z">28-03-2022</time></div></div>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-03-31T00:00:00Z">31-03-2022</time></div></div>
 		</header>
 <div class="post__toc toc">
 	<div class="toc__title">Índice</div>
@@ -127,6 +127,7 @@
     <li><a href="#kernel-headers">Kernel headers</a></li>
     <li><a href="#alimentación">Alimentación</a></li>
     <li><a href="#temperatura">Temperatura</a></li>
+    <li><a href="#backup-tarjeta-sd">Backup tarjeta SD</a></li>
     <li><a href="#fecha-y-hora">Fecha y hora</a></li>
     <li><a href="#servicios">Servicios</a>
       <ul>
@@ -298,6 +299,13 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 <p>Con la utilidad vcgencmd la cual nos lo muestra con un decimal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vcgencmd measure_temp</span></span></code></pre></div>
 <p>Esta información la podemos utilizar para monitorizar, tomar acciones con scripts, etc.</p>
+<h2 id="backup-tarjeta-sd">Backup tarjeta SD</h2>
+<p>Apagarmos la Rpi y la insertamos en nuestro equipo. Abrimos un terminal con privliegios de root e identificamos cual es el device de la tarjeta sd:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>fdisk -l</span></span></code></pre></div>
+<p>Suponiendo que sea /dev/sdb, esto varia en función de lo que tengamos conectado. Utilizaremos el comando dd y opcionalmente el pv para tener una barra de progreso. al directorio que queramos. Este comando tiene la siguiente estructura:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdb bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>raspbackup.img</span></span></code></pre></div>
+<p>Si queremos restaurar la copia:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>raspbackup.img bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>/dev/sdb</span></span></code></pre></div>
 <p><strong>próximamente</strong></p>
 <h2 id="fecha-y-hora">Fecha y hora</h2>
 <h2 id="servicios">Servicios</h2>
