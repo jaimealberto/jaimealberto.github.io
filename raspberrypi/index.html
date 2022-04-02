@@ -18,7 +18,7 @@
 		<meta itemprop="name" content="Raspberry Pi">
 <meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-03-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-03-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="583">
+<meta itemprop="wordCount" content="718">
 <meta itemprop="keywords" content="" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -127,8 +127,14 @@
     <li><a href="#kernel-headers">Kernel headers</a></li>
     <li><a href="#alimentación">Alimentación</a></li>
     <li><a href="#temperatura">Temperatura</a></li>
-    <li><a href="#backup-tarjeta-sd">Backup tarjeta SD</a></li>
+    <li><a href="#backup-tarjeta-sd">Backup tarjeta SD</a>
+      <ul>
+        <li><a href="#local">Local</a></li>
+        <li><a href="#remota">Remota</a></li>
+      </ul>
+    </li>
     <li><a href="#fecha-y-hora">Fecha y hora</a></li>
+    <li><a href="#idioma">Idioma</a></li>
     <li><a href="#servicios">Servicios</a>
       <ul>
         <li><a href="#servidor-ssh">Servidor ssh</a></li>
@@ -300,14 +306,30 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vcgencmd measure_temp</span></span></code></pre></div>
 <p>Esta información la podemos utilizar para monitorizar, tomar acciones con scripts, etc.</p>
 <h2 id="backup-tarjeta-sd">Backup tarjeta SD</h2>
+<h3 id="local">Local</h3>
 <p>Apagarmos la Rpi y la insertamos en nuestro equipo. Abrimos un terminal con privliegios de root e identificamos cual es el device de la tarjeta sd:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>fdisk -l</span></span></code></pre></div>
 <p>Suponiendo que sea /dev/sdb, esto varia en función de lo que tengamos conectado. Utilizaremos el comando dd y opcionalmente el pv para tener una barra de progreso. al directorio que queramos. Este comando tiene la siguiente estructura:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdb bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>raspbackup.img</span></span></code></pre></div>
 <p>Si queremos restaurar la copia:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>raspbackup.img bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>/dev/sdb</span></span></code></pre></div>
+<h3 id="remota">Remota</h3>
+<p>Puede que en algún momento necesitemos realizar una copia por red o que tengamos algo en producción con lo cual no podemos parar.Desde el terminal:</p>
+<p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh pi@192.168.1.155 <span style="color:#e6db74">&#34;sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -&#34;</span> | dd of<span style="color:#f92672">=</span>backup.gz</span></span></code></pre></div>
+Donde:</p>
+<ul>
+<li>&ldquo;pi&rdquo; El usuario que se conecta y puede ejecutar sudo sin pedir contraseña.</li>
+<li>&ldquo;192.168.1.155&rdquo; Dirección ip de nuestra Rpi.</li>
+<li>&ldquo;backup.gz&rdquo; fichero donde se guardara la copia.</li>
+<li>&ldquo;1M&rdquo; Tamaño de 1 Megabyte del bloque al realizar la copia.</li>
+</ul>
+<p>Tener en cuenta:</p>
+<p>Se añade el parámetro &ldquo;status=progess&rdquo;, si vamos a  programar la tarea en el cron lo deberíamos omitir.</p>
+<p>La copia se realiza comprimida al añadir &ldquo;gzip -&rdquo;. Es opcional.</p>
+<p>Este procedimiento no me fallado nunca, esto no quiere decir que sea infalible tener en cuenta que esta en funcionamiento y se realiza el caliente.</p>
 <p><strong>próximamente</strong></p>
 <h2 id="fecha-y-hora">Fecha y hora</h2>
+<h2 id="idioma">Idioma</h2>
 <h2 id="servicios">Servicios</h2>
 <h3 id="servidor-ssh">Servidor ssh</h3>
 
