@@ -11,14 +11,14 @@
 <meta property="og:description" content="Notas Raspberry Pi" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jaimealberto.github.io/raspberrypi/" /><meta property="article:section" content="" />
-<meta property="article:published_time" content="2022-03-31T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-31T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-04-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-04T00:00:00+00:00" />
 
 
 		<meta itemprop="name" content="Raspberry Pi">
-<meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-03-31T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="718">
+<meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-04-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-04-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1206">
 <meta itemprop="keywords" content="" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -107,7 +107,7 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-03-31T00:00:00Z">31-03-2022</time></div></div>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-04-04T00:00:00Z">04-04-2022</time></div></div>
 		</header>
 <div class="post__toc toc">
 	<div class="toc__title">Índice</div>
@@ -127,19 +127,20 @@
     <li><a href="#kernel-headers">Kernel headers</a></li>
     <li><a href="#alimentación">Alimentación</a></li>
     <li><a href="#temperatura">Temperatura</a></li>
+    <li><a href="#servicios">Servicios</a>
+      <ul>
+        <li><a href="#servidor-ssh">Servidor ssh</a></li>
+      </ul>
+    </li>
     <li><a href="#backup-tarjeta-sd">Backup tarjeta SD</a>
       <ul>
         <li><a href="#local">Local</a></li>
         <li><a href="#remota">Remota</a></li>
       </ul>
     </li>
+    <li><a href="#consejos-de-seguridad">Consejos de seguridad</a></li>
     <li><a href="#fecha-y-hora">Fecha y hora</a></li>
     <li><a href="#idioma">Idioma</a></li>
-    <li><a href="#servicios">Servicios</a>
-      <ul>
-        <li><a href="#servidor-ssh">Servidor ssh</a></li>
-      </ul>
-    </li>
   </ul>
 </nav>
 	</div>
@@ -305,6 +306,57 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 <p>Con la utilidad vcgencmd la cual nos lo muestra con un decimal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vcgencmd measure_temp</span></span></code></pre></div>
 <p>Esta información la podemos utilizar para monitorizar, tomar acciones con scripts, etc.</p>
+<h2 id="servicios">Servicios</h2>
+<h3 id="servidor-ssh">Servidor ssh</h3>
+<p>El servicio ssh es el que nos proporciona acceso remoto a nuestra Rpi. Para gestionarlo utilizaremos el comando service desde la terminal:</p>
+<p>Arrancar:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl start sshd</span></span></code></pre></div></p>
+<p>Reiniciar:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl restart sshd</span></span></code></pre></div></p>
+<p>Ver estado:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl status sshd -l</span></span></code></pre></div></p>
+<p>Parar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl stop sshd</span></span></code></pre></div>
+<p><strong>Si estamos conectados en remoto y paramos el servicio se cortara la cnexion.</strong></p>
+<p>Es aconsejable realizar una serie de ajustes para que se lo mas suegro posible. El fichero donde se almacena toda la configuración del servicio esta en /etc/ssh/sshd_config.</p>
+<p>Vamos a cambiar / definir una serie de parámetros. Antes de esto es aconsejable tener creadas las llaves de acceso remoto, <a href="https://jaimealberto.github.io/post/07_universosshi/#llaves">aquí</a>
+puedes ver como hacerlo.</p>
+<p>Ejemplo de fichero de configuración con comentarios:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># Version del protocolo</span>
+</span></span><span style="display:flex;"><span>Protocol <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Puerto</span>
+</span></span><span style="display:flex;"><span>Port <span style="color:#ae81ff">22445</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># AddressFamily any</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ListenAddress 0.0.0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ListenAddress ::</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># No permitir login remoto a root</span>
+</span></span><span style="display:flex;"><span>PermitRootLogin no
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tiempo necesario para introducir la contraseña</span>
+</span></span><span style="display:flex;"><span>LoginGraceTime <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Número de intentos permitidos al introducir la contraseña</span>
+</span></span><span style="display:flex;"><span>MaxAuthTries <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Número de logins simultáneos desde una IP</span>
+</span></span><span style="display:flex;"><span>MaxStartups <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista blanca de usuarios</span>
+</span></span><span style="display:flex;"><span>AllowUsers jhon fulano
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista negra de usuarios</span>
+</span></span><span style="display:flex;"><span>DenyUsers adrian adrian2
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista blanca de grupos</span>
+</span></span><span style="display:flex;"><span>AllowGroups admin sistemas
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista negra de grupos</span>
+</span></span><span style="display:flex;"><span>DenyGroups marketing ventas
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deshabilitar usuario y contraseña necesarias llaves</span>
+</span></span><span style="display:flex;"><span>PasswordAuthentication no
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Habilitar el uso de llaves.</span>
+</span></span><span style="display:flex;"><span>PubkeyAuthentication yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nivel de log </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deshabilitar tuneles</span>
+</span></span><span style="display:flex;"><span>AllowTcpForwarding no
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Habilitar tuneles para el usuario sistemas</span>
+</span></span><span style="display:flex;"><span>Match User sistemas
+</span></span><span style="display:flex;"><span>AllowTcpForwarding yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Banner</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PrintLastLog</span></span></span></code></pre></div>
 <h2 id="backup-tarjeta-sd">Backup tarjeta SD</h2>
 <h3 id="local">Local</h3>
 <p>Apagarmos la Rpi y la insertamos en nuestro equipo. Abrimos un terminal con privliegios de root e identificamos cual es el device de la tarjeta sd:</p>
@@ -315,8 +367,8 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>raspbackup.img bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>/dev/sdb</span></span></code></pre></div>
 <h3 id="remota">Remota</h3>
 <p>Puede que en algún momento necesitemos realizar una copia por red o que tengamos algo en producción con lo cual no podemos parar.Desde el terminal:</p>
-<p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh pi@192.168.1.155 <span style="color:#e6db74">&#34;sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -&#34;</span> | dd of<span style="color:#f92672">=</span>backup.gz</span></span></code></pre></div>
-Donde:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh pi@192.168.1.155 <span style="color:#e6db74">&#34;sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -&#34;</span> | dd of<span style="color:#f92672">=</span>backup.gz</span></span></code></pre></div>
+<p>Donde:</p>
 <ul>
 <li>&ldquo;pi&rdquo; El usuario que se conecta y puede ejecutar sudo sin pedir contraseña.</li>
 <li>&ldquo;192.168.1.155&rdquo; Dirección ip de nuestra Rpi.</li>
@@ -327,11 +379,76 @@ Donde:</p>
 <p>Se añade el parámetro &ldquo;status=progess&rdquo;, si vamos a  programar la tarea en el cron lo deberíamos omitir.</p>
 <p>La copia se realiza comprimida al añadir &ldquo;gzip -&rdquo;. Es opcional.</p>
 <p>Este procedimiento no me fallado nunca, esto no quiere decir que sea infalible tener en cuenta que esta en funcionamiento y se realiza el caliente.</p>
+<h2 id="consejos-de-seguridad">Consejos de seguridad</h2>
+<p>Consejos de seguridad</p>
+<ul>
+<li>No utilizar el inicio de sesión automático ni contraseñas vacías.</li>
+</ul>
+<p>Las contraseñas son una parte muy importante de la seguridad de nuestro sistema.</p>
+<ul>
+<li>
+<p>Asegúrarnos de que todos los accesos críticos piden una contraseña.</p>
+</li>
+<li>
+<p>Buscar contraseñas vacías:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo awk -F: <span style="color:#e6db74">&#39;($2 == &#34;&#34;) {print}&#39;</span> /etc/shadow</span></span></code></pre></div>
+<ul>
+<li>Bloquear las cuentas no seguras:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>passwd -l &lt;nombre de usuario&gt;</span></span></code></pre></div>
+<ul>
+<li>Cambiar la contrseña por defecto del usuario pi, logueados como usuario pi:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>passwd</span></span></code></pre></div>
+<ul>
+<li>Deshabilitar el usuario pi:</li>
+</ul>
+<p>Crear un nuevo usuario:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo adduser &lt;nombre de usuario&gt;</span></span></code></pre></div></p>
+<p>Dar privilegios sudo, si es necesario:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo adduser &lt;nombredeusuario&gt; sudo</span></span></code></pre></div></p>
+<p>Comprobar que todo funciona correctamente (acceso ssh, sudo, &hellip;).
+Copiar los archivos del usuario pi al nuevo usuario si es necesario:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo cp /home/pi/Documentos/* /home/&lt;nombredeusuario&gt;/Documentos/ ...</span></span></code></pre></div></p>
+<p>Eliminar el usuario pi:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo deluser -remove-home pi</span></span></code></pre></div></p>
+<p>Se  puedes empezar por bloquear la cuenta y eliminarla sólo cuando se compruebe que con el nuevo usuario todo esta ok.</p>
+<ul>
+<li>Deshabilitar  servicios innecesarios</li>
+</ul>
+<p>Tener servicios en ejecución es una clara brecha de seguridad en cualquier sistema.</p>
+<p>Listar servicios en ejecución:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo service --status-all</span></span></code></pre></div>
+<p>Parar un servicio:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo service &lt;nombre del servicio&gt; stop</span></span></code></pre></div>
+<p>Si el servicio arranca automáticamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo update-rc.d &lt;nombre-del-servicio&gt; remove</span></span></code></pre></div>
+<p>Para desinstalarlo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo apt remove &lt;nombre-del-servicio&gt;</span></span></code></pre></div>
+<ul>
+<li>Solicitar contraseña para el uso de</li>
+</ul>
+<p>Editar :</p>
+<p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo visudo</span></span></code></pre></div>
+Buscar :</p>
+<p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>pi ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: ALL</span></span></code></pre></div>
+#tldr
+Sustitúyala por :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>pi ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> PASSWD: ALL</span></span></code></pre></div>
+<p>Realiza esta operación con los usuarios que tengan que utilizar sudo</p>
+<ul>
+<li>
+<p>Realizar backup´s periódicamente de la tarjeta SD.</p>
+</li>
+<li>
+<p>Securizar servicio ssh.</p>
+</li>
+</ul>
 <p><strong>próximamente</strong></p>
 <h2 id="fecha-y-hora">Fecha y hora</h2>
 <h2 id="idioma">Idioma</h2>
-<h2 id="servicios">Servicios</h2>
-<h3 id="servidor-ssh">Servidor ssh</h3>
 
 		</div>
 	</article>
