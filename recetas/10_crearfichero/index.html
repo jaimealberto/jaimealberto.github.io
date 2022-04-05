@@ -4,21 +4,21 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Geolocalización de mi ip pública - </title>
+	<title>Crear fichero vacío - </title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Obtener nuestra ip pública y su geolocalización">
-		<meta property="og:title" content="Geolocalización de mi ip pública" />
-<meta property="og:description" content="Obtener nuestra ip pública y su geolocalización" />
+	<meta name="description" content="Crear fichero vacío">
+		<meta property="og:title" content="Crear fichero vacío" />
+<meta property="og:description" content="Crear fichero vacío" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/recetas/09_geoip/" /><meta property="article:section" content="Recetas" />
+<meta property="og:url" content="https://jaimealberto.github.io/recetas/10_crearfichero/" /><meta property="article:section" content="Recetas" />
 
 
 
 
-		<meta itemprop="name" content="Geolocalización de mi ip pública">
-<meta itemprop="description" content="Obtener nuestra ip pública y su geolocalización">
+		<meta itemprop="name" content="Crear fichero vacío">
+<meta itemprop="description" content="Crear fichero vacío">
 
-<meta itemprop="wordCount" content="10">
+<meta itemprop="wordCount" content="36">
 <meta itemprop="keywords" content="" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -102,13 +102,17 @@
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Geolocalización de mi ip pública</h1>
+			<h1 class="post__title">Crear fichero vacío</h1>
 			<div class="post__meta meta"><div class="meta__item-author meta__item">
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div></div>
 		</header><div class="content post__content clearfix">
-			<h4 id="geolocalización-de-mi-ip-pública">Geolocalización de mi ip pública</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>IP<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl ifconfig.io<span style="color:#66d9ef">)</span> | curl ipinfo.io/$IP</span></span></code></pre></div>
+			<p>En ocasiones necesitamos ficheros vacíos con un tamaño determinado para realizar pruebas</p>
+<h4 id="borrar-líneas-en-blanco-de-un-archivo">Borrar líneas en Blanco de un archivo</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>10g.img bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> seek<span style="color:#f92672">=</span>10G</span></span></code></pre></div>
+<pre tabindex="0"><code>seek=10G                10 G tamaño en gigas
+10g.img                 Nombre del fichero resultado
+</code></pre>
 		</div>
 	</article>
 </main>
