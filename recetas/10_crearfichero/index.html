@@ -18,7 +18,7 @@
 		<meta itemprop="name" content="Crear fichero vacío">
 <meta itemprop="description" content="Crear fichero vacío">
 
-<meta itemprop="wordCount" content="36">
+<meta itemprop="wordCount" content="30">
 <meta itemprop="keywords" content="" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -108,7 +108,7 @@
 </div></div>
 		</header><div class="content post__content clearfix">
 			<p>En ocasiones necesitamos ficheros vacíos con un tamaño determinado para realizar pruebas</p>
-<h4 id="borrar-líneas-en-blanco-de-un-archivo">Borrar líneas en Blanco de un archivo</h4>
+<p>Ejemplo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>10g.img bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> seek<span style="color:#f92672">=</span>10G</span></span></code></pre></div>
 <pre tabindex="0"><code>seek=10G                10 G tamaño en gigas
 10g.img                 Nombre del fichero resultado
