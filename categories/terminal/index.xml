@@ -6,7 +6,19 @@
     <description>Recent content in Terminal on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integrar actualizaciones Visual Studio Code</title>
+      <link>https://jaimealberto.github.io/post/28_vscodeinstall/</link>
+      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/28_vscodeinstall/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vsinstall.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Utilidades terminal IV</title>
       <link>https://jaimealberto.github.io/post/21_utilidadesterminaliv/</link>
