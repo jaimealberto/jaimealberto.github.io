@@ -8,6 +8,23 @@
     <language>es</language>
     <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Recursos</title>
+      <link>https://jaimealberto.github.io/recursos/</link>
+      <pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recursos/</guid>
+      <description>Herramientas on-line Diagramas  Excalidraw. Drawio.  Transferencia segura   Wormhole.
+  One Time Secret.
+  MEditor, editor MarkDown Open Source en linea.
+  Sitios Bancos de imágenes   Unsplash, banco de imagenes free.
+  Pixels, banco de imagenes free.
+  Pixabay, banco de imagenes free.
+  Barnimages, banco de imagenes free.
+  The Noun Project, banco de iconos.
+  Freepik, banco de imagnes de vectores.</description>
+    </item>
+    
+    <item>
       <title>Integrar actualizaciones Visual Studio Code</title>
       <link>https://jaimealberto.github.io/post/28_vscodeinstall/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
@@ -29,23 +46,6 @@
 Raspi-config Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:
 raspi-config Menus:
  System Options  Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login  Console Text console, requiring user to login ( elegimos esta opción )   Network at Boot ( seleccionamos no para acelerar el arranque )   Inteface Options  SSH Enabled/disable remote command line access using SSH ( enable )   Location options  Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado )   Update ( actualizamos la herramienta )  Es necesario reiniciar para aplicar los cambios.</description>
-    </item>
-    
-    <item>
-      <title>Recursos</title>
-      <link>https://jaimealberto.github.io/recursos/</link>
-      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/recursos/</guid>
-      <description>Herramientas on-line Diagramas  Excalidraw. Drawio.  Transferencia segura   Wormhole.
-  One Time Secret.
-  MEditor, editor MarkDown Open Source en linea.
-  Sitios Bancos de imágenes   Unsplash, banco de imagenes free.
-  Pixels, banco de imagenes free.
-  Pixabay, banco de imagenes free.
-  Barnimages, banco de imagenes free.
-  The Noun Project, banco de iconos.
-  Freepik, banco de imagnes de vectores.</description>
     </item>
     
     <item>
