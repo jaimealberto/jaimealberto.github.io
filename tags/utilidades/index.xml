@@ -6,7 +6,19 @@
     <description>Recent content in Utilidades on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/utilidades/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/utilidades/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sincronizar configuración Visual Studio Code</title>
+      <link>https://jaimealberto.github.io/post/29_vscodesync/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/29_vscodesync/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vssync.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Digital Ocean, utilidades</title>
       <link>https://jaimealberto.github.io/post/19_doutils/</link>

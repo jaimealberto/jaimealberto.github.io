@@ -6,7 +6,16 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Utilidades</title>
+      <link>https://jaimealberto.github.io/tags/utilidades/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>SO</title>
       <link>https://jaimealberto.github.io/tags/so/</link>
@@ -40,15 +49,6 @@
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/terminal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Utilidades</title>
-      <link>https://jaimealberto.github.io/tags/utilidades/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
       <description></description>
     </item>
     

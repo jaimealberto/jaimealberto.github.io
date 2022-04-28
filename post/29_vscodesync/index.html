@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Sincronizar configuración Visual Studio Code - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Sincronizar configuración">
+		<meta property="og:title" content="Sincronizar configuración Visual Studio Code" />
+<meta property="og:description" content="Sincronizar configuración" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/29_vscodesync/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-27T00:00:00+00:00" />
+
+
+		<meta itemprop="name" content="Sincronizar configuración Visual Studio Code">
+<meta itemprop="description" content="Sincronizar configuración"><meta itemprop="datePublished" content="2022-04-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-04-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="284">
+<meta itemprop="keywords" content="Utilidades," />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Sincronizar configuración Visual Studio Code</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-04-27T00:00:00Z">27-04-2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure><img src="/img/vssync.jpg"/>
+</figure>
+
+<p>Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.</p>
+<p>Pues bien para esto también tiene solución, dentro de la infinidad de extensiones disponibles tenemos Github Gist. Esta nos permite tener toda nuestra configuración sincronizada en nuestra cuenta de Github. Esto nos permite poder sincronizarla con todos nuestras instalaciones en los entornos que trabajamos. Ahora veremos como implementar esta mejora.</p>
+<p>¿Qué sincroniza?</p>
+<ul>
+<li>Archivos de configuración.</li>
+<li>Archivos de keybindings.</li>
+<li>Archivos de inicio.</li>
+<li>Snippets.</li>
+<li>Extensiones y su configuraciones.</li>
+<li>Carpetas de espacios de trabajo.</li>
+</ul>
+<p>Lo primero instalamos la extensión Settings Sync desde el marketplace:</p>
+<figure><img src="/img/vssync01.png"/>
+</figure>
+
+<p>Luego desde nuestra cuenta de Github generaramos un token de acceso personal. Settings/Personal access tokens/Generate new token</p>
+<figure><img src="/img/vssync02.jpeg"/>
+</figure>
+
+<p>Durante la  generación del nuevo token le ponemos una etiqueta y solo selecciomos la casilla crear gists.</p>
+<figure><img src="/img/vssync03.jpeg"/>
+</figure>
+
+<p>Generate token y nos da el token, copiamos el hash en lugar seguro y accesible. Para poder utilizarlo al descargar la configuración en otros entornos.</p>
+<p>Desde Visual Studio Code abrimos la paleta de comandos con command + shift + p ( Mac Os ) ctrl + shift + p ( Linux ) y teclea sync y te aparecerá la lista de opciones.</p>
+<figure><img src="/img/vssync04.png"/>
+</figure>
+
+<p>Sync: Update/Upload Settingsy se te pedirá el token de Github.</p>
+<p>Despues la configuración será subida a Github, se vera el progreso en la SALIDA del terminal.</p>
+<figure><img src="/img/vssync05.jpeg"/>
+</figure>
+
+<p>Puedes ver que archivos y extensiones se subieron a Github en tu perfil.</p>
+<p>Para descargar la configuración en otro entorno, instalamos la extensión luego ingresamos en token y bajamos la configuración. Así de simple y ahorrando trabajo.</p>
+<p>Espero sea útil. Nos leemos pronto.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/utilidades/" rel="tag">Utilidades</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
