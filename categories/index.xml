@@ -17,20 +17,11 @@
     </item>
     
     <item>
-      <title>Vistual Studio Code</title>
-      <link>https://jaimealberto.github.io/categories/vistual-studio-code/</link>
+      <title>Visual Studio Code</title>
+      <link>https://jaimealberto.github.io/categories/visual-studio-code/</link>
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/categories/vistual-studio-code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terminal</title>
-      <link>https://jaimealberto.github.io/categories/terminal/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/categories/terminal/</guid>
+      <guid>https://jaimealberto.github.io/categories/visual-studio-code/</guid>
       <description></description>
     </item>
     
@@ -58,6 +49,15 @@
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/categories/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>https://jaimealberto.github.io/categories/terminal/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/terminal/</guid>
       <description></description>
     </item>
     
