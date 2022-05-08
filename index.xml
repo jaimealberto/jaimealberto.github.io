@@ -8,6 +8,15 @@
     <language>es</language>
     <lastBuildDate>Sat, 30 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Recursos</title>
+      <link>https://jaimealberto.github.io/recursos/</link>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recursos/</guid>
+      <description>Herramientas on-line  Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Wormhole, transferencia segura de ficheros.  Sitios  Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Pixabay, banco de imagenes free. The Noun Project, banco de iconos. Unsplash, banco de imagenes free.</description>
+    </item>
+    
+    <item>
       <title>Visual Studio Code I</title>
       <link>https://jaimealberto.github.io/post/25_vscodei/</link>
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
@@ -17,15 +26,6 @@
 &lt;/figure&gt;
 
 &lt;p&gt;Hace tiempo comencé con la búsqueda de  un editor de código con el que pudiera escribir scripts (Bash, Powershell,Zsh, etc), código en Python, documentos en MarkDown, archivos de configuración , utilizar Hugo, guiones de Terraform, etc. Otro objetivo claro es que funcionara igual en cualquier entorno ( Linux, MacOs y Windows ), que fuera gratis y con gran comunidad. Pues bien dando muchas vueltas me decidí por Visual Studio Code (VSC).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Recursos</title>
-      <link>https://jaimealberto.github.io/recursos/</link>
-      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/recursos/</guid>
-      <description>Herramientas on-line  Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Wormhole, transferencia segura de ficheros.  Sitios  Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Pixabay, banco de imagenes free. The Noun Project, banco de iconos. Unsplash, banco de imagenes free.</description>
     </item>
     
     <item>
@@ -419,6 +419,15 @@ Bajo los siguientes términos:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/recetas/02_screen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>youtube-dl to mp3</title>
+      <link>https://jaimealberto.github.io/recetas/11_yoump3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/11_yoump3/</guid>
       <description></description>
     </item>
     
