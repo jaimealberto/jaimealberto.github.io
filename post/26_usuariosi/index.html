@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Usuarios en Linux I - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Usuarios">
+		<meta property="og:title" content="Usuarios en Linux I" />
+<meta property="og:description" content="Usuarios" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/26_usuariosi/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-09T00:00:00+00:00" />
+
+
+		<meta itemprop="name" content="Usuarios en Linux I">
+<meta itemprop="description" content="Usuarios"><meta itemprop="datePublished" content="2022-05-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="830">
+<meta itemprop="keywords" content="Terminal," />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Usuarios en Linux I</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-05-09T00:00:00Z">09-05-2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#tipos-de-usuarios">Tipos de usuarios:</a>
+      <ul>
+        <li><a href="#usuario-root">Usuario root</a></li>
+        <li><a href="#usuarios-especiales">Usuarios especiales</a></li>
+        <li><a href="#usuarios-normales">Usuarios normales</a></li>
+      </ul>
+    </li>
+    <li><a href="#gestión-de-usuarios">Gestión de usuarios</a>
+      <ul>
+        <li><a href="#añadir">Añadir</a></li>
+        <li><a href="#modificar">Modificar</a></li>
+        <li><a href="#borrar">Borrar</a></li>
+      </ul>
+    </li>
+    <li><a href="#contraseñas">Contraseñas</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure><img src="/img/usuariosi.jpg"/>
+</figure>
+
+<p>Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.</p>
+<p>Primero vamos a dejar algunos conceptos claros y luego los comandos con sus funciones. Para realizar este trabajo desde el terminal tenemos varios comandos. Tienen varias funciones, creación, borrado, cambios, etc. Vamos a ver algunos de ellos.</p>
+<h2 id="tipos-de-usuarios">Tipos de usuarios:</h2>
+<h3 id="usuario-root">Usuario root</h3>
+<ul>
+<li>También conocido como superusuario o administrador.</li>
+<li>Su UID (User ID) es 0.</li>
+<li>Cuenta con poder sobre todo el sistema.</li>
+<li>Acceso total a los archivos y directorios.</li>
+<li>Controla las de cuentas del resto de usuarios.</li>
+<li>Ejecuta tareas de mantenimiento.</li>
+<li>Instala software.</li>
+<li>Puede modificar cualquier parametro del sistema.</li>
+</ul>
+<p><strong>Puede realizar cualquier accion sobre el sistema</strong></p>
+<h3 id="usuarios-especiales">Usuarios especiales</h3>
+<ul>
+<li>bin, daemon, adm, lp, sync, etc.</li>
+<li>Conocidos también como cuentas de sistema.</li>
+<li>Dependiendo de la cuenta tiene privilegios alguna de root.</li>
+<li>No tienen contraseñas.</li>
+<li>Normalmente se les asigna un UID entre 1 y 100.</li>
+</ul>
+<h3 id="usuarios-normales">Usuarios normales</h3>
+<ul>
+<li>Se usan para usuarios individuales.</li>
+<li>Cada usuario dispone de un directorio de trabajo conocido como home que esta generalmente en /home.</li>
+<li>Tienen solo privilegios completos en su HOME.</li>
+<li>Normalmente se les asigna generalmente un UID superior a 500.</li>
+</ul>
+<h2 id="gestión-de-usuarios">Gestión de usuarios</h2>
+<p>Para la gestión de usuario utilizamos varios comandos, lo mas importantes son:</p>
+<ul>
+<li>useradd</li>
+<li>usermod</li>
+<li>userdel</li>
+<li>passwd</li>
+<li>chage</li>
+</ul>
+<p>Ahora veremos como utilizar cada uno de ellos.</p>
+<h3 id="añadir">Añadir</h3>
+<p>El comando que nos permite añadir un usuario  es “adduser”, Lo utilizaremos desde el terminal como root. Las opciones más utilizadas son:</p>
+<pre tabindex="0"><code>-c añade un comentario.
+-d indica el home del usuario. Si no existe no se creará.
+-m crea el home del usuario si no existe.
+-e indica la fecha de expiración de la cuenta, formato AAAA-MM-DD.
+-G otros grupos a los que puede pertenecer el usuario, separados por comas.
+-s shell por defecto, bash.
+-u UID del usuario, automáticamente el siguiente disponible.
+</code></pre><p>Si utilizamos el comando sin especificar ninguna opcion, se utilizaran las que tenga el sistema por defecto, que se almacenan en/ etc/default/useradd. Estas se pueden consultar con el comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#useradd -D</span>
+</span></span><span style="display:flex;"><span>GROUP<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>HOME<span style="color:#f92672">=</span>/home
+</span></span><span style="display:flex;"><span>INACTIVE<span style="color:#f92672">=</span>-1
+</span></span><span style="display:flex;"><span>EXPIRE<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>SHELL<span style="color:#f92672">=</span>/bin/sh
+</span></span><span style="display:flex;"><span>SKEL<span style="color:#f92672">=</span>/etc/skel
+</span></span><span style="display:flex;"><span>CREATE_MAIL_SPOOL<span style="color:#f92672">=</span>no</span></span></code></pre></div>
+<p>Con este mismo comando podemos modificar o añadir variables por defecto.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#useradd -m -d /home/sistemas -s /bin/bash -c &#34;Sistemas&#34; sistemas</span></span></span></code></pre></div>
+<p>Con el comando anterior hemos creado un usuario llamado sistemas, con su home en /home/sistemas, creando el home y con un comentario en el que pone Sistemas.</p>
+<p>Una vez creado el usuario le ponemos contraseña del siguiente modo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#passwd sistemas</span>
+</span></span><span style="display:flex;"><span>Nueva contraseña:
+</span></span><span style="display:flex;"><span>Vuelva a escribir la nueva contraseña:</span></span></code></pre></div>
+<h3 id="modificar">Modificar</h3>
+<p>El comando que nos permite modificar o actualizar las características de un usuario  es “usermod”, Lo utilizaremos desde el terminal como root. Las opciones más utilizadas son:</p>
+<pre tabindex="0"><code>-c añade o modifica el comentario.
+-d modifica home del usuario.
+-e cambia o establece la fecha de expiración de la cuenta, formato AAAA-MM-DD.
+-l cambia el login o nombre del usuario.
+-L bloque la cuenta del usuario. No borra ni cambia nada del usuario, solo lo deshabilita.
+-s cambia el shell por defecto del usuario.
+-U desbloquea una cuenta bloqueada con la opción -L.
+</code></pre><h3 id="borrar">Borrar</h3>
+<p>El comando borra un usuario  es “userdel”, Lo utilizaremos desde el terminal como root. Las opciones más utilizadas son:</p>
+<pre tabindex="0"><code>-f fuerza la eliminación de la cuenta de usuario, incluso si esta conectado. Borra su  home y el spool de correo
+   Nota: Esta opción es peligrosa y puede dejar su sistema en un estado inconsistente.
+-r borra el home y el spool de correo. Si el usuario tiene ficheros en otros sistemas no los borrar.
+</code></pre><h2 id="contraseñas">Contraseñas</h2>
+<p>Para la gestión de contraseñas se pueden utilizar varios comandos (passwd,chage,etc).</p>
+<p>Con passwd el de usuario al ejecutarlo cambia su contraseañ. Si lo eejecuta root indicando un usuario concreto cambia la contraseña del usuario indicado como hemos visto anteriormente en la creación del usuario. El proceso tiene varios pasos:</p>
+<ul>
+<li>Sollicita la antigua contraseña, si existe.</li>
+<li>Se comprueba, se verifica que el usuario puede cambiarla.</li>
+<li>Solicita la nueva contraseña.</li>
+<li>Solicita repetir la nueva contraseña.</li>
+</ul>
+<p>Este proceso es cuando el comando lo utiliza un usuario, si lo utiliza root no realia ninguna comprobación.</p>
+<p>Las opciones más utilizadas son:</p>
+<pre tabindex="0"><code>-d borra la contraseña. Forma rápida de desactivar el usuario.
+-e expira. Fuerza al usuario a cambiar su contraseña en el próximo inicio de sesión.
+-i desactiva después de que la contraseña haya caducado.
+-l Bloquea la contraseña. Esta opción deshabilita una contraseña (añade un &#39;!&#39; al principio de la contraseña).
+   ** Esto no desactiva la cuenta si usuario esta utilizando otro token de autenticación (por ejemplo, una clave SSH).
+   Para deshabilitar utilizar usermod --expiredate 1 (fecha de expiración 02/01/).**
+-n número mínimo de días entre cambios, si el es cero puede cambiar cuando quiera.
+-S información del estado.
+-u desbloquea la contraseña, deja el valor anterior de la opción -l.
+-w número de días de advertencia antes de solicitar el cambio.
+</code></pre><p><strong>Los usuarios con una contraseña bloqueada no pueden cambiar su contraseña.</strong></p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/terminal/" rel="tag">Terminal</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

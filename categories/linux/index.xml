@@ -6,7 +6,19 @@
     <description>Recent content in Linux on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Usuarios en Linux I</title>
+      <link>https://jaimealberto.github.io/post/26_usuariosi/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/26_usuariosi/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosi.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Utilidades terminal IV</title>
       <link>https://jaimealberto.github.io/post/21_utilidadesterminaliv/</link>
