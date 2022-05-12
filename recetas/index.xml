@@ -105,5 +105,16 @@
       <description></description>
     </item>
     
+    <item>
+      <title>ZsH Oh-My-Zsh</title>
+      <link>https://jaimealberto.github.io/recetas/12_ozsh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/12_ozsh/</guid>
+      <description>Aplicar cambios: omz reload
+Mover / Remonbrar de forma masiva autoload zmv zmv
+   Command Description     alias Lista los alias disponibles   zsh_stats Muestra el top 20 de comandos mas utilizados   take Trabaja con directorios   takedir  mkdir &amp;amp;&amp;amp; cd    takegit    takeurl        Alias Command     md mkdir -p   rd rmdir   cd / ~ cd home de usuario   .</description>
+    </item>
+    
   </channel>
 </rss>
