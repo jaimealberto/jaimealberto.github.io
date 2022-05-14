@@ -8,6 +8,15 @@
     <language>es</language>
     <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Recursos</title>
+      <link>https://jaimealberto.github.io/recursos/</link>
+      <pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recursos/</guid>
+      <description>Herramientas on-line  Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, envio de ficheros. Wormhole, transferencia segura de ficheros.  Sitios  Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Pixabay, banco de imagenes free. The Noun Project, banco de iconos.</description>
+    </item>
+    
+    <item>
       <title>El día a día, cambio de paradigma.</title>
       <link>https://jaimealberto.github.io/vida/01_paradigmai/</link>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
@@ -31,15 +40,6 @@
 &lt;/figure&gt;
 
 &lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Recursos</title>
-      <link>https://jaimealberto.github.io/recursos/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/recursos/</guid>
-      <description>Herramientas on-line  Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, envio de ficheros. Wormhole, transferencia segura de ficheros.  Sitios  Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Pixabay, banco de imagenes free. The Noun Project, banco de iconos.</description>
     </item>
     
     <item>
@@ -76,6 +76,18 @@
 &lt;/figure&gt;
 
 &lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi</title>
+      <link>https://jaimealberto.github.io/raspberrypi/</link>
+      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/raspberrypi/</guid>
+      <description>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo
+Raspi-config Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:
+raspi-config Menus:
+ System Options  Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login  Console Text console, requiring user to login ( elegimos esta opción )   Network at Boot ( seleccionamos no para acelerar el arranque )   Inteface Options  SSH Enabled/disable remote command line access using SSH ( enable )   Location options  Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado )   Update ( actualizamos la herramienta )  Es necesario reiniciar para aplicar los cambios.</description>
     </item>
     
     <item>
