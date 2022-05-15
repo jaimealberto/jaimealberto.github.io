@@ -6,7 +6,19 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Usuarios en Linux II, política de contraseñas</title>
+      <link>https://jaimealberto.github.io/post/27_usuariosii/</link>
+      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/27_usuariosii/</guid>
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Usuarios en Linux I</title>
       <link>https://jaimealberto.github.io/post/26_usuariosi/</link>
