@@ -6,7 +6,19 @@
     <description>Recent content in SO on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/so/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/so/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Personalizar login en Gnome, GDM 3</title>
+      <link>https://jaimealberto.github.io/post/14_customgdm3/</link>
+      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/14_customgdm3/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Organizar escritorio en Windows</title>
       <link>https://jaimealberto.github.io/post/24_windows1/</link>

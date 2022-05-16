@@ -17,6 +17,18 @@
     </item>
     
     <item>
+      <title>Personalizar login en Gnome, GDM 3</title>
+      <link>https://jaimealberto.github.io/post/14_customgdm3/</link>
+      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/14_customgdm3/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Usuarios en Linux II, política de contraseñas</title>
       <link>https://jaimealberto.github.io/post/27_usuariosii/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
