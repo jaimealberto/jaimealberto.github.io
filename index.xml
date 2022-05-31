@@ -13,7 +13,7 @@
       <pubDate>Mon, 16 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/recursos/</guid>
-      <description>Herramientas on-line  Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, envio de ficheros. Wormhole, transferencia segura de ficheros.  Sitios  Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Pixabay, banco de imagenes free. The Noun Project, banco de iconos.</description>
+      <description>Herramientas on-line Color Hunt, paleta de colores. Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, envio de ficheros. Wormhole, transferencia segura de ficheros. Sitios Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Pixabay, banco de imagenes free. The Noun Project, banco de iconos.</description>
     </item>
     
     <item>
@@ -111,7 +111,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <description>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo
 Raspi-config Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:
 raspi-config Menus:
- System Options  Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login  Console Text console, requiring user to login ( elegimos esta opción )   Network at Boot ( seleccionamos no para acelerar el arranque )   Inteface Options  SSH Enabled/disable remote command line access using SSH ( enable )   Location options  Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado )   Update ( actualizamos la herramienta )  Es necesario reiniciar para aplicar los cambios.</description>
+System Options Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login Console Text console, requiring user to login ( elegimos esta opción ) Network at Boot ( seleccionamos no para acelerar el arranque ) Inteface Options SSH Enabled/disable remote command line access using SSH ( enable ) Location options Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado ) Update ( actualizamos la herramienta ) Es necesario reiniciar para aplicar los cambios.</description>
     </item>
     
     <item>
@@ -241,10 +241,10 @@ raspi-config Menus:
       
       <guid>https://jaimealberto.github.io/about/</guid>
       <description>&amp;hellip; son varias, algunas de ellas:
-  Tener un site con referencias y guiás técnicas que me han permitido realizar mejor mi trabajo con la intención que le pueda ser útil a mas gente.
-  Compartir algunas de mis experiencias laborales que tal vez puedan resultar curiosas o graciosas.
-  Poder expresar mis ideas y pensamientos libremente.
-  Todo el contenido tiene licencia CC BY-NC-SA 4.</description>
+Tener un site con referencias y guiás técnicas que me han permitido realizar mejor mi trabajo con la intención que le pueda ser útil a mas gente.
+Compartir algunas de mis experiencias laborales que tal vez puedan resultar curiosas o graciosas.
+Poder expresar mis ideas y pensamientos libremente.
+Todo el contenido tiene licencia CC BY-NC-SA 4.0</description>
     </item>
     
     <item>
@@ -367,7 +367,7 @@ Compartir — copiar y redistribuir el material en cualquier medio o formato
 Adaptar — remezclar, transformar y construir a partir del material
 El licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia.
 Bajo los siguientes términos:
- Atribución — Usted debe darle crédito a esta obra de manera adecuada, proporcionando un enlace a la licencia, e indicando si se han realizado cambios.</description>
+Atribución — Usted debe darle crédito a esta obra de manera adecuada, proporcionando un enlace a la licencia, e indicando si se han realizado cambios.</description>
     </item>
     
     <item>
