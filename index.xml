@@ -13,7 +13,7 @@
       <pubDate>Mon, 16 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/recursos/</guid>
-      <description>Herramientas on-line Color Hunt, paleta de colores. Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, envio de ficheros. Wormhole, transferencia segura de ficheros. Sitios Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Pixabay, banco de imagenes free. The Noun Project, banco de iconos.</description>
+      <description>Herramientas on-line Color Hunt, paleta de colores. Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, envio de ficheros. Wormhole, transferencia segura de ficheros. Sitios Barnimages, banco de imagenes free. Freepik, banco de imagnes de vectores. Pixels, banco de imagenes free. Listas AdGuard, listas para añadir a nuestro filtro dns.</description>
     </item>
     
     <item>
@@ -470,6 +470,19 @@ Atribución — Usted debe darle crédito a esta obra de manera adecuada, propor
       
       <guid>https://jaimealberto.github.io/recetas/13_hash/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>https://jaimealberto.github.io/recetas/18_markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/18_markdown/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Lenguaje de marcado que facilita el formateo de texto.&lt;/li&gt;
+&lt;li&gt;Extensión md&lt;/li&gt;
+&lt;li&gt;Referencia rápida.&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
