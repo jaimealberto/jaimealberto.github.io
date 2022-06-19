@@ -482,6 +482,15 @@ Atribución — Usted debe darle crédito a esta obra de manera adecuada, propor
     </item>
     
     <item>
+      <title>Recuperar root en OPNSense</title>
+      <link>https://jaimealberto.github.io/recetas/17_rootopnsense/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/17_rootopnsense/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Scp, transferencia de archivos sobre ssh</title>
       <link>https://jaimealberto.github.io/recetas/03_scp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
