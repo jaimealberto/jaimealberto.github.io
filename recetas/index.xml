@@ -61,6 +61,24 @@
     </item>
     
     <item>
+      <title>Deshabilitar actualizaciones automáticas</title>
+      <link>https://jaimealberto.github.io/recetas/20_update/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/20_update/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deshabilitar ipv6 en grub</title>
+      <link>https://jaimealberto.github.io/recetas/19_grubipv6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/19_grubipv6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Firefox Send, envio archivos</title>
       <link>https://jaimealberto.github.io/recetas/04_envio_fsend/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
