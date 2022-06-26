@@ -10,16 +10,18 @@
 		<meta property="og:title" content="Comandos en bucle" />
 <meta property="og:description" content="Ejecutar varios comandos en bucle durante x segundos" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/recetas/05_buclecomandos/" /><meta property="article:section" content="Recetas" />
-
-
+<meta property="og:url" content="https://jaimealberto.github.io/recetas/05_buclecomandos/" />
 
 
 		<meta itemprop="name" content="Comandos en bucle">
 <meta itemprop="description" content="Ejecutar varios comandos en bucle durante x segundos">
 
 <meta itemprop="wordCount" content="56">
+
+
+
 <meta itemprop="keywords" content="" />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -123,8 +125,8 @@
 		</header><div class="content post__content clearfix">
 			<h4 id="ejecutar-varios-comandos-en-bucle-durante-x-segundos">Ejecutar varios comandos en bucle durante x segundos</h4>
 <p>Ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> sleep <span style="color:#ae81ff">5</span> ; <span style="color:#66d9ef">do</span> curl ifconfig.io <span style="color:#f92672">&amp;&amp;</span> speedtest <span style="color:#f92672">&amp;&amp;</span> ping -c <span style="color:#ae81ff">5</span> 9.9.9.9 ; <span style="color:#66d9ef">done</span></span></span></code></pre></div>
-<pre tabindex="0"><code>while sleep 5     Cada 5 segundos
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#66d9ef">while</span> sleep <span style="color:#ae81ff">5</span> ; <span style="color:#66d9ef">do</span> curl ifconfig.io <span style="color:#f92672">&amp;&amp;</span> speedtest <span style="color:#f92672">&amp;&amp;</span> ping -c <span style="color:#ae81ff">5</span> 9.9.9.9 ; <span style="color:#66d9ef">done</span></code></pre></div>
+<pre><code>while sleep 5     Cada 5 segundos
 curl ifconfig.io  Obtenemos ip publica
 speedtest         Realizamos un test de velocidad
 ping -c 5 9.9.9.9 Realizamos un ping enviando 5 paquetes a la ip 9.9.9.9

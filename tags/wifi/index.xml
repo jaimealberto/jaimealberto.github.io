@@ -13,7 +13,8 @@
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/09_passwordwifi/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/pwdwifi.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/pwdwifi.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>

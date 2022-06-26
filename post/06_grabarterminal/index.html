@@ -10,16 +10,20 @@
 		<meta property="og:title" content="Grabar el terminal" />
 <meta property="og:description" content="Como grabar acciones en el terminal" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/06_grabarterminal/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/06_grabarterminal/" />
 <meta property="article:published_time" content="2021-08-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-08-01T00:00:00+00:00" />
 
-
 		<meta itemprop="name" content="Grabar el terminal">
-<meta itemprop="description" content="Como grabar acciones en el terminal"><meta itemprop="datePublished" content="2021-08-01T00:00:00+00:00" />
+<meta itemprop="description" content="Como grabar acciones en el terminal">
+<meta itemprop="datePublished" content="2021-08-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-08-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="191">
+
+
+
 <meta itemprop="keywords" content="Utilidades," />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -138,25 +142,27 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/grabarterminal.jpg"/>
+			<figure>
+    <img src="/img/grabarterminal.jpg"/> 
 </figure>
 
 <p>Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.</p>
 <p>Bueno vamos al lio.</p>
 <h2 id="instalación">Instalación</h2>
 <p>Realizamos la instalacion en nuestro MacOS abriendo un terminal y utilizando brew:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install ttyrec ttygif</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install ttyrec ttygif</code></pre></div>
 <h2 id="grabación">Grabación</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ttyrec &lt;nombre de la grabación&gt;</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ttyrec &lt;nombre de la grabación&gt;</code></pre></div>
 <h2 id="reproducción">Reproducción</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ttyplay &lt;nombre de la grabación&gt;</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ttyplay &lt;nombre de la grabación&gt;</code></pre></div>
 <h2 id="conversión-a-gif-animado">Conversión a gif animado</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ttygif &lt;nombre de la grabación&gt; -f</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ttygif &lt;nombre de la grabación&gt; -f</code></pre></div>
 <p>Opciones mas comunes:</p>
-<pre tabindex="0"><code>-f pantalla completa, incluye el borde de la ventana del terminal
+<pre><code>-f pantalla completa, incluye el borde de la ventana del terminal
 -s indica la velocidad, por defecto 1
 </code></pre><p>Ejemplo del resultado:</p>
-<figure><img src="/img/grabacionterminal.gif"/>
+<figure>
+    <img src="/img/grabacionterminal.gif"/> 
 </figure>
 
 <p>La herramienta también esta disponible para muchas de las distribuciones Linux.</p>

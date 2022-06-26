@@ -10,16 +10,20 @@
 		<meta property="og:title" content="Donde están mis contraseñas Wifi" />
 <meta property="og:description" content="Como visualziar nuestras contraseñas Wifi almacenadas" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/09_passwordwifi/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/09_passwordwifi/" />
 <meta property="article:published_time" content="2021-08-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-08-06T00:00:00+00:00" />
 
-
 		<meta itemprop="name" content="Donde están mis contraseñas Wifi">
-<meta itemprop="description" content="Como visualziar nuestras contraseñas Wifi almacenadas"><meta itemprop="datePublished" content="2021-08-06T00:00:00+00:00" />
+<meta itemprop="description" content="Como visualziar nuestras contraseñas Wifi almacenadas">
+<meta itemprop="datePublished" content="2021-08-06T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-08-06T00:00:00+00:00" />
 <meta itemprop="wordCount" content="168">
+
+
+
 <meta itemprop="keywords" content="Wifi,Redes," />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -137,28 +141,29 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/pwdwifi.jpg"/>
+			<figure>
+    <img src="/img/pwdwifi.jpg"/> 
 </figure>
 
 <p>Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.</p>
 <h2 id="linux">Linux</h2>
 <p>Abrimos un terminal y vamos al lio:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo cat /etc/NetworkManager/system-connections/nombre_de_la_red_wifi | grep psk<span style="color:#f92672">=</span></span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sudo cat /etc/NetworkManager/system-connections/nombre_de_la_red_wifi | grep psk<span style="color:#f92672">=</span></code></pre></div>
 <h2 id="macos">MacOs</h2>
 <p>Abrimos un terminal y realizamos los siguientes pasos:</p>
 <p>Identificamos interfaces de red Wifi:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>security find-generic-password -wa red_wifi</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">security find-generic-password -wa red_wifi</code></pre></div>
 <p>Listamos los perfiles Wifi :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>networksetup -listpreferredwirelessnetworks &lt;interface&gt;</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">networksetup -listpreferredwirelessnetworks &lt;interface&gt;</code></pre></div>
 <p>Consultamos la contraseña del perfil:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>security  find-generic-password -wa &lt;perfil&gt;</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">security  find-generic-password -wa &lt;perfil&gt;</code></pre></div>
 <p>Aparece una ventana solicitando usuario y contraseña con derechos de administrador luego mostrara la contraseña.</p>
 <h2 id="windows">Windows</h2>
 <p>Abrimos nuestro terminal de Windows y realizamos los siguientes pasos:</p>
 <p>Listamos los perfiles Wifi</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>netsh wlan show profile</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">netsh wlan show profile</code></pre></div>
 <p>Consultamos la contraseña del perfil:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>netsh wlan sho profile name=nombredelperfil key=clear</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">netsh wlan sho profile name=nombredelperfil key=clear</code></pre></div>
 <p>Esto nos muestra una salida con una linea que contiene “Contenido de la clave : Esta es la contraseña “.</p>
 		</div>
 		<footer class="post__footer">

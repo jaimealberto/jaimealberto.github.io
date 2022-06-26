@@ -10,16 +10,20 @@
 		<meta property="og:title" content="Universo Ssh II" />
 <meta property="og:description" content="Segundo post sobre todo lo relacionado con Ssh" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/11_universosshii/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/11_universosshii/" />
 <meta property="article:published_time" content="2021-08-07T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-08-07T00:00:00+00:00" />
 
-
 		<meta itemprop="name" content="Universo Ssh II">
-<meta itemprop="description" content="Segundo post sobre todo lo relacionado con Ssh"><meta itemprop="datePublished" content="2021-08-07T00:00:00+00:00" />
+<meta itemprop="description" content="Segundo post sobre todo lo relacionado con Ssh">
+<meta itemprop="datePublished" content="2021-08-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-08-07T00:00:00+00:00" />
 <meta itemprop="wordCount" content="601">
+
+
+
 <meta itemprop="keywords" content="SO,Terminal,Cliente,Utilidades," />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -142,25 +146,28 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/ssh2.jpg"/>
+			<figure>
+    <img src="/img/ssh2.jpg"/> 
 </figure>
 
 <p>Después de la <a href="https://jaimealberto.github.io/post/07_universosshi/">primera entrega</a> donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.</p>
 <h2 id="magic-wormhole">Magic Wormhole</h2>
 <p>Ya hablamos de la <a href="/post/07_universosshi/#llaves">generación de llaves</a> para conexión sin contraseña en el <a href="https://jaimealberto.github.io/post/07_universosshi/">post anterior</a>. Uno de los fallos  garrafales, desde mi punto de vista, es la utilización de scp o ssh-copy-id para transferir la llave al servidor remoto desde la parte cliente. Pues durante el proceso solicita la contraseña de usuario y el objetivo es no utilizarla. Bueno para esta tarea tenemos a nuestro amigo <a href="https://github.com/warner/magic-wormhole">Magic-Wormhole</a> el cual tiene implementado una opción para realizar esta acción sin necesidad de contraseña. Si no lo tienes ya instalado puedes consultar el post <a href="/post/08_utilidadesterminali/#magic-wormhole">Utilidades terminal I</a> donde se explica el procedimiento y uso básico.</p>
 <p>La parte del servidor por seguridad tiene que invitar al cliente. Esta operación se realiza desde el terminal del servidor logeado con el usuario que tiene que conectarse, lo habitual es que el administrador ( <a href="https://es.wikipedia.org/wiki/Root">root</a> ) invite al usuario, con el siguiente comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wormhole ssh invite</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wormhole ssh invite</code></pre></div>
 <p>Esto devolverá una respuesta similar a la siguiente:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wormhole ssh accept &lt;Codigo-aleatorio&gt;</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wormhole ssh accept &lt;Codigo-aleatorio&gt;</code></pre></div>
 <p>La respuesta que da la invitacion es la que se tiene que teclar quien la acepta.</p>
 <p>Aquí se puede ver el proceso en el servidor ssh que envia la invitación:</p>
-<figure><img src="/img/invite.gif"/>
+<figure>
+    <img src="/img/invite.gif"/> 
 </figure>
 
 <p>En la parte cliente se tendrá que aceptar la invitación tecleando lo indicado en la respuesta del servidor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wormhole ssh accept &lt;Codigo-aleatorio&gt;</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wormhole ssh accept &lt;Codigo-aleatorio&gt;</code></pre></div>
 <p>Aquí se puede ver el proceso en el cliente que acepta la invitación:</p>
-<figure><img src="/img/accept.gif"/>
+<figure>
+    <img src="/img/accept.gif"/> 
 </figure>
 
 <p><em>Nota</em> Si el cliente dispone de varias llaves solicitara cual enviar.</p>
@@ -169,14 +176,14 @@
 <p>Realmente a nivel de funcionalidad es como si utilizáramos una VPN, pero todo el trafico se enviá por una única conexión Ssh a través del host remoto el cual realiza la función de puente con múltiples túneles de reenvío. Su principal desarrollador <a href="https://github.com/brianmay">Brian May</a> la define como “ la VPN para el hombre pobre”.</p>
 <h3 id="instalación">Instalación</h3>
 <p>MacOs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install sshttule</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install sshttule</code></pre></div>
 <p>Tambien esta disponible en la mayoria de distribuciones Linux y Windows ( con <a href="https://cygwin.com/install.html">cygwin</a> instalado)</p>
 <p>*Nota: En el caso de Windows se complica el uso de esta herramienta. Se propone instalar una máquina <a href="https://sshuttle.readthedocs.io/en/stable/windows.html">virtual Linux</a> en modo puente que haga la conexión con sshuttle y desde la máquina anfitrión Windows enrutar todo el tráfico hacia la máquina Linux.</p>
 <h3 id="uso">Uso</h3>
 <p>Desde el terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sshutle -v --dns -r usuario@ip 0/0</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sshutle -v --dns -r usuario@ip 0/0</code></pre></div>
 <p>De este modo enviamos todo el trafico por el túnel creado por Shuttle.</p>
-<pre tabindex="0"><code>-v modo verbose
+<pre><code>-v modo verbose
 -- dns tunelizado de tráfico DNS. 
 </code></pre><h2 id="sshpass">Sshpass</h2>
 <p>Sshpass, es una utilidad diseñada para ejecutar ssh usando de modo no interactivo, utiliza el acceso a la TTY para simular que la contraseña es escrita por un usuario final.  Por mi parte solo la aconsejo utilizar en caso que necesitamos pasar la contraseña en el código de programación. Cosa que no es nada segura. Su gran desventaja es la visualización de la contraseña en texto plano, por este motivo no lo veo un método seguro.</p>

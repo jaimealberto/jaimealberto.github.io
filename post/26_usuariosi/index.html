@@ -10,16 +10,20 @@
 		<meta property="og:title" content="Usuarios en Linux I" />
 <meta property="og:description" content="Usuarios" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/26_usuariosi/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/26_usuariosi/" />
 <meta property="article:published_time" content="2022-05-09T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-05-09T00:00:00+00:00" />
 
-
 		<meta itemprop="name" content="Usuarios en Linux I">
-<meta itemprop="description" content="Usuarios"><meta itemprop="datePublished" content="2022-05-09T00:00:00+00:00" />
+<meta itemprop="description" content="Usuarios">
+<meta itemprop="datePublished" content="2022-05-09T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-09T00:00:00+00:00" />
 <meta itemprop="wordCount" content="830">
+
+
+
 <meta itemprop="keywords" content="Terminal," />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -149,7 +153,8 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/usuariosi.jpg"/>
+			<figure>
+    <img src="/img/usuariosi.jpg"/> 
 </figure>
 
 <p>Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.</p>
@@ -194,7 +199,7 @@
 <p>Ahora veremos como utilizar cada uno de ellos.</p>
 <h3 id="añadir">Añadir</h3>
 <p>El comando que nos permite añadir un usuario  es “adduser”, Lo utilizaremos desde el terminal como root. Las opciones más utilizadas son:</p>
-<pre tabindex="0"><code>-c añade un comentario.
+<pre><code>-c añade un comentario.
 -d indica el home del usuario. Si no existe no se creará.
 -m crea el home del usuario si no existe.
 -e indica la fecha de expiración de la cuenta, formato AAAA-MM-DD.
@@ -202,25 +207,25 @@
 -s shell por defecto, bash.
 -u UID del usuario, automáticamente el siguiente disponible.
 </code></pre><p>Si utilizamos el comando sin especificar ninguna opcion, se utilizaran las que tenga el sistema por defecto, que se almacenan en/ etc/default/useradd. Estas se pueden consultar con el comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#useradd -D</span>
-</span></span><span style="display:flex;"><span>GROUP<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>
-</span></span><span style="display:flex;"><span>HOME<span style="color:#f92672">=</span>/home
-</span></span><span style="display:flex;"><span>INACTIVE<span style="color:#f92672">=</span>-1
-</span></span><span style="display:flex;"><span>EXPIRE<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>SHELL<span style="color:#f92672">=</span>/bin/sh
-</span></span><span style="display:flex;"><span>SKEL<span style="color:#f92672">=</span>/etc/skel
-</span></span><span style="display:flex;"><span>CREATE_MAIL_SPOOL<span style="color:#f92672">=</span>no</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#useradd -D</span>
+GROUP<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>
+HOME<span style="color:#f92672">=</span>/home
+INACTIVE<span style="color:#f92672">=</span>-1
+EXPIRE<span style="color:#f92672">=</span>
+SHELL<span style="color:#f92672">=</span>/bin/sh
+SKEL<span style="color:#f92672">=</span>/etc/skel
+CREATE_MAIL_SPOOL<span style="color:#f92672">=</span>no</code></pre></div>
 <p>Con este mismo comando podemos modificar o añadir variables por defecto.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#useradd -m -d /home/sistemas -s /bin/bash -c &#34;Sistemas&#34; sistemas</span></span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#useradd -m -d /home/sistemas -s /bin/bash -c &#34;Sistemas&#34; sistemas</span></code></pre></div>
 <p>Con el comando anterior hemos creado un usuario llamado sistemas, con su home en /home/sistemas, creando el home y con un comentario en el que pone Sistemas.</p>
 <p>Una vez creado el usuario le ponemos contraseña del siguiente modo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#passwd sistemas</span>
-</span></span><span style="display:flex;"><span>Nueva contraseña:
-</span></span><span style="display:flex;"><span>Vuelva a escribir la nueva contraseña:</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#passwd sistemas</span>
+Nueva contraseña:
+Vuelva a escribir la nueva contraseña:</code></pre></div>
 <h3 id="modificar">Modificar</h3>
 <p>El comando que nos permite modificar o actualizar las características de un usuario  es “usermod”, Lo utilizaremos desde el terminal como root. Las opciones más utilizadas son:</p>
-<pre tabindex="0"><code>-c añade o modifica el comentario.
+<pre><code>-c añade o modifica el comentario.
 -d modifica home del usuario.
 -e cambia o establece la fecha de expiración de la cuenta, formato AAAA-MM-DD.
 -l cambia el login o nombre del usuario.
@@ -229,7 +234,7 @@
 -U desbloquea una cuenta bloqueada con la opción -L.
 </code></pre><h3 id="borrar">Borrar</h3>
 <p>El comando borra un usuario  es “userdel”, Lo utilizaremos desde el terminal como root. Las opciones más utilizadas son:</p>
-<pre tabindex="0"><code>-f fuerza la eliminación de la cuenta de usuario, incluso si esta conectado. Borra su  home y el spool de correo
+<pre><code>-f fuerza la eliminación de la cuenta de usuario, incluso si esta conectado. Borra su  home y el spool de correo
    Nota: Esta opción es peligrosa y puede dejar su sistema en un estado inconsistente.
 -r borra el home y el spool de correo. Si el usuario tiene ficheros en otros sistemas no los borrar.
 </code></pre><h2 id="contraseñas">Contraseñas</h2>
@@ -243,10 +248,10 @@
 </ul>
 <p>Este proceso es cuando el comando lo utiliza un usuario, si lo utiliza root no realia ninguna comprobación.</p>
 <p>Las opciones más utilizadas son:</p>
-<pre tabindex="0"><code>-d borra la contraseña. Forma rápida de desactivar el usuario.
+<pre><code>-d borra la contraseña. Forma rápida de desactivar el usuario.
 -e expira. Fuerza al usuario a cambiar su contraseña en el próximo inicio de sesión.
 -i desactiva después de que la contraseña haya caducado.
--l Bloquea la contraseña. Esta opción deshabilita una contraseña (añade un &#39;!&#39; al principio de la contraseña).
+-l Bloquea la contraseña. Esta opción deshabilita una contraseña (añade un '!' al principio de la contraseña).
    ** Esto no desactiva la cuenta si usuario esta utilizando otro token de autenticación (por ejemplo, una clave SSH).
    Para deshabilitar utilizar usermod --expiredate 1 (fecha de expiración 02/01/).**
 -n número mínimo de días entre cambios, si el es cero puede cambiar cuando quiera.

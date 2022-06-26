@@ -10,16 +10,18 @@
 		<meta property="og:title" content="Combo I, la VPN del pobre" />
 <meta property="og:description" content="La VPN del pobre" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/combos/01_comboi/" /><meta property="article:section" content="Combos" />
-
-
+<meta property="og:url" content="https://jaimealberto.github.io/combos/01_comboi/" />
 
 
 		<meta itemprop="name" content="Combo I, la VPN del pobre">
 <meta itemprop="description" content="La VPN del pobre">
 
-<meta itemprop="wordCount" content="721">
+<meta itemprop="wordCount" content="717">
+
+
+
 <meta itemprop="keywords" content="" />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -138,7 +140,8 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/comboI.jpg"/>
+			<figure>
+    <img src="/img/comboI.jpg"/> 
 </figure>
 
 <p>Recordando viejos tiempos, que uno tiene ya una edad, en aquellos días de los buenos <a href="https://es.wikipedia.org/wiki/Arcade">arcades</a>. Todos andábamos locos con los <a href="https://es.wikipedia.org/wiki/Combo_(videojuegos)">combos.</a></p>
@@ -157,64 +160,65 @@
 <p>Terraformar un host en DigitalOcean el cual nos permita conectarnos mediante ssh. Utilizar sshuttle, como ya hablamos en ……… para enrutar todo nuestro trafico mediante el. De tal manera que nuestra geolocalización no sea la real. Esto nos permitirá  por ejemplo ver contenido de plataformas de video bajo demanda en otros idiomas. Del resto de uso ya sois responsables vosotros, ;-), ser buenos.</p>
 <h2 id="receta">Receta</h2>
 <p>La receta se compone de 3 archivos:</p>
-<pre tabindex="0"><code>├── _provider.tf     Definición del proveedor
+<pre><code>├── _provider.tf     Definición del proveedor
 ├── main.tf          Receta
 └── terraform.tfvars Definición de variables de entorno
 </code></pre><h3 id="ingredientes">Ingredientes</h3>
 <h4 id="_providertf">_provider.tf</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;do_token&#34;</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">terraform</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">required_version</span> = <span style="color:#e6db74">&#34;&gt;= 0.14.0&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">required_providers</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">digitalocean</span> = {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">source</span> = <span style="color:#e6db74">&#34;digitalocean/digitalocean&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}<span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Configure the DigitalOcean Provider
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;digitalocean&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">token</span> = var.<span style="color:#a6e22e">do_token</span>
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;do_token&#34;</span> {}
+<span style="color:#a6e22e">terraform</span> {
+  <span style="color:#a6e22e">required_version</span> = <span style="color:#e6db74">&#34;&gt;= 0.14.0&#34;</span>
+
+  <span style="color:#a6e22e">required_providers</span> {
+    <span style="color:#a6e22e">digitalocean</span> = {
+      <span style="color:#a6e22e">source</span> = <span style="color:#e6db74">&#34;digitalocean/digitalocean&#34;</span>
+    }
+  }
+}<span style="color:#75715e">
+</span><span style="color:#75715e"># Configure the DigitalOcean Provider
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;digitalocean&#34;</span> {
+  <span style="color:#a6e22e">token</span> = var.<span style="color:#a6e22e">do_token</span>
+}</code></pre></div>
 <h4 id="maintf">main.tf</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;ssh_pub_path&#34;</span>{}<span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a new SSH key
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;digitalocean_ssh_key&#34;</span> <span style="color:#e6db74">&#34;jaimealberto&#34;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>       = <span style="color:#e6db74">&#34;jaimealberto&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">public_key</span> = file(var.<span style="color:#a6e22e">ssh_pub_path</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">
-</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;digitalocean_droplet&#34;</span> <span style="color:#e6db74">&#34;server&#34;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>  = <span style="color:#e6db74">&#34;server&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">image</span> = <span style="color:#e6db74">&#34;debian-10-x64&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">region</span> = <span style="color:#e6db74">&#34;fra1&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">size</span>   = <span style="color:#e6db74">&#34;s-1vcpu-1gb&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ssh_keys</span> = [<span style="color:#a6e22e">digitalocean_ssh_key</span>.<span style="color:#a6e22e">jaimealberto</span>.<span style="color:#a6e22e">fingerprint</span>]
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">
-</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> <span style="color:#e6db74">&#34;ssh&#34;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span> = <span style="color:#e6db74">&#34;sshuttle -v --dns -r root@</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">digitalocean_droplet</span>.<span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">ipv4_address</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> -e &#34;</span><span style="color:#a6e22e">ssh</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">i</span> <span style="color:#960050;background-color:#1e0010">~</span><span style="color:#f92672">/</span>.<span style="color:#a6e22e">ssh</span><span style="color:#f92672">/</span><span style="color:#a6e22e">id_rsa</span><span style="color:#e6db74">&#34; 0/0&#34;</span>
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;ssh_pub_path&#34;</span>{}<span style="color:#75715e">
+</span><span style="color:#75715e">
+</span><span style="color:#75715e"># Create a new SSH key
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;digitalocean_ssh_key&#34;</span> <span style="color:#e6db74">&#34;jaimealberto&#34;</span> {
+    <span style="color:#a6e22e">name</span>       = <span style="color:#e6db74">&#34;jaimealberto&#34;</span>
+    <span style="color:#a6e22e">public_key</span> = file(var.<span style="color:#a6e22e">ssh_pub_path</span>)
+}
+<span style="color:#66d9ef">
+</span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;digitalocean_droplet&#34;</span> <span style="color:#e6db74">&#34;server&#34;</span> {
+    <span style="color:#a6e22e">name</span>  = <span style="color:#e6db74">&#34;server&#34;</span>
+    <span style="color:#a6e22e">image</span> = <span style="color:#e6db74">&#34;debian-10-x64&#34;</span>
+    <span style="color:#a6e22e">region</span> = <span style="color:#e6db74">&#34;fra1&#34;</span>
+    <span style="color:#a6e22e">size</span>   = <span style="color:#e6db74">&#34;s-1vcpu-1gb&#34;</span>
+    <span style="color:#a6e22e">ssh_keys</span> = [<span style="color:#a6e22e">digitalocean_ssh_key</span>.<span style="color:#a6e22e">jaimealberto</span>.<span style="color:#a6e22e">fingerprint</span>]
+}
+<span style="color:#66d9ef">
+</span><span style="color:#66d9ef">output</span> <span style="color:#e6db74">&#34;ssh&#34;</span> {
+    <span style="color:#a6e22e">value</span> = <span style="color:#e6db74">&#34;sshuttle -v --dns -r root@</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">digitalocean_droplet</span>.<span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">ipv4_address</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> -e &#34;</span><span style="color:#a6e22e">ssh</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">i</span> <span style="color:#960050;background-color:#1e0010">~</span><span style="color:#f92672">/</span>.<span style="color:#a6e22e">ssh</span><span style="color:#f92672">/</span><span style="color:#a6e22e">id_rsa</span><span style="color:#e6db74">&#34; 0/0&#34;</span>
+}</code></pre></div>
 <h4 id="terraformtfvars">terraform.tfvars</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#75715e"># token API
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">do_token</span> = <span style="color:#e6db74">&#34;token generado en DigitalOcean por el usuario&#34;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Key Pub
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">ssh_pub_path</span>=<span style="color:#e6db74">&#34;~/.ssh/id_rsa.pub&#34;</span></span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#75715e"># token API
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">do_token</span> = <span style="color:#e6db74">&#34;token generado en DigitalOcean por el usuario&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"># Key Pub
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">ssh_pub_path</span>=<span style="color:#e6db74">&#34;~/.ssh/id_rsa.pub&#34;</span></code></pre></div>
 <h2 id="despliegue">Despliegue</h2>
 <p>Bueno pues una vez que tenemos todo preparado vamos a desplegar nuestra receta.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform init
-</span></span><span style="display:flex;"><span>terraform validate
-</span></span><span style="display:flex;"><span>terraform plan
-</span></span><span style="display:flex;"><span>terraform apply</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">terraform init
+terraform validate
+terraform plan
+terraform apply</code></pre></div>
 <p>Como podemos observar al finalizar nos indica con el output que ya preparamos como utilizar nuestro nuevo servicio de “VPN” para tunelizar todo nuestro trafico por el host desplegado. Al ejecutar el comando desde el terminal nos solicita la contraseña de administrador local. Dejamos esta ventana del termina abierta y comenzamos a navegar o a realizar cualquier otra operación, en esta ventana al estar activo el modo verbose veremos como actua.</p>
 <p>Comprobamos que funciona desde otro terminal, por ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>curl ifconfig.io</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">curl ifconfig.io</code></pre></div>
 <p>Ya vemos que nos da una ip que no es la nuestra real por geolocalización. Ya podemos hacer lo teniamos que hacer con el túnel levantado. Una vez finalizadas las teras detemos el proceso con Ctrl + c y todo seguirá igual respecto a la salida de trafico de nuestro host local.</p>
 <p>Como ya hemos terminado con lo que teinamos que hacer, ahora destruimos la infraestructura para no pagar por algo que no utilizamos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform destroy</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">terraform destroy</code></pre></div>
 <p>Aquí podemos ver el proceso completo:</p>
-<figure><img src="/img/ComboI.gif"/>
+<figure>
+    <img src="/img/ComboI.gif"/> 
 </figure>
 
 <p>Como se puede observar en el proceso:</p>
@@ -233,23 +237,24 @@ Solicita la contraseña de administrador de mi host puesto que tiene que manejar
 <p>Pruebas:</p>
 <p>Como podemos ver la ip publica actual corresponde con la zona geográfica elegida en el despliegue del droplet en DigitalOcean.</p>
 <p>Desde el terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ip<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl ifconfig.io<span style="color:#66d9ef">)</span> <span style="color:#f92672">&amp;&amp;</span> curl ipinfo.io/$ip
-</span></span><span style="display:flex;"><span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-</span></span><span style="display:flex;"><span>                                 Dload  Upload   Total   Spent    Left  Speed
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">100</span>    <span style="color:#ae81ff">15</span>  <span style="color:#ae81ff">100</span>    <span style="color:#ae81ff">15</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">72</span>      <span style="color:#ae81ff">0</span> --:--:-- --:--:-- --:--:--    <span style="color:#ae81ff">72</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;ip&#34;</span>: <span style="color:#e6db74">&#34;134.209.247.46&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;Frankfurt am Main&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;region&#34;</span>: <span style="color:#e6db74">&#34;Hesse&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;country&#34;</span>: <span style="color:#e6db74">&#34;DE&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;loc&#34;</span>: <span style="color:#e6db74">&#34;50.1155,8.6842&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;org&#34;</span>: <span style="color:#e6db74">&#34;AS14061 DigitalOcean, LLC&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;postal&#34;</span>: <span style="color:#e6db74">&#34;60311&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;timezone&#34;</span>: <span style="color:#e6db74">&#34;Europe/Berlin&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;readme&#34;</span>: <span style="color:#e6db74">&#34;https://ipinfo.io/missingauth&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span></span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ip<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl ifconfig.io<span style="color:#66d9ef">)</span> <span style="color:#f92672">&amp;&amp;</span> curl ipinfo.io/$ip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span style="color:#ae81ff">100</span>    <span style="color:#ae81ff">15</span>  <span style="color:#ae81ff">100</span>    <span style="color:#ae81ff">15</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">72</span>      <span style="color:#ae81ff">0</span> --:--:-- --:--:-- --:--:--    <span style="color:#ae81ff">72</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;ip&#34;</span>: <span style="color:#e6db74">&#34;134.209.247.46&#34;</span>,
+  <span style="color:#e6db74">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;Frankfurt am Main&#34;</span>,
+  <span style="color:#e6db74">&#34;region&#34;</span>: <span style="color:#e6db74">&#34;Hesse&#34;</span>,
+  <span style="color:#e6db74">&#34;country&#34;</span>: <span style="color:#e6db74">&#34;DE&#34;</span>,
+  <span style="color:#e6db74">&#34;loc&#34;</span>: <span style="color:#e6db74">&#34;50.1155,8.6842&#34;</span>,
+  <span style="color:#e6db74">&#34;org&#34;</span>: <span style="color:#e6db74">&#34;AS14061 DigitalOcean, LLC&#34;</span>,
+  <span style="color:#e6db74">&#34;postal&#34;</span>: <span style="color:#e6db74">&#34;60311&#34;</span>,
+  <span style="color:#e6db74">&#34;timezone&#34;</span>: <span style="color:#e6db74">&#34;Europe/Berlin&#34;</span>,
+  <span style="color:#e6db74">&#34;readme&#34;</span>: <span style="color:#e6db74">&#34;https://ipinfo.io/missingauth&#34;</span>
+<span style="color:#f92672">}</span></code></pre></div>
 <p>Desde el navegador:</p>
-<figure><img src="/img/ComboI.png"/>
+<figure>
+    <img src="/img/ComboI.png"/> 
 </figure>
 
 <h2 id="conclusión">Conclusión</h2>

@@ -10,16 +10,20 @@
 		<meta property="og:title" content="Sincronizar configuración Visual Studio Code" />
 <meta property="og:description" content="Sincronizar configuración" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/29_vscodesync/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/29_vscodesync/" />
 <meta property="article:published_time" content="2022-04-27T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-04-27T00:00:00+00:00" />
 
-
 		<meta itemprop="name" content="Sincronizar configuración Visual Studio Code">
-<meta itemprop="description" content="Sincronizar configuración"><meta itemprop="datePublished" content="2022-04-27T00:00:00+00:00" />
+<meta itemprop="description" content="Sincronizar configuración">
+<meta itemprop="datePublished" content="2022-04-27T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-27T00:00:00+00:00" />
 <meta itemprop="wordCount" content="284">
+
+
+
 <meta itemprop="keywords" content="Utilidades,VS Code," />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -125,7 +129,8 @@
 	</span>
 </div></div>
 		</header><div class="content post__content clearfix">
-			<figure><img src="/img/vssync.jpg"/>
+			<figure>
+    <img src="/img/vssync.jpg"/> 
 </figure>
 
 <p>Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.</p>
@@ -140,25 +145,30 @@
 <li>Carpetas de espacios de trabajo.</li>
 </ul>
 <p>Lo primero instalamos la extensión Settings Sync desde el marketplace:</p>
-<figure><img src="/img/vssync01.png"/>
+<figure>
+    <img src="/img/vssync01.png"/> 
 </figure>
 
 <p>Luego desde nuestra cuenta de Github generaramos un token de acceso personal. Settings/Personal access tokens/Generate new token</p>
-<figure><img src="/img/vssync02.jpeg"/>
+<figure>
+    <img src="/img/vssync02.jpeg"/> 
 </figure>
 
 <p>Durante la  generación del nuevo token le ponemos una etiqueta y solo selecciomos la casilla crear gists.</p>
-<figure><img src="/img/vssync03.jpeg"/>
+<figure>
+    <img src="/img/vssync03.jpeg"/> 
 </figure>
 
 <p>Generate token y nos da el token, copiamos el hash en lugar seguro y accesible. Para poder utilizarlo al descargar la configuración en otros entornos.</p>
 <p>Desde Visual Studio Code abrimos la paleta de comandos con command + shift + p ( Mac Os ) ctrl + shift + p ( Linux ) y teclea sync y te aparecerá la lista de opciones.</p>
-<figure><img src="/img/vssync04.png"/>
+<figure>
+    <img src="/img/vssync04.png"/> 
 </figure>
 
 <p>Sync: Update/Upload Settingsy se te pedirá el token de Github.</p>
 <p>Despues la configuración será subida a Github, se vera el progreso en la SALIDA del terminal.</p>
-<figure><img src="/img/vssync05.jpeg"/>
+<figure>
+    <img src="/img/vssync05.jpeg"/> 
 </figure>
 
 <p>Puedes ver que archivos y extensiones se subieron a Github en tu perfil.</p>

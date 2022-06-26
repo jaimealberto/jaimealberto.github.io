@@ -13,7 +13,8 @@
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/25_vscodei/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vsci.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/vsci.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Hace tiempo comencé con la búsqueda de  un editor de código con el que pudiera escribir scripts (Bash, Powershell,Zsh, etc), código en Python, documentos en MarkDown, archivos de configuración , utilizar Hugo, guiones de Terraform, etc. Otro objetivo claro es que funcionara igual en cualquier entorno ( Linux, MacOs y Windows ), que fuera gratis y con gran comunidad. Pues bien dando muchas vueltas me decidí por Visual Studio Code (VSC).&lt;/p&gt;</description>
@@ -25,7 +26,8 @@
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/29_vscodesync/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vssync.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/vssync.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.&lt;/p&gt;</description>
@@ -37,7 +39,8 @@
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/28_vscodeinstall/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vsinstall.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/vsinstall.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description>
@@ -49,7 +52,8 @@
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/19_doutils/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/doutils.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/doutils.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Ámsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
@@ -61,7 +65,8 @@
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/21_utilidadesterminaliv/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool4.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/tool4.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href=&#34;https://es.wikipedia.org/wiki/Star_Wars&#34;&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description>
@@ -73,7 +78,8 @@
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/17_terraformii/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/terraformII.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/terraformII.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Después de una &lt;a href=&#34;https://jaimealberto.github.io/post/16_terraformi/&#34;&gt;breve introducción&lt;/a&gt; a &lt;a href=&#34;https://es.wikipedia.org/wiki/Terraform_(software)&#34;&gt;Terraform&lt;/a&gt;, creo que la mejor manera de entender como funciona es con un ejemplo simple.&lt;/p&gt;</description>
@@ -85,7 +91,8 @@
       <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/23_itermzsh/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/iterm2zsh.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/iterm2zsh.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href=&#34;https://iterm2.com/&#34;&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description>
@@ -97,7 +104,8 @@
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/16_terraformi/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/terraform.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/terraform.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://es.wikipedia.org/wiki/Terraform_(software)&#34;&gt;Terraform&lt;/a&gt; es un software que trata la infraestructura como código  desarrollado por &lt;a href=&#34;https://www.hashicorp.com/&#34;&gt;HashiCorp&lt;/a&gt;.Esto permite al usuario mediante ejecución de código construir, combinar y poner en marcha de manera segura y eficiente infraestructuras rápidamente.&lt;/p&gt;</description>
@@ -109,7 +117,8 @@
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/15_utilidadesterminaliii/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool3.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/tool3.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
@@ -121,7 +130,8 @@
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/11_universosshii/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh2.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/ssh2.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.github.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.&lt;/p&gt;</description>
@@ -133,7 +143,8 @@
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/10_utilidadesterminalii/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool2.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/tool2.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.github.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
@@ -145,7 +156,8 @@
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/07_universosshi/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un tunel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>
@@ -157,7 +169,8 @@
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/08_utilidadesterminali/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.github.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
@@ -169,7 +182,8 @@
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/06_grabarterminal/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>

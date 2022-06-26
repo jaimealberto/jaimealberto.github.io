@@ -13,7 +13,8 @@
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
@@ -25,7 +26,8 @@
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/24_windows1/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/windowsI.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/windowsI.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
@@ -37,7 +39,8 @@
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/03_tipsmacos03/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trickIII.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/trickIII.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Después de Trucos para MacOs &lt;a href=&#34;https://jaimealberto.github.io/post/01_tipsmacos01/&#34;&gt;I&lt;/a&gt; y &lt;a href=&#34;https://jaimealberto.github.io/post/02_tipsmacos02/&#34;&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description>
@@ -49,7 +52,8 @@
       <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/02_tipsmacos02/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trickII.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/trickII.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.github.io/post/01_tipsmacos01/&#34;&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
@@ -61,7 +65,8 @@
       <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/01_tipsmacos01/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trick.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/trick.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
 &lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;

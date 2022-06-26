@@ -10,16 +10,18 @@
 		<meta property="og:title" content="Recuperar root en OPNSense" />
 <meta property="og:description" content="Recuperar root en OPNSense" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/recetas/17_rootopnsense/" /><meta property="article:section" content="Recetas" />
-
-
+<meta property="og:url" content="https://jaimealberto.github.io/recetas/17_rootopnsense/" />
 
 
 		<meta itemprop="name" content="Recuperar root en OPNSense">
 <meta itemprop="description" content="Recuperar root en OPNSense">
 
 <meta itemprop="wordCount" content="50">
+
+
+
 <meta itemprop="keywords" content="" />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -125,13 +127,13 @@
 <li>Arrancar en modo mono usuario, opcion 2 ( Boot Single User )</li>
 <li>A continuacion pedirá que seleccione el shell. Pulsammos Enter para iniciar /bin/sh.</li>
 <li>Montar las unidades en modo escritura:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>mount -o rw /
-</span></span><span style="display:flex;"><span>or mount all the drives
-</span></span><span style="display:flex;"><span>mount -a -t ufs</span></span></code></pre></div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">mount -o rw /
+or mount all the drives
+mount -a -t ufs</code></pre></div></li>
 <li>Ejecutar:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>/usr/local/etc/rc.initial.password</span></span></code></pre></div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">/usr/local/etc/rc.initial.password</code></pre></div></li>
 <li>Reiniciar en modo normal.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>/sbin/reboot</span></span></code></pre></div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">/sbin/reboot</code></pre></div></li>
 </ul>
 		</div>
 	</article>

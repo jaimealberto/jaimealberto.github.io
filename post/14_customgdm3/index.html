@@ -10,16 +10,20 @@
 		<meta property="og:title" content="Personalizar login en GNOME, GDM 3" />
 <meta property="og:description" content="Personalizar login GDM 3" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/14_customgdm3/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/14_customgdm3/" />
 <meta property="article:published_time" content="2022-05-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-05-15T00:00:00+00:00" />
 
-
 		<meta itemprop="name" content="Personalizar login en GNOME, GDM 3">
-<meta itemprop="description" content="Personalizar login GDM 3"><meta itemprop="datePublished" content="2022-05-15T00:00:00+00:00" />
+<meta itemprop="description" content="Personalizar login GDM 3">
+<meta itemprop="datePublished" content="2022-05-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-15T00:00:00+00:00" />
 <meta itemprop="wordCount" content="227">
+
+
+
 <meta itemprop="keywords" content="SO,GUI," />
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -136,7 +140,8 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/gdm.jpg"/>
+			<figure>
+    <img src="/img/gdm.jpg"/> 
 </figure>
 
 <p>El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.</p>
@@ -162,32 +167,32 @@
 <h2 id="procedimiento">Procedimiento</h2>
 <p>Abrimos nuestro terminal como root:</p>
 <p>Creamos el directorio /etc/dconf/db/gdm.d</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>mkdir /etc/dconf/db/gdm.d</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">mkdir /etc/dconf/db/gdm.d</code></pre></div>
 <p>Creamos un fichero con nuestro editor favorito,  /etc/dconf/db/gdm.d/01-hide-users</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vi /etc/dconf/db/gdm.d/01-hide-users</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">vi /etc/dconf/db/gdm.d/01-hide-users</code></pre></div>
 <p>Insertamos el siguiente texto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#f92672">[</span>org/gnome/desktop/a11y<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>always-show-universal-access-status<span style="color:#f92672">=</span>false
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>org/gnome/login-screen<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>banner-message-enable<span style="color:#f92672">=</span>true
-</span></span><span style="display:flex;"><span>banner-message-text<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Solo personal autorizado. El uso no autorizado de este sistema será perseguido por la ley. \n&#39;</span>
-</span></span><span style="display:flex;"><span>disable-restart-buttons<span style="color:#f92672">=</span>true
-</span></span><span style="display:flex;"><span>disable-user-list<span style="color:#f92672">=</span>true</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#f92672">[</span>org/gnome/desktop/a11y<span style="color:#f92672">]</span>
+always-show-universal-access-status<span style="color:#f92672">=</span>false
+<span style="color:#f92672">[</span>org/gnome/login-screen<span style="color:#f92672">]</span>
+banner-message-enable<span style="color:#f92672">=</span>true
+banner-message-text<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Solo personal autorizado. El uso no autorizado de este sistema será perseguido por la ley. \n&#39;</span>
+disable-restart-buttons<span style="color:#f92672">=</span>true
+disable-user-list<span style="color:#f92672">=</span>true</code></pre></div>
 <p>Salvamos el fichero y volvemos al terminal.</p>
 <p>Creamos el fichero /etc/dconf/profile/gdm</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vi /etc/dconf/profile/gdm</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">vi /etc/dconf/profile/gdm</code></pre></div>
 <p>Insertamos el siguiente texto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>user-db:user
-</span></span><span style="display:flex;"><span>system-db:gdm</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">user-db:user
+system-db:gdm</code></pre></div>
 <p>Salvamos el fichero y volvemos al terminal.</p>
 <p>Actualizamos la configuración con el siguiente comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dconf update</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dconf update</code></pre></div>
 <p>Comprobamos que todo esta ok con el siguiente comando</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ls /etc/dconf/db</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ls /etc/dconf/db</code></pre></div>
 <p>El que nos mostrara algo parecido a esto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>gdm gdm.d ...</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">gdm gdm.d ...</code></pre></div>
 <p>Reiniciamos el servicio para que los cambios sean efectivos:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl restart gdm</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">systemctl restart gdm</code></pre></div>
 <p>Con este procedimiento podemos personalizar oros muchos parámetros. Por ejemplo:</p>
 <ul>
 <li>Color de fondo.</li>
