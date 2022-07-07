@@ -3,18 +3,63 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jaimealberto.github.io/recursos/</loc>
-    <lastmod>2022-05-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jaimealberto.github.io/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jaimealberto.github.io/categories/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/edr/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/post/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/categories/seguridad/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/siem/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/wazuh/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/categories/wazuh/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/post/32_wazuh/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/xdr/</loc>
+    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/recursos/</loc>
+    <lastmod>2022-05-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -33,11 +78,6 @@
   </url>
   
   <url>
-    <loc>https://jaimealberto.github.io/post/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jaimealberto.github.io/tags/seguridad/</loc>
     <lastmod>2022-05-15T00:00:00+00:00</lastmod>
   </url>
@@ -49,11 +89,6 @@
   
   <url>
     <loc>https://jaimealberto.github.io/categories/sysadmin/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/tags/</loc>
     <lastmod>2022-05-15T00:00:00+00:00</lastmod>
   </url>
   

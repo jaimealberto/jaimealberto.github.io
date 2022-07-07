@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Wazuh - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Conceptos básicos">
+		<meta property="og:title" content="Wazuh" />
+<meta property="og:description" content="Conceptos básicos" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/32_wazuh/" />
+<meta property="article:published_time" content="2022-07-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-06T00:00:00+00:00" />
+
+		<meta itemprop="name" content="Wazuh">
+<meta itemprop="description" content="Conceptos básicos">
+<meta itemprop="datePublished" content="2022-07-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="433">
+
+
+
+<meta itemprop="keywords" content="Wazuh,SIEM,XDR,EDR," />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/vida/">
+				
+				<span class="menu__text">Vidas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Wazuh</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-07-06T00:00:00Z">06-07-2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>, <a class="meta__link" href="/categories/wazuh/" rel="category">Wazuh</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure>
+    <img src="/img/Wazuh.png"/> 
+</figure>
+
+<p>Según la <a href="https://es.wikipedia.org/wiki/Wazuh">Wikipedia</a> “ Wazuh es un sistema de detección de intrusos basado en host de código abierto y libre (HIDS). Realiza análisis de registro, comprobación de integridad, supervisión del registro de Windows, detección de rootkits, alertas basadas en el tiempo y respuesta activa. Proporciona detección de intrusiones para la mayoría de los sistemas operativos, incluyendo Linux, AIX, HP-UX, macOS, Solaris y Windows. Wazuh tiene una arquitectura centralizada y multiplataforma que permite que múltiples sistemas sean fácilmente monitoreados y administrados ”.</p>
+<p>Personalmente creo que es una gran aportación y ejemplo de como se puede vivir con esfuerzo y un buen enfoque del software de código abierto. Sin nada que esconder para gobiernos o grandes corporaciones, dando la oportunidad de tener al alcance un buen producto a cualquiera que lo necesite en su empresa .. etc.</p>
+<h1 id="componentes">Componentes</h1>
+<p>En la siguiente imagen podemos ver la arquiectura con sus componentes y flujo de trabajo:</p>
+<figure>
+    <img src="/img/Wazuharq.png"/> 
+</figure>
+
+<p>Como se puede observar en el imagen anterior Wazuh se basa la recopilación de datos con un en el agente Wazuh, que se despliega en los puntos finales ( Endpoint ).En la parte del servidor o servidores, según necesidades se puede clusterizar Tenemos:</p>
+<ul>
+<li>Wazuh indexer.</li>
+<li>Wazuh server.</li>
+<li>Wazuh dashboard.</li>
+</ul>
+<p>Indexer es el motor de búsqueda y análisis altamente escalable. Su función es indexar y almacena las alertas generadas por el server.</p>
+<p>Server analiza los datos recibidos de los agentes. Los procesa  buscando indicadores de compromiso (IOC) conocidos. también  tiene como función  gestionar los agentes, configurándolos y actualizándolos de forma remota.</p>
+<p>Dashboard es el interfaz de usuario web para la visualización y el análisis de datos recopilados por los agentes. Incluye cuadros de mando listos para explotar toda la información disponible:</p>
+<pre><code>• Eventos de seguridad
+• Cumplimiento normativo (PCI DSS GDPR CIS HIPAA NIST 800-53)
+• Detección de vulnerabilidades.
+• Integridad de los ficheros (FIM)
+• Resultados de test de hardening.
+• Monitorizar infraestructura en nube.
+• etc.
+</code></pre>
+<p>Agente se instalan portátiles, sobremesas, servidores, instancias en la nube o máquinas virtuales. Se encarga de recopilar todos los datos que luego enviá  al server. Se ejecuta en sistemas operativos como Linux, Windows, macOS, Solaris, AIX y HP-UX. En el caso de no existir agente nativo tiene la capacidad de enviar log´s dispositivos sin agente (firewalls, routers, NDS, IDS, etc). Es habitual que los log´s de varios sistemas se centralicen a través de Syslog, y los envié un agente. También admite envío directo utilizando protocolo syslog, según la infraestructura de cada uno tenemos esas opciones y alguna mas que veremos en los laboratorios. <a href="https://laboratorio.jaimealberto.io/">laboratorios</a>, en continua actualización.</p>
+<h1 id="fuentes">Fuentes</h1>
+<ul>
+<li><a href="https://wazuh.com/">Wazuh</a>.</li>
+<li><a href="https://documentation.wazuh.com/current/index.html">Documentación</a>.</li>
+<li>Mis <a href="https://laboratorio.jaimealberto.io/">laboratorios</a>, en continua actualización.</li>
+</ul>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/wazuh/" rel="tag">Wazuh</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/siem/" rel="tag">SIEM</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/xdr/" rel="tag">XDR</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/edr/" rel="tag">EDR</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SIEM on </title>
+    <link>https://jaimealberto.github.io/tags/siem/</link>
+    <description>Recent content in SIEM on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/siem/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wazuh</title>
+      <link>https://jaimealberto.github.io/post/32_wazuh/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/32_wazuh/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/Wazuh.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Según la &lt;a href=&#34;https://es.wikipedia.org/wiki/Wazuh&#34;&gt;Wikipedia&lt;/a&gt; “ Wazuh es un sistema de detección de intrusos basado en host de código abierto y libre (HIDS). Realiza análisis de registro, comprobación de integridad, supervisión del registro de Windows, detección de rootkits, alertas basadas en el tiempo y respuesta activa. Proporciona detección de intrusiones para la mayoría de los sistemas operativos, incluyendo Linux, AIX, HP-UX, macOS, Solaris y Windows. Wazuh tiene una arquitectura centralizada y multiplataforma que permite que múltiples sistemas sean fácilmente monitoreados y administrados ”.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
