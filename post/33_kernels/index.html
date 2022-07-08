@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Borrar kenels antiguos en Debian - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Limpiando el sistema de kernels antiguos">
+		<meta property="og:title" content="Borrar kenels antiguos en Debian" />
+<meta property="og:description" content="Limpiando el sistema de kernels antiguos" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/33_kernels/" />
+<meta property="article:published_time" content="2022-07-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-07T00:00:00+00:00" />
+
+		<meta itemprop="name" content="Borrar kenels antiguos en Debian">
+<meta itemprop="description" content="Limpiando el sistema de kernels antiguos">
+<meta itemprop="datePublished" content="2022-07-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="176">
+
+
+
+<meta itemprop="keywords" content="Terminal,SO," />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/vida/">
+				
+				<span class="menu__text">Vidas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Borrar kenels antiguos en Debian</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-07-07T00:00:00Z">07-07-2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure>
+    <img src="/img/kernel.jpg"/> 
+</figure>
+
+<p>Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.</p>
+<p>Si soy un maniático, no me gusta tener software que no utilizo instalado y sobre todo antiguo por temas de parcheo de seguridad, etc. Así que vamos a desinstalar los kernels que no utilicemos y si instamos en su momento los “headers” también. Por manías o seguridad si algo falla siempre se aconseja dejar el actual y una versión anterior.</p>
+<h1 id="procedimiento">Procedimiento</h1>
+<p>Desde nuestro terminal como, root, listamos lo que tenemos instalado ( kenels y headers ):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dpkg -l | grep -i linux-image <span style="color:#f92672">&amp;&amp;</span> dpkg -l | grep -i linux-headers
+</code></pre></div><figure>
+    <img src="/img/image-headers.png"/> 
+</figure>
+
+<p>Como se puede observar en la imagen anterior tenemos instalados varias imágenes de kernel y sus headers correspondientes. Ahora vamos a ver cual tenemos en uso:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">uname -rms
+</code></pre></div><figure>
+    <img src="/img/kernel-actual.png"/> 
+</figure>
+
+<p>Como se observa en la imagen estamos actualmente con la versión “ Linux 4.19.0-21 “, con lo cual el resto fuera, lo borramos.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">apt remove --purge linux-image-4.19.0-20-amd64 linux-headers-4.19.0-20-amd64 linux-headers-4.19.0-20-common
+</code></pre></div><figure>
+    <img src="/img/image-headers.png"/> 
+</figure>
+
+<p>Y ya terminamos, nuestro sistema limpio como la patena.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/terminal/" rel="tag">Terminal</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/so/" rel="tag">SO</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

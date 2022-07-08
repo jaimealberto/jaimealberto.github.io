@@ -4,21 +4,51 @@
   
   <url>
     <loc>https://jaimealberto.github.io/</loc>
-    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/post/33_kernels/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jaimealberto.github.io/categories/</loc>
-    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jaimealberto.github.io/tags/edr/</loc>
-    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
+    <loc>https://jaimealberto.github.io/categories/linux/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jaimealberto.github.io/post/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/so/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/categories/sysadmin/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/terminal/</loc>
+    <lastmod>2022-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/edr/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -29,11 +59,6 @@
   
   <url>
     <loc>https://jaimealberto.github.io/tags/siem/</loc>
-    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/tags/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -68,32 +93,12 @@
   </url>
   
   <url>
-    <loc>https://jaimealberto.github.io/categories/linux/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jaimealberto.github.io/post/14_customgdm3/</loc>
     <lastmod>2022-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jaimealberto.github.io/tags/seguridad/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/tags/so/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/categories/sysadmin/</loc>
-    <lastmod>2022-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/tags/terminal/</loc>
     <lastmod>2022-05-15T00:00:00+00:00</lastmod>
   </url>
   

@@ -6,7 +6,20 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Borrar kenels antiguos en Debian</title>
+      <link>https://jaimealberto.github.io/post/33_kernels/</link>
+      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/33_kernels/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/kernel.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Wazuh</title>
       <link>https://jaimealberto.github.io/post/32_wazuh/</link>
