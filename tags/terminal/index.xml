@@ -6,7 +6,20 @@
     <description>Recent content in Terminal on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logos en videos</title>
+      <link>https://jaimealberto.github.io/post/34_logosvideos/</link>
+      <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/34_logosvideos/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/stamp.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Cuando vemos un vídeo ecuatorial casi siempre tienen alguna marca de agua donde se visualiza el nombre del autor, un logotipo, una url, etc.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Borrar kenels antiguos en Debian</title>
       <link>https://jaimealberto.github.io/post/33_kernels/</link>

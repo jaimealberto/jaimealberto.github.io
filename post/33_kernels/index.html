@@ -137,20 +137,20 @@
 <p>Si soy un maniático, no me gusta tener software que no utilizo instalado y sobre todo antiguo por temas de parcheo de seguridad, etc. Así que vamos a desinstalar los kernels que no utilicemos y si instamos en su momento los “headers” también. Por manías o seguridad si algo falla siempre se aconseja dejar el actual y una versión anterior.</p>
 <h1 id="procedimiento">Procedimiento</h1>
 <p>Desde nuestro terminal como, root, listamos lo que tenemos instalado ( kenels y headers ):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dpkg -l | grep -i linux-image <span style="color:#f92672">&amp;&amp;</span> dpkg -l | grep -i linux-headers
-</code></pre></div><figure>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dpkg -l | grep -i linux-image <span style="color:#f92672">&amp;&amp;</span> dpkg -l | grep -i linux-headers</code></pre></div>
+<figure>
     <img src="/img/image-headers.png"/> 
 </figure>
 
 <p>Como se puede observar en la imagen anterior tenemos instalados varias imágenes de kernel y sus headers correspondientes. Ahora vamos a ver cual tenemos en uso:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">uname -rms
-</code></pre></div><figure>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">uname -rms</code></pre></div>
+<figure>
     <img src="/img/kernel-actual.png"/> 
 </figure>
 
 <p>Como se observa en la imagen estamos actualmente con la versión “ Linux 4.19.0-21 “, con lo cual el resto fuera, lo borramos.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">apt remove --purge linux-image-4.19.0-20-amd64 linux-headers-4.19.0-20-amd64 linux-headers-4.19.0-20-common
-</code></pre></div><figure>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt remove --purge linux-image-4.19.0-20-amd64 linux-headers-4.19.0-20-amd64 linux-headers-4.19.0-20-common</code></pre></div>
+<figure>
     <img src="/img/erase.gif"/> 
 </figure>
 
