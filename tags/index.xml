@@ -6,7 +6,25 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 08 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPN</title>
+      <link>https://jaimealberto.github.io/tags/vpn/</link>
+      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WireGuard</title>
+      <link>https://jaimealberto.github.io/tags/wireguard/</link>
+      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/wireguard/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Terminal</title>
       <link>https://jaimealberto.github.io/tags/terminal/</link>

@@ -4,12 +4,47 @@
   
   <url>
     <loc>https://jaimealberto.github.io/</loc>
-    <lastmod>2022-07-08T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jaimealberto.github.io/categories/</loc>
-    <lastmod>2022-07-08T00:00:00+00:00</lastmod>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/post/</loc>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/categories/seguridad/</loc>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/</loc>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/vpn/</loc>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/tags/wireguard/</loc>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/categories/wireguard/</loc>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jaimealberto.github.io/post/35_wireguard/</loc>
+    <lastmod>2022-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -19,16 +54,6 @@
   
   <url>
     <loc>https://jaimealberto.github.io/post/34_logosvideos/</loc>
-    <lastmod>2022-07-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/post/</loc>
-    <lastmod>2022-07-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/tags/</loc>
     <lastmod>2022-07-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -59,11 +84,6 @@
   
   <url>
     <loc>https://jaimealberto.github.io/tags/edr/</loc>
-    <lastmod>2022-07-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jaimealberto.github.io/categories/seguridad/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url>
   

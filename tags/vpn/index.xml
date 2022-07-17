@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VPN on </title>
+    <link>https://jaimealberto.github.io/tags/vpn/</link>
+    <description>Recent content in VPN on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WireGuard</title>
+      <link>https://jaimealberto.github.io/post/35_wireguard/</link>
+      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/35_wireguard/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/wireguard.png&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Según la &lt;a href=&#34;https://es.wikipedia.org/wiki/WireGuard&#34;&gt;Wikipedia&lt;/a&gt; “ WireGuard es una aplicación de software libre y de código abierto y un protocolo de comunicación que implementa técnicas de red privada virtual (VPN) para crear conexiones seguras punto a punto en configuraciones enrutadas o puenteadas. Se ejecuta como un módulo dentro del núcleo Linux y tiene como objetivo un mejor rendimiento que los protocolos de tunelización IPsec y OpenVPN.2​ Fue escrito por Jason A. Donenfeld y se publica bajo la segunda versión de la GNU General Public License (GPL).3​ El sitio web oficial describe el protocolo como un trabajo en progreso. ”&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
