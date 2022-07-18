@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Notas Raspberry Pi">
 <meta itemprop="datePublished" content="2022-04-04T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1206">
+<meta itemprop="wordCount" content="1294">
 
 
 
@@ -148,6 +148,7 @@
     <li><a href="#servicios">Servicios</a>
       <ul>
         <li><a href="#servidor-ssh">Servidor ssh</a></li>
+        <li><a href="#duckdns">DuckDns</a></li>
       </ul>
     </li>
     <li><a href="#backup-tarjeta-sd">Backup tarjeta SD</a>
@@ -376,6 +377,23 @@ Match User sistemas
 AllowTcpForwarding yes
 <span style="color:#75715e"># Banner</span>
 <span style="color:#75715e"># PrintLastLog</span></code></pre></div>
+<h3 id="duckdns">DuckDns</h3>
+<p>Para tener nuestra conexión localizada por ip por si la necesitamos.
+Registramos los dominios en <a href="https://www.duckdns.org/">Duckdns</a> obteniendo un token. Desde el terminal con una cuenta de usuario:</p>
+<ul>
+<li>Creeamos el script:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">mkdir duckdns
+cd duckdns
+vi duck.sh</code></pre></div></li>
+<li>Contenido:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">echo url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.duckdns.org/update?domains=dominio1,dominio2&amp;token=MI_TOKEN_ULTRA_SECRETO&amp;ip=&#34;</span> | curl -k -o ~/duckdns/duck.log -K -</code></pre></div></li>
+<li>Le damos permisos de ejecución:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod +x duck.sh</code></pre></div></li>
+<li>Lo programamos en el cron
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">crontab -e
+*/5 * * * * ~/duckdns/duck.sh &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span></code></pre></div>
+Ahora cada 5 minutos se ejecutara y escribira el resultado en el fichero duck.log. Sera ok o ko.</li>
+</ul>
 <h2 id="backup-tarjeta-sd">Backup tarjeta SD</h2>
 <h3 id="local">Local</h3>
 <p>Apagarmos la Rpi y la insertamos en nuestro equipo. Abrimos un terminal con privliegios de root e identificamos cual es el device de la tarjeta sd:</p>
