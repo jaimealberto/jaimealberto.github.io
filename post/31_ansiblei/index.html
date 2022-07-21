@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ansible - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Que es">
+		<meta property="og:title" content="Ansible" />
+<meta property="og:description" content="Que es" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/31_ansiblei/" />
+<meta property="article:published_time" content="2022-07-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-21T00:00:00+00:00" />
+
+		<meta itemprop="name" content="Ansible">
+<meta itemprop="description" content="Que es">
+<meta itemprop="datePublished" content="2022-07-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="207">
+
+
+
+<meta itemprop="keywords" content="Utilidades,Automatización," />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/vida/">
+				
+				<span class="menu__text">Vidas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Ansible</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-07-21T00:00:00Z">21-07-2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ansible/" rel="category">Ansible</a>, <a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure>
+    <img src="/img/ansiblei.jpg"/> 
+</figure>
+
+<p>Segun la Wikipedia, <a href="https://es.wikipedia.org/wiki/Ansible_(software)">Ansible</a> es una plataforma de software libre para configurar y administrar ordenadores.</p>
+<p>Para mi básicamente es una herramienta que permite gestionar remotamente maquinas con un potente nivel de automatización. Vamos algo imprescindible para cualquier administrador que gestione una plataforma. Entre muchas de sus virtudes esta la multiplataforma tanto en el nodo que orquesta todo como en los clientes que reciben las configuraciones y / o modificaciones.</p>
+<h2 id="arquitectura">Arquitectura</h2>
+<p>Básicamente Ansible tiene un nodo de Managment o de control que es el que mediante conexión automatizada ejecuta los Playbook´s o guiones en los hosts clientes que administra. Los hosts están dado de altas en un Inventory o inventario. Conceptos básicos:</p>
+<pre><code>Host Inventory: Fichero donde se definen los hosts que se admiinistran.
+Rol: Tarea a ejecutar.
+Playbook: Lista de roles a ejecutar.
+</code></pre><p>La comunicación con los clientes en caso de sistemas Linux es mediante ssh y en sistemas Windows mediante winrm.</p>
+<p>Diagrama de ejemplo:</p>
+<pre><code>                  +---------------+         +---------------+
+                  |               |         |    nodo01     |
+                  |               |&lt;==ssh==&gt;|    Linux      |
+                  |               |         | 192.168.1.101 |
+                  |    Manager    |         +---------------+
+                  |     Linux     |         
+                  | 192.168.1.110 |         +---------------+
+                  |               |         |    nodo02     |
+                  |               |&lt;==WRM==&gt;|    Windows    |
+                  |               |         | 192.168.1.102 |
+                  +---------------+         +---------------+
+
+</code></pre><p>Si queréis practicar <a href="https://laboratorio.jaimealberto.io/">aquí</a> tenéis mis laboratorios en continua actualización.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/utilidades/" rel="tag">Utilidades</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/automatizaci%C3%B3n/" rel="tag">Automatización</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
