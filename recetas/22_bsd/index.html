@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>BSD, CPU, RAM, etc - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="BSD, CPU, RAM, etc">
+		<meta property="og:title" content="BSD, CPU, RAM, etc" />
+<meta property="og:description" content="BSD, CPU, RAM, etc" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/recetas/22_bsd/" />
+
+
+		<meta itemprop="name" content="BSD, CPU, RAM, etc">
+<meta itemprop="description" content="BSD, CPU, RAM, etc">
+
+<meta itemprop="wordCount" content="372">
+
+
+
+<meta itemprop="keywords" content="" />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/vida/">
+				
+				<span class="menu__text">Vidas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">BSD, CPU, RAM, etc</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<p>Desde el terminal:</p>
+<ul>
+<li>
+<p>CPU Info:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#sysctl -a | egrep -i &#39;hw.machine|hw.model|hw.ncpu&#39;</span>
+hw.machine: amd64
+hw.model: Intel<span style="color:#f92672">(</span>R<span style="color:#f92672">)</span> Atom<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> CPU D525   @ 1.80GHz
+hw.ncpu: <span style="color:#ae81ff">4</span>
+hw.machine_arch: amd64</code></pre></div></p>
+</li>
+<li>
+<p>CPU Temperatura:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#sysctl dev.cpu | grep temperature</span>
+dev.cpu.3.temperature: 42.0C
+dev.cpu.1.temperature: 43.0C
+dev.cpu.2.temperature: 42.0C
+dev.cpu.0.temperature: 44.0C</code></pre></div></p>
+</li>
+<li>
+<p>RAM:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#sysctl hw | egrep &#39;hw.(phys|user|real)&#39;</span>
+hw.physmem: <span style="color:#ae81ff">2097270784</span>
+hw.usermem: <span style="color:#ae81ff">1729941504</span>
+hw.realmem: <span style="color:#ae81ff">2147483648</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#grep memory /var/run/dmesg.boot</span>
+real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
+avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
+agp0: aperture size is 256M, detected 8188k stolen memory
+real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
+avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
+agp0: aperture size is 256M, detected 8188k stolen memory
+real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
+avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
+agp0: aperture size is 256M, detected 8188k stolen memory
+real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
+avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
+agp0: aperture size is 256M, detected 8188k stolen memory
+real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
+avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
+agp0: aperture size is 256M, detected 8188k stolen memory
+real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
+avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
+agp0: aperture size is 256M, detected 8188k stolen memory
+real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
+avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
+agp0: aperture size is 256M, detected 8188k stolen memory</code></pre></div></p>
+</li>
+<li>
+<p>RAM, script:</p>
+</li>
+</ul>
+<p>Descarga, solo la primera vez:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#curl -O https://raw.githubusercontent.com/ocochard/myscripts/master/FreeBSD/freebsd-memory.sh</span></code></pre></div>
+Ejecutar:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#75715e">#sh freebsd-memory.sh</span>
+SYSTEM MEMORY INFORMATION:
+mem_wire:         <span style="color:#ae81ff">367579136</span> <span style="color:#f92672">(</span>    350MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span> 17%<span style="color:#f92672">]</span> Wired: disabled <span style="color:#66d9ef">for</span> paging out
+mem_active:  +     <span style="color:#ae81ff">15933440</span> <span style="color:#f92672">(</span>     15MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>  0%<span style="color:#f92672">]</span> Active: recently referenced
+mem_inactive:+    <span style="color:#ae81ff">220573696</span> <span style="color:#f92672">(</span>    210MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span> 10%<span style="color:#f92672">]</span> Inactive: recently not referenced
+mem_cache:   +            <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>      0MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>  0%<span style="color:#f92672">]</span> Cached: almost avail. <span style="color:#66d9ef">for</span> allocation
+mem_free:    +   <span style="color:#ae81ff">1433530368</span> <span style="color:#f92672">(</span>   1367MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span> 70%<span style="color:#f92672">]</span> Free: fully available <span style="color:#66d9ef">for</span> allocation
+mem_gap_vm:  +      <span style="color:#ae81ff">4796416</span> <span style="color:#f92672">(</span>      4MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>  0%<span style="color:#f92672">]</span> Memory gap: UNKNOWN
+______________ ____________ ___________ ______
+mem_all:     <span style="color:#f92672">=</span>   <span style="color:#ae81ff">2042413056</span> <span style="color:#f92672">(</span>   1947MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>100%<span style="color:#f92672">]</span> Total real memory managed
+mem_gap_sys: +     <span style="color:#ae81ff">54857728</span> <span style="color:#f92672">(</span>     52MB<span style="color:#f92672">)</span>        Memory gap: Kernel?!
+______________ ____________ ___________
+mem_phys:    <span style="color:#f92672">=</span>   <span style="color:#ae81ff">2097270784</span> <span style="color:#f92672">(</span>   2000MB<span style="color:#f92672">)</span>        Total real memory available
+mem_gap_hw:  +     <span style="color:#ae81ff">50212864</span> <span style="color:#f92672">(</span>     47MB<span style="color:#f92672">)</span>        Memory gap: Segment Mappings?!
+______________ ____________ ___________
+mem_hw:      <span style="color:#f92672">=</span>   <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span>   2048MB<span style="color:#f92672">)</span>        Total real memory installed
+
+SYSTEM MEMORY SUMMARY:
+mem_used:         <span style="color:#ae81ff">493379584</span> <span style="color:#f92672">(</span>    470MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span> 22%<span style="color:#f92672">]</span> Logically used memory
+mem_avail:   +   <span style="color:#ae81ff">1654104064</span> <span style="color:#f92672">(</span>   1577MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span> 77%<span style="color:#f92672">]</span> Logically available memory
+______________ ____________ __________ _______
+mem_total:   <span style="color:#f92672">=</span>   <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span>   2048MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>100%<span style="color:#f92672">]</span> Logically total memory</code></pre></div></p>
+		</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
