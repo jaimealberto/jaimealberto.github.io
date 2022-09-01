@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Terminator &#43; Zsh - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Configuración Terminator &#43; Zsh">
+		<meta property="og:title" content="Terminator &#43; Zsh" />
+<meta property="og:description" content="Configuración Terminator &#43; Zsh" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/36_terminatorzsh/" />
+<meta property="article:published_time" content="2022-08-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-08-31T00:00:00+00:00" />
+
+		<meta itemprop="name" content="Terminator &#43; Zsh">
+<meta itemprop="description" content="Configuración Terminator &#43; Zsh">
+<meta itemprop="datePublished" content="2022-08-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-08-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="588">
+
+
+
+<meta itemprop="keywords" content="SO,Terminal,Utilidades,Shell," />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/vida/">
+				
+				<span class="menu__text">Vidas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Terminator &#43; Zsh</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-08-31T00:00:00Z">31-08-2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/macos/" rel="category">MacOS </a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalación">Instalación</a></li>
+    <li><a href="#configuración-oh-my-zsh">Configuración Oh My ZSH</a>
+      <ul>
+        <li><a href="#temas">Temas</a></li>
+        <li><a href="#plugins">Plugins</a></li>
+      </ul>
+    </li>
+    <li><a href="#envíar-comandos-a-todas-las-ventanasgrupos">Envíar comandos a todas las ventanas/grupos</a></li>
+    <li><a href="#atajos-de-teclado-terminator">Atajos de teclado Terminator</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure>
+    <img src="/img/DECVT100.jpg"/> 
+</figure>
+
+<p>Ya han pasado tiempo desde aquellos maravillosos <a href="https://es.wikipedia.org/wiki/Terminal_tonta">terminales</a> “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal <a href="https://github.com/software-jessies-org/jessies/wiki/Terminator">Terminator</a> y la <a href="https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)">Shell</a> <a href="https://es.wikipedia.org/wiki/Zsh">Zsh</a>.</p>
+<h2 id="instalación">Instalación</h2>
+<p>Terminator</p>
+<p>Desde nuestro terminal como root, si no lo tenemos ya instalado:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install terminator</code></pre></div></p>
+<p>Zsh</p>
+<p>Desde nuestro terminal como root:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install zsh zplug
+chsh -s /bin/zsh usuario</code></pre></div></p>
+<p>Comprobamos el cambio
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">cat /etc/passwd | grep -i usuario
+usuario:x:1000:1000:usuario,,,:/home/usuario:/bin/zsh</code></pre></div></p>
+<p>Complementos para Zsh:</p>
+<p>Oh My Zsh</p>
+<p>Abrimos nuestro terminal (Terminator) y desde nuestro home de usuario:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></div></p>
+<p>Crea un .zshrc nuevo para su uso y personalización. El antiguo no se pierde por si tenemos algo personalizado, como por ejemplo alias. Lo guarda en uno llamado .zshrc.pre-oh-my-zsh. De este es de donde tendremos que copiar al nuevo nuestras personalizaciones anteriores.</p>
+<h2 id="configuración-oh-my-zsh">Configuración Oh My ZSH</h2>
+<h3 id="temas">Temas</h3>
+<p>Podemos elegir un temas con los que viene Oh My ZSH <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">aquí.</a></p>
+<p>Para configurarlo hay que editar el archivo ~/.zshrc</p>
+<pre><code>ZSH_THEME el que nos guste.
+</code></pre><p>Existen gran cantidad de temas, yo personalmente utilizo <a href="https://github.com/romkatv/powerlevel10k">Powerleve10k.</a></p>
+<p><strong>Nota:</strong> Cada tema tiene su propia configuración.</p>
+<h4 id="powerlevel10k">Powerlevel10k</h4>
+<p>Personalmente me guste este tema, el cual podemos instalar del siguiente modo desde nuestra terminal:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k</code></pre></div></p>
+<p>Activamos el tema:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">vi .zshrc
+ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;powerlevel10k/powerlevel10k&#34;</span>
+source .zshrc</code></pre></div></p>
+<p>Configurar el tema:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">p10k configure</code></pre></div></p>
+<h3 id="plugins">Plugins</h3>
+<h4 id="plugin-manager-antigen">Plugin Manager Antigen</h4>
+<p>Gestor de plugins que te permite instalar fácilmente otros plugins, ahorra tiempo  para  no tener que hacerlo manualmente
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install zgen zsh-antigen</code></pre></div></p>
+<h4 id="plugin-zsh-syntax-highlighting">Plugin zsh-syntax-highlighting</h4>
+<p>Colorea los comandos de diferentes programas.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-syntax-highlighting</code></pre></div></p>
+<h4 id="plugin-zsh-autosuggestions">Plugin zsh-autosuggestions</h4>
+<p>Busca en el historial  y autocompleta los mismos.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">git clone https://github.com/zsh-users/zsh-autosuggestions <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-autosuggestions</code></pre></div></p>
+<h4 id="plugin-zsh-interactive-cd">Plugin zsh-interactive-cd</h4>
+<p>El plugin se activa en el siguiente apartado pero tenemos que tener instalado un paquete adicional:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install fzf</code></pre></div></p>
+<p>Para activar los plugins editamos .zshrc, un ejemplo:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">plugins<span style="color:#f92672">=(</span> 
+        ansible
+        docker
+        git
+        nmap
+        python
+        screen
+        sudo
+        themes
+        transfer
+        virtualenv
+        vscode
+        wakeonlan
+        web-search
+        zsh-autosuggestions
+        zsh-interactive-cd
+        zsh-navigation-tools
+        zsh-syntax-highlighting
+        <span style="color:#f92672">)</span></code></pre></div></p>
+<h2 id="envíar-comandos-a-todas-las-ventanasgrupos">Envíar comandos a todas las ventanas/grupos</h2>
+<p>Una interesante característica de Terminator es el poder enviar las pulsaciones que tecleamos en una terminal, a todas las ventanas de terminal abiertas. También nos permite la creación de grupos de terminales y elegir si en los grupos se aplica la característica de enviar las pulsaciones a todas las ventanas que pertenezcan a un grupo, esto se conoce como Difusión)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Acción</th>
+<th style="text-align:right">Teclas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Enviar a todas las ventanas</td>
+<td style="text-align:right">Alt+A</td>
+</tr>
+<tr>
+<td style="text-align:left">Enviar a todo el grupo</td>
+<td style="text-align:right">Alt+G</td>
+</tr>
+<tr>
+<td style="text-align:left">Desactivar el envío a todos</td>
+<td style="text-align:right">Alt+O</td>
+</tr>
+</tbody>
+</table>
+<p>Grupos:</p>
+<p>Terminator permite crear grupos de terminales con la la opción desplegando el icono:</p>
+<figure>
+    <img src="/img/simbol-terminator-linux.jpg"/> 
+</figure>
+
+<p>Y al desplegar el icono, ncontrarmos las opciones:</p>
+<figure>
+    <img src="/img/grupos-difusion.jpg"/> 
+</figure>
+
+<h2 id="atajos-de-teclado-terminator">Atajos de teclado Terminator</h2>
+<p>Como ya sabemos el teclado es mas rápido que el ratón o trackpad, con lo cual aquí dejo algunos atajos de teclado útiles:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Acción</th>
+<th style="text-align:right">Teclas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Dividir panel en horizontal</td>
+<td style="text-align:right">Ctrl+Shift+O</td>
+</tr>
+<tr>
+<td style="text-align:left">Dividir panel en vertical</td>
+<td style="text-align:right">Ctrl+Shift+E</td>
+</tr>
+<tr>
+<td style="text-align:left">Cerrar panel actual</td>
+<td style="text-align:right">Ctrl+Shift+W</td>
+</tr>
+<tr>
+<td style="text-align:left">Cerrar terminales abiertas</td>
+<td style="text-align:right">Ctrl+Shift+Q</td>
+</tr>
+<tr>
+<td style="text-align:left">Ir al panel izquierdo</td>
+<td style="text-align:right">Alt+←</td>
+</tr>
+<tr>
+<td style="text-align:left">Ir al panel derecho</td>
+<td style="text-align:right">Alt+→</td>
+</tr>
+<tr>
+<td style="text-align:left">Ir al panel superior</td>
+<td style="text-align:right">Alt+↑</td>
+</tr>
+<tr>
+<td style="text-align:left">Ir al panel inferior</td>
+<td style="text-align:right">Alt+↓</td>
+</tr>
+<tr>
+<td style="text-align:left">Cambiar de panel</td>
+<td style="text-align:right">Ctrl+Shift+X</td>
+</tr>
+<tr>
+<td style="text-align:left">Cambiar el tamaño del panel izquierda</td>
+<td style="text-align:right">Ctrl+Shift+←</td>
+</tr>
+<tr>
+<td style="text-align:left">Cambiar el tamaño del panel derecho</td>
+<td style="text-align:right">Ctrl+Shift+→</td>
+</tr>
+<tr>
+<td style="text-align:left">Cambiar el tamaño del panel arriba</td>
+<td style="text-align:right">Ctrl+Shift+↑</td>
+</tr>
+<tr>
+<td style="text-align:left">Cambiar el tamaño del panel abajo</td>
+<td style="text-align:right">Ctrl+Shift+↓</td>
+</tr>
+<tr>
+<td style="text-align:left">Nueva pestaña</td>
+<td style="text-align:right">Ctrl+Shift+T</td>
+</tr>
+<tr>
+<td style="text-align:left">Mover a la siguiente pestaña</td>
+<td style="text-align:right">Ctrl+Shift+T</td>
+</tr>
+<tr>
+<td style="text-align:left">Mover a la pestaña anterior</td>
+<td style="text-align:right">Ctrl+AvPág</td>
+</tr>
+<tr>
+<td style="text-align:left">Copiar texto seleccionado</td>
+<td style="text-align:right">Ctrl+Shift+C</td>
+</tr>
+<tr>
+<td style="text-align:left">Pegar texto seleccionado</td>
+<td style="text-align:right">Ctrl+Shift+V</td>
+</tr>
+<tr>
+<td style="text-align:left">Cambiar a pantalla completa</td>
+<td style="text-align:right">F11</td>
+</tr>
+<tr>
+<td style="text-align:left">Agrupar todas las terminales</td>
+<td style="text-align:right">Ctrl+G</td>
+</tr>
+<tr>
+<td style="text-align:left">Cerrar termnator</td>
+<td style="text-align:right">Ctrl+q</td>
+</tr>
+</tbody>
+</table>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/so/" rel="tag">SO</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/terminal/" rel="tag">Terminal</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/utilidades/" rel="tag">Utilidades</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/shell/" rel="tag">Shell</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2022 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

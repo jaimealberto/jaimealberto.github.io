@@ -6,7 +6,16 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacOS </title>
+      <link>https://jaimealberto.github.io/categories/macos/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/macos/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Ansible</title>
       <link>https://jaimealberto.github.io/categories/ansible/</link>
@@ -94,15 +103,6 @@
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/categories/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MacOS </title>
-      <link>https://jaimealberto.github.io/categories/macos/</link>
-      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/categories/macos/</guid>
       <description></description>
     </item>
     

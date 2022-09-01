@@ -6,22 +6,49 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Automatización</title>
-      <link>https://jaimealberto.github.io/tags/automatizaci%C3%B3n/</link>
-      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      <title>Shell</title>
+      <link>https://jaimealberto.github.io/tags/shell/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/automatizaci%C3%B3n/</guid>
+      <guid>https://jaimealberto.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SO</title>
+      <link>https://jaimealberto.github.io/tags/so/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/so/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>https://jaimealberto.github.io/tags/terminal/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/terminal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Utilidades</title>
       <link>https://jaimealberto.github.io/tags/utilidades/</link>
-      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Automatización</title>
+      <link>https://jaimealberto.github.io/tags/automatizaci%C3%B3n/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/automatizaci%C3%B3n/</guid>
       <description></description>
     </item>
     
@@ -40,24 +67,6 @@
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/wireguard/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terminal</title>
-      <link>https://jaimealberto.github.io/tags/terminal/</link>
-      <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/terminal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SO</title>
-      <link>https://jaimealberto.github.io/tags/so/</link>
-      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/so/</guid>
       <description></description>
     </item>
     
@@ -148,15 +157,6 @@
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/terraform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shell</title>
-      <link>https://jaimealberto.github.io/tags/shell/</link>
-      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/shell/</guid>
       <description></description>
     </item>
     

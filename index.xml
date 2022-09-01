@@ -6,7 +6,20 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terminator &#43; Zsh</title>
+      <link>https://jaimealberto.github.io/post/36_terminatorzsh/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/36_terminatorzsh/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/DECVT100.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Ya han pasado tiempo desde aquellos maravillosos &lt;a href=&#34;https://es.wikipedia.org/wiki/Terminal_tonta&#34;&gt;terminales&lt;/a&gt; “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal &lt;a href=&#34;https://github.com/software-jessies-org/jessies/wiki/Terminator&#34;&gt;Terminator&lt;/a&gt; y la &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt; &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Ansible</title>
       <link>https://jaimealberto.github.io/post/31_ansiblei/</link>
@@ -78,7 +91,7 @@
       <pubDate>Mon, 16 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/recursos/</guid>
-      <description>Herramientas on-line  Color Hunt, paleta de colores. Drawio, diagramas. Excalidraw, diagramas. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, envio de ficheros. Wormhole, transferencia segura de ficheros.  Recursos  Barnimages, banco de imagenes free. Cutestockfootage, banco de videos free. Dareful, banco de videos free. Freepik, banco de imagnes de vectores.</description>
+      <description>Herramientas on-line  Color Hunt, paleta de colores. Drawio, diagramas. Excalidraw, diagramas. Internxt, transferencia segura de ficheros. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envio de notas que se autodestruyen después de ser leídas. Smash, transferencia segura de ficheros. TransferNow, transferencia segura de ficheros. Wormhole, transferencia segura de ficheros.  Recursos  Barnimages, banco de imagenes free. Cutestockfootage, banco de videos free.</description>
     </item>
     
     <item>
