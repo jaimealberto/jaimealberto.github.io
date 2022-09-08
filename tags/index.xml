@@ -6,20 +6,11 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Shell</title>
-      <link>https://jaimealberto.github.io/tags/shell/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/shell/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SO</title>
       <link>https://jaimealberto.github.io/tags/so/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/so/</guid>
       <description></description>
@@ -28,7 +19,7 @@
     <item>
       <title>Terminal</title>
       <link>https://jaimealberto.github.io/tags/terminal/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/terminal/</guid>
       <description></description>
@@ -37,9 +28,18 @@
     <item>
       <title>Utilidades</title>
       <link>https://jaimealberto.github.io/tags/utilidades/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>https://jaimealberto.github.io/tags/shell/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/shell/</guid>
       <description></description>
     </item>
     
