@@ -6,7 +6,20 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instalación de utilidades desde repositorios</title>
+      <link>https://jaimealberto.github.io/post/38_utils_repos/</link>
+      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/38_utils_repos/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/utils_repos.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.github.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href=&#34;https://jaimealberto.github.io/post/37_navegadores_repos/&#34;&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Instalación de navegadores desde repositorios</title>
       <link>https://jaimealberto.github.io/post/37_navegadores_repos/</link>
@@ -17,7 +30,7 @@
     &lt;img src=&#34;https://jaimealberto.github.io/img/navegadores_repos.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
-&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.github.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varias aplicaciones.&lt;/p&gt;</description>
+&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.github.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -577,6 +590,15 @@ Bajo los siguientes términos:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/recetas/19_grubipv6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Escaneo red host up</title>
+      <link>https://jaimealberto.github.io/recetas/24_scan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/24_scan/</guid>
       <description></description>
     </item>
     

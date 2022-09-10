@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar navegadores con las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-09-08T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="257">
+<meta itemprop="wordCount" content="258">
 
 
 
@@ -146,8 +146,8 @@
     <img src="/img/navegadores_repos.jpg"/> 
 </figure>
 
-<p>Después de ver como <a href="https://jaimealberto.github.io/post/28_vscodeinstall/">instalar la ultima versión de Visual Estudio Code desde el repositorio oficial</a> de Microsoft. Ahora veremos como realizar esto mismo con varias aplicaciones.</p>
-<p>Pues si soy un maniático de este tipo de cosas y me gusta que al hacer una actualización del sistema si utilizo aplicaciones que no están en los repositorios se actualicen también. De este modo no tengo que estar pendiente de nuevas versiones, descargarlas y luego instalar. Vamos que este todo integrado con el gestor de paquetes del sistema. En este caso todo esta orientado de sistemas basados en Debian 11 y sus derivadas.</p>
+<p>Después de ver como <a href="https://jaimealberto.github.io/post/28_vscodeinstall/">instalar la ultima versión de Visual Estudio Code desde el repositorio oficial</a> de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.</p>
+<p>Pues si soy un maniático de este tipo de cosas y me gusta que al hacer una actualización del sistema si utilizo varios navegadores que no están en los repositorios se actualicen también. De este modo no tengo que estar pendiente de nuevas versiones, descargarlas y luego instalar. Vamos que este todo integrado con el gestor de paquetes del sistema. En este caso todo esta orientado de sistemas basados en Debian 11 y sus derivadas.</p>
 <h2 id="librewwolf">LibrewWolf</h2>
 <p>Desde nuestro terminal preferida:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">distro<span style="color:#f92672">=</span><span style="color:#66d9ef">$(if</span> echo <span style="color:#e6db74">&#34; bullseye focal impish jammy uma una &#34;</span> | grep -q <span style="color:#e6db74">&#34; </span><span style="color:#66d9ef">$(</span>lsb_release -sc<span style="color:#66d9ef">)</span><span style="color:#e6db74"> &#34;</span>; <span style="color:#66d9ef">then</span> echo <span style="color:#66d9ef">$(</span>lsb_release -sc<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">else</span> echo focal; <span style="color:#66d9ef">fi)</span>
