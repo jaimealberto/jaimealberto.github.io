@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar navegadores con las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-09-08T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="258">
+<meta itemprop="wordCount" content="271">
 
 
 
@@ -152,7 +152,14 @@
 <p>Desde nuestro terminal preferida:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">distro<span style="color:#f92672">=</span><span style="color:#66d9ef">$(if</span> echo <span style="color:#e6db74">&#34; bullseye focal impish jammy uma una &#34;</span> | grep -q <span style="color:#e6db74">&#34; </span><span style="color:#66d9ef">$(</span>lsb_release -sc<span style="color:#66d9ef">)</span><span style="color:#e6db74"> &#34;</span>; <span style="color:#66d9ef">then</span> echo <span style="color:#66d9ef">$(</span>lsb_release -sc<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">else</span> echo focal; <span style="color:#66d9ef">fi)</span>
 wget -O- https://deb.librewolf.net/keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/librewolf.gpg
-sudo tee /etc/apt/sources.list.d/librewolf.sources &lt;&lt; EOF &gt; /dev/null
+sudo tee /etc/apt/sources.list.d/librewolf.sources <span style="color:#e6db74">&lt;&lt; EOF &gt; /dev/null
+</span><span style="color:#e6db74">Types: deb
+</span><span style="color:#e6db74">URIs: https://deb.librewolf.net
+</span><span style="color:#e6db74">Suites: $distro
+</span><span style="color:#e6db74">Components: main
+</span><span style="color:#e6db74">Architectures: amd64
+</span><span style="color:#e6db74">Signed-By: /usr/share/keyrings/librewolf.gpg
+</span><span style="color:#e6db74">EOF</span>
 sudo apt update
 sudo apt install librewolf -y</code></pre></div></p>
 <h2 id="brave">Brave</h2>
