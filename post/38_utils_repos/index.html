@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar utilidades con las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-09-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="245">
+<meta itemprop="wordCount" content="277">
 
 
 
@@ -138,6 +138,7 @@
     <li><a href="#terraform">Terraform</a></li>
     <li><a href="#microsoft-powershell">Microsoft PowerShell</a></li>
     <li><a href="#virtualbox">VirtualBox</a></li>
+    <li><a href="#ansible">Ansible</a></li>
   </ul>
 </nav>
 	</div>
@@ -170,6 +171,12 @@ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add -
 echo <span style="color:#e6db74">&#34;deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bullseye contrib&#34;</span> |  tee /etc/apt/sources.list.d/virtualbox.list
 apt update <span style="color:#f92672">&amp;&amp;</span> install virtualbox-6.1 -y</code></pre></div></p>
 <p>En el momento de escribir este post la ultima versión es la 6.1 pero esto puede variar.</p>
+<h2 id="ansible">Ansible</h2>
+<p>Desde nuestro terminal preferida:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install gnupg2 curl wget -y
+echo <span style="color:#e6db74">&#34;deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main&#34;</span> | tee /etc/apt/sources.list.d/ansible.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+apt update <span style="color:#f92672">&amp;&amp;</span> apt install ansible -y</code></pre></div></p>
 		</div>
 		<footer class="post__footer">
 			
