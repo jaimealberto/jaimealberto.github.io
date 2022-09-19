@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-04-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="203">
+<meta itemprop="wordCount" content="195">
 
 
 
@@ -148,16 +148,13 @@
 <p>Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.</p>
 <p>Habitualmente descargamos el paquete de instalación y procedemos a instalar, con lo cual al realizar actualizaciones el VsCode queda desactualizado y cuando lo arrancamos nos avisa, a mi personalmente esto no me gusta nada. Con lo cual vamos añadir métodos para que esto no ocurra. Abrimos nuestro querido terminal en nuestro sistema.</p>
 <h2 id="debian--ubuntu">Debian / Ubuntu</h2>
-<p>Añadimos la llave del repositorio y el repositorio</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sudo apt-get install wget gpg
+<p>Añadimos la llave del repositorio, el repositorio, actualizamos e instalamos:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt-get install wget gpg apt-transport-https
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; packages.microsoft.gpg
-sudo install -o root -g root -m <span style="color:#ae81ff">644</span> packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c <span style="color:#e6db74">&#39;echo &#34;deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main&#34; &gt; /etc/apt/sources.list.d/vscode.list&#39;</span>
-rm -f packages.microsoft.gpg</code></pre></div>
-<p>Actualizamos e instalamos</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sudo apt install apt-transport-https
-sudo apt update
-sudo apt install code</code></pre></div>
+install -o root -g root -m <span style="color:#ae81ff">644</span> packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sh -c <span style="color:#e6db74">&#39;echo &#34;deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main&#34; &gt; /etc/apt/sources.list.d/vscode.list&#39;</span>
+rm -f packages.microsoft.gpg
+apt update <span style="color:#f92672">&amp;&amp;</span> apt install code</code></pre></div>
 <h2 id="rhel--fedora">RHEL / Fedora</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c <span style="color:#e6db74">&#39;echo -e &#34;[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc&#34; &gt; /etc/yum.repos.d/vscode.repo&#39;</span></code></pre></div>

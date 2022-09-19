@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar utilidades con las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-09-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="254">
+<meta itemprop="wordCount" content="245">
 
 
 
@@ -152,7 +152,7 @@
 <p>Desde nuestro terminal preferida:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 sh -c <span style="color:#e6db74">&#39;echo &#34;deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main&#34; &gt; /etc/apt/sources.list.d/teams.list&#39;</span>
-apt update <span style="color:#f92672">&amp;&amp;</span> apt upgrade <span style="color:#f92672">&amp;&amp;</span> apt install teams -y</code></pre></div></p>
+apt update <span style="color:#f92672">&amp;&amp;</span> apt install teams -y</code></pre></div></p>
 <h2 id="terraform">Terraform</h2>
 <p>Desde nuestro terminal preferida:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
@@ -162,13 +162,13 @@ apt update <span style="color:#f92672">&amp;&amp;</span> apt upgrade <span style
 <p>Desde nuestro terminal preferida:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 sh -c <span style="color:#e6db74">&#39;echo &#34;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main&#34; &gt; /etc/apt/sources.list.d/microsoft.list&#39;</span>
-apt update <span style="color:#f92672">&amp;&amp;</span> apt upgrade <span style="color:#f92672">&amp;&amp;</span> apt install powershell -y</code></pre></div></p>
+apt update <span style="color:#f92672">&amp;&amp;</span> apt install powershell -y</code></pre></div></p>
 <h2 id="virtualbox">VirtualBox</h2>
 <p>Desde nuestro terminal preferida:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add -
 echo <span style="color:#e6db74">&#34;deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bullseye contrib&#34;</span> |  tee /etc/apt/sources.list.d/virtualbox.list
-apt update <span style="color:#f92672">&amp;&amp;</span> apt upgrade <span style="color:#f92672">&amp;&amp;</span> install virtualbox-6.1 -y</code></pre></div></p>
+apt update <span style="color:#f92672">&amp;&amp;</span> install virtualbox-6.1 -y</code></pre></div></p>
 <p>En el momento de escribir este post la ultima versión es la 6.1 pero esto puede variar.</p>
 		</div>
 		<footer class="post__footer">
