@@ -173,6 +173,15 @@
     </item>
     
     <item>
+      <title>Permisos tabla de equivalencias</title>
+      <link>https://jaimealberto.github.io/recetas/25_permisos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recetas/25_permisos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Recuperar root en OPNSense</title>
       <link>https://jaimealberto.github.io/recetas/17_rootopnsense/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
