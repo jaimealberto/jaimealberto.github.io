@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar utilidades con las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-09-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="277">
+<meta itemprop="wordCount" content="319">
 
 
 
@@ -139,6 +139,7 @@
     <li><a href="#microsoft-powershell">Microsoft PowerShell</a></li>
     <li><a href="#virtualbox">VirtualBox</a></li>
     <li><a href="#ansible">Ansible</a></li>
+    <li><a href="#github-cli-gh">GitHub CLI, gh</a></li>
   </ul>
 </nav>
 	</div>
@@ -177,6 +178,13 @@ apt update <span style="color:#f92672">&amp;&amp;</span> install virtualbox-6.1 
 echo <span style="color:#e6db74">&#34;deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main&#34;</span> | tee /etc/apt/sources.list.d/ansible.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 apt update <span style="color:#f92672">&amp;&amp;</span> apt install ansible -y</code></pre></div></p>
+<h2 id="github-cli-gh">GitHub CLI, gh</h2>
+<p>Desde nuestro terminal preferida:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of<span style="color:#f92672">=</span>/usr/share/keyrings/githubcli-archive-keyring.gpg <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&#34;</span> | tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> apt update <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> apt install gh -y</code></pre></div></p>
 		</div>
 		<footer class="post__footer">
 			
