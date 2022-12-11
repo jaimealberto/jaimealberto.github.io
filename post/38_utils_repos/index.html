@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar utilidades con las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-09-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="319">
+<meta itemprop="wordCount" content="345">
 
 
 
@@ -140,6 +140,7 @@
     <li><a href="#virtualbox">VirtualBox</a></li>
     <li><a href="#ansible">Ansible</a></li>
     <li><a href="#github-cli-gh">GitHub CLI, gh</a></li>
+    <li><a href="#anydesk">AnyDesk</a></li>
   </ul>
 </nav>
 	</div>
@@ -185,6 +186,12 @@ apt update <span style="color:#f92672">&amp;&amp;</span> apt install ansible -y<
 </span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&#34;</span> | tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> apt update <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> apt install gh -y</code></pre></div></p>
+<h2 id="anydesk">AnyDesk</h2>
+<p>Desde nuestro terminal preferida:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -
+echo <span style="color:#e6db74">&#34;deb http://deb.anydesk.com/ all main&#34;</span> &gt; /etc/apt/sources.list.d/anydesk-stable.list
+apt update
+apt install anydesk -y</code></pre></div></p>
 		</div>
 		<footer class="post__footer">
 			
