@@ -6,7 +6,20 @@
     <description>Recent content in SO on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 10 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/so/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/so/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sabes actualizar tu Linux ?</title>
+      <link>https://jaimealberto.github.io/post/40_distupgrade/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/40_distupgrade/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/update.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href=&#34;https://es.wikipedia.org/wiki/Advanced_Packaging_Tool&#34;&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Instalación de utilidades desde repositorios</title>
       <link>https://jaimealberto.github.io/post/38_utils_repos/</link>
