@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Integrar utilidades con las actualizaciones con las del sistema">
 <meta itemprop="datePublished" content="2022-09-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="345">
+<meta itemprop="wordCount" content="316">
 
 
 
@@ -134,7 +134,6 @@
 	<div class="toc__menu">
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#microsoft-teams">Microsoft Teams</a></li>
     <li><a href="#terraform">Terraform</a></li>
     <li><a href="#microsoft-powershell">Microsoft PowerShell</a></li>
     <li><a href="#virtualbox">VirtualBox</a></li>
@@ -151,11 +150,6 @@
 
 <p>Después de ver como <a href="https://jaimealberto.github.io/post/28_vscodeinstall/">instalar la ultima versión de Visual Estudio Code desde el repositorio oficial</a> de Microsoft, <a href="https://jaimealberto.github.io/post/37_navegadores_repos/">instalar navegadores desdde sus repositorios</a>. Ahora veremos como realizar esto mismo con varias utilidades.</p>
 <p>Pues si soy un maniático de este tipo de cosas y me gusta que al hacer una actualización del sistema si utilizo aplicaciones que no están en los repositorios se actualicen también. De este modo no tengo que estar pendiente de nuevas versiones, descargarlas y luego instalar. Vamos que este todo integrado con el gestor de paquetes del sistema. En este caso todo esta orientado de sistemas basados en Debian 11 y sus derivadas.</p>
-<h2 id="microsoft-teams">Microsoft Teams</h2>
-<p>Desde nuestro terminal preferida:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-sh -c <span style="color:#e6db74">&#39;echo &#34;deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main&#34; &gt; /etc/apt/sources.list.d/teams.list&#39;</span>
-apt update <span style="color:#f92672">&amp;&amp;</span> apt install teams -y</code></pre></div></p>
 <h2 id="terraform">Terraform</h2>
 <p>Desde nuestro terminal preferida:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
