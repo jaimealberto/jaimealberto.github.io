@@ -18,7 +18,7 @@
 <meta itemprop="description" content="Notas Raspberry Pi">
 <meta itemprop="datePublished" content="2022-04-04T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1295">
+<meta itemprop="wordCount" content="1328">
 
 
 
@@ -155,6 +155,11 @@
       <ul>
         <li><a href="#local">Local</a></li>
         <li><a href="#remota">Remota</a></li>
+      </ul>
+    </li>
+    <li><a href="#restore-tarjeta-sd">Restore tarjeta SD</a>
+      <ul>
+        <li><a href="#local-1">Local</a></li>
       </ul>
     </li>
     <li><a href="#consejos-de-seguridad">Consejos de seguridad</a></li>
@@ -416,6 +421,11 @@ Ahora cada 5 minutos se ejecutara y escribira el resultado en el fichero duck.lo
 <p>Se añade el parámetro &ldquo;status=progess&rdquo;, si vamos a  programar la tarea en el cron lo deberíamos omitir.</p>
 <p>La copia se realiza comprimida al añadir &ldquo;gzip -&rdquo;. Es opcional.</p>
 <p>Este procedimiento no me fallado nunca, esto no quiere decir que sea infalible tener en cuenta que esta en funcionamiento y se realiza el caliente.</p>
+<h2 id="restore-tarjeta-sd">Restore tarjeta SD</h2>
+<h3 id="local-1">Local</h3>
+<p>Desde nuestro terminal como root donde tengamos el de la copia:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">gzip -dc fichero_backup.gz | dd bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>/dev/sdd</code></pre></div>
+<p>Donde /dev/sdd es nuestra tarjeta sd donde restauraremos el backup.</p>
 <h2 id="consejos-de-seguridad">Consejos de seguridad</h2>
 <p>Consejos de seguridad</p>
 <ul>
