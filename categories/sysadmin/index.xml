@@ -6,20 +6,7 @@
     <description>Recent content in Sysadmin on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 14 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/sysadmin/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Uptime Kuma, simple y eficaz</title>
-      <link>https://jaimealberto.github.io/post/41_kuma/</link>
-      <pubDate>Sun, 14 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/post/41_kuma/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/kuma.jpg&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;En muchas ocasiones instalamos y configuramos herramientas las cuales nos sobra el 90 % de las taras que realizan. Muchas veces no necesitamos complicarnos la vida para tener una buena herramienta. Este creo que es el caso de Uptime Kuma.&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/sysadmin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Borrar kenels antiguos en Debian</title>
       <link>https://jaimealberto.github.io/post/33_kernels/</link>
