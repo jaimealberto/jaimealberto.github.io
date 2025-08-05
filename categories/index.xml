@@ -6,7 +6,25 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Servicios</title>
+      <link>https://jaimealberto.github.io/categories/servicios/</link>
+      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/servicios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssh</title>
+      <link>https://jaimealberto.github.io/categories/ssh/</link>
+      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/ssh/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Linux</title>
       <link>https://jaimealberto.github.io/categories/linux/</link>
@@ -116,29 +134,11 @@
     </item>
     
     <item>
-      <title>Servicios</title>
-      <link>https://jaimealberto.github.io/categories/servicios/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/categories/servicios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Redes</title>
       <link>https://jaimealberto.github.io/categories/redes/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/categories/redes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ssh</title>
-      <link>https://jaimealberto.github.io/categories/ssh/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/categories/ssh/</guid>
       <description></description>
     </item>
     
