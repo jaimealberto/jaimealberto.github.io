@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HardwareHacking, Cardputer - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Como tener log`s del servidor SSH en Debian 12 y posteriores">
+		<meta property="og:title" content="HardwareHacking, Cardputer" />
+<meta property="og:description" content="Como tener log`s del servidor SSH en Debian 12 y posteriores" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/43_hhackcardputer1/" />
+<meta property="article:published_time" content="2025-08-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-08-06T00:00:00+00:00" />
+
+		<meta itemprop="name" content="HardwareHacking, Cardputer">
+<meta itemprop="description" content="Como tener log`s del servidor SSH en Debian 12 y posteriores">
+<meta itemprop="datePublished" content="2025-08-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-08-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1387">
+
+
+
+<meta itemprop="keywords" content="Seguridad,Hardware," />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">La causa ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/aboutme/">
+				
+				<span class="menu__text">Algo sobre mí ...</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Posts</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/combos/">
+				
+				<span class="menu__text">Combos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/vida/">
+				
+				<span class="menu__text">Vidas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">HardwareHacking, Cardputer</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-08-06T00:00:00Z">06-08-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/hardwarehacking/" rel="category">HardwareHacking</a>, <a class="meta__link" href="/categories/cardputer/" rel="category">Cardputer</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-disclaimer--descarga-de-responsabilidad">⚠️ Disclaimer / Descarga de responsabilidad</a></li>
+    <li><a href="#-introducción">🔍 Introducción</a></li>
+    <li><a href="#-descripción-del-hardware">🔧 Descripción del Hardware</a>
+      <ul>
+        <li><a href="#-versiones-de-hardware">🛠️ Versiones de hardware</a></li>
+      </ul>
+    </li>
+    <li><a href="#software-disponible">Software disponible</a>
+      <ul>
+        <li><a href="#el-entorno-de-desarrollo-oficial">El Entorno de Desarrollo Oficial</a></li>
+        <li><a href="#firmwares-basados-en-micropython">Firmwares basados en MicroPython</a></li>
+        <li><a href="#firmwares">Firmwares</a></li>
+      </ul>
+    </li>
+    <li><a href="#-hardware-adicional">🔧 Hardware adicional</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure>
+    <img src="/img/hhcp1.jpg"/> 
+</figure>
+
+<p>Aquí da comienzo una serie de post relacionados con el HardwareHacking, esto llegara donde mi bolsillo me lo permita dado que no lo patrocina nadie y según compre dispositivos ire contando mis experiencias.</p>
+<h2 id="-disclaimer--descarga-de-responsabilidad">⚠️ Disclaimer / Descarga de responsabilidad</h2>
+<blockquote>
+<p>⚠️ <strong>Advertencia:</strong></p>
+</blockquote>
+<p>Cualquier acción que se realice basándose en este contenido es bajo tu propia responsabilidad. Las menciones a marcas, productos o servicios son propiedad de sus respectivos dueños y no implican ningún tipo de afiliación, patrocinio o respaldo por parte de los mismos. Todas las acciones realizadas se ejecutan en entornos de laboratorio controlados y aislados.</p>
+<h2 id="-introducción">🔍 Introducción</h2>
+<p>En el mundo del hardware libre, cada dia vez surgen nuevas soluciones en formato compacto. CardComputer es una de ellas,combina rendimiento, facilidad de integración y bajo consumo, lo cual lo convierte en una opción ideal para desarrolladores, entusiastas del hardware, tester de seguridad, etc.</p>
+<p>Diseñado para proyectos de electrónica, IoT, automatización o incluso aplicaciones educativas, CardComputer ofrece una excelente relación entre potencia y tamaño, con una disposición de pines muy versátil que permite conectar periféricos externos sin complicaciones.</p>
+<figure>
+    <img src="/img/cardputer.webp"/> 
+</figure>
+
+<h2 id="-descripción-del-hardware">🔧 Descripción del Hardware</h2>
+<p>El CardComputer es un módulo embebido de formato reducido (tamaño de tarjeta), que integra en una sola placa:</p>
+<p>✅ Procesador ARM Cortex-M / RISC-V (dependiendo del modelo)</p>
+<p>✅ Memoria Flash integrada (4 MB, 8 MB o más)</p>
+<p>✅ Conectividad: Wi-Fi / Ethernet / BLE según configuración</p>
+<p>✅ Interfaces de expansión:</p>
+<pre><code>GPIO
+UART
+SPI
+I2C
+ADC/DAC
+PWM
+</code></pre>
+<p>✅ Puerto USB-C / Micro USB para programación y energía</p>
+<p>✅ Zócalo microSD para almacenamiento adicional (en algunos modelos)</p>
+<p>✅ Botón de reset y usuario programable</p>
+<p>✅ Leds indicadores de estado</p>
+<p>El diseño modular permite utilizarlo en placas base o integrarlo en proyectos personalizados.</p>
+<p>La documentación completa la puedes encontrar en su <a href="https://docs.m5stack.com/en/core/Cardputer%20V1.1">web oficial</a>.</p>
+<h3 id="-versiones-de-hardware">🛠️ Versiones de hardware</h3>
+<p>Existen dos variantes de hardware la S3 y la S3A en la siguiente tabla podemos ver su comparativa:</p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>S3</th>
+<th>S3A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chip principal</td>
+<td>ESP32-S3</td>
+<td>ESP32-S3 (variante avanzada)</td>
+</tr>
+<tr>
+<td>Soporte táctil</td>
+<td>A veces ausente</td>
+<td>Presente</td>
+</tr>
+<tr>
+<td>GPIOs disponibles</td>
+<td>Menor</td>
+<td>Mayor (algunos extra)</td>
+</tr>
+<tr>
+<td>Firmware recomendado</td>
+<td>Versión base S3</td>
+<td>Puede requerir firmwares más recientes o específicos</td>
+</tr>
+</tbody>
+</table>
+<h2 id="software-disponible">Software disponible</h2>
+<p>Como mini ordenador con un ESP32 integrado tenemos disponibles varios entornos de desarrollo. Los mas utilizados son:</p>
+<h3 id="el-entorno-de-desarrollo-oficial">El Entorno de Desarrollo Oficial</h3>
+<p>Es el punto de partida para la mayoría de los usuarios y la puerta de entrada al universo de M5Stack. Proporciona bibliotecas y soporte para el Arduino IDE y su propia plataforma de programación visual llamada UIFlow (basada en MicroPython y Blockly). Ideal para principiantes, prototipos rápidos, aprendizaje de programación, y proyectos que requieren un control de bajo nivel del hardware.</p>
+<p>Pros:</p>
+<p>UIFlow: Increíblemente fácil de usar para principiantes. Permite arrastrar y soltar bloques de código para crear interfaces y controlar sensores sin escribir una línea de código.
+Arduino IDE: Potente y flexible. Tienes acceso completo a las funcionalidades del chip ESP32 y a una vasta comunidad de proyectos.</p>
+<p>Contras:</p>
+<p>UIFlow: Puede ser limitante para proyectos complejos.
+Arduino IDE: Requiere conocimientos de C++ y la curva de aprendizaje puede ser más pronunciada si vienes de otros lenguajes.</p>
+<h3 id="firmwares-basados-en-micropython">Firmwares basados en MicroPython</h3>
+<p>El ESP32 es perfecto para MicroPython.</p>
+<p>Firmwares como MicroHydra o una instalación base de MicroPython te permiten escribir código Python directamente en el Cardputer. Esto transforma el dispositivo en una herramienta de scripting increíblemente versátil. Ideal para multiples proyectos.</p>
+<p>Pros:
+Facilidad y rapidez: Python es conocido por su sintaxis legible, lo que acelera el desarrollo de proyectos.
+Gran comunidad y librerías: Tienes acceso a un amplio ecosistema de librerías para manejar HTTP, JSON, redes, y mucho más.</p>
+<p>Contras:</p>
+<p>Menor rendimiento que C++ en tareas de bajo nivel.
+Requiere un conocimiento intermedio de Python para sacar el máximo provecho.</p>
+<h3 id="firmwares">Firmwares</h3>
+<p>Para la instalación de firmwares en general para todo el hardware de M5Stack disponemos de <a href="https://docs.m5stack.com/en/uiflow/m5burner/intro">web oficial</a>. Tenemos versiones disponibles para Linux, MacOs y Windows. Al ejecutar el software una vez descargado nos aparecerá la siguiente pantalla:</p>
+<figure>
+    <img src="/img/M5burner.jpg"/> 
+</figure>
+
+<p>Ahora tendremos que seleccionar el hardware del stack de M5, en nuestro caso Cardputer como se ve en la pantalla anterior. Una vez seleccionado nos indicara en la parte derecha los firmwares de los cuales disponemos para su instalación directa, adicionalmente existe una gran cantidad de proyectos que están aquí enumerados pero que se pueden cargar. Como fuentes podemos buscar en GitHub, foros, etc.</p>
+<p>Algunos de los firmwares mas populares para el M5Stack Cardputer son:</p>
+<h4 id="-firmwares-de-seguridad-y-auditoría-de-redes">🛡️ Firmwares de Seguridad y Auditoría de Redes</h4>
+<p><strong>Evil-Cardputer:</strong> Considerado la &ldquo;navaja suiza&rdquo; del hacking Wi-Fi, este firmware nos permite realizar ataques de desautenticación, lanzar balizas de red falsas (beacon spam), y capturar handshakes. Una herramienta indispensable para auditar la seguridad de las redes Wi-Fi.</p>
+<p><strong>Marauder:</strong> Muy parecido a Evil-Cardputer, se especializa en la captura de handshakes de redes Wi-Fi (WPA/WPA2) y la ejecución de ataques de desautenticación. Su está optimizada para el Cardputer, facilitando las auditorías.</p>
+<p><strong>EvilPortal:</strong> Diseñado para crear &ldquo;portales cautivos&rdquo; falsos. Simula una página de inicio de sesión de Wi-Fi para capturar credenciales de usuarios.</p>
+<p><strong>OpenWiFi Scanner:</strong> Es ua herramienta menos agresiva y más analítica. Permite escanear y visualizar de forma detallada las redes Wi-Fi cercanas, mostrando información como el SSID, el canal, la intensidad de la señal y la seguridad.</p>
+<p><strong>Shark:</strong> Convierte tu Cardputer en un analizador de tráfico de red. Permite capturar y visualizar paquetes de datos en la red, es ideal para diagnosticar problemas o estudiar el tráfico en una red. Un sniffer en toda regia.</p>
+<p><strong>BadCar (BadUSB):</strong> No es un firmware en si, sino una funcionalidad común en muchos firmwares. Te permite que el Cardputer emule un teclado USB (o &ldquo;BadUSB&rdquo;), ejecutando scripts predefinidos en un ordenador u otro dispositivo al conectarlo.</p>
+<p><strong>CardSkimmer:</strong> Un proyecto de hacking ético. Simula el comportamiento de un skimmer de tarjetas de crédito o débito, con fines educativos para entender cómo funcionan estos ataques.</p>
+<p><strong>Ghost ESP:</strong> Este firmware normalmente utilizado en el contexto de la seguridad, potencia las capacidades Wi-Fi del ESP32, permitiendo la creación de puntos de acceso falsos, desautenticación y otras funciones avanzadas de red.</p>
+<h4 id="-productividad-y-utilidad-general">⚙️ Productividad y Utilidad General</h4>
+<p><strong>MicroHydra:</strong> Este es un entorno de scripting basado en MicroPython. Más que un firmware con una función específica, es una plataforma que te permite ejecutar tus propios scripts de Python directamente en el Cardputer. Es ideal para la automatización, el desarrollo rápido de herramientas y la personalización.</p>
+<p><strong>Ultimate Remote:</strong> Transforma tu Cardputer en un control remoto universal. Utiliza el módulo infrarrojo (IR) y radiofrecuencia (RF) del dispositivo para controlar televisores, aires acondicionados y otros dispositivos electrónicos.</p>
+<p><strong>Password Manager:</strong> Un firmware que convierte tu Cardputer en una bóveda de contraseñas offline. Al no estar conectado a internet, ofrece una capa adicional de seguridad para almacenar tus credenciales más importantes.</p>
+<p><strong>Microcom:</strong> Un programa de terminal serial que permite la comunicación con otros dispositivos a través de un puerto serial. Es una herramienta invaluable para desarrolladores que necesitan depurar microcontroladores o interactuar con dispositivos embebidos.</p>
+<p><strong>Burce:</strong> Este es un proyecto de propósito general, a menudo asociado con la experimentación y el desarrollo. Permite una amplia gama de funciones programables, desde juegos simples hasta utilidades personalizadas.</p>
+<p><strong>Nemo:</strong> Generalmente se refiere a un proyecto de firmware que busca replicar un dispositivo específico o una funcionalidad de juego, aprovechando las capacidades del ESP32.</p>
+<h4 id="-comunicación-y-proyectos-especializados">📡 Comunicación y Proyectos Especializados</h4>
+<p><strong>LoRaChat:</strong> Transforma tu Cardputer en un walkie-talkie digital. Utiliza el protocolo LoRa para enviar y recibir mensajes de texto a larga distancia sin necesidad de Wi-Fi o red movil.</p>
+<p><strong>GPS Logger:</strong> Sencillo pero muy útil registra la ubicación geográfica a través de un módulo GPS conectado al Cardputer.</p>
+<p><strong>Iterative SSH and VPN:</strong> Facilita la gestión de conexiones seguras a servidores remotos. Permite configurar y alternar rápidamente entre conexiones SSH y VPN, ideal para administradores de sistemas.</p>
+<h4 id="imprescindible">Imprescindible</h4>
+<p><strong>M5Launcher:</strong> Es una herramienta muy útil que te permite cargar y gestionar múltiples firmwares desde la tarjeta SD. Esto te permite tener un multiboot entre varas imagenes de firmware.</p>
+<h2 id="-hardware-adicional">🔧 Hardware adicional</h2>
+<p>Adicionalmente como ocurre con el Flipper-zero u otros puedes conectar con la gran cantidad de puertos que tiene el Cardputer conectar modulos de RF, GPS, etc.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Si te gusta cacharrear es un hardware muy interesante, relación calidad precio mejor que el Flipper&ndash;zero y muy muy versátil. Para pruebas rápidas de test de seguridad, utilidades como guardar nuestras contraseñas o echar un vicio a juegos esta bien. Es fácil de conseguir y es una estupenda plataforma para aprender a programar ESP32.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/hardware/" rel="tag">Hardware</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2025 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

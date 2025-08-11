@@ -6,7 +6,25 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cardputer</title>
+      <link>https://jaimealberto.github.io/categories/cardputer/</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/cardputer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HardwareHacking</title>
+      <link>https://jaimealberto.github.io/categories/hardwarehacking/</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/hardwarehacking/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Servicios</title>
       <link>https://jaimealberto.github.io/categories/servicios/</link>

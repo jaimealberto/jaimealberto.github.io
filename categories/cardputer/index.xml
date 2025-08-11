@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cardputer on </title>
+    <link>https://jaimealberto.github.io/categories/cardputer/</link>
+    <description>Recent content in Cardputer on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/cardputer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HardwareHacking, Cardputer</title>
+      <link>https://jaimealberto.github.io/post/43_hhackcardputer1/</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/43_hhackcardputer1/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/hhcp1.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Aquí da comienzo una serie de post relacionados con el HardwareHacking, esto llegara donde mi bolsillo me lo permita dado que no lo patrocina nadie y según compre dispositivos ire contando mis experiencias.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
