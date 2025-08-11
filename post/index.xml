@@ -6,7 +6,20 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Permisos en Linux</title>
+      <link>https://jaimealberto.github.io/post/44_permisos/</link>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/44_permisos/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/permisos.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>HardwareHacking, Cardputer</title>
       <link>https://jaimealberto.github.io/post/43_hhackcardputer1/</link>
