@@ -70,14 +70,14 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/post/">
 				
-				<span class="menu__text">Posts</span>
+				<span class="menu__text">Artículos</span>
 				
 			</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/combos/">
+			<a class="menu__link" href="/hardware/">
 				
-				<span class="menu__text">Combos</span>
+				<span class="menu__text">Hardware</span>
 				
 			</a>
 		</li>
@@ -91,7 +91,7 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/vida/">
 				
-				<span class="menu__text">Vidas</span>
+				<span class="menu__text">Vida</span>
 				
 			</a>
 		</li>
@@ -154,7 +154,7 @@
     <img src="/img/doutils.jpg"/> 
 </figure>
 
-<p>Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Ámsterdam, San Francisco, Londres y Singapur entre otros.</p>
+<p>Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Amsterdam, San Francisco, Londres y Singapur entre otros.</p>
 <p>Lo utilizo bastante tanto para pruebas como para despliegue de soluciones en producción por varios motivos:</p>
 <ul>
 <li>Disponibilidad</li>
@@ -165,12 +165,12 @@
 <li>Integración con Terraform</li>
 <li>Gran catalogo de soluciones</li>
 </ul>
-<p>Gracias a el de vez en cuando me saca de algún apuro en determinadas circunstancias. Como explico en mi combo <a href="https://jaimealberto.github.io/combos/01_comboi/">&ldquo;La VPN del pobre&rdquo;</a> .</p>
+<p>Gracias a el de vez en cuando me saca de algún apuro en determinadas circunstancias. Como explico en mi combo <a href="https://jaimealberto.github.io/post/43_comboi/">&ldquo;La VPN del pobre&rdquo;</a> .</p>
 <p>Como soy un gran amigo del terminal utilizo dos de las muchas herramientas publicadas para gestión de infraestructura en este proveedor. Vamos a ver como se instalan junto con una breve guía de uso de las mismas. Para poder interactuar con el servico de Digital Ocena necesitamos un <a href="https://docs.digitalocean.com/reference/api/create-personal-access-token/">Token</a> para la comunicación con su API.</p>
 <p><em>Nota: Si no tenéis cuenta de DigtalOcean, dejo debajo mi link de referencia por si lo queréis utilizar para probar y me ayudas con unos Euritos para seguir con estos post y muchos mas. Gracias</em></p>
 <p><a href="https://www.digitalocean.com/?refcode=b18868ab8e1c&amp;utm_campaign=Referral_Invite&amp;utm_medium=Referral_Program&amp;utm_source=badge"><img src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%202.svg" alt="DigitalOcean Referral Badge"></a></p>
 <h2 id="dobackup">Dobackup</h2>
-<p>Utilidad para realizar backups de los droplets creados en Digital Ocean. Dispoble en su <a href="https://github.com/jotyGill/digitalocean-backup/">repositorio</a> de GitHub.</p>
+<p>Utilidad para realizar backups de los droplets creados en Digital Ocean. Despoblé en su <a href="https://github.com/jotyGill/digitalocean-backup/">repositorio</a> de GitHub.</p>
 <h3 id="instalación">Instalación</h3>
 <p>Desde un terminal:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">python3 -m pip install --user -U dobackup</code></pre></div>
@@ -198,7 +198,7 @@ dobackup --list-tagged       <span style="color:#75715e"># Lista de etiquetas ap
 <p>Etiquetar un servidor con la etiqueta &ldquo;web-server&rdquo;</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --tag-server ubuntu-18-04 --tag-name web-servers</code></pre></div>
 <h4 id="realizar-backup">Realizar backup</h4>
-<p>El backup se puede reaalizar indicando el nombre del servidor o el id.</p>
+<p>El backup se puede realizar indicando el nombre del servidor o el id.</p>
 <p>Ejemplos:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --backup ubuntu-18-04
 dobackup --backup <span style="color:#ae81ff">1929129</span>
@@ -207,20 +207,20 @@ dobackup --backup ubuntu-18-04 --keep <span style="color:#75715e"># this won&#39
 <p>Para hacer una copia de seguridad de todos los servidores que tienen una etiqueta determinada.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --backup-all <span style="color:#75715e"># --tag-name dobackup por defecto</span>
 dobackup --backup-all --tag-name web-servers</code></pre></div>
-<p>Para configurar un cron que realice un backup todos los servidores &lsquo;etiquetados&rsquo; y borrar automáticamente backup antiguos, si las copias de seguridad se ralizaron correctamente.</p>
+<p>Para configurar un cron que realice un backup todos los servidores &lsquo;etiquetados&rsquo; y borrar automáticamente backup antiguos, si las copias de seguridad se realizaron correctamente.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh"><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> * * * ~/.local/bin/dobackup --backup-all <span style="color:#f92672">&amp;&amp;</span> ~/.local/bin/dobackup --delete-older-than <span style="color:#ae81ff">7</span></code></pre></div>
 <h4 id="restaurar-backup">Restaurar backup</h4>
-<p>La restauración del backup se puede reaalizar indicando el nombre del servidor o el id.</p>
+<p>La restauración del backup se puede realizar indicando el nombre del servidor o el id.</p>
 <p>Ejemplo:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --restore-droplet ubuntu-18-04 --restore-to <span style="color:#e6db74">&#34;ubuntu-18-04--dobackup--2018-06-01 14:36:07&#34;</span></code></pre></div>
 <h4 id="borrado-de-backups-antiguos">Borrado de backups antiguos</h4>
-<p>Borrado de snatpshot especifico:</p>
+<p>Borrado de snapshot especifico:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --delete-snap <span style="color:#e6db74">&#34;ubuntu-1gb-sgp1-01--dobackup--2018-05-31 17:43:11&#34;</span> <span style="color:#75715e"># indicando nombre o id</span>
-dobackup --delete-snap <span style="color:#e6db74">&#34;111111111,222222222,3333333333&#34;</span>                   <span style="color:#75715e"># indicando multiples nombres o id seprados por coma</span></code></pre></div>
-<p>Podemos ver todas las opcionees :</p>
+dobackup --delete-snap <span style="color:#e6db74">&#34;111111111,222222222,3333333333&#34;</span>                   <span style="color:#75715e"># indicando multiples nombres o id separados por coma</span></code></pre></div>
+<p>Podemos ver todas las opciones :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dobackup --help</code></pre></div>
 <h2 id="doctl">Doctl</h2>
-<p>Utilidad que nos permite desde nuestro terminal realizar teras en Digital Ocean. <a href="https://github.com/digitalocean/doctl/">repositorio</a> de GitHub.</p>
+<p>Utilidad que nos permite desde nuestro terminal realizar treas en Digital Ocean. <a href="https://github.com/digitalocean/doctl/">repositorio</a> de GitHub.</p>
 <h3 id="instalación-1">Instalación</h3>
 <p>MacOs</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">brew install doctl</code></pre></div>

@@ -70,14 +70,14 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/post/">
 				
-				<span class="menu__text">Posts</span>
+				<span class="menu__text">Artículos</span>
 				
 			</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/combos/">
+			<a class="menu__link" href="/hardware/">
 				
-				<span class="menu__text">Combos</span>
+				<span class="menu__text">Hardware</span>
 				
 			</a>
 		</li>
@@ -91,7 +91,7 @@
 		<li class="menu__item">
 			<a class="menu__link" href="/vida/">
 				
-				<span class="menu__text">Vidas</span>
+				<span class="menu__text">Vida</span>
 				
 			</a>
 		</li>
@@ -154,7 +154,7 @@
     <li><a href="#backup-tarjeta-sd">Backup tarjeta SD</a>
       <ul>
         <li><a href="#local">Local</a></li>
-        <li><a href="#remota">Remota</a></li>
+        <li><a href="#remoto">Remoto</a></li>
       </ul>
     </li>
     <li><a href="#restore-tarjeta-sd">Restore tarjeta SD</a>
@@ -407,7 +407,7 @@ Ahora cada 5 minutos se ejecutara y escribira el resultado en el fichero duck.lo
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdb bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>raspbackup.img</code></pre></div>
 <p>Si queremos restaurar la copia:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>raspbackup.img bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>/dev/sdb</code></pre></div>
-<h3 id="remota">Remota</h3>
+<h3 id="remoto">Remoto</h3>
 <p>Puede que en algún momento necesitemos realizar una copia por red o que tengamos algo en producción con lo cual no podemos parar.Desde el terminal:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">ssh pi@192.168.1.155 <span style="color:#e6db74">&#34;sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -&#34;</span> | dd of<span style="color:#f92672">=</span>backup.gz</code></pre></div>
 <p>Donde:</p>

@@ -21,19 +21,6 @@
     </item>
     
     <item>
-      <title>HardwareHacking, Cardputer</title>
-      <link>https://jaimealberto.github.io/post/43_hhackcardputer1/</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/post/43_hhackcardputer1/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/hhcp1.jpg&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Aquí da comienzo una serie de post relacionados con el HardwareHacking, esto llegara donde mi bolsillo me lo permita dado que no lo patrocina nadie y según compre dispositivos ire contando mis experiencias.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Donde están los log`s del servidor SSH en Debian 12</title>
       <link>https://jaimealberto.github.io/post/42_logssshdeb12/</link>
       <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
@@ -264,7 +251,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
     &lt;img src=&#34;https://jaimealberto.github.io/img/doutils.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
-&lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Ámsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
+&lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Amsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -474,6 +461,19 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
 &lt;/figure&gt;
 
 &lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Combo I, la VPN del pobre</title>
+      <link>https://jaimealberto.github.io/post/43_comboi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/43_comboi/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;https://jaimealberto.github.io/img/comboI.jpg&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;Recordando viejos tiempos, que uno tiene ya una edad, en aquellos días de los buenos &lt;a href=&#34;https://es.wikipedia.org/wiki/Arcade&#34;&gt;arcades&lt;/a&gt;. Todos andábamos locos con los &lt;a href=&#34;https://es.wikipedia.org/wiki/Combo_(videojuegos)&#34;&gt;combos.&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

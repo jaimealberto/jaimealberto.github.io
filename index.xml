@@ -22,10 +22,10 @@
     
     <item>
       <title>HardwareHacking, Cardputer</title>
-      <link>https://jaimealberto.github.io/post/43_hhackcardputer1/</link>
+      <link>https://jaimealberto.github.io/hardware/01_hhackcardputer1/</link>
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/43_hhackcardputer1/</guid>
+      <guid>https://jaimealberto.github.io/hardware/01_hhackcardputer1/</guid>
       <description>&lt;figure&gt;
     &lt;img src=&#34;https://jaimealberto.github.io/img/hhcp1.jpg&#34;/&gt; 
 &lt;/figure&gt;
@@ -300,7 +300,7 @@ raspi-config Menus:
     &lt;img src=&#34;https://jaimealberto.github.io/img/doutils.jpg&#34;/&gt; 
 &lt;/figure&gt;
 
-&lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Ámsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
+&lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Amsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -589,10 +589,10 @@ Bajo los siguientes términos:
     
     <item>
       <title>Combo I, la VPN del pobre</title>
-      <link>https://jaimealberto.github.io/combos/01_comboi/</link>
+      <link>https://jaimealberto.github.io/post/43_comboi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/combos/01_comboi/</guid>
+      <guid>https://jaimealberto.github.io/post/43_comboi/</guid>
       <description>&lt;figure&gt;
     &lt;img src=&#34;https://jaimealberto.github.io/img/comboI.jpg&#34;/&gt; 
 &lt;/figure&gt;
