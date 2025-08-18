@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yos on </title>
+    <link>https://jaimealberto.github.io/yo/</link>
+    <description>Recent content in Yos on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/yo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>El día a día, cambio de paradigma.</title>
+      <link>https://jaimealberto.github.io/yo/01_paradigmai/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/yo/01_paradigmai/</guid>
+      <description>Hace unos años la típica pregunta del grupete de amgi@s / conocid@s :
+¿ que ordenador me compro ?
+A lo que habitualmente respondía, ¿ que quieres hacer con el ?
+Otra de las situaciones típicas es que a ti en casa se te rompe algo del baño, por ejemplo. Evidentemente si tienes alguno amig@ / conocid@ fontaner@ le avisas para que te lo repare, dando por supuesto que pagaras su trabajo y el material.</description>
+    </item>
+    
+    <item>
+      <title>La causa ...</title>
+      <link>https://jaimealberto.github.io/yo/about/</link>
+      <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/yo/about/</guid>
+      <description>&amp;hellip; son varias, algunas de ellas:
+  Tener un site con referencias y guiás técnicas que me han permitido realizar mejor mi trabajo con la intención que le pueda ser útil a mas gente.
+  Compartir algunas de mis experiencias laborales que tal vez puedan resultar curiosas o graciosas.
+  Poder expresar mis ideas y pensamientos libremente.
+  Todo el contenido tiene licencia CC BY-NC-SA 4.</description>
+    </item>
+    
+    <item>
+      <title>Algo sobre mí ...</title>
+      <link>https://jaimealberto.github.io/yo/aboutme/</link>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/yo/aboutme/</guid>
+      <description>&amp;hellip; pues según mi ADN un ser humano ;-) . Me encanta ver la vida desde un terminal, aun que de vez en cuando tienes que verla a través de una ventana.
+Considero que tengo la suerte de llevar muchos años trabajando en lo que me apasiona, que es el mundo IT.
+Al igual que en otros aspectos de mi vida, me encanta y disfruto pudiendo compartir mis conocimientos y experiencias con los demás al igual que poder apredner de ell@s.</description>
+    </item>
+    
+  </channel>
+</rss>

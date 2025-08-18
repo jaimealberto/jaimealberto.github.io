@@ -21,7 +21,7 @@
     </item>
     
     <item>
-      <title>HardwareHacking, Cardputer</title>
+      <title>Cardputer</title>
       <link>https://jaimealberto.github.io/hardware/01_hhackcardputer1/</link>
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
       
@@ -200,17 +200,14 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
     
     <item>
       <title>El día a día, cambio de paradigma.</title>
-      <link>https://jaimealberto.github.io/vida/01_paradigmai/</link>
+      <link>https://jaimealberto.github.io/yo/01_paradigmai/</link>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/vida/01_paradigmai/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/paradigmai.jpg&#34;/&gt; 
-&lt;/figure&gt;
-
-&lt;p&gt;Hace unos años la típica pregunta del grupete de amgi@s / conocid@s :&lt;/p&gt;
-&lt;p&gt;¿ que ordenador me compro ?&lt;/p&gt;
-&lt;p&gt;A lo que habitualmente respondía, ¿ que quieres hacer con el ?&lt;/p&gt;</description>
+      <guid>https://jaimealberto.github.io/yo/01_paradigmai/</guid>
+      <description>Hace unos años la típica pregunta del grupete de amgi@s / conocid@s :
+¿ que ordenador me compro ?
+A lo que habitualmente respondía, ¿ que quieres hacer con el ?
+Otra de las situaciones típicas es que a ti en casa se te rompe algo del baño, por ejemplo. Evidentemente si tienes alguno amig@ / conocid@ fontaner@ le avisas para que te lo repare, dando por supuesto que pagaras su trabajo y el material.</description>
     </item>
     
     <item>
@@ -274,7 +271,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <description>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo
 Raspi-config Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:
 raspi-config Menus:
- System Options  Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login  Console Text console, requiring user to login ( elegimos esta opción )   Network at Boot ( seleccionamos no para acelerar el arranque )   Inteface Options  SSH Enabled/disable remote command line access using SSH ( enable )   Location options  Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado )   Update ( actualizamos la herramienta )  Es necesario reiniciar para aplicar los cambios.</description>
+ System Options  Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login  Console Text console, requiring user to login ( elegimos esta opción )   Network at Boot ( seleccionamos no para acelerar el arranque )   Interface Options  SSH Enabled/disable remote command line access using SSH ( enable )   Location options  Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado )   Update ( actualizamos la herramienta )  Es necesario reiniciar para aplicar los cambios.</description>
     </item>
     
     <item>
@@ -409,10 +406,10 @@ raspi-config Menus:
     
     <item>
       <title>La causa ...</title>
-      <link>https://jaimealberto.github.io/about/</link>
+      <link>https://jaimealberto.github.io/yo/about/</link>
       <pubDate>Sun, 08 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/about/</guid>
+      <guid>https://jaimealberto.github.io/yo/about/</guid>
       <description>&amp;hellip; son varias, algunas de ellas:
   Tener un site con referencias y guiás técnicas que me han permitido realizar mejor mi trabajo con la intención que le pueda ser útil a mas gente.
   Compartir algunas de mis experiencias laborales que tal vez puedan resultar curiosas o graciosas.
@@ -527,10 +524,10 @@ raspi-config Menus:
     
     <item>
       <title>Algo sobre mí ...</title>
-      <link>https://jaimealberto.github.io/aboutme/</link>
+      <link>https://jaimealberto.github.io/yo/aboutme/</link>
       <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/aboutme/</guid>
+      <guid>https://jaimealberto.github.io/yo/aboutme/</guid>
       <description>&amp;hellip; pues según mi ADN un ser humano ;-) . Me encanta ver la vida desde un terminal, aun que de vez en cuando tienes que verla a través de una ventana.
 Considero que tengo la suerte de llevar muchos años trabajando en lo que me apasiona, que es el mundo IT.
 Al igual que en otros aspectos de mi vida, me encanta y disfruto pudiendo compartir mis conocimientos y experiencias con los demás al igual que poder apredner de ell@s.</description>
