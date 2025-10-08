@@ -13,8 +13,7 @@
       <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/44_permisos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/permisos.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/permisos.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description>
@@ -26,8 +25,7 @@
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/40_distupgrade/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/update.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/update.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href=&#34;https://es.wikipedia.org/wiki/Advanced_Packaging_Tool&#34;&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description>
@@ -39,8 +37,7 @@
       <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/38_utils_repos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/utils_repos.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/utils_repos.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.github.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href=&#34;https://jaimealberto.github.io/post/37_navegadores_repos/&#34;&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description>
@@ -52,8 +49,7 @@
       <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/37_navegadores_repos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/navegadores_repos.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/navegadores_repos.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.github.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description>
@@ -65,8 +61,7 @@
       <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/34_logosvideos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/stamp.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/stamp.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Creamos &lt;a href=&#34;https://jaimealberto.github.io/post/06_grabarterminal/&#34;&gt;videos del terminal&lt;/a&gt;, cuando vemos un vídeotutorial,etc. Casi siempre tienen alguna marca de agua donde se visualiza el nombre del autor, un logotipo, una url, etc.&lt;/p&gt;</description>
@@ -78,8 +73,7 @@
       <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/33_kernels/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/kernel.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/kernel.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
@@ -91,8 +85,7 @@
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
@@ -104,8 +97,7 @@
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/27_usuariosii/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt; 
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
@@ -117,8 +109,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/26_usuariosi/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosi.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosi.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>
@@ -130,8 +121,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/21_utilidadesterminaliv/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool4.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool4.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href=&#34;https://es.wikipedia.org/wiki/Star_Wars&#34;&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description>
@@ -143,8 +133,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/15_utilidadesterminaliii/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool3.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool3.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
@@ -156,8 +145,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/09_passwordwifi/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/pwdwifi.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/pwdwifi.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
@@ -169,8 +157,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/10_utilidadesterminalii/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool2.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool2.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.github.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
@@ -182,8 +169,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/08_utilidadesterminali/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.github.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
@@ -195,8 +181,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/06_grabarterminal/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>

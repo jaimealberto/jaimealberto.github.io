@@ -13,8 +13,7 @@
       <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/42_logssshdeb12/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
@@ -26,8 +25,7 @@
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/22_dnssec/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Los servidores DNS son algo imprescindible para la navegación por Internet. Los utilizamos a diario sin darle quizá la importancia que realmente tienen. Según los dns que utilicemos puede afectar a nuestra velocidad de navegación. Esto es un factor importante el de la velocidad, pero otro creo que aun mas importante es el de nuestra privacidad.&lt;/p&gt;</description>

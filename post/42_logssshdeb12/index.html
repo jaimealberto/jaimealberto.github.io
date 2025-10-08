@@ -10,20 +10,15 @@
 		<meta property="og:title" content="Donde están los log`s del servidor SSH en Debian 12" />
 <meta property="og:description" content="Como tener log`s del servidor SSH en Debian 12 y posteriores" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/42_logssshdeb12/" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/42_logssshdeb12/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2025-08-04T00:00:00+00:00" />
 <meta property="article:modified_time" content="2025-08-04T00:00:00+00:00" />
 
 		<meta itemprop="name" content="Donde están los log`s del servidor SSH en Debian 12">
-<meta itemprop="description" content="Como tener log`s del servidor SSH en Debian 12 y posteriores">
-<meta itemprop="datePublished" content="2025-08-04T00:00:00+00:00" />
+<meta itemprop="description" content="Como tener log`s del servidor SSH en Debian 12 y posteriores"><meta itemprop="datePublished" content="2025-08-04T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2025-08-04T00:00:00+00:00" />
 <meta itemprop="wordCount" content="247">
-
-
-
 <meta itemprop="keywords" content="Seguridad,SO," />
-
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -134,38 +129,37 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure>
-    <img src="/img/debian.jpg"/> 
+			<figure><img src="/img/debian.jpg"/>
 </figure>
 
 <p>Donde están mis log del servidor SSH ?. Pues bien desde <strong>Debian 12</strong>, ya no se generan automáticamente como en versiones anteriores en <code>/var/log/auth.log</code>. Ahora el sistema utiliza <strong>systemd‑journald</strong> como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.</p>
 <h2 id="-pasos-para-habilitar-varlogauthlog-en-debian12-y-posteriores">🛠️ Pasos para habilitar <code>/var/log/auth.log</code> en Debian 12 y posteriores.</h2>
 <h3 id="1-instalar-rsyslog">1. Instalar <code>rsyslog</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install rsyslog</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install rsyslog</span></span></code></pre></div>
 <h3 id="2-configurar-el-servidor-ssh-para-loguear">2. Configurar el servidor SSH para loguear</h3>
 <p>Editamos <code>/etc/ssh/sshd_config</code> y revisamos las lienas:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">SyslogFacility AUTH
-LogLevel INFO
-</code></pre></div><p>En el parámetro &ldquo;LogLevel&rdquo; podemos utilizar el que necesitemos &ldquo;INFO&rdquo; u otro como por ejemplo:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">LogLevel VERBOSE
-</code></pre></div><p>&quot; VERBOSE &quot; en el caso de necesitar mas detalle.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>SyslogFacility AUTH
+</span></span><span style="display:flex;"><span>LogLevel INFO
+</span></span></code></pre></div><p>En el parámetro &ldquo;LogLevel&rdquo; podemos utilizar el que necesitemos &ldquo;INFO&rdquo; u otro como por ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>LogLevel VERBOSE
+</span></span></code></pre></div><p>&quot; VERBOSE &quot; en el caso de necesitar mas detalle.</p>
 <p>Reiniciamos el servidor SSH para aplicar la configuración:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">systemctl restart sshd</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl restart sshd</span></span></code></pre></div>
 <h3 id="3-comprobamos-que-rsyslog-esté-activo">3. Comprobamos que <code>rsyslog</code> esté activo</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">systemctl status rsyslog</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl status rsyslog</span></span></code></pre></div>
 <h3 id="4-activamos-el-arranque-del-servicio-con-el-sistema">4. Activamos el arranque del servicio con el sistema</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">systemctl enable rsyslog --now</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl enable rsyslog --now</span></span></code></pre></div>
 <p>Si el archivo no existe, <code>rsyslog</code> lo creará con los permisos adecuados al iniciar</p>
 <h3 id="5-opcional-desactivar-duplicación-con-journalctl">5. (Opcional) Desactivar duplicación con <code>journalctl</code></h3>
 <p>Si no necesitas almacenamiento duplicado en disco, puedes eliminar <code>/var/log/journal</code> y permitir que solo se registre mediante archivos tradicionales:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">rm -rf /var/log/journal</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>rm -rf /var/log/journal</span></span></code></pre></div>
 <hr>
 <h2 id="-resumen-paso-a-paso">✅ Resumen paso a paso</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install rsyslog
-sed -i <span style="color:#e6db74">&#39;s/#\(SyslogFacility AUTH\)/\1/&#39;</span> /etc/ssh/sshd_config
-sed -i <span style="color:#e6db74">&#39;s/#LogLevel INFO/LogLevel INFO/&#39;</span> /etc/ssh/sshd_config
-systemctl restart sshd
-systemctl enable --now rsyslog</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install rsyslog
+</span></span><span style="display:flex;"><span>sed -i <span style="color:#e6db74">&#39;s/#\(SyslogFacility AUTH\)/\1/&#39;</span> /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span>sed -i <span style="color:#e6db74">&#39;s/#LogLevel INFO/LogLevel INFO/&#39;</span> /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span>systemctl restart sshd
+</span></span><span style="display:flex;"><span>systemctl enable --now rsyslog</span></span></code></pre></div>
 <p>Con esto, <code>/var/log/auth.log</code> comenzará a registrar los eventos <strong>SSH</strong>, incluidos <strong>accesos aceptados</strong>, <strong>fallidos</strong>, <strong>sesiones abiertas y cerradas</strong>, etc. Como ocurría en versiones anteriores de Debian. L información que se registre depende del parámetro &ldquo;LogLevel&rdquo; indicado en la configuración de servidor SSH.</p>
 		</div>
 		<footer class="post__footer">

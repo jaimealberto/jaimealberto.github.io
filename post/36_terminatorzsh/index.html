@@ -10,20 +10,15 @@
 		<meta property="og:title" content="Terminator &#43; Zsh" />
 <meta property="og:description" content="Configuración Terminator &#43; Zsh" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/36_terminatorzsh/" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/36_terminatorzsh/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-08-31T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-08-31T00:00:00+00:00" />
 
 		<meta itemprop="name" content="Terminator &#43; Zsh">
-<meta itemprop="description" content="Configuración Terminator &#43; Zsh">
-<meta itemprop="datePublished" content="2022-08-31T00:00:00+00:00" />
+<meta itemprop="description" content="Configuración Terminator &#43; Zsh"><meta itemprop="datePublished" content="2022-08-31T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-08-31T00:00:00+00:00" />
 <meta itemprop="wordCount" content="588">
-
-
-
 <meta itemprop="keywords" content="SO,Terminal,Utilidades,Shell," />
-
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -133,76 +128,75 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure>
-    <img src="/img/DECVT100.jpg"/> 
+			<figure><img src="/img/DECVT100.jpg"/>
 </figure>
 
 <p>Ya han pasado tiempo desde aquellos maravillosos <a href="https://es.wikipedia.org/wiki/Terminal_tonta">terminales</a> “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal <a href="https://github.com/software-jessies-org/jessies/wiki/Terminator">Terminator</a> y la <a href="https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)">Shell</a> <a href="https://es.wikipedia.org/wiki/Zsh">Zsh</a>.</p>
 <h2 id="instalación">Instalación</h2>
 <p>Terminator</p>
 <p>Desde nuestro terminal como root, si no lo tenemos ya instalado:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install terminator</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install terminator</span></span></code></pre></div></p>
 <p>Zsh</p>
 <p>Desde nuestro terminal como root:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install zsh zplug
-chsh -s /bin/zsh usuario</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install zsh zplug
+</span></span><span style="display:flex;"><span>chsh -s /bin/zsh usuario</span></span></code></pre></div></p>
 <p>Comprobamos el cambio
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">cat /etc/passwd | grep -i usuario
-usuario:x:1000:1000:usuario,,,:/home/usuario:/bin/zsh</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>cat /etc/passwd | grep -i usuario
+</span></span><span style="display:flex;"><span>usuario:x:1000:1000:usuario,,,:/home/usuario:/bin/zsh</span></span></code></pre></div></p>
 <p>Complementos para Zsh:</p>
 <p>Oh My Zsh</p>
 <p>Abrimos nuestro terminal (Terminator) y desde nuestro home de usuario:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div></p>
 <p>Crea un .zshrc nuevo para su uso y personalización. El antiguo no se pierde por si tenemos algo personalizado, como por ejemplo alias. Lo guarda en uno llamado .zshrc.pre-oh-my-zsh. De este es de donde tendremos que copiar al nuevo nuestras personalizaciones anteriores.</p>
 <h2 id="configuración-oh-my-zsh">Configuración Oh My ZSH</h2>
 <h3 id="temas">Temas</h3>
 <p>Podemos elegir un temas con los que viene Oh My ZSH <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">aquí.</a></p>
 <p>Para configurarlo hay que editar el archivo ~/.zshrc</p>
-<pre><code>ZSH_THEME el que nos guste.
+<pre tabindex="0"><code>ZSH_THEME el que nos guste.
 </code></pre><p>Existen gran cantidad de temas, yo personalmente utilizo <a href="https://github.com/romkatv/powerlevel10k">Powerleve10k.</a></p>
 <p><strong>Nota:</strong> Cada tema tiene su propia configuración.</p>
 <h4 id="powerlevel10k">Powerlevel10k</h4>
 <p>Personalmente me guste este tema, el cual podemos instalar del siguiente modo desde nuestra terminal:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k</span></span></code></pre></div></p>
 <p>Activamos el tema:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">vi .zshrc
-ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;powerlevel10k/powerlevel10k&#34;</span>
-source .zshrc</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vi .zshrc
+</span></span><span style="display:flex;"><span>ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;powerlevel10k/powerlevel10k&#34;</span>
+</span></span><span style="display:flex;"><span>source .zshrc</span></span></code></pre></div></p>
 <p>Configurar el tema:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">p10k configure</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>p10k configure</span></span></code></pre></div></p>
 <h3 id="plugins">Plugins</h3>
 <h4 id="plugin-manager-antigen">Plugin Manager Antigen</h4>
 <p>Gestor de plugins que te permite instalar fácilmente otros plugins, ahorra tiempo  para  no tener que hacerlo manualmente
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install zgen zsh-antigen</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install zgen zsh-antigen</span></span></code></pre></div></p>
 <h4 id="plugin-zsh-syntax-highlighting">Plugin zsh-syntax-highlighting</h4>
 <p>Colorea los comandos de diferentes programas.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-syntax-highlighting</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-syntax-highlighting</span></span></code></pre></div></p>
 <h4 id="plugin-zsh-autosuggestions">Plugin zsh-autosuggestions</h4>
 <p>Busca en el historial  y autocompleta los mismos.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">git clone https://github.com/zsh-users/zsh-autosuggestions <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-autosuggestions</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-autosuggestions <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-autosuggestions</span></span></code></pre></div></p>
 <h4 id="plugin-zsh-interactive-cd">Plugin zsh-interactive-cd</h4>
 <p>El plugin se activa en el siguiente apartado pero tenemos que tener instalado un paquete adicional:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">apt install fzf</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install fzf</span></span></code></pre></div></p>
 <p>Para activar los plugins editamos .zshrc, un ejemplo:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">plugins<span style="color:#f92672">=(</span> 
-        ansible
-        docker
-        git
-        nmap
-        python
-        screen
-        sudo
-        themes
-        transfer
-        virtualenv
-        vscode
-        wakeonlan
-        web-search
-        zsh-autosuggestions
-        zsh-interactive-cd
-        zsh-navigation-tools
-        zsh-syntax-highlighting
-        <span style="color:#f92672">)</span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span> 
+</span></span><span style="display:flex;"><span>        ansible
+</span></span><span style="display:flex;"><span>        docker
+</span></span><span style="display:flex;"><span>        git
+</span></span><span style="display:flex;"><span>        nmap
+</span></span><span style="display:flex;"><span>        python
+</span></span><span style="display:flex;"><span>        screen
+</span></span><span style="display:flex;"><span>        sudo
+</span></span><span style="display:flex;"><span>        themes
+</span></span><span style="display:flex;"><span>        transfer
+</span></span><span style="display:flex;"><span>        virtualenv
+</span></span><span style="display:flex;"><span>        vscode
+</span></span><span style="display:flex;"><span>        wakeonlan
+</span></span><span style="display:flex;"><span>        web-search
+</span></span><span style="display:flex;"><span>        zsh-autosuggestions
+</span></span><span style="display:flex;"><span>        zsh-interactive-cd
+</span></span><span style="display:flex;"><span>        zsh-navigation-tools
+</span></span><span style="display:flex;"><span>        zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span></span></span></code></pre></div></p>
 <h2 id="envíar-comandos-a-todas-las-ventanasgrupos">Envíar comandos a todas las ventanas/grupos</h2>
 <p>Una interesante característica de Terminator es el poder enviar las pulsaciones que tecleamos en una terminal, a todas las ventanas de terminal abiertas. También nos permite la creación de grupos de terminales y elegir si en los grupos se aplica la característica de enviar las pulsaciones a todas las ventanas que pertenezcan a un grupo, esto se conoce como Difusión)</p>
 <table>
@@ -229,13 +223,11 @@ source .zshrc</code></pre></div></p>
 </table>
 <p>Grupos:</p>
 <p>Terminator permite crear grupos de terminales con la la opción desplegando el icono:</p>
-<figure>
-    <img src="/img/simbol-terminator-linux.jpg"/> 
+<figure><img src="/img/simbol-terminator-linux.jpg"/>
 </figure>
 
 <p>Y al desplegar el icono, ncontrarmos las opciones:</p>
-<figure>
-    <img src="/img/grupos-difusion.jpg"/> 
+<figure><img src="/img/grupos-difusion.jpg"/>
 </figure>
 
 <h2 id="atajos-de-teclado-terminator">Atajos de teclado Terminator</h2>

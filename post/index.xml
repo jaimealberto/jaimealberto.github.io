@@ -13,8 +13,7 @@
       <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/44_permisos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/permisos.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/permisos.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description>
@@ -26,8 +25,7 @@
       <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/42_logssshdeb12/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
@@ -39,8 +37,7 @@
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/40_distupgrade/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/update.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/update.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href=&#34;https://es.wikipedia.org/wiki/Advanced_Packaging_Tool&#34;&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description>
@@ -52,8 +49,7 @@
       <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/38_utils_repos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/utils_repos.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/utils_repos.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.github.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href=&#34;https://jaimealberto.github.io/post/37_navegadores_repos/&#34;&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description>
@@ -65,8 +61,7 @@
       <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/37_navegadores_repos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/navegadores_repos.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/navegadores_repos.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.github.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description>
@@ -78,8 +73,7 @@
       <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/36_terminatorzsh/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/DECVT100.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/DECVT100.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Ya han pasado tiempo desde aquellos maravillosos &lt;a href=&#34;https://es.wikipedia.org/wiki/Terminal_tonta&#34;&gt;terminales&lt;/a&gt; “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal &lt;a href=&#34;https://github.com/software-jessies-org/jessies/wiki/Terminator&#34;&gt;Terminator&lt;/a&gt; y la &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt; &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt;.&lt;/p&gt;</description>
@@ -91,8 +85,7 @@
       <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/31_ansiblei/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/ansiblei.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ansiblei.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Segun la Wikipedia, &lt;a href=&#34;https://es.wikipedia.org/wiki/Ansible_(software)&#34;&gt;Ansible&lt;/a&gt; es una plataforma de software libre para configurar y administrar ordenadores.&lt;/p&gt;</description>
@@ -104,8 +97,7 @@
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/35_wireguard/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/wireguard.png&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/wireguard.png&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Según la &lt;a href=&#34;https://es.wikipedia.org/wiki/WireGuard&#34;&gt;Wikipedia&lt;/a&gt; “ WireGuard es una aplicación de software libre y de código abierto y un protocolo de comunicación que implementa técnicas de red privada virtual (VPN) para crear conexiones seguras punto a punto en configuraciones enrutadas o puenteadas. Se ejecuta como un módulo dentro del núcleo Linux y tiene como objetivo un mejor rendimiento que los protocolos de tunelización IPsec y OpenVPN.2​ Fue escrito por Jason A. Donenfeld y se publica bajo la segunda versión de la GNU General Public License (GPL).3​ El sitio web oficial describe el protocolo como un trabajo en progreso. ”&lt;/p&gt;</description>
@@ -117,8 +109,7 @@
       <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/34_logosvideos/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/stamp.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/stamp.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Creamos &lt;a href=&#34;https://jaimealberto.github.io/post/06_grabarterminal/&#34;&gt;videos del terminal&lt;/a&gt;, cuando vemos un vídeotutorial,etc. Casi siempre tienen alguna marca de agua donde se visualiza el nombre del autor, un logotipo, una url, etc.&lt;/p&gt;</description>
@@ -130,8 +121,7 @@
       <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/33_kernels/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/kernel.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/kernel.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
@@ -143,8 +133,7 @@
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/32_wazuh/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/Wazuh.png&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/Wazuh.png&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Según la &lt;a href=&#34;https://es.wikipedia.org/wiki/Wazuh&#34;&gt;Wikipedia&lt;/a&gt; “ Wazuh es un sistema de detección de intrusos basado en host de código abierto y libre (HIDS). Realiza análisis de registro, comprobación de integridad, supervisión del registro de Windows, detección de rootkits, alertas basadas en el tiempo y respuesta activa. Proporciona detección de intrusiones para la mayoría de los sistemas operativos, incluyendo Linux, AIX, HP-UX, macOS, Solaris y Windows. Wazuh tiene una arquitectura centralizada y multiplataforma que permite que múltiples sistemas sean fácilmente monitoreados y administrados ”.&lt;/p&gt;</description>
@@ -156,8 +145,7 @@
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
@@ -169,8 +157,7 @@
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/27_usuariosii/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt; 
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
@@ -182,8 +169,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/26_usuariosi/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosi.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosi.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>
@@ -195,8 +181,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/25_vscodei/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/vsci.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vsci.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Hace tiempo comencé con la búsqueda de  un editor de código con el que pudiera escribir scripts (Bash, Powershell,Zsh, etc), código en Python, documentos en MarkDown, archivos de configuración , utilizar Hugo, guiones de Terraform, etc. Otro objetivo claro es que funcionara igual en cualquier entorno ( Linux, MacOs y Windows ), que fuera gratis y con gran comunidad. Pues bien dando muchas vueltas me decidí por Visual Studio Code (VSC).&lt;/p&gt;</description>
@@ -208,8 +193,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/29_vscodesync/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/vssync.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vssync.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.&lt;/p&gt;</description>
@@ -221,8 +205,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/28_vscodeinstall/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/vsinstall.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/vsinstall.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description>
@@ -234,8 +217,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/24_windows1/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/windowsI.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/windowsI.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
@@ -247,8 +229,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/19_doutils/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/doutils.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/doutils.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Amsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
@@ -260,8 +241,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/21_utilidadesterminaliv/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool4.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool4.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href=&#34;https://es.wikipedia.org/wiki/Star_Wars&#34;&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description>
@@ -273,8 +253,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/03_tipsmacos03/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/trickIII.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trickIII.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de Trucos para MacOs &lt;a href=&#34;https://jaimealberto.github.io/post/01_tipsmacos01/&#34;&gt;I&lt;/a&gt; y &lt;a href=&#34;https://jaimealberto.github.io/post/02_tipsmacos02/&#34;&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description>
@@ -286,8 +265,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/17_terraformii/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/terraformII.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/terraformII.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de una &lt;a href=&#34;https://jaimealberto.github.io/post/16_terraformi/&#34;&gt;breve introducción&lt;/a&gt; a &lt;a href=&#34;https://es.wikipedia.org/wiki/Terraform_(software)&#34;&gt;Terraform&lt;/a&gt;, creo que la mejor manera de entender como funciona es con un ejemplo simple.&lt;/p&gt;</description>
@@ -299,8 +277,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/23_itermzsh/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/iterm2zsh.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/iterm2zsh.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href=&#34;https://iterm2.com/&#34;&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description>
@@ -312,8 +289,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/22_dnssec/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Los servidores DNS son algo imprescindible para la navegación por Internet. Los utilizamos a diario sin darle quizá la importancia que realmente tienen. Según los dns que utilicemos puede afectar a nuestra velocidad de navegación. Esto es un factor importante el de la velocidad, pero otro creo que aun mas importante es el de nuestra privacidad.&lt;/p&gt;</description>
@@ -325,8 +301,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/02_tipsmacos02/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/trickII.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trickII.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.github.io/post/01_tipsmacos01/&#34;&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
@@ -338,8 +313,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/16_terraformi/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/terraform.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/terraform.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://es.wikipedia.org/wiki/Terraform_(software)&#34;&gt;Terraform&lt;/a&gt; es un software que trata la infraestructura como código  desarrollado por &lt;a href=&#34;https://www.hashicorp.com/&#34;&gt;HashiCorp&lt;/a&gt;.Esto permite al usuario mediante ejecución de código construir, combinar y poner en marcha de manera segura y eficiente infraestructuras rápidamente.&lt;/p&gt;</description>
@@ -351,8 +325,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/15_utilidadesterminaliii/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool3.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool3.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
@@ -364,8 +337,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/11_universosshii/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/ssh2.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh2.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.github.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.&lt;/p&gt;</description>
@@ -377,8 +349,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/09_passwordwifi/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/pwdwifi.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/pwdwifi.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
@@ -390,8 +361,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/10_utilidadesterminalii/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool2.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool2.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.github.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
@@ -403,8 +373,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/07_universosshi/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un tunel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>
@@ -416,8 +385,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/08_utilidadesterminali/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tool.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.github.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
@@ -429,8 +397,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/01_tipsmacos01/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/trick.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/trick.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;
@@ -443,8 +410,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/05_finder/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/finder.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/finder.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description>
@@ -456,8 +422,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/06_grabarterminal/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/grabarterminal.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
@@ -469,8 +434,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/43_comboi/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/comboI.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/comboI.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Recordando viejos tiempos, que uno tiene ya una edad, en aquellos días de los buenos &lt;a href=&#34;https://es.wikipedia.org/wiki/Arcade&#34;&gt;arcades&lt;/a&gt;. Todos andábamos locos con los &lt;a href=&#34;https://es.wikipedia.org/wiki/Combo_(videojuegos)&#34;&gt;combos.&lt;/a&gt;&lt;/p&gt;</description>

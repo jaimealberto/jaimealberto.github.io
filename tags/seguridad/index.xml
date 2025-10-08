@@ -13,8 +13,7 @@
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/hardware/01_hhackcardputer1/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/hhcp1.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/hhcp1.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Aquí da comienzo una serie de post relacionados con el HardwareHacking, esto llegara donde mi bolsillo me lo permita dado que no lo patrocina nadie y según compre dispositivos ire contando mis experiencias.&lt;/p&gt;</description>
@@ -26,8 +25,7 @@
       <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/42_logssshdeb12/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
@@ -39,8 +37,7 @@
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/27_usuariosii/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt; 
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
@@ -52,8 +49,7 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/22_dnssec/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34;/&gt; 
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Los servidores DNS son algo imprescindible para la navegación por Internet. Los utilizamos a diario sin darle quizá la importancia que realmente tienen. Según los dns que utilicemos puede afectar a nuestra velocidad de navegación. Esto es un factor importante el de la velocidad, pero otro creo que aun mas importante es el de nuestra privacidad.&lt;/p&gt;</description>

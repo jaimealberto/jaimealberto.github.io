@@ -10,20 +10,15 @@
 		<meta property="og:title" content="Permisos en Linux" />
 <meta property="og:description" content="Usuarios grupos" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.github.io/post/44_permisos/" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/44_permisos/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2025-08-07T00:00:00+00:00" />
 <meta property="article:modified_time" content="2025-08-07T00:00:00+00:00" />
 
 		<meta itemprop="name" content="Permisos en Linux">
-<meta itemprop="description" content="Usuarios grupos">
-<meta itemprop="datePublished" content="2025-08-07T00:00:00+00:00" />
+<meta itemprop="description" content="Usuarios grupos"><meta itemprop="datePublished" content="2025-08-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2025-08-07T00:00:00+00:00" />
 <meta itemprop="wordCount" content="636">
-
-
-
 <meta itemprop="keywords" content="Terminal," />
-
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -128,8 +123,7 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure>
-    <img src="/img/permisos.jpg"/> 
+			<figure><img src="/img/permisos.jpg"/>
 </figure>
 
 <p>Hoy nos toca hablar las crípticas letras que aparecen al usar el comando <code>ls -l</code>. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.</p>
@@ -171,11 +165,11 @@
 <p><strong>Ejemplos:</strong></p>
 <p>Desde el terminal:</p>
 <p>Da permisos de lectura, escritura y ejecución al <strong>propietario</strong> (7), y de lectura y ejecución al <strong>grupo</strong> (5) y a <strong>otros</strong> (5).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod <span style="color:#ae81ff">755</span> script.sh</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">755</span> script.sh</span></span></code></pre></div>
 Da permisos de lectura y escritura al <strong>propietario</strong> (6), y solo de lectura al <strong>grupo</strong> (4) y a <strong>otros</strong> (4).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod <span style="color:#ae81ff">644</span> documento.txt</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">644</span> documento.txt</span></span></code></pre></div>
 Da permisos completos al <strong>propietario</strong> (7) y elimina todos los permisos para el <strong>grupo</strong> (0) y <strong>otros</strong> (0).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod <span style="color:#ae81ff">700</span> archivo_privado.key</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">700</span> archivo_privado.key</span></span></code></pre></div></p>
 <h2 id="método-simbólico-letras-">Método Simbólico (Letras) 📝</h2>
 <p>Este método utiliza letras y símbolos para añadir (<code>+</code>), quitar (<code>-</code>) o establecer (<code>=</code>) permisos de forma más intuitiva.</p>
 <ul>
@@ -186,29 +180,28 @@ Da permisos completos al <strong>propietario</strong> (7) y elimina todos los pe
 <p><strong>Ejemplos:</strong></p>
 <p>Desde el terminal:</p>
 <p><strong>Añade</strong> el permiso de ejecución (<code>+x</code>) solo al <strong>propietario</strong> (<code>u</code>).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod u+x script.sh</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod u+x script.sh</span></span></code></pre></div>
 <strong>Quita</strong> el permiso de escritura (<code>-w</code>) solo al <strong>grupo</strong> (<code>g</code>).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod g-w documento.txt</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod g-w documento.txt</span></span></code></pre></div>
 <strong>Establece</strong> los permisos para <strong>otros</strong> (<code>o</code>) exactamente como solo lectura (<code>=r</code>), eliminando cualquier otro permiso que tuvieran.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod o<span style="color:#f92672">=</span>r archivo.conf</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod o<span style="color:#f92672">=</span>r archivo.conf</span></span></code></pre></div>
 <strong>Añade</strong> el permiso de lectura (<code>+r</code>) a <strong>todos</strong> (<code>a</code>).
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chmod a+r archivo.zip</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod a+r archivo.zip</span></span></code></pre></div></p>
 <h2 id="cambio-de-propietario-y-grupo-">Cambio de Propietario y Grupo 👥</h2>
 <p>Además de los permisos, es posible cambiar quién es el propietario de un fichero y a qué grupo pertenece. Para ello, se usan los comandos <code>chown</code> y <code>chgrp</code>.</p>
 <p>Desde el terminal:</p>
 <ul>
 <li><strong><code>chown</code> (change owner):</strong> Para cambiar el propietario.
 Cambia el propietario de <code>documento.txt</code> al usuario <code>juan</code>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chown juan documento.txt</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chown juan documento.txt</span></span></code></pre></div>
 Cambia el propietario a <code>juan</code> y el grupo a <code>desarrollo</code>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">sudo chown juan:desarrollo documento.txt</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo chown juan:desarrollo documento.txt</span></span></code></pre></div></li>
 <li><strong><code>chgrp</code> (change group):</strong> Para cambiar solo el grupo.
 Cambia el grupo de <code>documento.txt</code> a <code>desarrollo</code>.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-zsh" data-lang="zsh">chgrp desarrollo documento.txt</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chgrp desarrollo documento.txt</span></span></code></pre></div>
 Espero que el siguiente esquema sirva de guía mas visual de todo lo anterior</li>
 </ul>
-<figure>
-    <img src="/img/permisosesquema.png"/> 
+<figure><img src="/img/permisosesquema.png"/>
 </figure>
 		</div>
 		<footer class="post__footer">
