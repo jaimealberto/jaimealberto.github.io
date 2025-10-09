@@ -8,6 +8,27 @@
     <language>es</language>
     <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Raspberry Pi</title>
+      <link>https://jaimealberto.github.io/raspberrypi/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/raspberrypi/</guid>
+      <description>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo
+Raspi-config Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:
+raspi-config Menus:
+System Options Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login Console Text console, requiring user to login ( elegimos esta opción ) Network at Boot ( seleccionamos no para acelerar el arranque ) Interface Options SSH Enabled/disable remote command line access using SSH ( enable ) Location options Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado ) Update ( actualizamos la herramienta ) Es necesario reiniciar para aplicar los cambios.</description>
+    </item>
+    
+    <item>
+      <title>Recursos</title>
+      <link>https://jaimealberto.github.io/recursos/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/recursos/</guid>
+      <description>Herramientas on-line Color Hunt, paleta de colores. Crontab generator, genera lineas de cron. Drawio, diagramas. Excalidraw, diagramas. Internxt, transferencia segura de ficheros. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envío de notas que se autodestruyen después de ser leídas. Smash, transferencia segura de ficheros. TransferNow, transferencia segura de ficheros. WinGet Generator, generador comando instalación software Windows. Wormhole, transferencia segura de ficheros.</description>
+    </item>
+    
+    <item>
       <title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title>
       <link>https://jaimealberto.github.io/post/12_universosshiii/</link>
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
@@ -164,15 +185,6 @@
     </item>
     
     <item>
-      <title>Recursos</title>
-      <link>https://jaimealberto.github.io/recursos/</link>
-      <pubDate>Mon, 16 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/recursos/</guid>
-      <description>Herramientas on-line Color Hunt, paleta de colores. Crontab generator, genera lineas de cron. Drawio, diagramas. Excalidraw, diagramas. Internxt, transferencia segura de ficheros. MEditor, editor MarkDown Open Source en linea. One Time Secret, transferencia segura de información. Private note , envío de notas que se autodestruyen después de ser leídas. Smash, transferencia segura de ficheros. TransferNow, transferencia segura de ficheros. WinGet Generator, generador comando instalación software Windows. Wormhole, transferencia segura de ficheros.</description>
-    </item>
-    
-    <item>
       <title>Personalizar login en GNOME, GDM 3</title>
       <link>https://jaimealberto.github.io/post/14_customgdm3/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
@@ -254,18 +266,6 @@ Otra de las situaciones típicas es que a ti en casa se te rompe algo del baño,
 &lt;/figure&gt;
 
 &lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Raspberry Pi</title>
-      <link>https://jaimealberto.github.io/raspberrypi/</link>
-      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/raspberrypi/</guid>
-      <description>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo
-Raspi-config Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:
-raspi-config Menus:
-System Options Password ( cambiamos la contraseña del usuario pi ) Hostname ( cambiamos el nombre de host ) Boot / Auto Login Console Text console, requiring user to login ( elegimos esta opción ) Network at Boot ( seleccionamos no para acelerar el arranque ) Interface Options SSH Enabled/disable remote command line access using SSH ( enable ) Location options Locale ( configuramos correctamente el idioma ) Timezone ( seleccionamos nuestra zona horaria ) Keyboard ( seleccionamos nuestra distribución de teclado ) Update ( actualizamos la herramienta ) Es necesario reiniciar para aplicar los cambios.</description>
     </item>
     
     <item>
