@@ -3,10 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jaimealberto.github.io/</loc>
-    <lastmod>2025-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/categories/</loc>
-    <lastmod>2025-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/tags/cliente/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/post/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/categories/redes/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/tags/so/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/categories/ssh/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/tags/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/tags/terminal/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/post/12_universosshiii/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/tags/utilidades/</loc>
+    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/categories/linux/</loc>
     <lastmod>2025-08-07T00:00:00+00:00</lastmod>
@@ -14,16 +41,7 @@
     <loc>https://jaimealberto.github.io/post/44_permisos/</loc>
     <lastmod>2025-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.github.io/post/</loc>
-    <lastmod>2025-08-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.github.io/categories/sysadmin/</loc>
-    <lastmod>2025-08-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/tags/</loc>
-    <lastmod>2025-08-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/tags/terminal/</loc>
     <lastmod>2025-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/hardware/01_hhackcardputer1/</loc>
@@ -47,19 +65,10 @@
     <loc>https://jaimealberto.github.io/categories/servicios/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.github.io/tags/so/</loc>
-    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/categories/ssh/</loc>
-    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.github.io/post/40_distupgrade/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/post/38_utils_repos/</loc>
-    <lastmod>2022-09-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/tags/utilidades/</loc>
     <lastmod>2022-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/post/37_navegadores_repos/</loc>
@@ -194,9 +203,6 @@
     <loc>https://jaimealberto.github.io/post/23_itermzsh/</loc>
     <lastmod>2021-08-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.github.io/tags/cliente/</loc>
-    <lastmod>2021-08-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.github.io/post/22_dnssec/</loc>
     <lastmod>2021-08-12T00:00:00+00:00</lastmod>
   </url><url>
@@ -214,9 +220,6 @@
   </url><url>
     <loc>https://jaimealberto.github.io/yo/about/</loc>
     <lastmod>2021-08-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/categories/redes/</loc>
-    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/post/11_universosshii/</loc>
     <lastmod>2021-08-07T00:00:00+00:00</lastmod>

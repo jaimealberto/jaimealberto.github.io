@@ -6,13 +6,40 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cliente</title>
+      <link>https://jaimealberto.github.io/tags/cliente/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/cliente/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SO</title>
+      <link>https://jaimealberto.github.io/tags/so/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/so/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Terminal</title>
       <link>https://jaimealberto.github.io/tags/terminal/</link>
-      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Utilidades</title>
+      <link>https://jaimealberto.github.io/tags/utilidades/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
       <description></description>
     </item>
     
@@ -31,24 +58,6 @@
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/seguridad/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SO</title>
-      <link>https://jaimealberto.github.io/tags/so/</link>
-      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/so/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Utilidades</title>
-      <link>https://jaimealberto.github.io/tags/utilidades/</link>
-      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
       <description></description>
     </item>
     
@@ -157,15 +166,6 @@
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/terraform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cliente</title>
-      <link>https://jaimealberto.github.io/tags/cliente/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/cliente/</guid>
       <description></description>
     </item>
     

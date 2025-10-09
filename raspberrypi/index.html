@@ -17,7 +17,7 @@
 		<meta itemprop="name" content="Raspberry Pi">
 <meta itemprop="description" content="Notas Raspberry Pi"><meta itemprop="datePublished" content="2022-04-04T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1373">
+<meta itemprop="wordCount" content="1861">
 <meta itemprop="keywords" content="" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -199,6 +199,15 @@ Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y s
 </span></span><span style="display:flex;"><span>net.ipv6.conf.eth0.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
 <p>Editamos /etc/rc.local y añadimos al final, si no esta ya :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<p>Otro modo de hacer esto, mas rápido y radical es modificando el cmdline.txt. Según modelo o sistema operativo se puede encortar en varias rutas, revisa las dos posibilidades segun tu hardware y sistema:</p>
+<ul>
+<li>/boot/cmdline.txt</li>
+<li>/boot/firmware/cmdline.txt</li>
+</ul>
+<p>Te encontraras algo parecido a esto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>console<span style="color:#f92672">=</span>serial0,115200 console<span style="color:#f92672">=</span>tty1 root<span style="color:#f92672">=</span>PARTUUID<span style="color:#f92672">=</span>5b621bc5-02 rootfstype<span style="color:#f92672">=</span>ext4 fsck.repair<span style="color:#f92672">=</span>yes rootwait net.ifnames<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<p>Solo tienes que añadir un espacio y luego <strong>ipv6.disable=1</strong>, de tal forma que quedaria asi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>console<span style="color:#f92672">=</span>serial0,115200 console<span style="color:#f92672">=</span>tty1 root<span style="color:#f92672">=</span>PARTUUID<span style="color:#f92672">=</span>5b621bc5-02 rootfstype<span style="color:#f92672">=</span>ext4 fsck.repair<span style="color:#f92672">=</span>yes rootwait net.ifnames<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> ipv6.disable<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span></span></span></code></pre></div>
 <h3 id="configurar-dirección-ip-fija">Configurar dirección ip fija</h3>
 <p>Editamos /etc/dhcpcd.conf  y configuramos los parámetros correspondientes, ejemplo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>interface eth0
@@ -211,8 +220,92 @@ static ip_address &ldquo;ip/mascara&rdquo;
 static routers &ldquo;default gateway&rdquo;
 static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundario&rdquo;</p>
 <p>Reiniciamos para aplicar los cambios.</p>
+<p>En las nuevas versiones de Raspberry Pi OS ( anteriormente Raspbian) que están basadas en Debian 12 (bookworm) o superior la configuración de la red se controla de manera distinta, utiliza network manager. Para ello se utiliza el comando nmcli. Vamos a ver rápidamente como hacer esto, desde la consola con privilegios de root:</p>
+<p>Identificar nombres de nuestros interfaces que estén conectados, obtendremos una salida parecida e esta:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli -p connection show
+</span></span><span style="display:flex;"><span><span style="color:#f92672">============================================</span>
+</span></span><span style="display:flex;"><span>  Perfiles de conexiones de NetworkManager
+</span></span><span style="display:flex;"><span><span style="color:#f92672">============================================</span>
+</span></span><span style="display:flex;"><span>NAME                 UUID                                  TYPE      DEVICE     
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>Conexión cableada <span style="color:#ae81ff">1</span>  7470081f-935c-35a2-9c7b-66a33272fab5  ethernet  eth0       </span></span></code></pre></div></p>
+<p>En esta caso vamos a configurar &ldquo;Conexión cableada 1&rdquo; con los siguientes parámetros:</p>
+<ul>
+<li>Dirección IP	192.168.1.100</li>
+<li>Puerta de enlace	192.168.1.1</li>
+<li>Mascara de subred	/24</li>
+<li>Servidores DNS	8.8.8.8 y 8.8.4.4</li>
+<li>Nombre de la interfaz de red	Conexión cableada 1</li>
+</ul>
+<p>Con el siguiente comando aplicamos la configuración:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli connection  modify <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> ipv4.method manual ipv4.addresses 192.168.1.1100/24 ipv4.gateway 192.168.1.1 ipv4.dns <span style="color:#e6db74">&#34;8.8.8.8 y 8.8.4.4&#34;</span></span></span></code></pre></div></p>
+<p>Para que los cambios surtan efecto, reiniciaremos Network Manager:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con down <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> <span style="color:#f92672">&amp;&amp;</span> nmcli con up <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span></span></span></code></pre></div></p>
+<blockquote>
+<p>ℹ️ Nota: Otra opción disponible es reiniciar la Raspberry Pi.</p>
+</blockquote>
+<p>Ahora verificamos los camios y consultamos la configuración actual de nuestra conexión ethernet. El resultado será parecido al siguiente, <strong>la salida esta cortada mostrando solo lo que nos interesa, es muy detallada ////</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli -p connection show <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span>            Detalles del perfil de conexiones <span style="color:#f92672">(</span>Conexión cableada 1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span>///////////////////////////////////////////////////////////////////////////////
+</span></span><span style="display:flex;"><span>ipv4.method:                            manual
+</span></span><span style="display:flex;"><span>ipv4.dns:                               8.8.8.8 y 8.8.4.4
+</span></span><span style="display:flex;"><span>ipv4.dns-search:                        --
+</span></span><span style="display:flex;"><span>ipv4.dns-options:                       --
+</span></span><span style="display:flex;"><span>ipv4.dns-priority:                      <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>ipv4.addresses:                         192.168.1.100/24
+</span></span><span style="display:flex;"><span>ipv4.gateway:                           192.168.1.1
+</span></span><span style="display:flex;"><span>ipv4.routes:                            --
+</span></span><span style="display:flex;"><span>ipv4.route-metric:                      -1
+</span></span><span style="display:flex;"><span>///////////////////////////////////////////////////////////////////////////////
+</span></span><span style="display:flex;"><span>802-3-ethernet.port:                    --
+</span></span><span style="display:flex;"><span>802-3-ethernet.speed:                   <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>802-3-ethernet.duplex:                  --
+</span></span><span style="display:flex;"><span>802-3-ethernet.auto-negotiate:          no
+</span></span><span style="display:flex;"><span>802-3-ethernet.mac-address:             --
+</span></span><span style="display:flex;"><span>802-3-ethernet.cloned-mac-address:      --
+</span></span><span style="display:flex;"><span>802-3-ethernet.generate-mac-address-mask:--
+</span></span><span style="display:flex;"><span>802-3-ethernet.mac-address-blacklist:   --
+</span></span><span style="display:flex;"><span>802-3-ethernet.mtu:                     auto
+</span></span><span style="display:flex;"><span>802-3-ethernet.s390-subchannels:        --
+</span></span><span style="display:flex;"><span>802-3-ethernet.s390-nettype:            --
+</span></span><span style="display:flex;"><span>802-3-ethernet.s390-options:            --
+</span></span><span style="display:flex;"><span>802-3-ethernet.wake-on-lan:             default
+</span></span><span style="display:flex;"><span>802-3-ethernet.wake-on-lan-password:    --
+</span></span><span style="display:flex;"><span>802-3-ethernet.accept-all-mac-addresses:-1 <span style="color:#f92672">(</span>default<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>-------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>ipv4.method:                            manual
+</span></span><span style="display:flex;"><span>ipv4.dns:                               9.9.9.9,1.1.1.1
+</span></span><span style="display:flex;"><span>///////////////////////////////////////////////////////////////////////////////</span></span></code></pre></div></p>
+<p>Otros que nos pueden interesar</p>
+<p>Ip dinámica IpV4:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con modify <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> ipv4.method auto</span></span></code></pre></div></p>
+<p>Ip dinámica IpV6:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con modify <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> ipv6.method auto</span></span></code></pre></div></p>
+<p>Para que los cambios surjan efecto, o reiniciar el servicio o la Raspberry Pi.</p>
+<p>Evitar conexión automática, interesante con la WiFi:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con modify <span style="color:#e6db74">&#34;preconfigured&#34;</span> connection.autoconnect no</span></span></code></pre></div></p>
+<p><a href="https://docs.redhat.com/es/documentation/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/configuring-a-static-ethernet-connection-using-nmcli_configuring-and-managing-network-access">Fuente e información sobre nmcli</a></p>
 <h3 id="configurar-wifi">Configurar Wifi</h3>
-<p><strong>próximamente</strong></p>
+<p>Configuración en <strong>Raspberry Pi OS 12 (Bookworm)</strong>.</p>
+<p>Desde el terminal con privilegios de root editamos el archivo de configuración de red &ldquo;/etc/wpa_supplicant/wpa_supplicant.conf&rdquo;.  Añadir al final (cambia SSID y contraseña):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>network<span style="color:#f92672">={</span>
+</span></span><span style="display:flex;"><span>    ssid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TuNombreDeWiFi&#34;</span>
+</span></span><span style="display:flex;"><span>    psk<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TuContraseñaWiFi&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span></span></span></code></pre></div></p>
+<p>Reinicimaos el servicio de red:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wpa_cli -i wlan0 reconfigure</span></span></code></pre></div></p>
+<p>⚙️ Consejos útiles</p>
+<ul>
+<li>Comprbar zona/país con <code>raspi-config</code> → <strong>Localisation Options</strong> → <strong>WLAN Country</strong>.</li>
+<li>Si no detecta redes, prueba:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>rfkill unblock wifi
+</span></span><span style="display:flex;"><span>ifconfig wlan0 up</span></span></code></pre></div></li>
+<li>Puedes listar redes disponibles con:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>iwlist wlan0 scan | grep ESSID</span></span></code></pre></div></li>
+</ul>
 <h3 id="deshabilitar-wifi">Deshabilitar Wifi</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>iwconfig wlan0 txpower off</span></span></code></pre></div>
 <h2 id="kernel-headers">Kernel headers</h2>
@@ -227,6 +320,14 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Raspberry Pi Zero 2 W</td>
+<td>600 mA</td>
+</tr>
+<tr>
+<td>Raspberry Pi 5</td>
+<td>5 A</td>
+</tr>
 <tr>
 <td>Raspberry Pi A</td>
 <td>700 mA</td>
@@ -270,14 +371,6 @@ static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundari
 <tr>
 <td>Raspberry Pi Zero W</td>
 <td>1,2 A</td>
-</tr>
-<tr>
-<td>Raspberry Pi Zero 2 W</td>
-<td>~600 mA (600 mA) aprox.</td>
-</tr>
-<tr>
-<td>Raspberry Pi 5</td>
-<td>~2,1 A en carga (5 V) aprox.</td>
 </tr>
 </tbody>
 </table>
