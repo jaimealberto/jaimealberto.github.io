@@ -17,7 +17,7 @@
 		<meta itemprop="name" content="Universo Ssh I">
 <meta itemprop="description" content="Primer post sobre todo lo relacionado con Ssh"><meta itemprop="datePublished" content="2021-08-04T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-08-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2348">
+<meta itemprop="wordCount" content="2350">
 <meta itemprop="keywords" content="SO,Terminal,Cliente,Utilidades," />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -130,6 +130,7 @@
       </ul>
     </li>
     <li><a href="#configuración">Configuración</a></li>
+    <li><a href="#resumen-gráfico">Resumen gráfico</a></li>
   </ul>
 </nav>
 	</div>
@@ -137,7 +138,7 @@
 			<figure><img src="/img/ssh.jpg"/>
 </figure>
 
-<p>Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la <a href="https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA">IATA</a> del aeropuerto internacional <a href="https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij">Sharm el-sheij</a>, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un tunel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de <a href="https://es.wikipedia.org/wiki/Ataque_de_REPLAY">REPLAY</a> se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.</p>
+<p>Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la <a href="https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA">IATA</a> del aeropuerto internacional <a href="https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij">Sharm el-sheij</a>, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de <a href="https://es.wikipedia.org/wiki/Ataque_de_REPLAY">REPLAY</a> se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.</p>
 <p>Como en todos los procesos de comunicación tenemos un cliente y un servidor. Lo mas utilizado es un ssh cliente en un extremo y conectar a un servidor para una gestión remota de host los cuales pueden ser servidores, routers, switches, etc. En una serie de artículos nos iremos adentrando por este mundo que nos permite realizar muchas tareas no solo la anteriormente descrita. Sin mas vueltas vamos al lio ya. Algún purista dirá que en articulo falta hablar de conceptos como cifrado asimétrico, hashing, etc. Pero prefiero que sea lo mas practico posible.</p>
 <h2 id="administración-remota">Administración remota</h2>
 <p>El comando ssh esta ampliamente extendido en cualquiera de los sistemas operativos de la familia *nix ( Linux, Bsd, Unix, etc ). En sistemas Windows es necesario instalar un cliente, entre los mas populares esta <a href="https://www.putty.org/">PuTTY</a>. Pero existen muchísimos mas, para gustos los colores.Lo mas habitual es su utilización para conseguir una <a href="https://es.wikipedia.org/wiki/Shell_de_Unix">Shell</a>remota, por ejemplo, de la siguiente manera:</p>
@@ -158,17 +159,17 @@
 <p>Conexión añadiendo utilizando varios parámetros:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh -p <span style="color:#ae81ff">2020</span> -l usuario 192.168.1.25</span></span></code></pre></div>
 <p>Nos conectamos por el puerto 2020 a la ip 192.168.1.25 con el nombre de usuario “usuario”.</p>
-<p>Ssh también nos permite la ejecucion de comandos remota de la siguiente manera:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@host_remmoto comando_ejecutar</span></span></code></pre></div>
+<p>Ssh también nos permite la ejecución de comandos remota de la siguiente manera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@host_remoto comando_ejecutar</span></span></code></pre></div>
 <p>Si la ejecución remota necesita asignación de un tty, si por ejemplo utilizamos mc es necesario añadir el modificador -t, ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@&lt;host_remmoto&gt; mc</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@&lt;host_remoto&gt; mc</span></span></code></pre></div>
 <p>Con este comando estaremos ejecutando <a href="https://midnight-commander.org/">Midnight Commander</a> en el host remoto. Tener en cuenta que el software que ejecutemos tiene que estar instalado en el host remoto.</p>
 <p>El uso del cliente de Ssh desde el terminal nos ofrece cantidad de posibilidades, el tope nuestra imaginación y necesidades. Se pueden hacer cosas muy útiles e interesantes como:</p>
 <p>Probar rendimiento de la red en tiempo real:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>yes | pv | ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat &gt; /dev/null&#34;</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>yes | pv | ssh usuario@&lt;host_remoto&gt; <span style="color:#e6db74">&#34;cat &gt; /dev/null&#34;</span></span></span></code></pre></div>
 <p><strong>Nota:</strong> Lo cortamos con ctrl+c, es continuo si no.</p>
 <p>Podemos comparar un archivo local con uno remoto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@&lt;host_remmoto&gt; <span style="color:#e6db74">&#34;cat archivo_remoto&#34;</span> | diff – archivo_local</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh usuario@&lt;host_remoto&gt; <span style="color:#e6db74">&#34;cat archivo_remoto&#34;</span> | diff – archivo_local</span></span></code></pre></div>
 <p><strong>Nota:</strong> Importante respetar las comillas en la ejecución de cat.</p>
 <p>Gestión de paquetes rpm / yum :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh root@&lt;host_remoto&gt; <span style="color:#e6db74">&#39;rpm -qa&#39;</span> | xargs yum -y install</span></span></code></pre></div>
@@ -209,7 +210,7 @@ alias h1auth=&#34;ssh -t host1 &#39;tail -f /var/log/auth.log | ccze&#39;&#34;
 -4 Forzamos al uso de IPv6.
 -v Activamos modo verbose, por si necesitamos diagnosticar un problema.
 -C Habilita la compresión en la transferencia. Por defecto no lo hace.
-</code></pre><p><strong>Nota:</strong> Existe diferencia entre los parámetros en las mayusculas y minúsculas.</p>
+</code></pre><p><strong>Nota:</strong> Existe diferencia entre los parámetros en las mayúsculas y minúsculas.</p>
 <h3 id="sftp">Sftp</h3>
 <p>El comando sftp es el que nos permite conectar con el servidor e interactuar con el. Lo primero es conectar con el servidor de la siguiente naneara:</p>
 <p>sftp usuario@host_remoto</p>
@@ -252,7 +253,7 @@ alias h1auth=&#34;ssh -t host1 &#39;tail -f /var/log/auth.log | ccze&#39;&#34;
 <p>Ahora vamos a proceder a generar nuestra identidad. La cual esta compuesta de dos llaves. Una publica que es la que tendremos que distribuir a los servidores que nos proporcionen acceso a servicios vía Ssh y una privada  que la guardaremos a buen recaudo.</p>
 <p>Para generar nuestras llaves utilizaremos la siguiente linea de comando desde nuestro home de usuario en un terminal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh-keygen -b <span style="color:#ae81ff">4096</span> -t rsa -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">@</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">-</span><span style="color:#66d9ef">$(</span>date -I<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
-<p>Aqui se puede observar el proceso:</p>
+<p>Aquí se puede observar el proceso:</p>
 <figure><img src="/img/generatekey.gif"/>
 </figure>
 
@@ -312,7 +313,11 @@ ServerAliveCountMax: Establece el número veces que se repetirá e “ServerAliv
 User:         Indica un usuario especifico distinto al general.
 Port:         Indica un puerto especifico distinto al general.
 IdentityFile: Indica una llave distinta a la general.
-</code></pre><p>Como se puede observar podemos realizar configuraciones globales o bien especificas según necesidades. Se puede jugar con una gran cantidad de parámetros . Para realizar esta tarea si disponemos de un entorno grafico, no siempre es así, tenemos herramientas como SSH Config Editor para MacOs. Pero nunca esta de mas saber como funciona el archivo para poder sacar el máximo partido. Como consejo final es importante comentar todo lo que se pueda el archivo, que luego tenemos que tocar algo y no sabemos el por que de un parámetro o valor.</p>
+</code></pre><p>Como se puede observar podemos realizar configuraciones globales o bien especificas según necesidades. Se puede jugar con una gran cantidad de parámetros . Para realizar esta tarea si disponemos de un entorno gráfico, no siempre es así, tenemos herramientas como SSH Config Editor para MacOs. Pero nunca esta de mas saber como funciona el archivo para poder sacar el máximo partido. Como consejo final es importante comentar todo lo que se pueda el archivo, que luego tenemos que tocar algo y no sabemos el por que de un parámetro o valor.</p>
+<h2 id="resumen-gráfico">Resumen gráfico</h2>
+<figure><img src="/img/llavesssh.png"/>
+</figure>
+
 <p><a href="https://hejki.org/ssheditor/">SSH Config Editor</a></p>
 		</div>
 		<footer class="post__footer">

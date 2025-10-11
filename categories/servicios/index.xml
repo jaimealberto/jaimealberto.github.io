@@ -6,7 +6,19 @@
     <description>Recent content in Servicios on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/servicios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/servicios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nems, primeros pasos 00</title>
+      <link>https://jaimealberto.github.io/post/45_nems00/</link>
+      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/45_nems00/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la &lt;a href=&#34;https://docs.nemslinux.com/en/latest/&#34;&gt;documentación oficial&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Donde están los log`s del servidor SSH en Debian 12</title>
       <link>https://jaimealberto.github.io/post/42_logssshdeb12/</link>
