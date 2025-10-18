@@ -1,0 +1,619 @@
+---
+title: "Servidor SMS"
+description: "El objetivo es crear un servidor sms para poder enviar sms desde cualquier host de nuestra infraestructura."
+date: 2025-10-13
+categories:
+  - "Sysadmin"
+  - "Linux"
+  - "Servicios"
+tags:
+  - "HomeLab"
+draft: true
+toc: true
+---
+
+{{< figure src="/img/smswg.jpg">}}
+Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.
+<!--more-->
+Por su estabilidad y poco consumo de datos es una buena opción para proveer a nuestra infraestructura la posibilidad de enviar sms en determinas situaciones. El articulo es un poco largo , pues me encontré con algunas dificultades que parecen obvias pero cuando te obcecas en algo pasan estas cosas. No cai en que la SIM se tiene que desbloquear al arranque del dispositivo, como nos ocurre con los móviles, pero también cuento esta historia en el articulo.
+## ⚙️ Hardware & 💽 Software
+Buscando por el trastero de casa apareció un viejo usb ZTE MF190 que utilice muchísimo en una época para realizar guardias y los fines de semana que salida de viaje. A esto le añadiremos una vieja ya Raspberry Pi 3 B +. Instalaremos sistema operativo Raspbian GNU/Linux 12 (bookworm) en version lite, que no necesitaremos mas.
+
+## 🧩 Preparar el entorno
+Instalaremos el software necesario desde el terminal:
+{{< highlight zsh >}}
+sudo apt update
+sudo apt install usb-modeswitch minicom gammu gammu-smsd python3-flask python3 python3-venv python3-pip minicom
+{{< /highlight >}}
+
+A continuación pinchamos el módem usb y verificamos que lo detecta correctamente desde el terminal:
+{{< highlight zsh >}}
+lsusb
+Bus 001 Device 005: ID 19d2:0124 ZTE WCDMA Technologies MSM ZTE WCDMA Technologies MSM
+Bus 001 Device 003: ID 0424:ec00 Microchip Technology, Inc. (formerly SMSC) SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Microchip Technology, Inc. (formerly SMSC) SMC9514 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+{{< /highlight >}}
+
+Como podemos ver en la salida del comando en la primera linea detecta en hardware perfectamente:
+```
+Bus 001 Device 005: ID 19d2:0124 ZTE WCDMA Technologies MSM ZTE WCDMA Technologies MSM
+```
+
+Ahora necesitamos saber a que tty se asociado el módem, 
+{{< highlight zsh >}}
+dmesg | grep tty
+[418587.614660] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB0
+[418587.627545] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB1
+[418587.633068] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB2
+[418587.633551] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB3
+[418587.634006] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB4
+{{< /highlight >}}
+
+Ya sabemos a que tty o tty`s esta asignado el módem. Esta información sera necesaria para el siguiente paso. Yo voy a trabajar con el ttyUSB2, manías ... ? **si**.
+
+## 1️⃣ Desbloquear la SIM
+La primera vez que me puse a trabajar con este tema me volví loco probando configuraciones y el problema fue que la sim no la tenia desbloqueada, vamos lo de introducir el pin cuando encademos el móvil.
+
+### Verifica el estado real de la SIM (comandos AT), desbloqueo
+
+Desde nuestro terminal ejecutamos:
+{{< highlight zsh >}}
+sudo minicom -D /dev/ttyUSB2
+{{< /highlight >}}
+
+Verificamos que tenemos comunicación con el módem:
+```
+AT
+```
+
+Debería responder:
+```
+OK
+```
+
+Si responde, el ya estamos conectados al módem.
+
+Ahora escribimos:
+```
+AT+CPIN?
+```
+
+Posibles respuestas:
+
+| Respuesta        | Significado                            |
+| ---------------- | -------------------------------------- |
+| `+CPIN: READY`   | SIM desbloqueada ✅                    |
+| `+CPIN: SIM PIN` | SIM bloqueada con PIN ❌               |
+| `+CPIN: SIM PUK` | SIM bloqueada por PUK 🚫               |
+| `ERROR`          | No detecta SIM o fallo de comunicación |
+
+Si la SIM esta bloqueada la desbloqueamos, sin salir de minicom:
+```
+AT+CPIN="1234"
+```
+Suponiendo que nuestro pin es "1234", esto debería respondernos con:
+```
+OK
+```
+A continuación esperamos unos 5 – 10 segundos y escribimos:
+```
+AT+CPIN?
+```
+Si ahora obtenemos un `READY`, la SIM ya está desbloqueada ✅. Verificamos que la red está disponible:
+```
+AT+CREG?
+```
+
+Respuestas posibles:
+
+| Respuesta    | Significado               |
+| ------------ | ------------------------- |
+| `+CREG: 0,1` | Registrado en red local ✅ |
+| `+CREG: 0,5` | Registrado (roaming) ✅    |
+| `+CREG: 0,2` | Buscando red 🔄           |
+| `+CREG: 0,0` | No registrado 🚫          |
+
+Si la respuesta es `0,1` o `0,5`, ya tenemos red. Salimos de minicom, pulsando `Ctrl + A`, luego `Z`, luego `X`, y confirmamos salir.
+
+Comprobamos que Gammu esta funcionando:
+{{< highlight zsh >}}
+gammu networkinfo
+Network state        : home network
+Network              : Movistar
+Signal strength      : 70%
+{{< /highlight >}}
+
+Si obtenemos una respuesta parecida o igual a la anterior dándonos datos de la conexión, es que todo esta ya ok. Vamos a realizar una prueba de envío de sms desde el terminal:
+{{< highlight zsh >}}
+gammu sendsms TEXT +34666600666 -text "Hola, prueba desde Raspberry Pi"
+{{< /highlight >}}
+
+Bien, pues si llega el mensaje al 666600666, todo estará ya configurado.
+
+Ahora si reiniciamos la maquina, nos **vuelva a pedir PIN**. Esto lo podemos desactivar :
+
+Desde `minicom` (una vez desbloqueada y con red):
+
+```
+AT+CLCK="SC",0,"1234"
+```
+
+Esto desactiva la solicitud de PIN (cambia `1234` por tu PIN actual). Debe responder `OK`. Si responde `ERROR`, tu módem o SIM no lo soportan. El comando AT+CLCK intenta “desbloquear la función de seguridad SC (PIN de la SIM)”. Las razones pueden ser varias:
+
+- 🔒 El firmware no implementa CLCK para SC → lo más habitual en ZTE.
+- ⚠️ La SIM no soporta la operación (algunos operadores lo bloquean).
+- 🧩 Ya estaba desactivado (pero normalmente respondería OK).
+
+Para solucionar este problema tenemos varias opciones:
+
+**✅ Solución más fiable**
+
+Desactiva el PIN una sola vez desde un teléfono móvil:
+
+- Inserta la SIM en cualquier teléfono.
+- Desbloquéala introduciendo el PIN 1234.
+- Entra en los ajustes de la SIM:
+- Android → Ajustes → Seguridad → Bloqueo de tarjeta SIM → Desactivar (introduce el PIN)
+- iPhone → Ajustes → Datos móviles → PIN de la SIM → Desactivar (introduce el PIN)
+- Apaga el teléfono y vuelve a poner la SIM en tu Raspberry Pi. 
+
+**⚙️ Alternativa si no quieres quitar la SIM**
+
+Vamos a crear un script con las siguientes caracteristicas:
+
+
+* Esperar hasta que el dispositivo `/dev/ttyUSB2` esté disponible.
+* Envíar el PIN automáticamente al módem.
+* Funcionar de forma silenciosa en cada arranque.
+
+**🧩 1️⃣ Script de desbloqueo**
+
+Lo crearemos en la siguiente ruta "/usr/local/bin/desbloquear_sim.sh" como administrador (root)
+
+Contenido del script:
+{{< highlight zsh >}}
+#!/bin/bash
+# Script: desbloquear_sim.sh
+# Desbloquea la SIM del módem ZTE MF190 con el PIN indicado
+# Espera a que el dispositivo esté disponible antes de enviar el comando AT
+
+DEVICE="/dev/ttyUSB2"
+PIN="1234"
+TIMEOUT=60   # segundos máximo para esperar al dispositivo
+
+echo "[SIM] Esperando a que $DEVICE esté disponible..."
+
+for ((i=0; i<$TIMEOUT; i++)); do
+    if [ -e "$DEVICE" ]; then
+        echo "[SIM] Dispositivo detectado en $DEVICE"
+        break
+    fi
+    sleep 1
+done
+
+if [ ! -e "$DEVICE" ]; then
+    echo "[SIM] Error: $DEVICE no se detectó tras $TIMEOUT segundos."
+    exit 1
+fi
+
+# Enviar comando AT para desbloquear la SIM
+{
+    echo "AT+CPIN=\"$PIN\""
+    sleep 5
+} > "$DEVICE"
+
+echo "[SIM] PIN enviado al módem. Esperando registro en red..."
+sleep 10
+echo "[SIM] Desbloqueo completado."
+exit 0
+{{< /highlight >}}
+
+Le damos permisos de ejecucion
+{{< highlight zsh >}}
+sudo chmod +x /usr/local/bin/desbloquear_sim.sh
+{{< /highlight >}}
+
+**⚙️ 2️⃣ Creamos el servicio systemd**
+
+Creamos el fichero del servicio "/etc/systemd/system/desbloquear-sim.service" como administrador (root):
+
+Contenido del fichero de servicio:
+
+```ini
+[Unit]
+Description=Desbloquear SIM ZTE MF190 automáticamente
+After=dev-ttyUSB2.device
+Requires=dev-ttyUSB2.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/desbloquear_sim.sh
+RemainAfterExit=true
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+```
+**🚀 3️⃣ Activamos el servicio, lo iniciamos y comprobamos su estado**
+{{< highlight zsh >}}
+sudo systemctl daemon-reload
+sudo systemctl enable desbloquear-sim.service
+sudo systemctl start desbloquear-sim.service
+sudo systemctl status desbloquear-sim.service
+{{< /highlight >}}
+
+Si todo esta correcto deberías ver algo parecido a esto:
+
+```
+[SIM] Dispositivo detectado en /dev/ttyUSB2
+[SIM] PIN enviado al módem. Esperando registro en red...
+[SIM] Desbloqueo completado.
+```
+**🧪 4️⃣ Prueba final**
+
+Reiniciamos la Raspberry pi y desde el terminal con nuestro usuario:
+
+Comprobamos que Gammu esta funcionando:
+{{< highlight zsh >}}
+gammu networkinfo
+Network state        : home network
+Network              : Movistar
+Signal strength      : 70%
+{{< /highlight >}}
+
+Si obtenemos una respuesta parecida o igual a la anterior dándonos datos de la conexión, es que todo esta ya ok. Vamos a realizar una prueba de envío de sms desde el terminal:
+{{< highlight zsh >}}
+gammu sendsms TEXT +34666600666 -text "Hola, prueba desde Raspberry Pi"
+{{< /highlight >}}
+
+> Donde 666600666 es el numero destino del mensaje, por delante va el código de país.
+
+## 📨 Montar el Gateway SMS
+
+Después de la chapa de preparar el entorno, vamos al lio en si.
+
+**🔐 Archivo de configuración seguro**
+
+Creamos como administrador (root) el fichero `/etc/smsgateway.conf` con el siguiente contenido:
+```bash
+API_TOKEN="TU_TOKEN_SEGURO_AQUI" # Token generado
+LOG_PATH="/var/log/smsgateway.log" # Fichero de log
+MODEM_DEVICE="/dev/ttyUSB2" # Device donde esta el módem
+ALLOWED_IPS=("127.0.0.1" "192.168.1.0/24") # Direccionamiento ip autorizado
+```
+Para crear el token lo podemos hacer desde el terminal:
+> 🔐 Opción recomendada (con openssl)
+{{< highlight zsh >}}
+openssl rand -hex 64
+{{< /highlight >}}
+🧩 Alternativa con /dev/urandom (por si no dispones de openssl)
+{{< highlight zsh >}}
+head -c 64 /dev/urandom | od -An -tx1 | tr -d ' \n'
+{{< /highlight >}}
+
+Ahora aseguramos el fichero creado cambiando los permisos, como administrador:
+{{< highlight zsh >}}
+chmod 600 /etc/smsgateway.conf
+chown root:root /etc/smsgateway.conf
+{{< /highlight >}}
+
+**🧠 Recomendaciones**
+
+- 🔒 No lo compartas ni lo subas a GitHub.
+- 💾 Guarda el token solo en entornos seguros (por ejemplo, variables de entorno o archivos protegidos).
+- 🔁 Si es para autenticación básica, cambia el token cada cierto tiempo.
+- 🔐 Si luego tu API crece, considera migrar a un sistema con JWT o OAuth2.
+
+**🧠 Script que espera la SIM este desbloqueada y tener cobertura GSM**
+
+Creamos como administrador (root) el fichero `wait_for_gsm.sh` con el siguiente contenido:
+```bash
+#!/bin/bash
+# Espera a que la SIM y la red GSM estén listas antes de iniciar servicios
+
+DEVICE="/dev/ttyUSB2"
+TIMEOUT=120      # segundos máximos a esperar
+SLEEP=2
+COUNT=0
+
+echo "[wait_for_gsm] Esperando dispositivo $DEVICE..."
+while [ ! -e "$DEVICE" ]; do
+  sleep $SLEEP
+  COUNT=$((COUNT + SLEEP))
+  if [ $COUNT -ge $TIMEOUT ]; then
+    echo "[wait_for_gsm] Timeout esperando $DEVICE ($TIMEOUT s)" >&2
+    exit 1
+  fi
+done
+echo "[wait_for_gsm] Dispositivo detectado."
+
+COUNT=0
+echo "[wait_for_gsm] Esperando SIM lista y registro en red..."
+while true; do
+  CPIN=$( (echo "AT+CPIN?"; sleep 1) | timeout 3 cat < "$DEVICE" 2>/dev/null | tr -d '\r' | tail -n +1 | tr -s '\n' ' ' )
+  if echo "$CPIN" | grep -qi "READY"; then
+    CREG=$( (echo "AT+CREG?"; sleep 1) | timeout 3 cat < "$DEVICE" 2>/dev/null | tr -d '\r' | tail -n +1 | tr -s '\n' ' ' )
+    if echo "$CREG" | grep -Eo '\+CREG: *[0-9]+, *([15])' >/dev/null 2>&1; then
+      echo "[wait_for_gsm] SIM lista y registrada en red móvil."
+      exit 0
+    fi
+  fi
+  sleep $SLEEP
+  COUNT=$((COUNT + SLEEP))
+  if [ $COUNT -ge $TIMEOUT ]; then
+    echo "[wait_for_gsm] Timeout esperando registro GSM ($TIMEOUT s)" >&2
+    exit 2
+  fi
+done
+```
+Este script asegura que la SIM esté lista y registrada en la red móvil antes de iniciar el servicio Flask o cualquier otro que dependa en el futuro, ya estoy pensando en otros.
+
+Le damos permisos de ejecucion:
+{{< highlight zsh >}}
+chmod +x /usr/local/bin/wait_for_gsm.sh
+{{< /highlight >}}
+**🧰 5. Crear el servicio Flask** (API REST de envío SMS)
+
+Es recomendable crear una estructura ogranizada para el servicio, por ejemplo:
+```
+/opt/smsgateway/
+ └── sms_api.py
+```
+
+Crea el archivo:
+
+```bash
+sudo nano /opt/smsgateway/sms_api.py
+```
+
+Código:
+
+```python
+#!/usr/bin/env python3
+from flask import Flask, request, jsonify
+import subprocess, logging, logging.handlers, os
+from ipaddress import ip_address, ip_network
+
+CONF_FILE = "/etc/smsgateway.conf"
+API_TOKEN = None
+LOG_PATH = "/var/log/smsgateway.log"
+MODEM_DEVICE = "/dev/ttyUSB2"
+ALLOWED_IPS = ["127.0.0.1", "192.168.1.0/24"]
+
+# Cargar configuración
+if os.path.isfile(CONF_FILE):
+    with open(CONF_FILE) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            if line.startswith("API_TOKEN="):
+                API_TOKEN = line.split("=",1)[1].strip().strip('"').strip("'")
+            elif line.startswith("LOG_PATH="):
+                LOG_PATH = line.split("=",1)[1].strip().strip('"').strip("'")
+            elif line.startswith("MODEM_DEVICE="):
+                MODEM_DEVICE = line.split("=",1)[1].strip().strip('"').strip("'")
+            elif line.startswith("ALLOWED_IPS="):
+                vals = line.split("=",1)[1].strip().strip('()')
+                ALLOWED_IPS = [p.strip().strip('"').strip("'") for p in vals.split()]
+
+if API_TOKEN is None:
+    raise SystemExit("Falta API_TOKEN en /etc/smsgateway.conf")
+
+# Configurar logging tipo syslog
+logger = logging.getLogger("smsgateway")
+logger.setLevel(logging.INFO)
+handler = logging.handlers.RotatingFileHandler(LOG_PATH, maxBytes=5*1024*1024, backupCount=5)
+handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
+logger.addHandler(handler)
+
+app = Flask(__name__)
+
+def ip_permitida(ip):
+    try: a = ip_address(ip)
+    except: return False
+    for net in ALLOWED_IPS:
+        if "/" in net:
+            if a in ip_network(net, strict=False): return True
+        elif ip == net:
+            return True
+    return False
+
+def check_token(req):
+    return req.headers.get("X-Auth-Token") == API_TOKEN
+
+@app.route('/send', methods=['POST'])
+def send_sms():
+    client_ip = request.remote_addr
+    if not ip_permitida(client_ip):
+        logger.warning(f"IP no autorizada: {client_ip}")
+        return jsonify({'error': 'IP no autorizada'}), 403
+    if not check_token(request):
+        logger.warning(f"Token inválido desde {client_ip}")
+        return jsonify({'error': 'Token inválido o ausente'}), 403
+
+    data = request.get_json(force=True, silent=True)
+    if not data or 'number' not in data or 'message' not in data:
+        return jsonify({'error': 'Faltan parámetros: number y message'}), 400
+
+    number = data['number']
+    message = data['message']
+
+    logger.info(f"Intento de envío: {number} desde {client_ip} - {message}")
+    try:
+        cmd = ['gammu', '--sendsms', 'TEXT', number, '-text', message]
+        p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+        logger.info(f"Enviado: {number} salida: {p.stdout.decode().strip()}")
+        return jsonify({'status': 'ok', 'number': number})
+    except subprocess.CalledProcessError as e:
+        err = e.stderr.decode(errors='ignore') if e.stderr else str(e)
+        logger.error(f"Error enviando a {number}: {err.strip()}")
+        return jsonify({'status': 'error', 'details': err.strip()}), 500
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+
+Permisos y logs:
+
+```bash
+sudo chmod +x /opt/smsgateway/sms_api.py
+sudo touch /var/log/smsgateway.log
+sudo chmod 640 /var/log/smsgateway.log
+```
+
+---
+
+## 🚀 6. Servicio systemd con espera GSM
+
+Crea el servicio:
+
+```bash
+sudo nano /etc/systemd/system/smsgateway.service
+```
+
+Contenido:
+
+```ini
+[Unit]
+Description=SMS Gateway API (espera GSM)
+After=network.target
+Wants=dev-ttyUSB2.device
+Requires=dev-ttyUSB2.device
+
+[Service]
+Type=simple
+ExecStartPre=/usr/local/bin/wait_for_gsm.sh
+ExecStart=/usr/bin/python3 /opt/smsgateway/sms_api.py
+Restart=on-failure
+User=pi
+WorkingDirectory=/opt/smsgateway
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Activa el servicio:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable smsgateway.service
+sudo systemctl start smsgateway.service
+```
+
+Verifica:
+
+```bash
+sudo systemctl status smsgateway.service
+sudo journalctl -u smsgateway.service -f
+```
+
+---
+
+## 🧪 7. Probar el envío de SMS
+
+Desde otro host autorizado:
+
+```bash
+curl -X POST http://IP_DE_LA_PI:5000/send \
+     -H "Content-Type: application/json" \
+     -H "X-Auth-Token: TU_TOKEN_SEGURO_AQUI" \
+     -d '{"number":"+346XXXXXXXX","message":"Hola desde la Raspberry Pi!"}'
+```
+
+Respuesta esperada:
+
+```json
+{"status": "ok", "number": "+346XXXXXXXX"}
+```
+
+En el log `/var/log/smsgateway.log` verás algo como:
+
+```
+2025-10-14 12:10:55 INFO Intento de envío: +346XXXXXXXX desde 192.168.1.10 - Hola desde la Raspberry Pi!
+2025-10-14 12:10:56 INFO Enviado: +346XXXXXXXX salida: SMS Sent OK
+```
+
+---
+
+## 🛰️ 8. Extensión opcional para Asterisk
+
+Puedes hacer que Asterisk **espere a que la SIM esté lista** antes de arrancar.
+
+```bash
+sudo nano /etc/systemd/system/asterisk-wait-gsm.service
+```
+
+Contenido:
+
+```ini
+[Unit]
+Description=Esperar GSM antes de Asterisk
+After=dev-ttyUSB2.device
+Requires=dev-ttyUSB2.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wait_for_gsm.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Vincula este servicio a Asterisk:
+
+```bash
+sudo systemctl edit asterisk.service
+```
+
+Agrega en la sección `[Unit]`:
+
+```
+After=asterisk-wait-gsm.service
+Requires=asterisk-wait-gsm.service
+```
+
+Recarga y reinicia:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable asterisk-wait-gsm.service
+sudo systemctl restart asterisk
+```
+
+---
+
+## ✅ Conclusión
+
+Has creado un **gateway SMS seguro y autónomo**:
+
+* 🔐 Autenticado por token y filtrado por IP.
+* 🛰️ Espera automática hasta que la SIM esté lista y registrada.
+* 🧩 Integrable con Asterisk o cualquier sistema por HTTP.
+* 📜 Logs seguros en `/var/log/smsgateway.log`.
+
+Ideal para entornos donde se necesite enviar alertas, códigos de verificación o notificaciones vía SMS desde scripts o sistemas de monitorización.
+
+---
+
+**💡 Tip:**
+Puedes ampliar la API para incluir lectura de SMS o estado del módem (`/status`) usando `gammu getsms` o `gammu networkinfo`.
+
+---
+
+✍️ Autor: *[Tu nombre o blog]*
+📅 Fecha: *14 de octubre de 2025*
+🔗 Etiquetas: `Raspberry Pi`, `SMS Gateway`, `Flask`, `Asterisk`, `GSM`, `IoT`
+
+```
+
+---
+
+¿Quieres que te prepare **una versión HTML del artículo** (por ejemplo, con estilos minimalistas, lista para publicar en WordPress o un blog estático tipo Hugo)?
+```

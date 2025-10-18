@@ -6,7 +6,19 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SMS, envío local</title>
+      <link>https://jaimealberto.github.io/post/46_smsi/</link>
+      <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/46_smsi/</guid>
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/smswg.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Nems, primeros pasos 00</title>
       <link>https://jaimealberto.github.io/post/45_nems00/</link>

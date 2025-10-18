@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SMS, envío local - </title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="El objetivo es configura el envío de SMS desde el terminal local.Para posteriormente poder ofrecer el servicio de envío a nuestra infraestructura.">
+		<meta property="og:title" content="SMS, envío local" />
+<meta property="og:description" content="El objetivo es configura el envío de SMS desde el terminal local.Para posteriormente poder ofrecer el servicio de envío a nuestra infraestructura." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jaimealberto.github.io/post/46_smsi/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2025-10-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-10-18T00:00:00+00:00" />
+
+		<meta itemprop="name" content="SMS, envío local">
+<meta itemprop="description" content="El objetivo es configura el envío de SMS desde el terminal local.Para posteriormente poder ofrecer el servicio de envío a nuestra infraestructura."><meta itemprop="datePublished" content="2025-10-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-10-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1304">
+<meta itemprop="keywords" content="HomeLab," />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo.png">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">#@#</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">SMS, envío local</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-10-18T00:00:00Z">18-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>, <a class="meta__link" href="/categories/servicios/" rel="category">Servicios</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-hardware---software">⚙️ Hardware &amp; 💽 Software</a>
+      <ul>
+        <li><a href="#-preparar-el-entorno">🧩 Preparar el entorno</a></li>
+        <li><a href="#desbloquear-la-sim">Desbloquear la SIM</a></li>
+        <li><a href="#configurar-gammu">Configurar Gammu</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p><figure><img src="/img/smswg.jpg"/>
+</figure>
+
+Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.</p>
+<p>Por su estabilidad y poco consumo de datos es una buena opción para proveer a nuestra infraestructura la posibilidad de enviar sms en determinas situaciones. Como en principio el objetivo es dar servicio en modo servido, comencé a escribir el articulo pero se me hizo largo, pues me encontré con algunas dificultades que parecen obvias pero cuando te obcecas en algo pasan estas cosas. No cai en que la SIM se tiene que desbloquear al arranque del dispositivo, como nos ocurre con los móviles, pero también cuento esta historia en el articulo. Por eso vamos a empezar por lo basico que es que funcione de manera local.</p>
+<h2 id="-hardware---software">⚙️ Hardware &amp; 💽 Software</h2>
+<p>Buscando por el trastero de casa apareció un viejo usb ZTE MF190 que utilice muchísimo en una época para realizar guardias y los fines de semana que salida de viaje. A esto le añadiremos una vieja ya <a href="https://en.wikipedia.org/wiki/Raspberry_Pi">Raspberry Pi </a>3 B +. Instalaremos sistema operativo Raspbian GNU/Linux 12 (bookworm) en version lite, que no necesitaremos mas. A todo esto le añadimos una SIM de datos que mi proveedor la tiene a buen precio, es realmente un duplicado. Lo bueno que en teoría no tengo limite de envío de mensajes a móviles nacionales, siempre y cuando no sea con uso comercial.</p>
+<h3 id="-preparar-el-entorno">🧩 Preparar el entorno</h3>
+<p>Instalaremos el software necesario desde el terminal:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install usb-modeswitch minicom gammu gammu-smsd python3-flask python3 python3-venv python3-pip minicom</span></span></code></pre></div></p>
+<p>A continuación pinchamos el módem usb y verificamos que lo detecta correctamente desde el terminal:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>lsusb
+</span></span><span style="display:flex;"><span>Bus <span style="color:#ae81ff">001</span> Device 005: ID 19d2:0124 ZTE WCDMA Technologies MSM ZTE WCDMA Technologies MSM
+</span></span><span style="display:flex;"><span>Bus <span style="color:#ae81ff">001</span> Device 003: ID 0424:ec00 Microchip Technology, Inc. <span style="color:#f92672">(</span>formerly SMSC<span style="color:#f92672">)</span> SMSC9512/9514 Fast Ethernet Adapter
+</span></span><span style="display:flex;"><span>Bus <span style="color:#ae81ff">001</span> Device 002: ID 0424:9514 Microchip Technology, Inc. <span style="color:#f92672">(</span>formerly SMSC<span style="color:#f92672">)</span> SMC9514 Hub
+</span></span><span style="display:flex;"><span>Bus <span style="color:#ae81ff">001</span> Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span></span></code></pre></div></p>
+<p>Como podemos ver en la salida del comando en la primera linea detecta en hardware perfectamente:</p>
+<pre tabindex="0"><code>Bus 001 Device 005: ID 19d2:0124 ZTE WCDMA Technologies MSM ZTE WCDMA Technologies MSM
+</code></pre><p>Ahora necesitamos saber a que tty se asociado el módem,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dmesg | grep tty
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>418587.614660<span style="color:#f92672">]</span> usb 1-1.4: GSM modem <span style="color:#f92672">(</span>1-port<span style="color:#f92672">)</span> converter now attached to ttyUSB0
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>418587.627545<span style="color:#f92672">]</span> usb 1-1.4: GSM modem <span style="color:#f92672">(</span>1-port<span style="color:#f92672">)</span> converter now attached to ttyUSB1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>418587.633068<span style="color:#f92672">]</span> usb 1-1.4: GSM modem <span style="color:#f92672">(</span>1-port<span style="color:#f92672">)</span> converter now attached to ttyUSB2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>418587.633551<span style="color:#f92672">]</span> usb 1-1.4: GSM modem <span style="color:#f92672">(</span>1-port<span style="color:#f92672">)</span> converter now attached to ttyUSB3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>418587.634006<span style="color:#f92672">]</span> usb 1-1.4: GSM modem <span style="color:#f92672">(</span>1-port<span style="color:#f92672">)</span> converter now attached to ttyUSB4</span></span></code></pre></div></p>
+<p>Ya sabemos a que tty o tty`s esta asignado el módem. Esta información sera necesaria para el siguiente paso. Yo voy a trabajar con el ttyUSB2, manías &hellip; ? <strong>si</strong>.</p>
+<h3 id="desbloquear-la-sim">Desbloquear la SIM</h3>
+<p>La primera vez que me puse a trabajar con este tema me volví loco probando configuraciones y el problema fue que la sim no la tenia desbloqueada, vamos lo de introducir el pin cuando encademos el móvil.</p>
+<p><strong>Verifica el estado real de la SIM (comandos AT), desbloqueo</strong></p>
+<p>Desde nuestro terminal ejecutamos:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>minicom -D /dev/ttyUSB2</span></span></code></pre></div></p>
+<p>Verificamos que tenemos comunicación con el módem:</p>
+<pre tabindex="0"><code>AT
+</code></pre><p>Debería responder:</p>
+<pre tabindex="0"><code>OK
+</code></pre><p>Si responde, el ya estamos conectados al módem.</p>
+<p>Ahora escribimos:</p>
+<pre tabindex="0"><code>AT+CPIN?
+</code></pre><p>Posibles respuestas:</p>
+<table>
+<thead>
+<tr>
+<th>Respuesta</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+CPIN: READY</code></td>
+<td>SIM desbloqueada ✅</td>
+</tr>
+<tr>
+<td><code>+CPIN: SIM PIN</code></td>
+<td>SIM bloqueada con PIN ❌</td>
+</tr>
+<tr>
+<td><code>+CPIN: SIM PUK</code></td>
+<td>SIM bloqueada por PUK 🚫</td>
+</tr>
+<tr>
+<td><code>ERROR</code></td>
+<td>No detecta SIM o fallo de comunicación</td>
+</tr>
+</tbody>
+</table>
+<p>Si la SIM esta bloqueada la desbloqueamos, sin salir de minicom:</p>
+<pre tabindex="0"><code>AT+CPIN=&#34;1234&#34;
+</code></pre><p>Suponiendo que nuestro pin es &ldquo;1234&rdquo;, esto debería respondernos con:</p>
+<pre tabindex="0"><code>OK
+</code></pre><p>A continuación esperamos unos 5 – 10 segundos y escribimos:</p>
+<pre tabindex="0"><code>AT+CPIN?
+</code></pre><p>Si ahora obtenemos un <code>READY</code>, la SIM ya está desbloqueada ✅. Verificamos que la red está disponible:</p>
+<pre tabindex="0"><code>AT+CREG?
+</code></pre><p>Respuestas posibles:</p>
+<table>
+<thead>
+<tr>
+<th>Respuesta</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+CREG: 0,1</code></td>
+<td>Registrado en red local ✅</td>
+</tr>
+<tr>
+<td><code>+CREG: 0,5</code></td>
+<td>Registrado (roaming) ✅</td>
+</tr>
+<tr>
+<td><code>+CREG: 0,2</code></td>
+<td>Buscando red 🔄</td>
+</tr>
+<tr>
+<td><code>+CREG: 0,0</code></td>
+<td>No registrado 🚫</td>
+</tr>
+</tbody>
+</table>
+<p>Si la respuesta es <code>0,1</code> o <code>0,5</code>, ya tenemos red. Salimos de minicom, pulsando <code>Ctrl + A</code>, luego <code>Z</code>, luego <code>X</code>, y confirmamos salir. Primer problema resuelto, ahora vamos por el segundo, si reiniciamos la Raspberry, seguirá pidiendo el pin. En teoría se debería de poder desactivar este medida de seguridad con comandos at desde minicom de la siguiente manera:</p>
+<pre tabindex="0"><code>AT+CLCK=&#34;SC&#34;,0,&#34;1234&#34;
+</code></pre><p>Pero no todos los módems o firmwares lo soporta, que este es mi caso. Con lo cual vamos a ver otras alternativas:</p>
+<p><strong>✅ Solución más fiable</strong></p>
+<p>Desactiva el PIN una sola vez desde un teléfono móvil:</p>
+<ul>
+<li>Inserta la SIM en cualquier teléfono.</li>
+<li>Desbloquéala introduciendo el PIN 1234.</li>
+<li>Entra en los ajustes de la SIM:</li>
+<li>Android → Ajustes → Seguridad → Bloqueo de tarjeta SIM → Desactivar (introduce el PIN)</li>
+<li>iPhone → Ajustes → Datos móviles → PIN de la SIM → Desactivar (introduce el PIN)</li>
+<li>Apaga el teléfono y vuelve a poner la SIM en tu Raspberry Pi.</li>
+</ul>
+<p><strong>🧩 1️⃣ Script de desbloqueo</strong></p>
+<p>Vamos a crear un script con las siguientes características:</p>
+<ul>
+<li>Esperar hasta que el dispositivo <code>/dev/ttyUSB2</code> esté disponible.</li>
+<li>Enviar el PIN automáticamente al módem.</li>
+<li>Funcionar de forma silenciosa en cada arranque.</li>
+</ul>
+<p>Lo crearemos en la siguiente ruta &ldquo;/usr/local/bin/desbloquear_sim.sh&rdquo; como administrador (root)</p>
+<p>Contenido del script:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># Script: desbloquear_sim.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Desbloquea la SIM del módem ZTE MF190 con el PIN indicado</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Espera a que el dispositivo esté disponible antes de enviar el comando AT</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DEVICE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/dev/ttyUSB2&#34;</span>
+</span></span><span style="display:flex;"><span>PIN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1234&#34;</span>
+</span></span><span style="display:flex;"><span>TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>   <span style="color:#75715e"># segundos máximo para esperar al dispositivo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[SIM] Esperando a que </span>$DEVICE<span style="color:#e6db74"> esté disponible...&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0; i&lt;$TIMEOUT; i++<span style="color:#f92672">))</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e <span style="color:#e6db74">&#34;</span>$DEVICE<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;[SIM] Dispositivo detectado en </span>$DEVICE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        break
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e <span style="color:#e6db74">&#34;</span>$DEVICE<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[SIM] Error: </span>$DEVICE<span style="color:#e6db74"> no se detectó tras </span>$TIMEOUT<span style="color:#e6db74"> segundos.&#34;</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enviar comando AT para desbloquear la SIM</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;AT+CPIN=\&#34;</span>$PIN<span style="color:#e6db74">\&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    sleep <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> &gt; <span style="color:#e6db74">&#34;</span>$DEVICE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[SIM] PIN enviado al módem. Esperando registro en red...&#34;</span>
+</span></span><span style="display:flex;"><span>sleep <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[SIM] Desbloqueo completado.&#34;</span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span></span></span></code></pre></div></p>
+<p>Le damos permisos de ejecucion
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo chmod +x /usr/local/bin/desbloquear_sim.sh</span></span></code></pre></div></p>
+<p><strong>⚙️ 2️⃣ Creamos el servicio systemd</strong></p>
+<p>Creamos el fichero del servicio &ldquo;/etc/systemd/system/desbloquear-sim.service&rdquo; como administrador (root):</p>
+<p>Contenido del fichero de servicio:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Desbloquear SIM ZTE MF190 automáticamente</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">dev-ttyUSB2.device</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Requires</span><span style="color:#f92672">=</span><span style="color:#e6db74">dev-ttyUSB2.device</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">oneshot</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/local/bin/desbloquear_sim.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">RemainAfterExit</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">StandardOutput</span><span style="color:#f92672">=</span><span style="color:#e6db74">journal</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">StandardError</span><span style="color:#f92672">=</span><span style="color:#e6db74">journal</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
+</span></span></code></pre></div><p><strong>🚀 3️⃣ Activamos el servicio, lo iniciamos y comprobamos su estado</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl enable desbloquear-sim.service
+</span></span><span style="display:flex;"><span>sudo systemctl start desbloquear-sim.service
+</span></span><span style="display:flex;"><span>sudo systemctl status desbloquear-sim.service</span></span></code></pre></div></p>
+<p>Si todo esta correcto deberías ver algo parecido a esto:</p>
+<pre tabindex="0"><code>[SIM] Dispositivo detectado en /dev/ttyUSB2
+[SIM] PIN enviado al módem. Esperando registro en red...
+[SIM] Desbloqueo completado.
+</code></pre><h3 id="configurar-gammu">Configurar Gammu</h3>
+<p><a href="https://docs.gammu.org/gammu/">Gammu</a> sera el encargado de enviar los sms. En este caso en particular no nos interesa que el servio este disponible para todos los usuarios del sistema, con lo cual realizaremos una configuración especifica para nuestro usuario, el que posteriormente sera el que arranque el servidor de envío de sms.En nuestro home creamos el fichero <code>.gammurc</code>. Con el siguiente contenido:</p>
+<pre tabindex="0"><code>[gammu]
+device = /dev/ttyUSB2
+connection = at
+name = ZTE-MF190
+model = auto
+</code></pre><p>Cambiamos los derechos sobre el fichero para aumentar la seguridad del uso.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> .gammurc </span></span></code></pre></div></p>
+<p>Comprobamos que Gammu esta funcionando:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>gammu networkinfo
+</span></span><span style="display:flex;"><span>Network state        : home network
+</span></span><span style="display:flex;"><span>Network              : Movistar
+</span></span><span style="display:flex;"><span>Signal strength      : 70%</span></span></code></pre></div></p>
+<p>Si obtenemos una respuesta parecida o igual a la anterior dándonos datos de la conexión, es que todo esta ya ok.</p>
+<p>Para comprobar que todo lo anterior funciona, reiniciamos la Raspberry Pi.</p>
+<p>Ahora ya por fin vamos a enviar nuestro primer sms desde el terminal:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>gammu sendsms TEXT +34666600666 -text <span style="color:#e6db74">&#34;Hola, prueba desde Raspberry Pi&#34;</span>
+</span></span><span style="display:flex;"><span>If you want break, press Ctrl+C…
+</span></span><span style="display:flex;"><span>Enviando SMS 1/1…waiting <span style="color:#66d9ef">for</span> network answer..Aceptar, referencia de mensaje<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span></span></span></code></pre></div></p>
+<blockquote>
+<p>Donde 666600666 es el numero destino del mensaje, por delante va el código de país.</p>
+</blockquote>
+<p>Buen por hoy hemos terminado, el siguiente configurar un poco mas Gammu en profundidad, su fichero de configuración.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/homelab/" rel="tag">HomeLab</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+<div class="share-buttons">
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.github.io%2fpost%2f46_smsi%2f&amp;title=SMS%2c%20env%c3%ado%20local" rel="nofollow noopener noreferrer" class="share-btn linkedin">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="share-btn__text">LinkedIn</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://twitter.com/intent/tweet?text=SMS%2c%20env%c3%ado%20local&amp;url=https%3a%2f%2fjaimealberto.github.io%2fpost%2f46_smsi%2f" rel="nofollow noopener noreferrer" class="share-btn twitter">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+        <span class="share-btn__text">Twitter</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.github.io%2fpost%2f46_smsi%2f" rel="nofollow noopener noreferrer" class="share-btn facebook">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span class="share-btn__text">Facebook</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.github.io%2fpost%2f46_smsi%2f&amp;title=SMS%2c%20env%c3%ado%20local" rel="nofollow noopener noreferrer" class="share-btn reddit">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path><path d="M15 14c-1.5 0-3-.5-4.5-1.5s-2.5-3-2.5-3v-2c0-1.5.5-3 1.5-3s2.5 0 2.5 1.5c0 1.5-.5 3-1.5 3s-2.5 0-2.5-1.5v-2h-2.5c-.5 0-1 .5-1.5 1s-.5 1.5 0 2.5c0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5 0 .5-.5 1-1.5 1s-2.5-.5-3.5-1.5c-1-1-2.5-1.5-3.5-1.5s-2.5.5-3.5 1.5c-1 1-1.5 1.5-1.5 1.5s-1 0-1.5-.5c-.5-.5-.5-1.5 0-2.5s2.5-3 3.5-3.5c1-.5 2-1 3-1.5s2.5-2.5 3.5-3.5c1-1 1.5-1.5 1.5-2.5s-1.5-3-3-3z"></path></svg>
+        <span class="share-btn__text">Reddit</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://telegram.me/share/url?text=SMS%2c%20env%c3%ado%20local&amp;url=https%3a%2f%2fjaimealberto.github.io%2fpost%2f46_smsi%2f" rel="nofollow noopener noreferrer" class="share-btn telegram">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    <span class="share-btn__text">Telegram</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://api.whatsapp.com/send?text=SMS%2c%20env%c3%ado%20local%20https%3a%2f%2fjaimealberto.github.io%2fpost%2f46_smsi%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921 0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957 0 0 1 11 2c5.518 0 10 4.482 10 10.031z"></path><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662-.227-.008-.492-.016-.75-.016-.258 0-.67.098-.913.435-.243.336-.92 1.055-.92 2.57 0 1.516.945 2.977 1.074 3.167.129.19.09.38-.04.532-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3 0 0 0 0 0 0-4.004 0-7.25-3.246-7.25-7.25 0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974 0 0 0 3.107 1.17 6.974 6.974 0 0 0 3.107-1.17z"></path></svg>
+    <span class="share-btn__text">WhatsApp</span>
+    </a>
+</div>
+</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2025 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

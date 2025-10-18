@@ -3,13 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jaimealberto.github.io/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/categories/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/tags/homelab/</loc>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/categories/linux/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/post/</loc>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/categories/servicios/</loc>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/post/46_smsi/</loc>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/categories/sysadmin/</loc>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.github.io/tags/</loc>
+    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/categories/monitorizaci%C3%B3n/</loc>
     <lastmod>2025-10-10T00:00:00+00:00</lastmod>
@@ -17,22 +35,7 @@
     <loc>https://jaimealberto.github.io/post/45_nems00/</loc>
     <lastmod>2025-10-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.github.io/post/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.github.io/recursos/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/categories/servicios/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/tags/shelfhosted/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/categories/sysadmin/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.github.io/tags/</loc>
     <lastmod>2025-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.github.io/tags/cliente/</loc>
