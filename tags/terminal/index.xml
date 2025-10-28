@@ -6,7 +6,19 @@
     <description>Recent content in Terminal on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Captura y graba, hardware dedicado</title>
+      <link>https://jaimealberto.github.io/post/48_captura/</link>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/48_captura/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/capture00.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Buscando en un cajón aparecieron dos capturadoras de video chinas y decidir darlas utilidad. Normalmente la mayoría de la gente las utiliza con &lt;a href=&#34;https://obsproject.com/es&#34;&gt;OBS&lt;/a&gt; como una fuente mas de entrada para grabar o hacer directos. A dia de hoy tengo la necesidad de algún invento, para el rack que estoy montando para mi laboratorio, que me de imagen de los servidores eventualmente sin llegar a tener nada fijo. Algo portable, barato y que no me suponga una gran inversión en un kvm por ejemplo, ni tampoco quería un monitor de 7 pulgadas o algo asi.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title>
       <link>https://jaimealberto.github.io/post/12_universosshiii/</link>
