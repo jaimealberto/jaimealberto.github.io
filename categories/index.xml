@@ -6,20 +6,38 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 26 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux</title>
       <link>https://jaimealberto.github.io/categories/linux/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Monitorización</title>
+      <link>https://jaimealberto.github.io/categories/monitorizaci%C3%B3n/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/monitorizaci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servicios</title>
+      <link>https://jaimealberto.github.io/categories/servicios/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/categories/servicios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Sysadmin</title>
       <link>https://jaimealberto.github.io/categories/sysadmin/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/categories/sysadmin/</guid>
       <description></description>
@@ -31,24 +49,6 @@
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/categories/redes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Servicios</title>
-      <link>https://jaimealberto.github.io/categories/servicios/</link>
-      <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/categories/servicios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Monitorización</title>
-      <link>https://jaimealberto.github.io/categories/monitorizaci%C3%B3n/</link>
-      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/categories/monitorizaci%C3%B3n/</guid>
       <description></description>
     </item>
     
