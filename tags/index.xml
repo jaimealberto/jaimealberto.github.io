@@ -8,6 +8,15 @@
     <language>es</language>
     <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Ansible</title>
+      <link>https://jaimealberto.github.io/tags/ansible/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>btrfs</title>
       <link>https://jaimealberto.github.io/tags/btrfs/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
@@ -80,11 +89,38 @@
     </item>
     
     <item>
+      <title>Seguridad</title>
+      <link>https://jaimealberto.github.io/tags/seguridad/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/seguridad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Selfhosted</title>
       <link>https://jaimealberto.github.io/tags/selfhosted/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/selfhosted/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servidor</title>
+      <link>https://jaimealberto.github.io/tags/servidor/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/servidor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SysAdmin</title>
+      <link>https://jaimealberto.github.io/tags/sysadmin/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/sysadmin/</guid>
       <description></description>
     </item>
     
@@ -220,15 +256,6 @@
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Seguridad</title>
-      <link>https://jaimealberto.github.io/tags/seguridad/</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/seguridad/</guid>
       <description></description>
     </item>
     

@@ -162,22 +162,23 @@
 </article><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/post/51_gmailaplicacion/" rel="bookmark">
-			Guía para crear una contraseña de aplicación en Gmail
+			<a href="/post/13_universosshiv/" rel="bookmark">
+			Universo SSH IV. Blindando el servidor
 			</a>
 		</h2>
 		<div class="list__meta meta"><div class="meta__item-author meta__item">
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-12-10T00:00:00Z">10-12-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ssh/" rel="category">Ssh</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
 	</span>
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		Introducción En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.
-⚠️ Importante: Solo puedes crear una contraseña de aplicación si tienes habilitada la Verificación en dos pasos (2FA) en tu cuenta de Google.
-1. Activa la verificación en dos pasos Si aún no la tienes activa:
+		<figure><img src="/img/universoSSHIV.jpg"/>
+</figure>
+
+<p>Como diría el Maestro Yoda: <em>&ldquo;En el puerto 22, el peligro acecha&rdquo;</em>. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &ldquo;Por favor, no explotar&rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.</p>
 	</div>
 </article>
 </main>
@@ -219,7 +220,7 @@
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/redes/">Redes</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">5</span>
+				<span class="widget__counter widget__counter--bubble">6</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/seguridad/">Seguridad</a>&nbsp;
@@ -231,7 +232,7 @@
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/ssh/">Ssh</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">4</span>
+				<span class="widget__counter widget__counter--bubble">5</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/sysadmin/">Sysadmin</a>&nbsp;
@@ -263,6 +264,7 @@
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Etiquetas</h4>
 	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ansible/" title="Ansible">Ansible (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/apuntes/" title="Apuntes">Apuntes (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/autohotkey/" title="AutoHotkey">AutoHotkey (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/automatizaci%C3%B3n/" title="Automatización">Automatización (2)</a>
@@ -282,11 +284,13 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/productividad/" title="Productividad">Productividad (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/redes/" title="Redes">Redes (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (5)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/selfhosted/" title="Selfhosted">Selfhosted (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/servidor/" title="Servidor">Servidor (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/shell/" title="Shell">Shell (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/siem/" title="SIEM">SIEM (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/so/" title="SO">SO (17)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sysadmin/" title="SysAdmin">SysAdmin (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/teclas-r%C3%A1pidas/" title="Teclas rápidas">Teclas rápidas (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/terminal/" title="Terminal">Terminal (20)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform (2)</a>

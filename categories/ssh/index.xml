@@ -6,7 +6,19 @@
     <description>Recent content in Ssh on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Universo SSH IV. Blindando el servidor</title>
+      <link>https://jaimealberto.github.io/post/13_universosshiv/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/13_universosshiv/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/universoSSHIV.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title>
       <link>https://jaimealberto.github.io/post/12_universosshiii/</link>
