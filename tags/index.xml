@@ -26,6 +26,24 @@
     </item>
     
     <item>
+      <title>GPG</title>
+      <link>https://jaimealberto.github.io/tags/gpg/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/gpg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IA</title>
+      <link>https://jaimealberto.github.io/tags/ia/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/ia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>LUKS</title>
       <link>https://jaimealberto.github.io/tags/luks/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
@@ -40,6 +58,33 @@
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/port%C3%A1til/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacidad</title>
+      <link>https://jaimealberto.github.io/tags/privacidad/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/privacidad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://jaimealberto.github.io/tags/python/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Selfhosted</title>
+      <link>https://jaimealberto.github.io/tags/selfhosted/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/selfhosted/</guid>
       <description></description>
     </item>
     
@@ -265,15 +310,6 @@
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/terraform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>privacidad</title>
-      <link>https://jaimealberto.github.io/tags/privacidad/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/tags/privacidad/</guid>
       <description></description>
     </item>
     

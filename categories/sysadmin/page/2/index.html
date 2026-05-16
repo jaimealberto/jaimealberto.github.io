@@ -97,6 +97,25 @@
 <main class="main list" role="main"><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/50_nems01/" rel="bookmark">
+			Nems, Configuración de notificaciones por correo electrónico SMTP para NEMS 01 
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-12-10T00:00:00Z">10-12-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>, <a class="meta__link" href="/categories/servicios/" rel="category">Servicios</a>, <a class="meta__link" href="/categories/monitorizaci%C3%B3n/" rel="category">Monitorización</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Introducción Lo primero que deberíamos de configurar es el cliente SMTP integrado para el envío de notificaciones cuando salte una alerta. Acceda a la herramienta de configuración del sistema (SST) de NEMS desde el menú Configuración de su panel de control de NEMS.
+✅ 1. Parámetros correctos de GMail SMTP Parámetro Valor SMTP server smtp.gmail.com Puerto 587 Cifrado TLS Usuario tu correo completo → tunombre@gmail.com Contraseña contraseña de aplicación (16 caracteres sin espacios) “From” debe ser tu mismo correo Si todo esta configurado correctamente al pulsar en el botón &ldquo;Test SMTP Settings&rdquo; tendría que aparecer una ventana emergente en el navegador como que todo ok, la cierras.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/48_microsd/" rel="bookmark">
 			MicroSD, Raspberry Pi
 			</a>
@@ -157,33 +176,12 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
 
 <p>Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la <a href="https://docs.nemslinux.com/en/latest/">documentación oficial</a>.</p>
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/44_permisos/" rel="bookmark">
-			Permisos en Linux
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-08-07T00:00:00Z">07-08-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<figure><img src="/img/permisos.jpg"/>
-</figure>
-
-<p>Hoy nos toca hablar las crípticas letras que aparecen al usar el comando <code>ls -l</code>. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.</p>
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/categories/sysadmin/">«</a>
-	<span class="pagination__item pagination__item--current">2/3</span>
+	<span class="pagination__item pagination__item--current">2/4</span>
 	<a class="pagination__item pagination__item--next btn" href="/categories/sysadmin/page/3/">»</a>
 </div>
 
@@ -224,7 +222,7 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/seguridad/">Seguridad</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">2</span>
+				<span class="widget__counter widget__counter--bubble">3</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/servicios/">Servicios</a>&nbsp;
@@ -236,7 +234,7 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/sysadmin/">Sysadmin</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">12</span>
+				<span class="widget__counter widget__counter--bubble">13</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/terminal/">Terminal</a>&nbsp;
@@ -271,14 +269,18 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
 		<a class="widget-taglist__link widget__link btn" href="/tags/debian/" title="Debian">Debian (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/edr/" title="EDR">EDR (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/formaci%C3%B3n/" title="Formación">Formación (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gpg/" title="GPG">GPG (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/gui/" title="GUI">GUI (5)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hardware/" title="Hardware">Hardware (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/homelab/" title="HomeLab">HomeLab (6)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ia/" title="IA">IA (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/luks/" title="LUKS">LUKS (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/port%C3%A1til/" title="Portátil">Portátil (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/privacidad/" title="privacidad">privacidad (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/privacidad/" title="privacidad">privacidad (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/redes/" title="Redes">Redes (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/selfhosted/" title="Selfhosted">Selfhosted (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/shell/" title="Shell">Shell (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/siem/" title="SIEM">SIEM (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/so/" title="SO">SO (16)</a>

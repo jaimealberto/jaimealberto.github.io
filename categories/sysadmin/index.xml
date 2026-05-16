@@ -8,6 +8,18 @@
     <language>es</language>
     <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/sysadmin/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Arquitectura de seguridad multicapa para un asistente IA con datos PII</title>
+      <link>https://jaimealberto.github.io/post/54_ia_pii_security/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/54_ia_pii_security/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ia_pii_security.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</title>
       <link>https://jaimealberto.github.io/post/52_debianluks/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
