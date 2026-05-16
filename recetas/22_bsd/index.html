@@ -8,12 +8,13 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="BSD, CPU, RAM, etc">
 	<link rel="canonical" href="https://jaimealberto.io/recetas/22_bsd/">
-		<meta property="og:title" content="BSD, CPU, RAM, etc" />
-<meta property="og:description" content="BSD, CPU, RAM, etc" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/recetas/22_bsd/" /><meta property="article:section" content="Recetas" />
-
-
+		<meta property="og:url" content="https://jaimealberto.io/recetas/22_bsd/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="BSD, CPU, RAM, etc">
+  <meta property="og:description" content="BSD, CPU, RAM, etc">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="recetas">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +41,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -131,7 +131,7 @@
 <ul>
 <li>
 <p>CPU Info:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sysctl -a | egrep -i &#39;hw.machine|hw.model|hw.ncpu&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sysctl -a | egrep -i &#39;hw.machine|hw.model|hw.ncpu&#39;</span>
 </span></span><span style="display:flex;"><span>hw.machine: amd64
 </span></span><span style="display:flex;"><span>hw.model: Intel<span style="color:#f92672">(</span>R<span style="color:#f92672">)</span> Atom<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> CPU D525   @ 1.80GHz
 </span></span><span style="display:flex;"><span>hw.ncpu: <span style="color:#ae81ff">4</span>
@@ -139,7 +139,7 @@
 </li>
 <li>
 <p>CPU Temperatura:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sysctl dev.cpu | grep temperature</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sysctl dev.cpu | grep temperature</span>
 </span></span><span style="display:flex;"><span>dev.cpu.3.temperature: 42.0C
 </span></span><span style="display:flex;"><span>dev.cpu.1.temperature: 43.0C
 </span></span><span style="display:flex;"><span>dev.cpu.2.temperature: 42.0C
@@ -147,11 +147,11 @@
 </li>
 <li>
 <p>RAM:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sysctl hw | egrep &#39;hw.(phys|user|real)&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sysctl hw | egrep &#39;hw.(phys|user|real)&#39;</span>
 </span></span><span style="display:flex;"><span>hw.physmem: <span style="color:#ae81ff">2097270784</span>
 </span></span><span style="display:flex;"><span>hw.usermem: <span style="color:#ae81ff">1729941504</span>
 </span></span><span style="display:flex;"><span>hw.realmem: <span style="color:#ae81ff">2147483648</span></span></span></code></pre></div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#grep memory /var/run/dmesg.boot</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#grep memory /var/run/dmesg.boot</span>
 </span></span><span style="display:flex;"><span>real memory  <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483648</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span> MB<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>avail memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2031947776</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1937</span> MB<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>agp0: aperture size is 256M, detected 8188k stolen memory
@@ -179,9 +179,9 @@
 </li>
 </ul>
 <p>Descarga, solo la primera vez:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#curl -O https://raw.githubusercontent.com/ocochard/myscripts/master/FreeBSD/freebsd-memory.sh</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#curl -O https://raw.githubusercontent.com/ocochard/myscripts/master/FreeBSD/freebsd-memory.sh</span></span></span></code></pre></div>
 Ejecutar:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sh freebsd-memory.sh</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#sh freebsd-memory.sh</span>
 </span></span><span style="display:flex;"><span>SYSTEM MEMORY INFORMATION:
 </span></span><span style="display:flex;"><span>mem_wire:         <span style="color:#ae81ff">367579136</span> <span style="color:#f92672">(</span>    350MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span> 17%<span style="color:#f92672">]</span> Wired: disabled <span style="color:#66d9ef">for</span> paging out
 </span></span><span style="display:flex;"><span>mem_active:  +     <span style="color:#ae81ff">15933440</span> <span style="color:#f92672">(</span>     15MB<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>  0%<span style="color:#f92672">]</span> Active: recently referenced

@@ -8,12 +8,19 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Cómo securizar un servidor SSH desde cero: sshd_config comentado, AllowUsers, Fail2ban, Port Knocking, autenticación solo con claves y un playbook Ansible para automatizarlo todo.">
 	<link rel="canonical" href="https://jaimealberto.io/post/13_universosshiv/">
-		<meta property="og:title" content="Universo SSH IV. Blindando el servidor" />
-<meta property="og:description" content="Cómo securizar un servidor SSH desde cero: sshd_config comentado, AllowUsers, Fail2ban, Port Knocking, autenticación solo con claves y un playbook Ansible para automatizarlo todo." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/13_universosshiv/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2026-05-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2026-05-16T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/13_universosshiv/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Universo SSH IV. Blindando el servidor">
+  <meta property="og:description" content="Cómo securizar un servidor SSH desde cero: sshd_config comentado, AllowUsers, Fail2ban, Port Knocking, autenticación solo con claves y un playbook Ansible para automatizarlo todo.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:tag" content="Seguridad">
+    <meta property="article:tag" content="Servidor">
+    <meta property="article:tag" content="SysAdmin">
+    <meta property="article:tag" content="Ansible">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +47,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -127,7 +133,7 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ssh/" rel="category">Ssh</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ssh/" rel="category">SSH</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
 	</span>
 </div></div>
 		</header>
@@ -157,12 +163,12 @@
 <hr>
 <h2 id="-backup-primero-siempre">🛡️ Backup primero, siempre</h2>
 <p>Antes de tocar nada:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup<span style="color:#66d9ef">$(</span>date +%d-%m-%Y<span style="color:#66d9ef">)</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup<span style="color:#66d9ef">$(</span>date +%d-%m-%Y<span style="color:#66d9ef">)</span></span></span></code></pre></div>
 <p>Si algo se tuerce después de reiniciar el servicio, tienes la vuelta atrás en un segundo.</p>
 <hr>
 <h2 id="-sshd_config-comentado">⚙️ sshd_config comentado</h2>
 <p>Lo más directo: un fichero de configuración real con cada opción explicada. Sin relleno.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Incluir configs adicionales del directorio .d/</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Incluir configs adicionales del directorio .d/</span>
 </span></span><span style="display:flex;"><span>Include /etc/ssh/sshd_config.d/*.conf
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Puerto no estándar — evita el 90% de los scanners automáticos</span>
@@ -230,11 +236,11 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># SFTP integrado — para transferencia de ficheros</span>
 </span></span><span style="display:flex;"><span>Subsystem sftp /usr/lib/openssh/sftp-server</span></span></code></pre></div>
 <p>Tras cualquier cambio, verificar la sintaxis antes de recargar:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sshd -t <span style="color:#f92672">&amp;&amp;</span> systemctl reload ssh</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sshd -t <span style="color:#f92672">&amp;&amp;</span> systemctl reload ssh</span></span></code></pre></div>
 <hr>
 <h2 id="-control-de-acceso-por-usuario-y-grupo">👥 Control de acceso por usuario y grupo</h2>
 <p>SSH puede restringir quién puede entrar antes de llegar a la autenticación. Estas directivas van al final del <code>sshd_config</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Solo estos usuarios pueden conectarse</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Solo estos usuarios pueden conectarse</span>
 </span></span><span style="display:flex;"><span>AllowUsers adminuser backupuser
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># O por grupo — más cómodo si hay muchos usuarios</span>
@@ -246,12 +252,12 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Bloquear todo un grupo</span>
 </span></span><span style="display:flex;"><span>DenyGroups nogroup</span></span></code></pre></div>
 <p>Con <code>Match</code> puedes afinar más: por ejemplo, permitir a un usuario solo desde una IP concreta:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Match Address 203.0.113.0/24
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Match Address 203.0.113.0/24
 </span></span><span style="display:flex;"><span>    AllowUsers adminuser</span></span></code></pre></div>
 <hr>
 <h2 id="-fail2ban--el-portero-de-discoteca">🔒 Fail2ban — el portero de discoteca</h2>
 <p>Fail2ban lee los logs y banea automáticamente las IPs que fallan repetidamente. La configuración va en <code>/etc/fail2ban/jail.local</code> — nunca edites el <code>.conf</code> original para no perder los cambios en actualizaciones:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[sshd]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[sshd]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">true</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">port</span>     <span style="color:#f92672">=</span> <span style="color:#e6db74">49152</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Para sistemas con systemd (Debian 10+, Ubuntu 20.04+)</span>
@@ -260,7 +266,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">bantime</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">3600</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">findtime</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">600</span></span></span></code></pre></div>
 <p>Con esto: 3 intentos fallidos en 10 minutos → la IP queda baneada 1 hora.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Ver estado del jail SSH</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Ver estado del jail SSH</span>
 </span></span><span style="display:flex;"><span>fail2ban-client status sshd
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Desbanear una IP manualmente (si te baneas tú mismo)</span>
@@ -268,7 +274,7 @@
 <hr>
 <h2 id="-port-knocking--la-puerta-invisible">🚪 Port Knocking — la puerta invisible</h2>
 <p>El port knocking mantiene el puerto SSH completamente cerrado en el firewall hasta que envías una secuencia secreta de paquetes. Sin la secuencia correcta, el puerto no existe para el exterior.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Instalar knockd</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Instalar knockd</span>
 </span></span><span style="display:flex;"><span>apt install knockd
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># /etc/knockd.conf</span>
@@ -287,7 +293,7 @@
 </span></span><span style="display:flex;"><span>    command     <span style="color:#f92672">=</span> ufw delete allow from %IP% to any port <span style="color:#ae81ff">49152</span>
 </span></span><span style="display:flex;"><span>    tcpflags    <span style="color:#f92672">=</span> syn</span></span></code></pre></div>
 <p>Desde el cliente:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Abrir la puerta</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Abrir la puerta</span>
 </span></span><span style="display:flex;"><span>knock -v servidor <span style="color:#ae81ff">7000</span> <span style="color:#ae81ff">8000</span> <span style="color:#ae81ff">9000</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Conectar normalmente</span>
@@ -299,20 +305,20 @@
 <hr>
 <h2 id="-solo-claves--el-estándar-de-oro">🔑 Solo claves — el estándar de oro</h2>
 <p>Las contraseñas son cosa del siglo XX. Una clave ed25519 bien guardada es infinitamente más segura que cualquier contraseña:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Generar el par de claves — ed25519 es el algoritmo moderno</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Generar el par de claves — ed25519 es el algoritmo moderno</span>
 </span></span><span style="display:flex;"><span>ssh-keygen -t ed25519 -a <span style="color:#ae81ff">100</span> -C <span style="color:#e6db74">&#34;usuario@maquina&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Copiar la clave pública al servidor</span>
 </span></span><span style="display:flex;"><span>ssh-copy-id -p <span style="color:#ae81ff">49152</span> usuario@servidor</span></span></code></pre></div>
 <p>Una vez copiada la clave y verificado que el acceso funciona:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># En sshd_config — el paso crítico</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># En sshd_config — el paso crítico</span>
 </span></span><span style="display:flex;"><span>PasswordAuthentication no
 </span></span><span style="display:flex;"><span>PubkeyAuthentication yes</span></span></code></pre></div>
 <p>Ahora sin la clave privada, nadie entra. La fuerza bruta queda matemáticamente fuera de juego.</p>
 <hr>
 <h2 id="-playbook-ansible">🤖 Playbook Ansible</h2>
 <p>Si gestionas varios servidores, este playbook aplica todo lo anterior de una vez. Usa <code>tags</code> para poder aplicar solo las partes que necesitas:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Hardening SSH</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: <span style="color:#ae81ff">servers</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">become</span>: <span style="color:#66d9ef">yes</span>
@@ -372,7 +378,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          port     = {{ ssh_port }}
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          backend  = systemd
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          maxretry = 3
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          bantime  = 3600</span>          
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          bantime  = 3600</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">notify</span>: <span style="color:#ae81ff">restart fail2ban</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">tags</span>: <span style="color:#ae81ff">fail2ban</span>
 </span></span><span style="display:flex;"><span>
@@ -386,7 +392,7 @@
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">service</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">fail2ban</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">state</span>: <span style="color:#ae81ff">restarted</span></span></span></code></pre></div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Aplicar hardening básico + claves</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Aplicar hardening básico + claves</span>
 </span></span><span style="display:flex;"><span>ansible-playbook hardening_ssh.yml --tags <span style="color:#e6db74">&#34;basic,keys_only&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Solo Fail2ban</span>

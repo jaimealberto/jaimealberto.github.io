@@ -8,12 +8,18 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Tercero de la serie de post sobre trucos para ">
 	<link rel="canonical" href="https://jaimealberto.io/post/03_tipsmacos03/">
-		<meta property="og:title" content="Tips &amp; Tricks MacOS III de ?" />
-<meta property="og:description" content="Tercero de la serie de post sobre trucos para " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/03_tipsmacos03/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-15T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/03_tipsmacos03/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Tips & Tricks MacOS III de ?">
+  <meta property="og:description" content="Tercero de la serie de post sobre trucos para ">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-08-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-08-15T00:00:00+00:00">
+    <meta property="article:tag" content="SO">
+    <meta property="article:tag" content="Terminal">
+    <meta property="article:tag" content="GUI">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +46,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -127,7 +132,7 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-15T00:00:00Z">15-08-2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/macos/" rel="category">MacOS </a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-15T00:00:00Z">15-08-2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text">
 	</span>
 </div></div>
 		</header><div class="content post__content clearfix">
@@ -157,9 +162,9 @@ Seleccionar todo ⌘ + A
 <h2 id="brew-copia-seguridad">Brew, copia seguridad</h2>
 <p>Alguna que otra vez, rara vez, tendremos que reinstalar el sistema operativo o bien en un equipo nuevo queremos instalar todos los paquetes brew que tememos en nuestro equipo actual. Esto se conoce comunalmente como “ Dumping Hombrew packages “. Ahora veremos como hacerlo:</p>
 <p>Desde el terminal del equipo que tenemos todo instalado y funcionando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew bundle dump</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew bundle dump</span></span></code></pre></div>
 <p>Esto crea un archivo de texto llamado “ Brewfile “, el cual contiene de una manera estructurada todo lo instalado en el equipo mediante brew. Lo copiamos al equipo nuevo. Desde el terminal del equipo nuevo donde tengamos copiado el archivo tecleamos:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew bundle</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew bundle</span></span></code></pre></div>
 <p>Y ya instalara todo automáticamente.</p>
 <h2 id="bloqueo-entorno-grafico">Bloqueo entorno grafico</h2>
 <p>Alguna vez que otra tendremos que dejar nuestro equipo, necesidad físicas o razón de peso, y querremos bloquear el equipo. Pues bien la combinación rápida de teclado para bloquear es:</p>
@@ -169,11 +174,11 @@ Seleccionar todo ⌘ + A
 </code></pre><h2 id="acuse-de-recibo-en-mail">Acuse de recibo en Mail</h2>
 <p>Cierto es que una de las características que no tiene el gestor de correo por excelencia de Mac, Mail, es el acuse de recibo. A veces es una característica que muchos añoramos, pero no por ello tenemos que plantearnos utilizar otro gestor de correo. Tenemos dos opciones de hacer esto. Desde mi querida  terminal o utilizando alguna de las aplicaciones que hace lo mismo pero desde el entorno gráfico. A continuación veremos como hacerlo desde el terminal.</p>
 <p>Cerramos Mail y abrimos nuestro terminal, tecleamos la siguiente linea de comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>defaults write com.apple.mail UserHeaders ‘<span style="color:#f92672">{</span>”Disposition-Notification-To”<span style="color:#f92672">=</span>”tucorreo@dominio.com”;<span style="color:#f92672">}</span> </span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>defaults write com.apple.mail UserHeaders ‘<span style="color:#f92672">{</span>”Disposition-Notification-To”<span style="color:#f92672">=</span>”tucorreo@dominio.com”;<span style="color:#f92672">}</span> </span></span></code></pre></div>
 <p>“tucorreo@dominio.com” Es la dirección de correo donde queremos que nos envíen el acuse de entrega del mail.</p>
 <p>Abrirnos Mail. Ahora todos los correos que enviemos solicitaran acuse de recibo a la dirección de correo indicada. Si esto no funcionara repite el proceso revisando haber escrito bien las comillas, comillas simples, paréntesis, etc. Y recuerda que el acuse de recibo tarda en llegar.</p>
 <p>Para desactivarlo, cerramos Mail. Abrimos nuestro terminal, si lo hemos cerrado, si no vale el mismo que teníamos abierto y tecleamos la siguiente linea de comando:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>defaults delete com.apple.mail UserHeaders</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>defaults delete com.apple.mail UserHeaders</span></span></code></pre></div>
 <p>Abrimos Mail y todo seguirá como antes.</p>
 		</div>
 		<footer class="post__footer">

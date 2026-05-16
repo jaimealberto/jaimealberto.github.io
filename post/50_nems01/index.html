@@ -8,12 +8,16 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Configuración de notificaciones por correo electrónico SMTP para NEMS">
 	<link rel="canonical" href="https://jaimealberto.io/post/50_nems01/">
-		<meta property="og:title" content="Nems, Configuración de notificaciones por correo electrónico SMTP para NEMS 01 " />
-<meta property="og:description" content="Configuración de notificaciones por correo electrónico SMTP para NEMS" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/50_nems01/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2025-12-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-12-10T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/50_nems01/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Nems, Configuración de notificaciones por correo electrónico SMTP para NEMS 01 ">
+  <meta property="og:description" content="Configuración de notificaciones por correo electrónico SMTP para NEMS">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-12-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-10T00:00:00+00:00">
+    <meta property="article:tag" content="HomeLab">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +44,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -143,38 +146,38 @@
 
 <h2 id="-1-parámetros-correctos-de-gmail-smtp">✅ 1. Parámetros correctos de GMail SMTP</h2>
 <table>
-<thead>
-<tr>
-<th>Parámetro</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SMTP server</td>
-<td><strong>smtp.gmail.com</strong></td>
-</tr>
-<tr>
-<td>Puerto</td>
-<td><strong>587</strong></td>
-</tr>
-<tr>
-<td>Cifrado</td>
-<td><strong>TLS</strong></td>
-</tr>
-<tr>
-<td>Usuario</td>
-<td>tu correo completo → <code>tunombre@gmail.com</code></td>
-</tr>
-<tr>
-<td>Contraseña</td>
-<td>contraseña de aplicación (16 caracteres sin espacios)</td>
-</tr>
-<tr>
-<td>“From”</td>
-<td>debe ser tu mismo correo</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parámetro</th>
+          <th>Valor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SMTP server</td>
+          <td><strong>smtp.gmail.com</strong></td>
+      </tr>
+      <tr>
+          <td>Puerto</td>
+          <td><strong>587</strong></td>
+      </tr>
+      <tr>
+          <td>Cifrado</td>
+          <td><strong>TLS</strong></td>
+      </tr>
+      <tr>
+          <td>Usuario</td>
+          <td>tu correo completo → <code>tunombre@gmail.com</code></td>
+      </tr>
+      <tr>
+          <td>Contraseña</td>
+          <td>contraseña de aplicación (16 caracteres sin espacios)</td>
+      </tr>
+      <tr>
+          <td>“From”</td>
+          <td>debe ser tu mismo correo</td>
+      </tr>
+  </tbody>
 </table>
 <p>Si todo esta configurado correctamente al pulsar en el botón &ldquo;Test SMTP Settings&rdquo; tendría que aparecer una ventana emergente en el navegador como que todo ok, la cierras. Ya tendrías que tener el correo de test en tu bandeja de entrada de la cuenta de correo que indicaste en la instalación como la del administrador del sistema.</p>
 <blockquote>

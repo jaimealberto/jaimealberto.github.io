@@ -8,12 +8,17 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Terraform, intro">
 	<link rel="canonical" href="https://jaimealberto.io/post/16_terraformi/">
-		<meta property="og:title" content="Terraform I" />
-<meta property="og:description" content="Terraform, intro" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/16_terraformi/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-10T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/16_terraformi/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Terraform I">
+  <meta property="og:description" content="Terraform, intro">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-08-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-08-10T00:00:00+00:00">
+    <meta property="article:tag" content="Utilidades">
+    <meta property="article:tag" content="Terraform">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +45,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -159,23 +163,23 @@
 </ul>
 <h2 id="instalación">Instalación</h2>
 <p>MacOs</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew tap hashicorp/tap
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew tap hashicorp/tap
 </span></span><span style="display:flex;"><span>brew install hashicorp/tap/terraform</span></span></code></pre></div>
 <p>Debian y derivados</p>
 <p>Instalamos ls dependencias, añadimos llave gpg del repositorio oficial, añadimos repositorio oficial, actualizamos el sistema y por ultimo procedemos con la instalación. Desde el terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo apt-get update <span style="color:#f92672">&amp;&amp;</span> sudo apt-get install -y gnupg software-properties-common curl
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo apt-get update <span style="color:#f92672">&amp;&amp;</span> sudo apt-get install -y gnupg software-properties-common curl
 </span></span><span style="display:flex;"><span>curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 </span></span><span style="display:flex;"><span>sudo apt-add-repository <span style="color:#e6db74">&#34;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> main&#34;</span>
 </span></span><span style="display:flex;"><span>sudo apt-get update <span style="color:#f92672">&amp;&amp;</span> sudo apt-get install terraform</span></span></code></pre></div>
 <h2 id="comandos-básicos">Comandos básicos</h2>
 <p>Inicializar proyecto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform init</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform init</span></span></code></pre></div>
 <p>Planificar proyecto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform plan</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform plan</span></span></code></pre></div>
 <p>Aplicar proyecto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform apply</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform apply</span></span></code></pre></div>
 <p>Destruir proyecto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform destroy</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>terraform destroy</span></span></code></pre></div>
 <p>En el siguiente post veremos un ejemplo practico básico.</p>
 		</div>
 		<footer class="post__footer">

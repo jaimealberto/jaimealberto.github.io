@@ -8,12 +8,13 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="“Referencia rápida”">
 	<link rel="canonical" href="https://jaimealberto.io/recetas/01_comprimir/">
-		<meta property="og:title" content="Comprimir, descomprimir, empaquetar y desempaquetar" />
-<meta property="og:description" content="“Referencia rápida”" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/recetas/01_comprimir/" /><meta property="article:section" content="Recetas" />
-
-
+		<meta property="og:url" content="https://jaimealberto.io/recetas/01_comprimir/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Comprimir, descomprimir, empaquetar y desempaquetar">
+  <meta property="og:description" content="“Referencia rápida”">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="recetas">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +41,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -129,236 +129,236 @@
 		</header><div class="content post__content clearfix">
 			<h2 id="tar-tar">.tar (tar)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Empaquetar</td>
-<td>tar cvf destino.tar /directorio_origen/archivos_origen</td>
-</tr>
-<tr>
-<td>Desempaquetar</td>
-<td>tar xvf archivo.tar</td>
-</tr>
-<tr>
-<td>Ver el contenido (sin extraer)</td>
-<td>tar tvf archivo.tar</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Empaquetar</td>
+          <td>tar cvf destino.tar /directorio_origen/archivos_origen</td>
+      </tr>
+      <tr>
+          <td>Desempaquetar</td>
+          <td>tar xvf archivo.tar</td>
+      </tr>
+      <tr>
+          <td>Ver el contenido (sin extraer)</td>
+          <td>tar tvf archivo.tar</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="targz---tarz---tgz-tar-con-gzip">.tar.gz - .tar.z - .tgz (tar con gzip)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Empaquetar y comprimir</td>
-<td>tar czvf archivo.tar.gz /directorio_origen/archivos_origen</td>
-</tr>
-<tr>
-<td>Desempaquetar y descomprimir</td>
-<td>tar xzvf archivo.tar.gz</td>
-</tr>
-<tr>
-<td>Ver el contenido (sin extraer)</td>
-<td>tar tzvf archivo.tar.gz</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Empaquetar y comprimir</td>
+          <td>tar czvf archivo.tar.gz /directorio_origen/archivos_origen</td>
+      </tr>
+      <tr>
+          <td>Desempaquetar y descomprimir</td>
+          <td>tar xzvf archivo.tar.gz</td>
+      </tr>
+      <tr>
+          <td>Ver el contenido (sin extraer)</td>
+          <td>tar tzvf archivo.tar.gz</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="gz-gzip">.gz (gzip)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-<th>Comentario</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Comprimir</td>
-<td>gzip -q archivo</td>
-<td>El archivo lo comprime y lo renombra como &ldquo;archivo.gz&rdquo;</td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>gzip -d archivo.gz</td>
-<td>El archivo lo descomprime y lo deja como &ldquo;archivo&rdquo;</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+          <th>Comentario</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Comprimir</td>
+          <td>gzip -q archivo</td>
+          <td>El archivo lo comprime y lo renombra como &ldquo;archivo.gz&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>gzip -d archivo.gz</td>
+          <td>El archivo lo descomprime y lo deja como &ldquo;archivo&rdquo;</td>
+      </tr>
+  </tbody>
 </table>
 <p><em>Nota: gzip solo comprime archivos, no directorios.</em></p>
 <h2 id="bz2-bzip2">.bz2 (bzip2)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-<th>Comentario</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Comprimir</td>
-<td>bzip2 archivo</td>
-<td></td>
-</tr>
-<tr>
-<td>Comprimir</td>
-<td>bunzip2 archivo</td>
-<td>El archivo lo comprime y lo renombra como &ldquo;archivo.bz2&rdquo;</td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>bzip2 -d archivo.bz2</td>
-<td></td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>bunzip2 archivo.bz2</td>
-<td>El archivo lo descomprime y lo deja como &ldquo;archivo&rdquo;</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+          <th>Comentario</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Comprimir</td>
+          <td>bzip2 archivo</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Comprimir</td>
+          <td>bunzip2 archivo</td>
+          <td>El archivo lo comprime y lo renombra como &ldquo;archivo.bz2&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>bzip2 -d archivo.bz2</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>bunzip2 archivo.bz2</td>
+          <td>El archivo lo descomprime y lo deja como &ldquo;archivo&rdquo;</td>
+      </tr>
+  </tbody>
 </table>
 <p><em>Nota: bzip2 solo comprime archivos, no directorios.</em></p>
 <h2 id="tarbz2-tar-con-bzip2">.tar.bz2 (tar con bzip2)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Comprimir</td>
-<td>tar -c archivos | bzip2 &gt; archivo.tar.bz2</td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>bzip2 -dc archivo.tar.bz2 | tar -xv</td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>tar jvxf archivo.tar.bz2 (versiones recientes de tar)</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>bzip2 -dc archivo.tar.bz2 | tar -tv</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Comprimir</td>
+          <td>tar -c archivos | bzip2 &gt; archivo.tar.bz2</td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>bzip2 -dc archivo.tar.bz2 | tar -xv</td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>tar jvxf archivo.tar.bz2 (versiones recientes de tar)</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>bzip2 -dc archivo.tar.bz2 | tar -tv</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="zip-zip">.zip (zip)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Comprimir</td>
-<td>zip archivo.zip /directorio_origen/archivos</td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>unzip archivo.zip</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>unzip -v archivo.zip</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Comprimir</td>
+          <td>zip archivo.zip /directorio_origen/archivos</td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>unzip archivo.zip</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>unzip -v archivo.zip</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="lha-lha">.lha (lha)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Comprimir</td>
-<td>lha archivo.lha /mayo/archivos</td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>lha -x archivo.lha</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>lha -v archivo.lha</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>lha -l archivo.lha</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Comprimir</td>
+          <td>lha archivo.lha /mayo/archivos</td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>lha -x archivo.lha</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>lha -v archivo.lha</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>lha -l archivo.lha</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="zoo-zoo">.zoo (zoo)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Comprimir</td>
-<td>zoo -a archivo.zoo /mayo/archivos</td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>zoo -x archivo.zoo</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>zoo -v archivo.zoo</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>zoo -L archivo.zoo</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Comprimir</td>
+          <td>zoo -a archivo.zoo /mayo/archivos</td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>zoo -x archivo.zoo</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>zoo -v archivo.zoo</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>zoo -L archivo.zoo</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="rar-rar">.rar (rar)</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Comprimir	rar -a archivo.rar /mayo/archivos</td>
-<td></td>
-</tr>
-<tr>
-<td>Descomprimir</td>
-<td>rar -x archivo.rar</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>rar -v archivo.rar</td>
-</tr>
-<tr>
-<td>Ver contenido</td>
-<td>rar -l archivo.rar</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Comprimir	rar -a archivo.rar /mayo/archivos</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Descomprimir</td>
+          <td>rar -x archivo.rar</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>rar -v archivo.rar</td>
+      </tr>
+      <tr>
+          <td>Ver contenido</td>
+          <td>rar -l archivo.rar</td>
+      </tr>
+  </tbody>
 </table>
 		</div>
 <div class="share-buttons">

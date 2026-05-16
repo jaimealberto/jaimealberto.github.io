@@ -8,12 +8,19 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Configuración iTerm2 &#43; Zsh">
 	<link rel="canonical" href="https://jaimealberto.io/post/23_itermzsh/">
-		<meta property="og:title" content="iTerm2 &#43; Zsh" />
-<meta property="og:description" content="Configuración iTerm2 &#43; Zsh" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/23_itermzsh/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-13T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/23_itermzsh/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="iTerm2 &#43; Zsh">
+  <meta property="og:description" content="Configuración iTerm2 &#43; Zsh">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-08-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-08-13T00:00:00+00:00">
+    <meta property="article:tag" content="SO">
+    <meta property="article:tag" content="Terminal">
+    <meta property="article:tag" content="Utilidades">
+    <meta property="article:tag" content="Shell">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +47,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -127,7 +133,7 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-13T00:00:00Z">13-08-2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/macos/" rel="category">MacOS </a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-13T00:00:00Z">13-08-2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text">
 	</span>
 </div></div>
 		</header>
@@ -157,7 +163,7 @@
 <h2 id="instalación">Instalación</h2>
 <p>iTerm2</p>
 <p>Tenemos dos maneras de realizar la instalación mediante brew:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install --cask iterm2</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install --cask iterm2</span></span></code></pre></div>
 <p>Descargar desde la pagina oficial la ultima <a href="https://iterm2.com/downloads.html">versión</a></p>
 <p>Zsh</p>
 <p>En las versiones actuales de MacOs es la shell por defecto, con lo cual no tenemos que instalar nada.</p>
@@ -165,9 +171,9 @@
 <p>Oh My Zsh</p>
 <p>Abrimos nuestro terminal (iTerm2) y desde nuestro home de usuario tenemos dos opciones:</p>
 <p>Usar curl:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
 <p>Usar wget:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
 <p>Crea un .zshrc nuevo para su uso y personalización. El antiguo no se pierde por si tenemos algo personalizado, como por ejemplo alias. Lo guarda en uno llamado .zshrc.pre-oh-my-zsh. De este es de donde tendremos que copiar al nuevo nuestras personalizaciones anteriores.</p>
 <h2 id="configuración-oh-my-zsh">Configuración Oh My ZSH</h2>
 <h3 id="temas">Temas</h3>
@@ -179,20 +185,20 @@
 <h3 id="plugins">Plugins</h3>
 <h4 id="plugin-manager-antigen">Plugin Manager Antigen</h4>
 <p>Gestor de plugins que te permite instalar fácilmente otros plugins, ahorra tiempo  para  no tener que hacerlo manualmente</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install antigen</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install antigen</span></span></code></pre></div>
 <h4 id="plugin-zsh-syntax-highlighting">Plugin zsh-syntax-highlighting</h4>
 <p>Colorea los comandos de diferentes programas.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install zsh-syntax-highlighting</span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install zsh-syntax-highlighting</span></span></code></pre></div></p>
 <p>Después de instalarlo para activarlo editamos ~/.zshrc e incluimos en los pugins:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
 </span></span><span style="display:flex;"><span>    git
 </span></span><span style="display:flex;"><span>    zsh-syntax-highlighting
 </span></span><span style="display:flex;"><span><span style="color:#f92672">)</span></span></span></code></pre></div>
 <h4 id="plugin-zsh-autosuggestions">Plugin zsh-autosuggestions</h4>
 <p>Busca en el historial  y autocompleta los mismos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install zsh-autosuggestions</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew install zsh-autosuggestions</span></span></code></pre></div>
 <p>Después de instalarlo para activarlo editamos ~/.zshrc e incluimos en los pugins:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
 </span></span><span style="display:flex;"><span>    git
 </span></span><span style="display:flex;"><span>    zsh-syntax-highlighting
 </span></span><span style="display:flex;"><span>    zsh-autosuggestions
@@ -202,66 +208,66 @@
 <h2 id="atajos-de-teclado-iterm2">Atajos de teclado iTerm2</h2>
 <p>Como ya sabemos el teclado es mas rápido que el ratón o trackpad, con lo cual aquí dejo algunos atajos de teclado útiles:</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Acción</th>
-<th style="text-align:right">Teclas</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Dividir panel en horizontal</td>
-<td style="text-align:right">⌘⇧d</td>
-</tr>
-<tr>
-<td style="text-align:left">Dividir panel en vertical</td>
-<td style="text-align:right">⌘d</td>
-</tr>
-<tr>
-<td style="text-align:left">Ir al panel izquierdo</td>
-<td style="text-align:right">⌘⌥←</td>
-</tr>
-<tr>
-<td style="text-align:left">Ir al panel derecho</td>
-<td style="text-align:right">⌘⌥→</td>
-</tr>
-<tr>
-<td style="text-align:left">Ir al panel superior</td>
-<td style="text-align:right">⌘⌥↑</td>
-</tr>
-<tr>
-<td style="text-align:left">Ir al panel inferior</td>
-<td style="text-align:right">⌘⌥↓</td>
-</tr>
-<tr>
-<td style="text-align:left">Cambiar el tamaño del panel izquierda</td>
-<td style="text-align:right">^⌘←</td>
-</tr>
-<tr>
-<td style="text-align:left">Cambiar el tamaño del panel derecho</td>
-<td style="text-align:right">^⌘→</td>
-</tr>
-<tr>
-<td style="text-align:left">Cambiar el tamaño del panel arriba</td>
-<td style="text-align:right">^⌘↑</td>
-</tr>
-<tr>
-<td style="text-align:left">Cambiar el tamaño del panel abajo</td>
-<td style="text-align:right">^⌘↓</td>
-</tr>
-<tr>
-<td style="text-align:left">Cerrar panel actual</td>
-<td style="text-align:right">⌘w</td>
-</tr>
-<tr>
-<td style="text-align:left">Cerrar ventana actual</td>
-<td style="text-align:right">⌘⌥w</td>
-</tr>
-<tr>
-<td style="text-align:left">Cerrar iTerm2</td>
-<td style="text-align:right">⌘q</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Acción</th>
+          <th style="text-align: right">Teclas</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Dividir panel en horizontal</td>
+          <td style="text-align: right">⌘⇧d</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Dividir panel en vertical</td>
+          <td style="text-align: right">⌘d</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Ir al panel izquierdo</td>
+          <td style="text-align: right">⌘⌥←</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Ir al panel derecho</td>
+          <td style="text-align: right">⌘⌥→</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Ir al panel superior</td>
+          <td style="text-align: right">⌘⌥↑</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Ir al panel inferior</td>
+          <td style="text-align: right">⌘⌥↓</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cambiar el tamaño del panel izquierda</td>
+          <td style="text-align: right">^⌘←</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cambiar el tamaño del panel derecho</td>
+          <td style="text-align: right">^⌘→</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cambiar el tamaño del panel arriba</td>
+          <td style="text-align: right">^⌘↑</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cambiar el tamaño del panel abajo</td>
+          <td style="text-align: right">^⌘↓</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cerrar panel actual</td>
+          <td style="text-align: right">⌘w</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cerrar ventana actual</td>
+          <td style="text-align: right">⌘⌥w</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Cerrar iTerm2</td>
+          <td style="text-align: right">⌘q</td>
+      </tr>
+  </tbody>
 </table>
 		</div>
 		<footer class="post__footer">

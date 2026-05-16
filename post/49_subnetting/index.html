@@ -8,12 +8,17 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Aprende qué es el subneteo (subnetting) en IPv4, cómo hacerlo paso a paso y cómo calcular subredes fácilmente.">
 	<link rel="canonical" href="https://jaimealberto.io/post/49_subnetting/">
-		<meta property="og:title" content="Subneteo en IPv4, sencillamente" />
-<meta property="og:description" content="Aprende qué es el subneteo (subnetting) en IPv4, cómo hacerlo paso a paso y cómo calcular subredes fácilmente." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/49_subnetting/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2025-10-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-10-28T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/49_subnetting/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Subneteo en IPv4, sencillamente">
+  <meta property="og:description" content="Aprende qué es el subneteo (subnetting) en IPv4, cómo hacerlo paso a paso y cómo calcular subredes fácilmente.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-10-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-28T00:00:00+00:00">
+    <meta property="article:tag" content="Apuntes">
+    <meta property="article:tag" content="Formación">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +45,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -162,27 +166,27 @@
 <h2 id="-máscara-de-subred-netmask">🧱 Máscara de subred NetMask</h2>
 <p>La <strong>máscara de subred</strong> determina qué parte de la dirección representa la <strong>red</strong> y cuál representan los <strong>hosts</strong>, equipos de una red ( pc, servidores, teléfonos ip, etc).</p>
 <table>
-<thead>
-<tr>
-<th>Dirección IP</th>
-<th>Máscara de subred</th>
-<th>Notación CIDR</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>192.168.10.0</td>
-<td>255.255.255.0</td>
-<td>/24</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Dirección IP</th>
+          <th>Máscara de subred</th>
+          <th>Notación CIDR</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>192.168.10.0</td>
+          <td>255.255.255.0</td>
+          <td>/24</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>Los <strong>primeros 24 bits (3 octetos)</strong> identifican la red.</li>
 <li>Los <strong>últimos 8 bits</strong> se usan para los hosts.</li>
 </ul>
 <p>Esto significa que una red /24 puede tener <strong>2⁸ - 2 = 254 hosts</strong> (restamos 2: una para la dirección de red y otra para el broadcast). Para ver esto de un vistazo en un terminal Linux si tenemos instalado ipcalc:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ipcalc 192.168.10.0/24
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ipcalc 192.168.10.0/24
 </span></span><span style="display:flex;"><span>Address:   192.168.10.0         11000000.10101000.00001010. <span style="color:#ae81ff">00000000</span>
 </span></span><span style="display:flex;"><span>Netmask:   255.255.255.0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>   11111111.11111111.11111111. <span style="color:#ae81ff">00000000</span>
 </span></span><span style="display:flex;"><span>Wildcard:  0.0.0.255            00000000.00000000.00000000. 11111111
@@ -202,26 +206,26 @@
 </ul>
 <p>Cada bit “prestado” de la parte de host <strong>duplica</strong> la cantidad de subredes disponibles.</p>
 <table>
-<thead>
-<tr>
-<th>Bits tomados</th>
-<th>Subredes posibles</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>2</td>
-<td>4</td>
-</tr>
-<tr>
-<td>3</td>
-<td>8</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Bits tomados</th>
+          <th>Subredes posibles</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>4</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>8</td>
+      </tr>
+  </tbody>
 </table>
 <p>👉 Para 4 subredes necesitamos <strong>2 bits</strong>.</p>
 <ul>
@@ -241,85 +245,85 @@ Este es el “salto” entre subredes.</p>
 <li><strong>Paso 4: Enumerar las subredes</strong></li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>Subred</th>
-<th>Dirección de red</th>
-<th>Primer host</th>
-<th>Último host</th>
-<th>Broadcast</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>192.168.10.0</td>
-<td>192.168.10.1</td>
-<td>192.168.10.62</td>
-<td>192.168.10.63</td>
-</tr>
-<tr>
-<td>2</td>
-<td>192.168.10.64</td>
-<td>192.168.10.65</td>
-<td>192.168.10.126</td>
-<td>192.168.10.127</td>
-</tr>
-<tr>
-<td>3</td>
-<td>192.168.10.128</td>
-<td>192.168.10.129</td>
-<td>192.168.10.190</td>
-<td>192.168.10.191</td>
-</tr>
-<tr>
-<td>4</td>
-<td>192.168.10.192</td>
-<td>192.168.10.193</td>
-<td>192.168.10.254</td>
-<td>192.168.10.255</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Subred</th>
+          <th>Dirección de red</th>
+          <th>Primer host</th>
+          <th>Último host</th>
+          <th>Broadcast</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>192.168.10.0</td>
+          <td>192.168.10.1</td>
+          <td>192.168.10.62</td>
+          <td>192.168.10.63</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>192.168.10.64</td>
+          <td>192.168.10.65</td>
+          <td>192.168.10.126</td>
+          <td>192.168.10.127</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>192.168.10.128</td>
+          <td>192.168.10.129</td>
+          <td>192.168.10.190</td>
+          <td>192.168.10.191</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>192.168.10.192</td>
+          <td>192.168.10.193</td>
+          <td>192.168.10.254</td>
+          <td>192.168.10.255</td>
+      </tr>
+  </tbody>
 </table>
 <p>✅ Cada subred tiene <strong>62 hosts disponibles</strong>.</p>
 <ul>
 <li><strong>Tabla rápida de referencia</strong></li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>Subredes</th>
-<th>Bits tomados</th>
-<th>CIDR</th>
-<th>Hosts posibles</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2</td>
-<td>1 bit</td>
-<td>/25</td>
-<td>126 hosts</td>
-</tr>
-<tr>
-<td>4</td>
-<td>2 bits</td>
-<td>/26</td>
-<td>62 hosts</td>
-</tr>
-<tr>
-<td>8</td>
-<td>3 bits</td>
-<td>/27</td>
-<td>30 hosts</td>
-</tr>
-<tr>
-<td>16</td>
-<td>4 bits</td>
-<td>/28</td>
-<td>14 hosts</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Subredes</th>
+          <th>Bits tomados</th>
+          <th>CIDR</th>
+          <th>Hosts posibles</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2</td>
+          <td>1 bit</td>
+          <td>/25</td>
+          <td>126 hosts</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>2 bits</td>
+          <td>/26</td>
+          <td>62 hosts</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>3 bits</td>
+          <td>/27</td>
+          <td>30 hosts</td>
+      </tr>
+      <tr>
+          <td>16</td>
+          <td>4 bits</td>
+          <td>/28</td>
+          <td>14 hosts</td>
+      </tr>
+  </tbody>
 </table>
 <blockquote>
 <p>🧠 <em>Tip:</em> cada vez que tomas un bit más para subredes, el número de hosts disponibles por red se reduce a la mitad.</p>

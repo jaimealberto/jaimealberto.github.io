@@ -8,12 +8,19 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Tercer post sobre Ssh. Aprende cómo crear túneles SSH y usar port forwarding para acceder a servicios internos de forma segura. Incluye diagramas, ejemplos prácticos y casos de uso reales.">
 	<link rel="canonical" href="https://jaimealberto.io/post/12_universosshiii/">
-		<meta property="og:title" content="Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos" />
-<meta property="og:description" content="Tercer post sobre Ssh. Aprende cómo crear túneles SSH y usar port forwarding para acceder a servicios internos de forma segura. Incluye diagramas, ejemplos prácticos y casos de uso reales." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/12_universosshiii/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2025-10-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-10-09T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/12_universosshiii/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos">
+  <meta property="og:description" content="Tercer post sobre Ssh. Aprende cómo crear túneles SSH y usar port forwarding para acceder a servicios internos de forma segura. Incluye diagramas, ejemplos prácticos y casos de uso reales.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-10-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-09T00:00:00+00:00">
+    <meta property="article:tag" content="SO">
+    <meta property="article:tag" content="Terminal">
+    <meta property="article:tag" content="Cliente">
+    <meta property="article:tag" content="Utilidades">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +47,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -127,7 +133,7 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-10-09T00:00:00Z">09-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ssh/" rel="category">Ssh</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-10-09T00:00:00Z">09-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ssh/" rel="category">SSH</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
 	</span>
 </div></div>
 		</header>
@@ -205,109 +211,109 @@
 <h2 id="-tipos-de-túneles-ssh">🧭 Tipos de Túneles SSH</h2>
 <h3 id="1-local-port-forwarding--l">1. Local Port Forwarding (<code>-L</code>)</h3>
 <p>Redirige un puerto local a un destino remoto.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 8080:servidor_interno:80 usuario@puente
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 8080:servidor_interno:80 usuario@puente
 </span></span></code></pre></div><h3 id="2-remote-port-forwarding--r">2. Remote Port Forwarding (<code>-R</code>)</h3>
 <p>Redirige un puerto remoto hacia tu máquina local o un destino accesible desde esta.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 9090:localhost:22 usuario@servidor
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 9090:localhost:22 usuario@servidor
 </span></span></code></pre></div><h3 id="3-dynamic-port-forwarding--d">3. Dynamic Port Forwarding (<code>-D</code>)</h3>
 <p>Crea un <strong>proxy SOCKS</strong> dinámico para redirigir múltiples conexiones TCP.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -D <span style="color:#ae81ff">1080</span> usuario@servidor
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -D <span style="color:#ae81ff">1080</span> usuario@servidor
 </span></span></code></pre></div><hr>
 <h2 id="-8-escenarios-de-túneles-tcpip">🌐 8 Escenarios de Túneles TCP/IP</h2>
 <p>A continuación se detallan los <strong>8 escenarios clásicos</strong> de port forwarding con diagramas ASCII y comandos prácticos.</p>
 <h3 id="escenario-1-externo1--interno1">Escenario 1: externo1 → interno1</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 7900:localhost:5900 usuario@interno1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 7900:localhost:5900 usuario@interno1
 </span></span></code></pre></div><pre tabindex="0"><code>[externo1] --(SSH)--&gt; [interno1:5900]
    ^
    | localhost:7900
 </code></pre><h3 id="escenario-2-externo2--interno1-via-externo1">Escenario 2: externo2 → interno1 (via externo1)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 7900:localhost:7900 usuario@externo1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 7900:localhost:7900 usuario@externo1
 </span></span></code></pre></div><pre tabindex="0"><code>[externo2] --(L:7900)--&gt; [externo1:7900] --(SSH)--&gt; [interno1:5900]
 </code></pre><h3 id="escenario-3-interno1--externo1-remote-forwarding">Escenario 3: interno1 → externo1 (Remote Forwarding)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 9000:localhost:80 usuario@externo1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 9000:localhost:80 usuario@externo1
 </span></span></code></pre></div><pre tabindex="0"><code>[interno1:80] --(R:9000)--&gt; [externo1:9000]
 </code></pre><h3 id="escenario-4-interno2--externo1-via-interno1">Escenario 4: interno2 → externo1 (via interno1)</h3>
 <pre tabindex="0"><code>[interno2] --&gt; [interno1] --(R)--&gt; [externo1]
 </code></pre><h3 id="escenario-5-externo2--interno2-via-externo1-interno1">Escenario 5: externo2 → interno2 (via externo1, interno1)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 8000:interno2:80 usuario@externo1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 8000:interno2:80 usuario@externo1
 </span></span></code></pre></div><pre tabindex="0"><code>[externo2] --&gt; [externo1] --(SSH)--&gt; [interno1] --&gt; [interno2:80]
 </code></pre><h3 id="escenario-6-interno2--externo2-via-interno1-externo1">Escenario 6: interno2 → externo2 (via interno1, externo1)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 8022:externo2:22 usuario@interno1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 8022:externo2:22 usuario@interno1
 </span></span></code></pre></div><pre tabindex="0"><code>[interno2] --&gt; [interno1] --(R:8022)--&gt; [externo1] --&gt; [externo2:22]
 </code></pre><h3 id="escenario-7-forwarding-local-encadenado-interno2--externo2">Escenario 7: Forwarding local encadenado (interno2 → externo2)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 7000:externo2:22 usuario@interno1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 7000:externo2:22 usuario@interno1
 </span></span><span style="display:flex;"><span>ssh -L 7000:localhost:7000 usuario@interno2
 </span></span></code></pre></div><pre tabindex="0"><code>[interno2] --(L:7000)--&gt; [interno1] --(L:7000)--&gt; [externo1] --(L:22)--&gt; [externo2]
 </code></pre><h3 id="escenario-8-forwarding-remoto-encadenado-externo2--interno2">Escenario 8: Forwarding remoto encadenado (externo2 → interno2)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 8500:interno2:80 usuario@externo1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 8500:interno2:80 usuario@externo1
 </span></span><span style="display:flex;"><span>ssh -R 8500:localhost:8500 usuario@externo2
 </span></span></code></pre></div><pre tabindex="0"><code>[externo2] --(R:8500)--&gt; [externo1] --(R:8500)--&gt; [interno1] --(R:80)--&gt; [interno2]
 </code></pre><hr>
 <h2 id="-resumen-de-escenarios-y-comandos">📊 Resumen de Escenarios y Comandos</h2>
 <table>
-<thead>
-<tr>
-<th>Escenario</th>
-<th>Descripción</th>
-<th>Comando Principal</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>externo1 → interno1</td>
-<td><code>ssh -L 7900:localhost:5900 usuario@interno1</code></td>
-</tr>
-<tr>
-<td>2</td>
-<td>externo2 → interno1 (via externo1)</td>
-<td><code>ssh -L 7900:localhost:7900 usuario@externo1</code></td>
-</tr>
-<tr>
-<td>3</td>
-<td>interno1 → externo1 (remote)</td>
-<td><code>ssh -R 9000:localhost:80 usuario@externo1</code></td>
-</tr>
-<tr>
-<td>4</td>
-<td>interno2 → externo1 (via interno1)</td>
-<td>Encadenado con <code>-R</code> en interno1</td>
-</tr>
-<tr>
-<td>5</td>
-<td>externo2 → interno2 (via externo1, interno1)</td>
-<td><code>ssh -L 8000:interno2:80 usuario@externo1</code></td>
-</tr>
-<tr>
-<td>6</td>
-<td>interno2 → externo2 (via interno1, externo1)</td>
-<td><code>ssh -R 8022:externo2:22 usuario@interno1</code></td>
-</tr>
-<tr>
-<td>7</td>
-<td>interno2 → externo2 (local encadenado)</td>
-<td><code>ssh -L 7000:externo2:22 usuario@interno1</code> + <code>ssh -L 7000:localhost:7000 usuario@interno2</code></td>
-</tr>
-<tr>
-<td>8</td>
-<td>externo2 → interno2 (remote encadenado)</td>
-<td><code>ssh -R 8500:interno2:80 usuario@externo1</code> + <code>ssh -R 8500:localhost:8500 usuario@externo2</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Escenario</th>
+          <th>Descripción</th>
+          <th>Comando Principal</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>externo1 → interno1</td>
+          <td><code>ssh -L 7900:localhost:5900 usuario@interno1</code></td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>externo2 → interno1 (via externo1)</td>
+          <td><code>ssh -L 7900:localhost:7900 usuario@externo1</code></td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>interno1 → externo1 (remote)</td>
+          <td><code>ssh -R 9000:localhost:80 usuario@externo1</code></td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>interno2 → externo1 (via interno1)</td>
+          <td>Encadenado con <code>-R</code> en interno1</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>externo2 → interno2 (via externo1, interno1)</td>
+          <td><code>ssh -L 8000:interno2:80 usuario@externo1</code></td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>interno2 → externo2 (via interno1, externo1)</td>
+          <td><code>ssh -R 8022:externo2:22 usuario@interno1</code></td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>interno2 → externo2 (local encadenado)</td>
+          <td><code>ssh -L 7000:externo2:22 usuario@interno1</code> + <code>ssh -L 7000:localhost:7000 usuario@interno2</code></td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>externo2 → interno2 (remote encadenado)</td>
+          <td><code>ssh -R 8500:interno2:80 usuario@externo1</code> + <code>ssh -R 8500:localhost:8500 usuario@externo2</code></td>
+      </tr>
+  </tbody>
 </table>
 <hr>
 <h2 id="-casos-de-uso-reales">💡 Casos de Uso Reales</h2>
 <h3 id="1-acceso-a-una-base-de-datos-interna">1. Acceso a una base de datos interna</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 3306:localhost:3306 usuario@servidor_interno
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 3306:localhost:3306 usuario@servidor_interno
 </span></span></code></pre></div><pre tabindex="0"><code>[cliente_mysql_local] --(L:3306)--&gt; [servidor_interno:3306]
 </code></pre><h3 id="2-navegación-segura-desde-una-red-pública">2. Navegación segura desde una red pública</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -D <span style="color:#ae81ff">1080</span> usuario@servidor_remoto
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -D <span style="color:#ae81ff">1080</span> usuario@servidor_remoto
 </span></span></code></pre></div><pre tabindex="0"><code>[navegador_web] --(SOCKS5:1080)--&gt; [ssh_túnel] --&gt; [servidor_remoto] --&gt; [Internet]
 </code></pre><h3 id="3-publicar-un-servidor-web-local">3. Publicar un servidor web local</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 8080:localhost:3000 usuario@servidor_publico
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -R 8080:localhost:3000 usuario@servidor_publico
 </span></span></code></pre></div><pre tabindex="0"><code>[navegador_colega] --&gt; [servidor_publico:8080] --(R:8080)--&gt; [tu_PC:3000]
 </code></pre><h3 id="4-acceso-remoto-seguro-a-servicios-de-empresa">4. Acceso remoto seguro a servicios de empresa</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 8443:intranet:443 usuario@bastion
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -L 8443:intranet:443 usuario@bastion
 </span></span></code></pre></div><pre tabindex="0"><code>[navegador] --(L:8443)--&gt; [bastion] --&gt; [intranet:443]
 </code></pre><hr>
 <h2 id="-casos-prácticos-paso-a-paso">📝 Casos Prácticos Paso a Paso</h2>

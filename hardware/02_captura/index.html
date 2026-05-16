@@ -8,12 +8,18 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Vamos a darle uso a unas capturadoras de imágenes desde el terminal. Captura video, hacer fotos, etc">
 	<link rel="canonical" href="https://jaimealberto.io/hardware/02_captura/">
-		<meta property="og:title" content="Captura y graba, hardware dedicado" />
-<meta property="og:description" content="Vamos a darle uso a unas capturadoras de imágenes desde el terminal. Captura video, hacer fotos, etc" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/hardware/02_captura/" /><meta property="article:section" content="Hardware" />
-<meta property="article:published_time" content="2025-10-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-10-27T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/hardware/02_captura/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Captura y graba, hardware dedicado">
+  <meta property="og:description" content="Vamos a darle uso a unas capturadoras de imágenes desde el terminal. Captura video, hacer fotos, etc">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="hardware">
+    <meta property="article:published_time" content="2025-10-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-27T00:00:00+00:00">
+    <meta property="article:tag" content="Terminal">
+    <meta property="article:tag" content="Hardware">
+    <meta property="article:tag" content="HomeLab">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +46,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -168,9 +173,9 @@ Yo personalmente utilizare Debian, con el siguiente software instalado:</p>
 </ul>
 <p><strong>Verificación</strong>
 Lo primero de todo vamos a ver que fuentes de video tenemos disponibles para actuar sobre ellas, desde un terminal:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>4l2-ctl --list-devices</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>4l2-ctl --list-devices</span></span></code></pre></div>
 La salida del comando sera algo parecido a esto:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>C505 HD Webcam <span style="color:#f92672">(</span>usb-0000:00:1a.0-1.3<span style="color:#f92672">)</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>C505 HD Webcam <span style="color:#f92672">(</span>usb-0000:00:1a.0-1.3<span style="color:#f92672">)</span>:
 </span></span><span style="display:flex;"><span>	/dev/video0
 </span></span><span style="display:flex;"><span>	/dev/video1
 </span></span><span style="display:flex;"><span>	/dev/media0
@@ -185,11 +190,11 @@ En mi caso se puede observar también a parte de la capturadora la <a href="http
 <li>Capturadora /dev/video2</li>
 </ul>
 <p>Ahora necesitamos saber que parámetros admite nuestro hardware para posteriormente actuar sobre el correctamente. Desde nuestro terminal:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>v4l2-ctl --list-formats-ext -d /dev/video0</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>v4l2-ctl --list-formats-ext -d /dev/video0</span></span></code></pre></div>
 Con el comando anterior nos muestra como reconoce el hardware y los tipos de captura que admite, es un listado largo pero asi sabremos cual podremos utilizar. En el caso anterior hemos listado el device (-d) /dev/video0 que en mi caso es al <a href="https://es.wikipedia.org/wiki/C%C3%A1mara_web">Webcam</a>.</p>
 <h2 id="video">Video</h2>
 <p>Habitualmente la capturadora de video se utiliza como fuente en programas como <a href="https://obsproject.com/es">OBS</a>, pero esta vez vamos ha ver un caso practico que puede sernos util. Tenemos un Raspberry Pi sin monitor, estamos en un CPD no tenemos monitor para conectar a un servidor o en el rack del laboratorio de casa no tenemos un KVM, etc. Pues bien la solución es simple, desde el terminal:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vlc v4l2:///dev/video2 --v4l2-width<span style="color:#f92672">=</span><span style="color:#ae81ff">1920</span> --v4l2-height<span style="color:#f92672">=</span><span style="color:#ae81ff">1080</span> --width<span style="color:#f92672">=</span><span style="color:#ae81ff">800</span> --height<span style="color:#f92672">=</span>600<span style="color:#e6db74">&#34;</span></span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vlc v4l2:///dev/video2 --v4l2-width<span style="color:#f92672">=</span><span style="color:#ae81ff">1920</span> --v4l2-height<span style="color:#f92672">=</span><span style="color:#ae81ff">1080</span> --width<span style="color:#f92672">=</span><span style="color:#ae81ff">800</span> --height<span style="color:#f92672">=</span>600<span style="color:#e6db74">&#34;</span></span></span></code></pre></div></p>
 <p>Esto nos da la visualización de la salida de video de la Raspberry Pi conectada a nuestra capturadora, si le conectamos por usb un teclado ya podemos interactuar en la consola. En el siguiente gif animado se ve el proceso completo:</p>
 <figure>
   <img src="/img/monitor.gif" alt="Captura y graba, hardware dedicado">
@@ -210,7 +215,7 @@ Con el comando anterior nos muestra como reconoce el hardware y los tipos de cap
 <li><strong>&ndash;zoom=2</strong> → aumenta el tamaño de la ventana sin cambiar la resolución del video.</li>
 </ul>
 <p>El gif esta grabado con Peek, para ver la demostración, pero realizar la grabación directamente desde nuestro tertminal del siguiente modo:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ffmpeg -f v4l2 -framerate <span style="color:#ae81ff">30</span> -video_size 1280x720 -input_format yuyv422 -i /dev/video2 -c:v libx264 -preset ultrafast -pix_fmt yuv420p captura_<span style="color:#66d9ef">$(</span>date +<span style="color:#e6db74">&#39;%Y-%m-%d_%H-%M-%S&#39;</span><span style="color:#66d9ef">)</span>.mp4</span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ffmpeg -f v4l2 -framerate <span style="color:#ae81ff">30</span> -video_size 1280x720 -input_format yuyv422 -i /dev/video2 -c:v libx264 -preset ultrafast -pix_fmt yuv420p captura_<span style="color:#66d9ef">$(</span>date +<span style="color:#e6db74">&#39;%Y-%m-%d_%H-%M-%S&#39;</span><span style="color:#66d9ef">)</span>.mp4</span></span></code></pre></div></p>
 <p><strong>🔍 Parámetros del comando</strong></p>
 <ul>
 <li><strong>-f v4l2</strong> → usa el driver de cámaras de Linux.</li>
@@ -225,10 +230,10 @@ Con el comando anterior nos muestra como reconoce el hardware y los tipos de cap
 <p>👉 Cuando quieras detener la grabación, presiona <strong>Ctrl + C</strong>.</p>
 <p>💡 <strong>Tip</strong>
 Te puedes crear un alias en tu &lsquo;.zshrc&rsquo; o &lsquo;.bashrc&rsquo; con algo como esto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias monitor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vlc v4l2:///dev/video2 --v4l2-width=1920 --v4l2-height=1080 --width=800 --height=600&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias monitor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vlc v4l2:///dev/video2 --v4l2-width=1920 --v4l2-height=1080 --width=800 --height=600&#34;</span>
 </span></span></code></pre></div><h2 id="foto">Foto</h2>
 <p>Evidentemente a parte de capturar video podemos capturar fotos o fotogramas, es es tambien muy util si por ejemplo queremos sacar una foto con nuestra Webcam o una captura de pantalla que esste en nuestra capturadora, una bios de un sistema para luego utilizarla en un documento.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ffmpeg -f v4l2 -video_size 1280x960 -i /dev/video0 -frames:v <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;captura_</span><span style="color:#66d9ef">$(</span>date +%d-%m-%Y_%H%M%S<span style="color:#66d9ef">)</span><span style="color:#e6db74">.png&#34;</span></span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ffmpeg -f v4l2 -video_size 1280x960 -i /dev/video0 -frames:v <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;captura_</span><span style="color:#66d9ef">$(</span>date +%d-%m-%Y_%H%M%S<span style="color:#66d9ef">)</span><span style="color:#e6db74">.png&#34;</span></span></span></code></pre></div></p>
 <p><strong>🔍 Parámetros del comando</strong></p>
 <ul>
 <li><strong>-f v4l2</strong> → usa el driver de cámaras de Linux.</li>
@@ -242,7 +247,7 @@ Te puedes crear un alias en tu &lsquo;.zshrc&rsquo; o &lsquo;.bashrc&rsquo; con 
 <p>✅ <strong>Resumen</strong></p>
 <p><strong>Toma una foto, un frame, de la capturadora HDMI</strong> a 1280x960 píxeles y la guarda en el directorio actual con un nombre único basado en la fecha y hora.</p>
 <p>Te puedes crear un alias en tu &lsquo;.zshrc&rsquo; o &lsquo;.bashrc&rsquo; con algo como esto:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias fotoweb<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ffmpeg -f v4l2 -video_size 1280x960 -i /dev/video0 -frames:v 1 &#34;</span>captura_<span style="color:#66d9ef">$(</span>date +%d-%m-%Y_%H%M%S<span style="color:#66d9ef">)</span>.png<span style="color:#e6db74">&#34;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias fotoweb<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ffmpeg -f v4l2 -video_size 1280x960 -i /dev/video0 -frames:v 1 &#34;</span>captura_<span style="color:#66d9ef">$(</span>date +%d-%m-%Y_%H%M%S<span style="color:#66d9ef">)</span>.png<span style="color:#e6db74">&#34;&#34;</span>
 </span></span></code></pre></div>
 		</div>
 		<footer class="post__footer">

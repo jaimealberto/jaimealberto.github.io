@@ -4,302 +4,170 @@
     <title>Linux on JaimeAlberto.io</title>
     <link>https://jaimealberto.io/categories/linux/</link>
     <description>Recent content in Linux on JaimeAlberto.io</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jaimealberto.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</title>
       <link>https://jaimealberto.io/post/52_debianluks/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/52_debianluks/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/debianluks.jpg&#34; alt=&#34;Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/debianluks.jpg&#34; alt=&#34;Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Grupos en Linux. Control de acceso sin complicaciones</title>
       <link>https://jaimealberto.io/post/55_grupos/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/55_grupos/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/gruposlinux.jpg&#34; alt=&#34;Grupos en Linux. Control de acceso sin complicaciones&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/gruposlinux.jpg&#34; alt=&#34;Grupos en Linux. Control de acceso sin complicaciones&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux</title>
       <link>https://jaimealberto.io/post/53_zshmux/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/53_zshmux/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/zshmux.jpg&#34; alt=&#34;Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Si seguiste el &lt;a href=&#34;https://jaimealberto.io/post/52_debianluks&#34;&gt;artículo anterior&lt;/a&gt; tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/zshmux.jpg&#34; alt=&#34;Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Si seguiste el &lt;a href=&#34;https://jaimealberto.io/post/52_debianluks&#34;&gt;artículo anterior&lt;/a&gt; tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Guía para crear una contraseña de aplicación en Gmail</title>
       <link>https://jaimealberto.io/post/51_gmailaplicacion/</link>
       <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/51_gmailaplicacion/</guid>
-      <description>Introducción En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.
-⚠️ Importante: Solo puedes crear una contraseña de aplicación si tienes habilitada la Verificación en dos pasos (2FA) en tu cuenta de Google.
-1. Activa la verificación en dos pasos Si aún no la tienes activa:</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/51gmail.jpg&#34; alt=&#34;Guía para crear una contraseña de aplicación en Gmail&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;&#xA;&lt;p&gt;En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;Importante:&lt;/strong&gt;&#xA;Solo puedes crear una contraseña de aplicación si tienes habilitada la &lt;strong&gt;Verificación en dos pasos&lt;/strong&gt; (2FA) en tu cuenta de Google.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Nems, Configuración de notificaciones por correo electrónico SMTP para NEMS 01 </title>
       <link>https://jaimealberto.io/post/50_nems01/</link>
       <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/50_nems01/</guid>
-      <description>Introducción Lo primero que deberíamos de configurar es el cliente SMTP integrado para el envío de notificaciones cuando salte una alerta. Acceda a la herramienta de configuración del sistema (SST) de NEMS desde el menú Configuración de su panel de control de NEMS.
-✅ 1. Parámetros correctos de GMail SMTP Parámetro Valor SMTP server smtp.gmail.com Puerto 587 Cifrado TLS Usuario tu correo completo → tunombre@gmail.com Contraseña contraseña de aplicación (16 caracteres sin espacios) “From” debe ser tu mismo correo Si todo esta configurado correctamente al pulsar en el botón &amp;ldquo;Test SMTP Settings&amp;rdquo; tendría que aparecer una ventana emergente en el navegador como que todo ok, la cierras.</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/nems_logo.webp&#34; alt=&#34;Nems, Configuración de notificaciones por correo electrónico SMTP para NEMS 01 &#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;&#xA;&lt;p&gt;Lo primero que deberíamos de configurar es el cliente SMTP integrado para el envío de notificaciones cuando salte una alerta. Acceda a la herramienta de configuración del sistema (SST) de NEMS desde el menú Configuración de su panel de control de NEMS.&lt;/p&gt;&#xA;&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/smtp_nems-sst-1.webp&#34; alt=&#34;Nems, Configuración de notificaciones por correo electrónico SMTP para NEMS 01 &#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;-1-parámetros-correctos-de-gmail-smtp&#34;&gt;✅ 1. Parámetros correctos de GMail SMTP&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Parámetro&lt;/th&gt;&#xA;          &lt;th&gt;Valor&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;SMTP server&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;smtp.gmail.com&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Puerto&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;587&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Cifrado&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;TLS&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Usuario&lt;/td&gt;&#xA;          &lt;td&gt;tu correo completo → &lt;code&gt;tunombre@gmail.com&lt;/code&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Contraseña&lt;/td&gt;&#xA;          &lt;td&gt;contraseña de aplicación (16 caracteres sin espacios)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;“From”&lt;/td&gt;&#xA;          &lt;td&gt;debe ser tu mismo correo&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Si todo esta configurado correctamente al pulsar en el botón &amp;ldquo;Test SMTP Settings&amp;rdquo; tendría que aparecer una ventana emergente en el navegador como que todo ok, la cierras. Ya tendrías que tener el correo de test en tu bandeja de entrada de la cuenta de correo que indicaste en la instalación como la del administrador del sistema.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Captura y graba, hardware dedicado</title>
       <link>https://jaimealberto.io/hardware/02_captura/</link>
       <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/hardware/02_captura/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/capture00.jpg&#34; alt=&#34;Captura y graba, hardware dedicado&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Buscando en un cajón aparecieron dos capturadoras de video chinas y decidir darlas utilidad. Normalmente la mayoría de la gente las utiliza con &lt;a href=&#34;https://obsproject.com/es&#34;&gt;OBS&lt;/a&gt; como una fuente mas de entrada para grabar o hacer directos. A dia de hoy tengo la necesidad de algún invento, para el rack que estoy montando para mi laboratorio, que me de imagen de los servidores eventualmente sin llegar a tener nada fijo. Algo portable, barato y que no me suponga una gran inversión en un kvm por ejemplo, ni tampoco quería un monitor de 7 pulgadas o algo asi.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/capture00.jpg&#34; alt=&#34;Captura y graba, hardware dedicado&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Buscando en un cajón aparecieron dos capturadoras de video chinas y decidir darlas utilidad. Normalmente la mayoría de la gente las utiliza con &lt;a href=&#34;https://obsproject.com/es&#34;&gt;OBS&lt;/a&gt; como una fuente mas de entrada para grabar o hacer directos. A dia de hoy tengo la necesidad de algún invento, para el rack que estoy montando para mi laboratorio, que me de imagen de los servidores eventualmente sin llegar a tener nada fijo. Algo portable, barato y que no me suponga una gran inversión en un kvm por ejemplo, ni tampoco quería un monitor de 7 pulgadas o algo asi.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>SMS, envío local</title>
       <link>https://jaimealberto.io/post/46_smsi/</link>
       <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/46_smsi/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/smswg.jpg&#34; alt=&#34;SMS, envío local&#34;&gt;
-&lt;/figure&gt;
-
-Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/smswg.jpg&#34; alt=&#34;SMS, envío local&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Nems, primeros pasos 00</title>
       <link>https://jaimealberto.io/post/45_nems00/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/45_nems00/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/nems_logo.webp&#34; alt=&#34;Nems, primeros pasos 00&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la &lt;a href=&#34;https://docs.nemslinux.com/en/latest/&#34;&gt;documentación oficial&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/nems_logo.webp&#34; alt=&#34;Nems, primeros pasos 00&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la &lt;a href=&#34;https://docs.nemslinux.com/en/latest/&#34;&gt;documentación oficial&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Permisos en Linux</title>
       <link>https://jaimealberto.io/post/44_permisos/</link>
       <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/44_permisos/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/permisos.jpg&#34; alt=&#34;Permisos en Linux&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/permisos.jpg&#34; alt=&#34;Permisos en Linux&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Sabes actualizar tu Linux ?</title>
       <link>https://jaimealberto.io/post/40_distupgrade/</link>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/40_distupgrade/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/update.jpg&#34; alt=&#34;Sabes actualizar tu Linux ?&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href=&#34;https://es.wikipedia.org/wiki/Advanced_Packaging_Tool&#34;&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/update.jpg&#34; alt=&#34;Sabes actualizar tu Linux ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href=&#34;https://es.wikipedia.org/wiki/Advanced_Packaging_Tool&#34;&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Instalación de utilidades desde repositorios</title>
       <link>https://jaimealberto.io/post/38_utils_repos/</link>
       <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/38_utils_repos/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/utils_repos.jpg&#34; alt=&#34;Instalación de utilidades desde repositorios&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href=&#34;https://jaimealberto.io/post/37_navegadores_repos/&#34;&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/utils_repos.jpg&#34; alt=&#34;Instalación de utilidades desde repositorios&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href=&#34;https://jaimealberto.io/post/37_navegadores_repos/&#34;&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Instalación de navegadores desde repositorios</title>
       <link>https://jaimealberto.io/post/37_navegadores_repos/</link>
       <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/37_navegadores_repos/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/navegadores_repos.jpg&#34; alt=&#34;Instalación de navegadores desde repositorios&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/navegadores_repos.jpg&#34; alt=&#34;Instalación de navegadores desde repositorios&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Logos en videos</title>
       <link>https://jaimealberto.io/post/34_logosvideos/</link>
       <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/34_logosvideos/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/stamp.jpg&#34; alt=&#34;Logos en videos&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Creamos &lt;a href=&#34;https://jaimealberto.io/post/06_grabarterminal/&#34;&gt;videos del terminal&lt;/a&gt;, cuando vemos un vídeotutorial,etc. Casi siempre tienen alguna marca de agua donde se visualiza el nombre del autor, un logotipo, una url, etc.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/stamp.jpg&#34; alt=&#34;Logos en videos&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Creamos &lt;a href=&#34;https://jaimealberto.io/post/06_grabarterminal/&#34;&gt;videos del terminal&lt;/a&gt;, cuando vemos un vídeotutorial,etc. Casi siempre tienen alguna marca de agua donde se visualiza el nombre del autor, un logotipo, una url, etc.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Borrar kenels antiguos en Debian</title>
       <link>https://jaimealberto.io/post/33_kernels/</link>
       <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/33_kernels/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/kernel.jpg&#34; alt=&#34;Borrar kenels antiguos en Debian&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/kernel.jpg&#34; alt=&#34;Borrar kenels antiguos en Debian&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Personalizar login en GNOME, GDM 3</title>
       <link>https://jaimealberto.io/post/14_customgdm3/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/gdm.jpg&#34; alt=&#34;Personalizar login en GNOME, GDM 3&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/gdm.jpg&#34; alt=&#34;Personalizar login en GNOME, GDM 3&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Usuarios en Linux II, política de contraseñas</title>
       <link>https://jaimealberto.io/post/27_usuariosii/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/27_usuariosii/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/usuariosii.jpg&#34; alt=&#34;Usuarios en Linux II, política de contraseñas&#34;&gt;
-&lt;/figure&gt;
-
-Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/usuariosii.jpg&#34; alt=&#34;Usuarios en Linux II, política de contraseñas&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Usuarios en Linux I</title>
       <link>https://jaimealberto.io/post/26_usuariosi/</link>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/26_usuariosi/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/usuariosi.jpg&#34; alt=&#34;Usuarios en Linux I&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/usuariosi.jpg&#34; alt=&#34;Usuarios en Linux I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Utilidades terminal IV</title>
       <link>https://jaimealberto.io/post/21_utilidadesterminaliv/</link>
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/21_utilidadesterminaliv/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/tool4.jpg&#34; alt=&#34;Utilidades terminal IV&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href=&#34;https://es.wikipedia.org/wiki/Star_Wars&#34;&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool4.jpg&#34; alt=&#34;Utilidades terminal IV&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href=&#34;https://es.wikipedia.org/wiki/Star_Wars&#34;&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Utilidades terminal III</title>
       <link>https://jaimealberto.io/post/15_utilidadesterminaliii/</link>
       <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/15_utilidadesterminaliii/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/tool3.jpg&#34; alt=&#34;Utilidades terminal III&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool3.jpg&#34; alt=&#34;Utilidades terminal III&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Donde están mis contraseñas Wifi</title>
       <link>https://jaimealberto.io/post/09_passwordwifi/</link>
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/09_passwordwifi/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/pwdwifi.jpg&#34; alt=&#34;Donde están mis contraseñas Wifi&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/pwdwifi.jpg&#34; alt=&#34;Donde están mis contraseñas Wifi&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Utilidades terminal II</title>
       <link>https://jaimealberto.io/post/10_utilidadesterminalii/</link>
       <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/10_utilidadesterminalii/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/tool2.jpg&#34; alt=&#34;Utilidades terminal II&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool2.jpg&#34; alt=&#34;Utilidades terminal II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Utilidades terminal I</title>
       <link>https://jaimealberto.io/post/08_utilidadesterminali/</link>
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/08_utilidadesterminali/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/tool.jpg&#34; alt=&#34;Utilidades terminal I&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool.jpg&#34; alt=&#34;Utilidades terminal I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Grabar el terminal</title>
       <link>https://jaimealberto.io/post/06_grabarterminal/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/06_grabarterminal/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/grabarterminal.jpg&#34; alt=&#34;Grabar el terminal&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/grabarterminal.jpg&#34; alt=&#34;Grabar el terminal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

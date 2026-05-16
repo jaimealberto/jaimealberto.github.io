@@ -4,74 +4,44 @@
     <title>GUI on JaimeAlberto.io</title>
     <link>https://jaimealberto.io/tags/gui/</link>
     <description>Recent content in GUI on JaimeAlberto.io</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jaimealberto.io/tags/gui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Personalizar login en GNOME, GDM 3</title>
       <link>https://jaimealberto.io/post/14_customgdm3/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/gdm.jpg&#34; alt=&#34;Personalizar login en GNOME, GDM 3&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/gdm.jpg&#34; alt=&#34;Personalizar login en GNOME, GDM 3&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Organizar escritorio en Windows</title>
       <link>https://jaimealberto.io/post/24_windows1/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/24_windows1/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/windowsI.jpg&#34; alt=&#34;Organizar escritorio en Windows&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/windowsI.jpg&#34; alt=&#34;Organizar escritorio en Windows&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Tips &amp; Tricks MacOS III de ?</title>
       <link>https://jaimealberto.io/post/03_tipsmacos03/</link>
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/03_tipsmacos03/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/trickIII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS III de ?&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de Trucos para MacOs &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;I&lt;/a&gt; y &lt;a href=&#34;https://jaimealberto.io/post/02_tipsmacos02/&#34;&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickIII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS III de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de Trucos para MacOs &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;I&lt;/a&gt; y &lt;a href=&#34;https://jaimealberto.io/post/02_tipsmacos02/&#34;&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Tips &amp; Tricks MacOS II</title>
       <link>https://jaimealberto.io/post/02_tipsmacos02/</link>
       <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/02_tipsmacos02/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/trickII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS II&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Tips &amp; Tricks MacOS I de ?</title>
       <link>https://jaimealberto.io/post/01_tipsmacos01/</link>
       <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jaimealberto.io/post/01_tipsmacos01/</guid>
-      <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.io/img/trick.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS I de ?&#34;&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;
-&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trick.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS I de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;&#xA;&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

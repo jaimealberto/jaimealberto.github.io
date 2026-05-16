@@ -8,12 +8,16 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Usuarios grupos">
 	<link rel="canonical" href="https://jaimealberto.io/post/44_permisos/">
-		<meta property="og:title" content="Permisos en Linux" />
-<meta property="og:description" content="Usuarios grupos" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/44_permisos/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2025-08-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-08-07T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/44_permisos/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Permisos en Linux">
+  <meta property="og:description" content="Usuarios grupos">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-07T00:00:00+00:00">
+    <meta property="article:tag" content="Terminal">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +44,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -187,11 +190,11 @@
 <p><strong>Ejemplos:</strong></p>
 <p>Desde el terminal:</p>
 <p>Da permisos de lectura, escritura y ejecución al <strong>propietario</strong> (7), y de lectura y ejecución al <strong>grupo</strong> (5) y a <strong>otros</strong> (5).
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">755</span> script.sh</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">755</span> script.sh</span></span></code></pre></div>
 Da permisos de lectura y escritura al <strong>propietario</strong> (6), y solo de lectura al <strong>grupo</strong> (4) y a <strong>otros</strong> (4).
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">644</span> documento.txt</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">644</span> documento.txt</span></span></code></pre></div>
 Da permisos completos al <strong>propietario</strong> (7) y elimina todos los permisos para el <strong>grupo</strong> (0) y <strong>otros</strong> (0).
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">700</span> archivo_privado.key</span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">700</span> archivo_privado.key</span></span></code></pre></div></p>
 <h2 id="método-simbólico-letras-">Método Simbólico (Letras) 📝</h2>
 <p>Este método utiliza letras y símbolos para añadir (<code>+</code>), quitar (<code>-</code>) o establecer (<code>=</code>) permisos de forma más intuitiva.</p>
 <ul>
@@ -202,25 +205,25 @@ Da permisos completos al <strong>propietario</strong> (7) y elimina todos los pe
 <p><strong>Ejemplos:</strong></p>
 <p>Desde el terminal:</p>
 <p><strong>Añade</strong> el permiso de ejecución (<code>+x</code>) solo al <strong>propietario</strong> (<code>u</code>).
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod u+x script.sh</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod u+x script.sh</span></span></code></pre></div>
 <strong>Quita</strong> el permiso de escritura (<code>-w</code>) solo al <strong>grupo</strong> (<code>g</code>).
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod g-w documento.txt</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod g-w documento.txt</span></span></code></pre></div>
 <strong>Establece</strong> los permisos para <strong>otros</strong> (<code>o</code>) exactamente como solo lectura (<code>=r</code>), eliminando cualquier otro permiso que tuvieran.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod o<span style="color:#f92672">=</span>r archivo.conf</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod o<span style="color:#f92672">=</span>r archivo.conf</span></span></code></pre></div>
 <strong>Añade</strong> el permiso de lectura (<code>+r</code>) a <strong>todos</strong> (<code>a</code>).
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod a+r archivo.zip</span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod a+r archivo.zip</span></span></code></pre></div></p>
 <h2 id="cambio-de-propietario-y-grupo-">Cambio de Propietario y Grupo 👥</h2>
 <p>Además de los permisos, es posible cambiar quién es el propietario de un fichero y a qué grupo pertenece. Para ello, se usan los comandos <code>chown</code> y <code>chgrp</code>.</p>
 <p>Desde el terminal:</p>
 <ul>
 <li><strong><code>chown</code> (change owner):</strong> Para cambiar el propietario.
 Cambia el propietario de <code>documento.txt</code> al usuario <code>juan</code>.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chown juan documento.txt</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chown juan documento.txt</span></span></code></pre></div>
 Cambia el propietario a <code>juan</code> y el grupo a <code>desarrollo</code>.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo chown juan:desarrollo documento.txt</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo chown juan:desarrollo documento.txt</span></span></code></pre></div></li>
 <li><strong><code>chgrp</code> (change group):</strong> Para cambiar solo el grupo.
 Cambia el grupo de <code>documento.txt</code> a <code>desarrollo</code>.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chgrp desarrollo documento.txt</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chgrp desarrollo documento.txt</span></span></code></pre></div>
 Espero que el siguiente esquema sirva de guía mas visual de todo lo anterior</li>
 </ul>
 <figure>

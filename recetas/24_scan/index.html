@@ -8,12 +8,13 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Ver que host estan levantados en un rango de red">
 	<link rel="canonical" href="https://jaimealberto.io/recetas/24_scan/">
-		<meta property="og:title" content="Escaneo red host up" />
-<meta property="og:description" content="Ver que host estan levantados en un rango de red" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/recetas/24_scan/" /><meta property="article:section" content="Recetas" />
-
-
+		<meta property="og:url" content="https://jaimealberto.io/recetas/24_scan/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Escaneo red host up">
+  <meta property="og:description" content="Ver que host estan levantados en un rango de red">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="recetas">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +41,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -129,9 +129,9 @@
 		</header><div class="content post__content clearfix">
 			<p>Desde el terminal:</p>
 <p>Con ping:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> IP in 192.168.1.<span style="color:#f92672">{</span>1..254<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">if</span> ping $IP -c <span style="color:#ae81ff">1</span> &gt; /dev/null; <span style="color:#66d9ef">then</span> echo $IP alive; <span style="color:#66d9ef">else</span> echo $IP dead; <span style="color:#66d9ef">fi</span>; <span style="color:#66d9ef">done</span></span></span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> IP in 192.168.1.<span style="color:#f92672">{</span>1..254<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">if</span> ping $IP -c <span style="color:#ae81ff">1</span> &gt; /dev/null; <span style="color:#66d9ef">then</span> echo $IP alive; <span style="color:#66d9ef">else</span> echo $IP dead; <span style="color:#66d9ef">fi</span>; <span style="color:#66d9ef">done</span></span></span></code></pre></div></p>
 <p>Con nmap:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmap -sP 192.168.1.0/24</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmap -sP 192.168.1.0/24</span></span></code></pre></div>
 		</div>
 <div class="share-buttons">
     <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2frecetas%2f24_scan%2f&amp;title=Escaneo%20red%20host%20up" rel="nofollow noopener noreferrer" class="share-btn linkedin">

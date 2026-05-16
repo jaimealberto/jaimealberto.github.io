@@ -8,12 +8,18 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios.">
 	<link rel="canonical" href="https://jaimealberto.io/post/55_grupos/">
-		<meta property="og:title" content="Grupos en Linux. Control de acceso sin complicaciones" />
-<meta property="og:description" content="Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/post/55_grupos/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2026-05-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2026-05-16T00:00:00+00:00" />
+		<meta property="og:url" content="https://jaimealberto.io/post/55_grupos/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Grupos en Linux. Control de acceso sin complicaciones">
+  <meta property="og:description" content="Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:tag" content="Terminal">
+    <meta property="article:tag" content="Seguridad">
+    <meta property="article:tag" content="Usuarios">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +46,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -179,7 +184,7 @@
 <li><strong>Grupos secundarios:</strong> grupos adicionales que otorgan acceso a recursos concretos (impresoras, discos, sudo, etc.).</li>
 </ul>
 <p>Para ver los grupos de un usuario:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Grupos del usuario actual</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Grupos del usuario actual</span>
 </span></span><span style="display:flex;"><span>groups
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Grupos de un usuario concreto</span>
@@ -202,42 +207,42 @@ sshusers:x:1001:adminuser,backupuser
 <hr>
 <h2 id="-gestión-de-grupos">⚙️ Gestión de grupos</h2>
 <h3 id="crear">Crear</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crear grupo con GID automático</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crear grupo con GID automático</span>
 </span></span><span style="display:flex;"><span>groupadd desarrolladores
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Crear grupo con GID específico</span>
 </span></span><span style="display:flex;"><span>groupadd -g <span style="color:#ae81ff">1500</span> desarrolladores</span></span></code></pre></div>
 <h3 id="modificar">Modificar</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cambiar el nombre del grupo</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cambiar el nombre del grupo</span>
 </span></span><span style="display:flex;"><span>groupmod -n devs desarrolladores
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Cambiar el GID</span>
 </span></span><span style="display:flex;"><span>groupmod -g <span style="color:#ae81ff">1600</span> devs</span></span></code></pre></div>
 <h3 id="eliminar">Eliminar</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>groupdel devs</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>groupdel devs</span></span></code></pre></div>
 <p><strong>Nota:</strong> no se puede eliminar un grupo que sea el grupo primario de algún usuario. Hay que reasignar antes.</p>
 <hr>
 <h2 id="-añadir-y-quitar-usuarios-de-grupos">👤 Añadir y quitar usuarios de grupos</h2>
 <h3 id="el-error-clásico-con-usermod">El error clásico con usermod</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># MAL — reemplaza todos los grupos secundarios del usuario</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># MAL — reemplaza todos los grupos secundarios del usuario</span>
 </span></span><span style="display:flex;"><span>usermod -G docker sistemas
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># BIEN — añade al grupo sin tocar los demás (-a de append)</span>
 </span></span><span style="display:flex;"><span>usermod -aG docker sistemas</span></span></code></pre></div>
 <p>Olvidar la <code>-a</code> es el error más común. El resultado es que el usuario pierde acceso a todo lo que tenía — incluido <code>sudo</code> si pertenecía a ese grupo.</p>
 <h3 id="con-gpasswd">Con gpasswd</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Añadir usuario al grupo</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Añadir usuario al grupo</span>
 </span></span><span style="display:flex;"><span>gpasswd -a sistemas docker
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Quitar usuario del grupo</span>
 </span></span><span style="display:flex;"><span>gpasswd -d sistemas docker</span></span></code></pre></div>
 <h3 id="aplicar-sin-cerrar-sesión">Aplicar sin cerrar sesión</h3>
 <p>Los cambios de grupo no se aplican hasta que el usuario abre una nueva sesión. Para aplicarlos en la sesión actual sin salir:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newgrp docker</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newgrp docker</span></span></code></pre></div>
 <hr>
 <h2 id="-permisos-por-grupo-en-la-práctica">🔐 Permisos por grupo en la práctica</h2>
 <h3 id="cambiar-el-grupo-propietario-de-un-fichero">Cambiar el grupo propietario de un fichero</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cambiar grupo de un fichero</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cambiar grupo de un fichero</span>
 </span></span><span style="display:flex;"><span>chgrp desarrolladores proyecto.tar.gz
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Cambiar propietario y grupo a la vez</span>
@@ -246,7 +251,7 @@ sshusers:x:1001:adminuser,backupuser
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Recursivo para un directorio</span>
 </span></span><span style="display:flex;"><span>chown -R sistemas:desarrolladores /srv/proyecto/</span></span></code></pre></div>
 <h3 id="permisos-de-grupo-con-chmod">Permisos de grupo con chmod</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Dar lectura y escritura al grupo</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Dar lectura y escritura al grupo</span>
 </span></span><span style="display:flex;"><span>chmod g+rw fichero.txt
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Quitar ejecución al grupo</span>
@@ -256,7 +261,7 @@ sshusers:x:1001:adminuser,backupuser
 </span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">750</span> /srv/proyecto/</span></span></code></pre></div>
 <h3 id="el-bit-setgid--directorios-compartidos">El bit setgid — directorios compartidos</h3>
 <p>El bit setgid en un directorio hace que todos los ficheros creados dentro hereden el grupo del directorio, no el grupo primario del usuario que los crea. Imprescindible para carpetas compartidas entre varios usuarios:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crear directorio compartido</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crear directorio compartido</span>
 </span></span><span style="display:flex;"><span>mkdir /srv/compartido
 </span></span><span style="display:flex;"><span>chgrp desarrolladores /srv/compartido
 </span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">2770</span> /srv/compartido   <span style="color:#75715e"># el 2 activa el setgid</span>
@@ -269,56 +274,56 @@ sshusers:x:1001:adminuser,backupuser
 <hr>
 <h2 id="-el-grupo-sudo">🔑 El grupo sudo</h2>
 <p>En Debian/Ubuntu el acceso a <code>sudo</code> se gestiona mediante el grupo <code>sudo</code>. En Red Hat/Fedora es el grupo <code>wheel</code>. Añadir un usuario a ese grupo es la forma limpia de darle privilegios de administración sin tocar <code>/etc/sudoers</code> a mano:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Debian/Ubuntu</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Debian/Ubuntu</span>
 </span></span><span style="display:flex;"><span>usermod -aG sudo sistemas
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Red Hat/Fedora/CentOS</span>
 </span></span><span style="display:flex;"><span>usermod -aG wheel sistemas</span></span></code></pre></div>
 <p>Para revocar el acceso basta con quitarlo del grupo — sin editar ningún fichero de configuración:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gpasswd -d sistemas sudo</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gpasswd -d sistemas sudo</span></span></code></pre></div>
 <hr>
 <h2 id="-resultado">✅ Resultado</h2>
 <table>
-<thead>
-<tr>
-<th>Operación</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ver grupos de un usuario</td>
-<td><code>groups usuario</code> / <code>id usuario</code></td>
-</tr>
-<tr>
-<td>Crear grupo</td>
-<td><code>groupadd nombre</code></td>
-</tr>
-<tr>
-<td>Renombrar grupo</td>
-<td><code>groupmod -n nuevo_nombre nombre</code></td>
-</tr>
-<tr>
-<td>Añadir usuario a grupo</td>
-<td><code>usermod -aG grupo usuario</code></td>
-</tr>
-<tr>
-<td>Quitar usuario de grupo</td>
-<td><code>gpasswd -d usuario grupo</code></td>
-</tr>
-<tr>
-<td>Cambiar grupo de fichero</td>
-<td><code>chgrp grupo fichero</code></td>
-</tr>
-<tr>
-<td>Directorio compartido con setgid</td>
-<td><code>chmod 2770 directorio</code></td>
-</tr>
-<tr>
-<td>Dar sudo</td>
-<td><code>usermod -aG sudo usuario</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Operación</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Ver grupos de un usuario</td>
+          <td><code>groups usuario</code> / <code>id usuario</code></td>
+      </tr>
+      <tr>
+          <td>Crear grupo</td>
+          <td><code>groupadd nombre</code></td>
+      </tr>
+      <tr>
+          <td>Renombrar grupo</td>
+          <td><code>groupmod -n nuevo_nombre nombre</code></td>
+      </tr>
+      <tr>
+          <td>Añadir usuario a grupo</td>
+          <td><code>usermod -aG grupo usuario</code></td>
+      </tr>
+      <tr>
+          <td>Quitar usuario de grupo</td>
+          <td><code>gpasswd -d usuario grupo</code></td>
+      </tr>
+      <tr>
+          <td>Cambiar grupo de fichero</td>
+          <td><code>chgrp grupo fichero</code></td>
+      </tr>
+      <tr>
+          <td>Directorio compartido con setgid</td>
+          <td><code>chmod 2770 directorio</code></td>
+      </tr>
+      <tr>
+          <td>Dar sudo</td>
+          <td><code>usermod -aG sudo usuario</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>Con los grupos bien configurados puedes controlar el acceso a cualquier recurso del sistema sin tocar los permisos de cada fichero individualmente. Un usuario entra al grupo, accede al recurso. Sale del grupo, pierde el acceso. Simple y auditable.</p>
 		</div>

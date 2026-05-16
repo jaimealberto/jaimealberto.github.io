@@ -8,12 +8,13 @@
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="“Referencia rápida”">
 	<link rel="canonical" href="https://jaimealberto.io/recetas/03_scp/">
-		<meta property="og:title" content="Scp, transferencia de archivos sobre ssh" />
-<meta property="og:description" content="“Referencia rápida”" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jaimealberto.io/recetas/03_scp/" /><meta property="article:section" content="Recetas" />
-
-
+		<meta property="og:url" content="https://jaimealberto.io/recetas/03_scp/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Scp, transferencia de archivos sobre ssh">
+  <meta property="og:description" content="“Referencia rápida”">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="recetas">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,13 +41,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
-		
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -128,64 +128,64 @@
 </div></div>
 		</header><div class="content post__content clearfix">
 			<h2 id="uso-básico">Uso básico</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp &lt;parametro&gt; &lt;origen&gt; &lt;destino&gt;</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>scp &lt;parametro&gt; &lt;origen&gt; &lt;destino&gt;</span></span></code></pre></div>
 <h2 id="parámetros">Parámetros</h2>
 <table>
-<thead>
-<tr>
-<th>Parámetro</th>
-<th>Acción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>–P</td>
-<td>Puerto, 22 defecto</td>
-</tr>
-<tr>
-<td>–r</td>
-<td>Copia recursiva, incluye subdirectorios</td>
-</tr>
-<tr>
-<td>–p</td>
-<td>Conserva fecha y atributos</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parámetro</th>
+          <th>Acción</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>–P</td>
+          <td>Puerto, 22 defecto</td>
+      </tr>
+      <tr>
+          <td>–r</td>
+          <td>Copia recursiva, incluye subdirectorios</td>
+      </tr>
+      <tr>
+          <td>–p</td>
+          <td>Conserva fecha y atributos</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="ejemplos">Ejemplos</h2>
 <table>
-<thead>
-<tr>
-<th>Acción</th>
-<th>Comando</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Copia local a remoto</td>
-<td>scp origen.zip usuario_remoto@hostremoto:/home/</td>
-</tr>
-<tr>
-<td>Copia local a remoto cambio de puerto</td>
-<td>scp -P 2234 origen.zip usuario_remoto@hostremoto:/home/</td>
-</tr>
-<tr>
-<td>Copia recursiva de local a remoto</td>
-<td>scp /home/usuario usuario_remoto@hostremoto:/home/</td>
-</tr>
-<tr>
-<td>Copia remoto a local</td>
-<td>scp usuario_remoto@hostremoto:/home/remoto.zip /home/</td>
-</tr>
-<tr>
-<td>Copia remoto a remoto</td>
-<td>scp usuario1@hostremoto1:/home/remoto.zip usuario1@hostremoto2:/home/remoto.zip</td>
-</tr>
-<tr>
-<td>Copia remoto a remoto, puente local</td>
-<td>scp -3 usuario1@hostremoto1:/home/remoto.zip usuario1@hostremoto2:/home/remoto.zip</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Acción</th>
+          <th>Comando</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Copia local a remoto</td>
+          <td>scp origen.zip usuario_remoto@hostremoto:/home/</td>
+      </tr>
+      <tr>
+          <td>Copia local a remoto cambio de puerto</td>
+          <td>scp -P 2234 origen.zip usuario_remoto@hostremoto:/home/</td>
+      </tr>
+      <tr>
+          <td>Copia recursiva de local a remoto</td>
+          <td>scp /home/usuario usuario_remoto@hostremoto:/home/</td>
+      </tr>
+      <tr>
+          <td>Copia remoto a local</td>
+          <td>scp usuario_remoto@hostremoto:/home/remoto.zip /home/</td>
+      </tr>
+      <tr>
+          <td>Copia remoto a remoto</td>
+          <td>scp usuario1@hostremoto1:/home/remoto.zip usuario1@hostremoto2:/home/remoto.zip</td>
+      </tr>
+      <tr>
+          <td>Copia remoto a remoto, puente local</td>
+          <td>scp -3 usuario1@hostremoto1:/home/remoto.zip usuario1@hostremoto2:/home/remoto.zip</td>
+      </tr>
+  </tbody>
 </table>
 		</div>
 <div class="share-buttons">

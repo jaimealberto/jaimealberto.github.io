@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacOS  on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/categories/macos-/</link>
+    <description>Recent content in MacOS  on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jaimealberto.io/categories/macos-/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terminator &#43; Zsh</title>
+      <link>https://jaimealberto.io/post/36_terminatorzsh/</link>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/36_terminatorzsh/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/DECVT100.jpg&#34; alt=&#34;Terminator &amp;#43; Zsh&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Ya han pasado tiempo desde aquellos maravillosos &lt;a href=&#34;https://es.wikipedia.org/wiki/Terminal_tonta&#34;&gt;terminales&lt;/a&gt; “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal &lt;a href=&#34;https://github.com/software-jessies-org/jessies/wiki/Terminator&#34;&gt;Terminator&lt;/a&gt; y la &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt; &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Utilidades terminal IV</title>
+      <link>https://jaimealberto.io/post/21_utilidadesterminaliv/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/21_utilidadesterminaliv/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool4.jpg&#34; alt=&#34;Utilidades terminal IV&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href=&#34;https://es.wikipedia.org/wiki/Star_Wars&#34;&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tips &amp; Tricks MacOS III de ?</title>
+      <link>https://jaimealberto.io/post/03_tipsmacos03/</link>
+      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/03_tipsmacos03/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickIII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS III de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de Trucos para MacOs &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;I&lt;/a&gt; y &lt;a href=&#34;https://jaimealberto.io/post/02_tipsmacos02/&#34;&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>iTerm2 &#43; Zsh</title>
+      <link>https://jaimealberto.io/post/23_itermzsh/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/23_itermzsh/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/iterm2zsh.jpg&#34; alt=&#34;iTerm2 &amp;#43; Zsh&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href=&#34;https://iterm2.com/&#34;&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tips &amp; Tricks MacOS II</title>
+      <link>https://jaimealberto.io/post/02_tipsmacos02/</link>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/02_tipsmacos02/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Utilidades terminal III</title>
+      <link>https://jaimealberto.io/post/15_utilidadesterminaliii/</link>
+      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/15_utilidadesterminaliii/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool3.jpg&#34; alt=&#34;Utilidades terminal III&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Donde están mis contraseñas Wifi</title>
+      <link>https://jaimealberto.io/post/09_passwordwifi/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/09_passwordwifi/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/pwdwifi.jpg&#34; alt=&#34;Donde están mis contraseñas Wifi&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Utilidades terminal II</title>
+      <link>https://jaimealberto.io/post/10_utilidadesterminalii/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/10_utilidadesterminalii/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool2.jpg&#34; alt=&#34;Utilidades terminal II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Utilidades terminal I</title>
+      <link>https://jaimealberto.io/post/08_utilidadesterminali/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/08_utilidadesterminali/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool.jpg&#34; alt=&#34;Utilidades terminal I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tips &amp; Tricks MacOS I de ?</title>
+      <link>https://jaimealberto.io/post/01_tipsmacos01/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/01_tipsmacos01/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trick.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS I de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;&#xA;&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Finder</title>
+      <link>https://jaimealberto.io/post/05_finder/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/05_finder/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/finder.jpg&#34; alt=&#34;Finder&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Grabar el terminal</title>
+      <link>https://jaimealberto.io/post/06_grabarterminal/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/06_grabarterminal/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/grabarterminal.jpg&#34; alt=&#34;Grabar el terminal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
