@@ -6,7 +6,19 @@
     <description>Recent content in SO on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/so/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/so/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AutoHotkey v2. Instalar, configurar y aumentar la productividad</title>
+      <link>https://jaimealberto.github.io/post/47_autohotkey/</link>
+      <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/47_autohotkey/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/autohotkey.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title>
       <link>https://jaimealberto.github.io/post/12_universosshiii/</link>
