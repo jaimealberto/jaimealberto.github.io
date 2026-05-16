@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Formación on </title>
-    <link>https://jaimealberto.github.io/tags/formaci%C3%B3n/</link>
-    <description>Recent content in Formación on </description>
+    <title>Formación on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/tags/formaci%C3%B3n/</link>
+    <description>Recent content in Formación on JaimeAlberto.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 28 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/formaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/formaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Subneteo en IPv4, sencillamente</title>
-      <link>https://jaimealberto.github.io/post/49_subnetting/</link>
+      <link>https://jaimealberto.io/post/49_subnetting/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/49_subnetting/</guid>
+      <guid>https://jaimealberto.io/post/49_subnetting/</guid>
       <description>El subneteo (subnetting) es el arte de dividir una red IP en redes más pequeñas llamadas subredes. En este artículo aprenderás a hacerlo paso a paso de manera sencillo con ejemplos prácticos.
 🧠 ¿Qué es el subneteo en IPv4? El subneteo es la técnica que se utiliza para dividir una red grande en redes más pequeñas. subredes. Esto nos permite mejorar el rendimiento, la seguridad y la administración de las direcciones IP.</description>
     </item>

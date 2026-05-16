@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Servidor on </title>
-    <link>https://jaimealberto.github.io/tags/servidor/</link>
-    <description>Recent content in Servidor on </description>
+    <title>Servidor on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/tags/servidor/</link>
+    <description>Recent content in Servidor on JaimeAlberto.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/servidor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/servidor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Universo SSH IV. Blindando el servidor</title>
-      <link>https://jaimealberto.github.io/post/13_universosshiv/</link>
+      <link>https://jaimealberto.io/post/13_universosshiv/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/13_universosshiv/</guid>
+      <guid>https://jaimealberto.io/post/13_universosshiv/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/universoSSHIV.jpg&#34; alt=&#34;Universo SSH IV. Blindando el servidor&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/universoSSHIV.jpg&#34; alt=&#34;Universo SSH IV. Blindando el servidor&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description>

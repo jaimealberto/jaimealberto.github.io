@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Seguridad on </title>
-    <link>https://jaimealberto.github.io/tags/seguridad/</link>
-    <description>Recent content in Seguridad on </description>
+    <title>Seguridad on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/tags/seguridad/</link>
+    <description>Recent content in Seguridad on JaimeAlberto.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/seguridad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/seguridad/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grupos en Linux. Control de acceso sin complicaciones</title>
-      <link>https://jaimealberto.github.io/post/55_grupos/</link>
+      <link>https://jaimealberto.io/post/55_grupos/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/55_grupos/</guid>
+      <guid>https://jaimealberto.io/post/55_grupos/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/gruposlinux.jpg&#34; alt=&#34;Grupos en Linux. Control de acceso sin complicaciones&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/gruposlinux.jpg&#34; alt=&#34;Grupos en Linux. Control de acceso sin complicaciones&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description>
@@ -22,12 +22,12 @@
     
     <item>
       <title>Universo SSH IV. Blindando el servidor</title>
-      <link>https://jaimealberto.github.io/post/13_universosshiv/</link>
+      <link>https://jaimealberto.io/post/13_universosshiv/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/13_universosshiv/</guid>
+      <guid>https://jaimealberto.io/post/13_universosshiv/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/universoSSHIV.jpg&#34; alt=&#34;Universo SSH IV. Blindando el servidor&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/universoSSHIV.jpg&#34; alt=&#34;Universo SSH IV. Blindando el servidor&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description>
@@ -35,12 +35,12 @@
     
     <item>
       <title>Cardputer</title>
-      <link>https://jaimealberto.github.io/hardware/01_hhackcardputer1/</link>
+      <link>https://jaimealberto.io/hardware/01_hhackcardputer1/</link>
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/hardware/01_hhackcardputer1/</guid>
+      <guid>https://jaimealberto.io/hardware/01_hhackcardputer1/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/hhcp1.jpg&#34; alt=&#34;Cardputer&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/hhcp1.jpg&#34; alt=&#34;Cardputer&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Aquí da comienzo una serie de post relacionados con el HardwareHacking, esto llegara donde mi bolsillo me lo permita dado que no lo patrocina nadie y según compre dispositivos ire contando mis experiencias.&lt;/p&gt;</description>
@@ -48,12 +48,12 @@
     
     <item>
       <title>Donde están los log`s del servidor SSH en Debian 12</title>
-      <link>https://jaimealberto.github.io/post/42_logssshdeb12/</link>
+      <link>https://jaimealberto.io/post/42_logssshdeb12/</link>
       <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/42_logssshdeb12/</guid>
+      <guid>https://jaimealberto.io/post/42_logssshdeb12/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34; alt=&#34;Donde están los log`s del servidor SSH en Debian 12&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/debian.jpg&#34; alt=&#34;Donde están los log`s del servidor SSH en Debian 12&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
@@ -61,12 +61,12 @@
     
     <item>
       <title>Usuarios en Linux II, política de contraseñas</title>
-      <link>https://jaimealberto.github.io/post/27_usuariosii/</link>
+      <link>https://jaimealberto.io/post/27_usuariosii/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/27_usuariosii/</guid>
+      <guid>https://jaimealberto.io/post/27_usuariosii/</guid>
       <description>&lt;p&gt;&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34; alt=&#34;Usuarios en Linux II, política de contraseñas&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/usuariosii.jpg&#34; alt=&#34;Usuarios en Linux II, política de contraseñas&#34;&gt;
 &lt;/figure&gt;
 
 Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
@@ -74,12 +74,12 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
     
     <item>
       <title>DNS, protege tu privacidad sin perder velocidad</title>
-      <link>https://jaimealberto.github.io/post/22_dnssec/</link>
+      <link>https://jaimealberto.io/post/22_dnssec/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/22_dnssec/</guid>
+      <guid>https://jaimealberto.io/post/22_dnssec/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34; alt=&#34;DNS, protege tu privacidad sin perder velocidad&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/dnssec.jpg&#34; alt=&#34;DNS, protege tu privacidad sin perder velocidad&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Los servidores DNS son algo imprescindible para la navegación por Internet. Los utilizamos a diario sin darle quizá la importancia que realmente tienen. Según los dns que utilicemos puede afectar a nuestra velocidad de navegación. Esto es un factor importante el de la velocidad, pero otro creo que aun mas importante es el de nuestra privacidad.&lt;/p&gt;</description>

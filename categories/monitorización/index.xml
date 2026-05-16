@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Monitorización on </title>
-    <link>https://jaimealberto.github.io/categories/monitorizaci%C3%B3n/</link>
-    <description>Recent content in Monitorización on </description>
+    <title>Monitorización on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/categories/monitorizaci%C3%B3n/</link>
+    <description>Recent content in Monitorización on JaimeAlberto.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/categories/monitorizaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/categories/monitorizaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nems, Configuración de notificaciones por correo electrónico SMTP para NEMS 01 </title>
-      <link>https://jaimealberto.github.io/post/50_nems01/</link>
+      <link>https://jaimealberto.io/post/50_nems01/</link>
       <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/50_nems01/</guid>
+      <guid>https://jaimealberto.io/post/50_nems01/</guid>
       <description>Introducción Lo primero que deberíamos de configurar es el cliente SMTP integrado para el envío de notificaciones cuando salte una alerta. Acceda a la herramienta de configuración del sistema (SST) de NEMS desde el menú Configuración de su panel de control de NEMS.
 ✅ 1. Parámetros correctos de GMail SMTP Parámetro Valor SMTP server smtp.gmail.com Puerto 587 Cifrado TLS Usuario tu correo completo → tunombre@gmail.com Contraseña contraseña de aplicación (16 caracteres sin espacios) “From” debe ser tu mismo correo Si todo esta configurado correctamente al pulsar en el botón &amp;ldquo;Test SMTP Settings&amp;rdquo; tendría que aparecer una ventana emergente en el navegador como que todo ok, la cierras.</description>
     </item>
     
     <item>
       <title>Nems, primeros pasos 00</title>
-      <link>https://jaimealberto.github.io/post/45_nems00/</link>
+      <link>https://jaimealberto.io/post/45_nems00/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/45_nems00/</guid>
+      <guid>https://jaimealberto.io/post/45_nems00/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34; alt=&#34;Nems, primeros pasos 00&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/nems_logo.webp&#34; alt=&#34;Nems, primeros pasos 00&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la &lt;a href=&#34;https://docs.nemslinux.com/en/latest/&#34;&gt;documentación oficial&lt;/a&gt;.&lt;/p&gt;</description>

@@ -1,387 +1,387 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
-    <link>https://jaimealberto.github.io/tags/</link>
-    <description>Recent content in Tags on </description>
+    <title>Tags on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/tags/</link>
+    <description>Recent content in Tags on JaimeAlberto.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ansible</title>
-      <link>https://jaimealberto.github.io/tags/ansible/</link>
+      <link>https://jaimealberto.io/tags/ansible/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/ansible/</guid>
+      <guid>https://jaimealberto.io/tags/ansible/</guid>
       <description></description>
     </item>
     
     <item>
       <title>btrfs</title>
-      <link>https://jaimealberto.github.io/tags/btrfs/</link>
+      <link>https://jaimealberto.io/tags/btrfs/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/btrfs/</guid>
+      <guid>https://jaimealberto.io/tags/btrfs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Debian</title>
-      <link>https://jaimealberto.github.io/tags/debian/</link>
+      <link>https://jaimealberto.io/tags/debian/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/debian/</guid>
+      <guid>https://jaimealberto.io/tags/debian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GPG</title>
-      <link>https://jaimealberto.github.io/tags/gpg/</link>
+      <link>https://jaimealberto.io/tags/gpg/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/gpg/</guid>
+      <guid>https://jaimealberto.io/tags/gpg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IA</title>
-      <link>https://jaimealberto.github.io/tags/ia/</link>
+      <link>https://jaimealberto.io/tags/ia/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/ia/</guid>
+      <guid>https://jaimealberto.io/tags/ia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LUKS</title>
-      <link>https://jaimealberto.github.io/tags/luks/</link>
+      <link>https://jaimealberto.io/tags/luks/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/luks/</guid>
+      <guid>https://jaimealberto.io/tags/luks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Portátil</title>
-      <link>https://jaimealberto.github.io/tags/port%C3%A1til/</link>
+      <link>https://jaimealberto.io/tags/port%C3%A1til/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/port%C3%A1til/</guid>
+      <guid>https://jaimealberto.io/tags/port%C3%A1til/</guid>
       <description></description>
     </item>
     
     <item>
       <title>privacidad</title>
-      <link>https://jaimealberto.github.io/tags/privacidad/</link>
+      <link>https://jaimealberto.io/tags/privacidad/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/privacidad/</guid>
+      <guid>https://jaimealberto.io/tags/privacidad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://jaimealberto.github.io/tags/python/</link>
+      <link>https://jaimealberto.io/tags/python/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/python/</guid>
+      <guid>https://jaimealberto.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Seguridad</title>
-      <link>https://jaimealberto.github.io/tags/seguridad/</link>
+      <link>https://jaimealberto.io/tags/seguridad/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/seguridad/</guid>
+      <guid>https://jaimealberto.io/tags/seguridad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Selfhosted</title>
-      <link>https://jaimealberto.github.io/tags/selfhosted/</link>
+      <link>https://jaimealberto.io/tags/selfhosted/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/selfhosted/</guid>
+      <guid>https://jaimealberto.io/tags/selfhosted/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Servidor</title>
-      <link>https://jaimealberto.github.io/tags/servidor/</link>
+      <link>https://jaimealberto.io/tags/servidor/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/servidor/</guid>
+      <guid>https://jaimealberto.io/tags/servidor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SysAdmin</title>
-      <link>https://jaimealberto.github.io/tags/sysadmin/</link>
+      <link>https://jaimealberto.io/tags/sysadmin/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/sysadmin/</guid>
+      <guid>https://jaimealberto.io/tags/sysadmin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Terminal</title>
-      <link>https://jaimealberto.github.io/tags/terminal/</link>
+      <link>https://jaimealberto.io/tags/terminal/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/terminal/</guid>
+      <guid>https://jaimealberto.io/tags/terminal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Timeshift</title>
-      <link>https://jaimealberto.github.io/tags/timeshift/</link>
+      <link>https://jaimealberto.io/tags/timeshift/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/timeshift/</guid>
+      <guid>https://jaimealberto.io/tags/timeshift/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TLP</title>
-      <link>https://jaimealberto.github.io/tags/tlp/</link>
+      <link>https://jaimealberto.io/tags/tlp/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/tlp/</guid>
+      <guid>https://jaimealberto.io/tags/tlp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tmux</title>
-      <link>https://jaimealberto.github.io/tags/tmux/</link>
+      <link>https://jaimealberto.io/tags/tmux/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/tmux/</guid>
+      <guid>https://jaimealberto.io/tags/tmux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Usuarios</title>
-      <link>https://jaimealberto.github.io/tags/usuarios/</link>
+      <link>https://jaimealberto.io/tags/usuarios/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/usuarios/</guid>
+      <guid>https://jaimealberto.io/tags/usuarios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>zsh</title>
-      <link>https://jaimealberto.github.io/tags/zsh/</link>
+      <link>https://jaimealberto.io/tags/zsh/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/zsh/</guid>
+      <guid>https://jaimealberto.io/tags/zsh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HomeLab</title>
-      <link>https://jaimealberto.github.io/tags/homelab/</link>
+      <link>https://jaimealberto.io/tags/homelab/</link>
       <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/homelab/</guid>
+      <guid>https://jaimealberto.io/tags/homelab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apuntes</title>
-      <link>https://jaimealberto.github.io/tags/apuntes/</link>
+      <link>https://jaimealberto.io/tags/apuntes/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/apuntes/</guid>
+      <guid>https://jaimealberto.io/tags/apuntes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Formación</title>
-      <link>https://jaimealberto.github.io/tags/formaci%C3%B3n/</link>
+      <link>https://jaimealberto.io/tags/formaci%C3%B3n/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/formaci%C3%B3n/</guid>
+      <guid>https://jaimealberto.io/tags/formaci%C3%B3n/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hardware</title>
-      <link>https://jaimealberto.github.io/tags/hardware/</link>
+      <link>https://jaimealberto.io/tags/hardware/</link>
       <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/hardware/</guid>
+      <guid>https://jaimealberto.io/tags/hardware/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AutoHotkey</title>
-      <link>https://jaimealberto.github.io/tags/autohotkey/</link>
+      <link>https://jaimealberto.io/tags/autohotkey/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/autohotkey/</guid>
+      <guid>https://jaimealberto.io/tags/autohotkey/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Automatización</title>
-      <link>https://jaimealberto.github.io/tags/automatizaci%C3%B3n/</link>
+      <link>https://jaimealberto.io/tags/automatizaci%C3%B3n/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/automatizaci%C3%B3n/</guid>
+      <guid>https://jaimealberto.io/tags/automatizaci%C3%B3n/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Productividad</title>
-      <link>https://jaimealberto.github.io/tags/productividad/</link>
+      <link>https://jaimealberto.io/tags/productividad/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/productividad/</guid>
+      <guid>https://jaimealberto.io/tags/productividad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SO</title>
-      <link>https://jaimealberto.github.io/tags/so/</link>
+      <link>https://jaimealberto.io/tags/so/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/so/</guid>
+      <guid>https://jaimealberto.io/tags/so/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cliente</title>
-      <link>https://jaimealberto.github.io/tags/cliente/</link>
+      <link>https://jaimealberto.io/tags/cliente/</link>
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/cliente/</guid>
+      <guid>https://jaimealberto.io/tags/cliente/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Utilidades</title>
-      <link>https://jaimealberto.github.io/tags/utilidades/</link>
+      <link>https://jaimealberto.io/tags/utilidades/</link>
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/utilidades/</guid>
+      <guid>https://jaimealberto.io/tags/utilidades/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Shell</title>
-      <link>https://jaimealberto.github.io/tags/shell/</link>
+      <link>https://jaimealberto.io/tags/shell/</link>
       <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/shell/</guid>
+      <guid>https://jaimealberto.io/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>VPN</title>
-      <link>https://jaimealberto.github.io/tags/vpn/</link>
+      <link>https://jaimealberto.io/tags/vpn/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/vpn/</guid>
+      <guid>https://jaimealberto.io/tags/vpn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WireGuard</title>
-      <link>https://jaimealberto.github.io/tags/wireguard/</link>
+      <link>https://jaimealberto.io/tags/wireguard/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/wireguard/</guid>
+      <guid>https://jaimealberto.io/tags/wireguard/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EDR</title>
-      <link>https://jaimealberto.github.io/tags/edr/</link>
+      <link>https://jaimealberto.io/tags/edr/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/edr/</guid>
+      <guid>https://jaimealberto.io/tags/edr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SIEM</title>
-      <link>https://jaimealberto.github.io/tags/siem/</link>
+      <link>https://jaimealberto.io/tags/siem/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/siem/</guid>
+      <guid>https://jaimealberto.io/tags/siem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wazuh</title>
-      <link>https://jaimealberto.github.io/tags/wazuh/</link>
+      <link>https://jaimealberto.io/tags/wazuh/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/wazuh/</guid>
+      <guid>https://jaimealberto.io/tags/wazuh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>XDR</title>
-      <link>https://jaimealberto.github.io/tags/xdr/</link>
+      <link>https://jaimealberto.io/tags/xdr/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/xdr/</guid>
+      <guid>https://jaimealberto.io/tags/xdr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GUI</title>
-      <link>https://jaimealberto.github.io/tags/gui/</link>
+      <link>https://jaimealberto.io/tags/gui/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/gui/</guid>
+      <guid>https://jaimealberto.io/tags/gui/</guid>
       <description></description>
     </item>
     
     <item>
       <title>VS Code</title>
-      <link>https://jaimealberto.github.io/tags/vs-code/</link>
+      <link>https://jaimealberto.io/tags/vs-code/</link>
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/vs-code/</guid>
+      <guid>https://jaimealberto.io/tags/vs-code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Teclas rápidas</title>
-      <link>https://jaimealberto.github.io/tags/teclas-r%C3%A1pidas/</link>
+      <link>https://jaimealberto.io/tags/teclas-r%C3%A1pidas/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/teclas-r%C3%A1pidas/</guid>
+      <guid>https://jaimealberto.io/tags/teclas-r%C3%A1pidas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Terraform</title>
-      <link>https://jaimealberto.github.io/tags/terraform/</link>
+      <link>https://jaimealberto.io/tags/terraform/</link>
       <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/terraform/</guid>
+      <guid>https://jaimealberto.io/tags/terraform/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redes</title>
-      <link>https://jaimealberto.github.io/tags/redes/</link>
+      <link>https://jaimealberto.io/tags/redes/</link>
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/redes/</guid>
+      <guid>https://jaimealberto.io/tags/redes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wifi</title>
-      <link>https://jaimealberto.github.io/tags/wifi/</link>
+      <link>https://jaimealberto.io/tags/wifi/</link>
       <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/wifi/</guid>
+      <guid>https://jaimealberto.io/tags/wifi/</guid>
       <description></description>
     </item>
     

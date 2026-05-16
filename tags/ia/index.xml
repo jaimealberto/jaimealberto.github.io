@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>IA on </title>
-    <link>https://jaimealberto.github.io/tags/ia/</link>
-    <description>Recent content in IA on </description>
+    <title>IA on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/tags/ia/</link>
+    <description>Recent content in IA on JaimeAlberto.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/ia/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/ia/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arquitectura de seguridad multicapa para un asistente IA con datos PII</title>
-      <link>https://jaimealberto.github.io/post/54_ia_pii_security/</link>
+      <link>https://jaimealberto.io/post/54_ia_pii_security/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/post/54_ia_pii_security/</guid>
+      <guid>https://jaimealberto.io/post/54_ia_pii_security/</guid>
       <description>&lt;figure&gt;
-  &lt;img src=&#34;https://jaimealberto.github.io/img/ia_pii_security.jpg&#34; alt=&#34;Arquitectura de seguridad multicapa para un asistente IA con datos PII&#34;&gt;
+  &lt;img src=&#34;https://jaimealberto.io/img/ia_pii_security.jpg&#34; alt=&#34;Arquitectura de seguridad multicapa para un asistente IA con datos PII&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.&lt;/p&gt;</description>

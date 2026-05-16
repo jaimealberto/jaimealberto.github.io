@@ -1,143 +1,143 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Recetas on </title>
-    <link>https://jaimealberto.github.io/recetas/</link>
-    <description>Recent content in Recetas on </description>
+    <title>Recetas on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/recetas/</link>
+    <description>Recent content in Recetas on JaimeAlberto.io</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>es</language><atom:link href="https://jaimealberto.github.io/recetas/index.xml" rel="self" type="application/rss+xml" />
+    <language>es</language><atom:link href="https://jaimealberto.io/recetas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Borrar líneas en blanco</title>
-      <link>https://jaimealberto.github.io/recetas/07_lineasblanco/</link>
+      <link>https://jaimealberto.io/recetas/07_lineasblanco/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/07_lineasblanco/</guid>
+      <guid>https://jaimealberto.io/recetas/07_lineasblanco/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BSD, CPU, RAM, etc</title>
-      <link>https://jaimealberto.github.io/recetas/22_bsd/</link>
+      <link>https://jaimealberto.io/recetas/22_bsd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/22_bsd/</guid>
+      <guid>https://jaimealberto.io/recetas/22_bsd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Check Webcam</title>
-      <link>https://jaimealberto.github.io/recetas/14_webcam/</link>
+      <link>https://jaimealberto.io/recetas/14_webcam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/14_webcam/</guid>
+      <guid>https://jaimealberto.io/recetas/14_webcam/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Comandos en bucle</title>
-      <link>https://jaimealberto.github.io/recetas/05_buclecomandos/</link>
+      <link>https://jaimealberto.io/recetas/05_buclecomandos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/05_buclecomandos/</guid>
+      <guid>https://jaimealberto.io/recetas/05_buclecomandos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Comprimir, descomprimir, empaquetar y desempaquetar</title>
-      <link>https://jaimealberto.github.io/recetas/01_comprimir/</link>
+      <link>https://jaimealberto.io/recetas/01_comprimir/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/01_comprimir/</guid>
+      <guid>https://jaimealberto.io/recetas/01_comprimir/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Convertir avi para tv Samsung</title>
-      <link>https://jaimealberto.github.io/recetas/15_tvs/</link>
+      <link>https://jaimealberto.io/recetas/15_tvs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/15_tvs/</guid>
+      <guid>https://jaimealberto.io/recetas/15_tvs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Crear fichero vacío</title>
-      <link>https://jaimealberto.github.io/recetas/10_crearfichero/</link>
+      <link>https://jaimealberto.io/recetas/10_crearfichero/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/10_crearfichero/</guid>
+      <guid>https://jaimealberto.io/recetas/10_crearfichero/</guid>
       <description>&lt;p&gt;En ocasiones necesitamos ficheros vacíos con un tamaño determinado para realizar pruebas&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Deshabilitar actualizaciones automáticas</title>
-      <link>https://jaimealberto.github.io/recetas/20_update/</link>
+      <link>https://jaimealberto.io/recetas/20_update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/20_update/</guid>
+      <guid>https://jaimealberto.io/recetas/20_update/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deshabilitar ipv6 en grub</title>
-      <link>https://jaimealberto.github.io/recetas/19_grubipv6/</link>
+      <link>https://jaimealberto.io/recetas/19_grubipv6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/19_grubipv6/</guid>
+      <guid>https://jaimealberto.io/recetas/19_grubipv6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Escaneo red host up</title>
-      <link>https://jaimealberto.github.io/recetas/24_scan/</link>
+      <link>https://jaimealberto.io/recetas/24_scan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/24_scan/</guid>
+      <guid>https://jaimealberto.io/recetas/24_scan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Firefox Send, envio archivos</title>
-      <link>https://jaimealberto.github.io/recetas/04_envio_fsend/</link>
+      <link>https://jaimealberto.io/recetas/04_envio_fsend/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/04_envio_fsend/</guid>
+      <guid>https://jaimealberto.io/recetas/04_envio_fsend/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Flush cache dns MacOs</title>
-      <link>https://jaimealberto.github.io/recetas/08_flusdnsmac/</link>
+      <link>https://jaimealberto.io/recetas/08_flusdnsmac/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/08_flusdnsmac/</guid>
+      <guid>https://jaimealberto.io/recetas/08_flusdnsmac/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Geolocalización de mi ip pública</title>
-      <link>https://jaimealberto.github.io/recetas/09_geoip/</link>
+      <link>https://jaimealberto.io/recetas/09_geoip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/09_geoip/</guid>
+      <guid>https://jaimealberto.io/recetas/09_geoip/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HasH desde el terminal</title>
-      <link>https://jaimealberto.github.io/recetas/13_hash/</link>
+      <link>https://jaimealberto.io/recetas/13_hash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/13_hash/</guid>
+      <guid>https://jaimealberto.io/recetas/13_hash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Markdown</title>
-      <link>https://jaimealberto.github.io/recetas/18_markdown/</link>
+      <link>https://jaimealberto.io/recetas/18_markdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/18_markdown/</guid>
+      <guid>https://jaimealberto.io/recetas/18_markdown/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Lenguaje de marcado que facilita el formateo de texto.&lt;/li&gt;
 &lt;li&gt;Extensión md&lt;/li&gt;
@@ -147,109 +147,109 @@
     
     <item>
       <title>Mkv, cortar</title>
-      <link>https://jaimealberto.github.io/recetas/27_cortar_mkv/</link>
+      <link>https://jaimealberto.io/recetas/27_cortar_mkv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/27_cortar_mkv/</guid>
+      <guid>https://jaimealberto.io/recetas/27_cortar_mkv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ocultos Finder MacOs</title>
-      <link>https://jaimealberto.github.io/recetas/21_ocultos_finder/</link>
+      <link>https://jaimealberto.io/recetas/21_ocultos_finder/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/21_ocultos_finder/</guid>
+      <guid>https://jaimealberto.io/recetas/21_ocultos_finder/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ordenar tabla MarkDown</title>
-      <link>https://jaimealberto.github.io/recetas/06_sorttmarkdown/</link>
+      <link>https://jaimealberto.io/recetas/06_sorttmarkdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/06_sorttmarkdown/</guid>
+      <guid>https://jaimealberto.io/recetas/06_sorttmarkdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Permisos .ssh home usuario</title>
-      <link>https://jaimealberto.github.io/recetas/23_permisosssh/</link>
+      <link>https://jaimealberto.io/recetas/23_permisosssh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/23_permisosssh/</guid>
+      <guid>https://jaimealberto.io/recetas/23_permisosssh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Permisos tabla de equivalencias</title>
-      <link>https://jaimealberto.github.io/recetas/25_permisos/</link>
+      <link>https://jaimealberto.io/recetas/25_permisos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/25_permisos/</guid>
+      <guid>https://jaimealberto.io/recetas/25_permisos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Recuperar root en OPNSense</title>
-      <link>https://jaimealberto.github.io/recetas/17_rootopnsense/</link>
+      <link>https://jaimealberto.io/recetas/17_rootopnsense/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/17_rootopnsense/</guid>
+      <guid>https://jaimealberto.io/recetas/17_rootopnsense/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Scp, transferencia de archivos sobre ssh</title>
-      <link>https://jaimealberto.github.io/recetas/03_scp/</link>
+      <link>https://jaimealberto.io/recetas/03_scp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/03_scp/</guid>
+      <guid>https://jaimealberto.io/recetas/03_scp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Screen, terminales múltiples</title>
-      <link>https://jaimealberto.github.io/recetas/02_screen/</link>
+      <link>https://jaimealberto.io/recetas/02_screen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/02_screen/</guid>
+      <guid>https://jaimealberto.io/recetas/02_screen/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SMB / Cifs</title>
-      <link>https://jaimealberto.github.io/recetas/16_smbcifs/</link>
+      <link>https://jaimealberto.io/recetas/16_smbcifs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/16_smbcifs/</guid>
+      <guid>https://jaimealberto.io/recetas/16_smbcifs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Winget, actualización desde PowerShell</title>
-      <link>https://jaimealberto.github.io/recetas/26_wingetupdate/</link>
+      <link>https://jaimealberto.io/recetas/26_wingetupdate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/26_wingetupdate/</guid>
+      <guid>https://jaimealberto.io/recetas/26_wingetupdate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>youtube-dl to mp3</title>
-      <link>https://jaimealberto.github.io/recetas/11_yoump3/</link>
+      <link>https://jaimealberto.io/recetas/11_yoump3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/11_yoump3/</guid>
+      <guid>https://jaimealberto.io/recetas/11_yoump3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ZsH Oh-My-Zsh</title>
-      <link>https://jaimealberto.github.io/recetas/12_ozsh/</link>
+      <link>https://jaimealberto.io/recetas/12_ozsh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/recetas/12_ozsh/</guid>
+      <guid>https://jaimealberto.io/recetas/12_ozsh/</guid>
       <description></description>
     </item>
     
