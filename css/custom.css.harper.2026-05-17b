@@ -45,56 +45,6 @@
 }
 
 
-/* ==== Bienvenida en la home ==== */
-.welcome {
-  padding: 28px 32px;
-  margin-bottom: 32px;
-  background: #0d0d0d;
-  border-left: 4px solid #FF6600;
-  border-radius: 6px;
-}
-
-.welcome__text {
-  margin: 0 0 20px;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #e8e8e8;
-}
-
-.welcome__links {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.welcome__btn {
-  display: inline-block;
-  padding: 9px 22px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #fff;
-  background: #FF6600;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.welcome__btn:hover {
-  background: #cc5200;
-  color: #fff;
-}
-
-.welcome__btn--outline {
-  background: transparent;
-  border: 2px solid #FF6600;
-  color: #FF6600;
-}
-
-.welcome__btn--outline:hover {
-  background: #FF6600;
-  color: #fff;
-}
-
 /* ==== CTA al final de artículo ==== */
 .cta {
   margin: 30px 0;

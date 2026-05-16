@@ -362,9 +362,9 @@
 <li><a href="#id1">Primer apartado</a></li>
 <li><a href="#id2">Segundo apartado</a></li>
 </ol>
-<h2 id="primer-apartado">Primer apartado<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="primer-apartado">Primer apartado<a name="id1"></a></h2>
 <p>Texto del primer apartado</p>
-<h2 id="segundo-apartado">Segundo apartado<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="segundo-apartado">Segundo apartado<a name="id2"></a></h2>
 <p>Texto del segundo apartado</p>
 <h2 id="indice-opción-ii">Indice, opción II</h2>
 <p>Código:</p>
@@ -381,7 +381,12 @@
 <li><a href="#id1">Primer apartado</a></li>
 <li><a href="#id2">Segundo apartado</a></li>
 </ol>
-<!-- raw HTML omitted -->
+<div id='id1' />
+## Primer apartado
+Texto del primer apartado
+<div id='id2' />
+## Segundo apartado
+Texto del segundo apartado
 		</div>
 <div class="share-buttons">
     <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2frecetas%2f18_markdown%2f&amp;title=Markdown" rel="nofollow noopener noreferrer" class="share-btn linkedin">
