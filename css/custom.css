@@ -1,0 +1,134 @@
+/* ==== CTA al final de artículo ==== */
+.cta {
+  margin: 30px 0;
+  padding: 24px 28px;
+  background: #fff8f2;
+  border-left: 5px solid #FF6600;
+  border-radius: 6px;
+}
+
+.cta__text {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.cta__links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cta .cta__btn {
+  display: inline-block;
+  padding: 8px 20px;
+  font-weight: 700;
+  color: #fff;
+  background: #FF6600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.cta .cta__btn:hover {
+  background: #cc5200;
+  color: #fff;
+}
+
+/* ==== Paginación ==== */
+.pagination__item--ellipsis {
+  display: inline-block;
+  padding: 10px 8px;
+  font-weight: 700;
+  color: #999;
+  background: transparent;
+  cursor: default;
+}
+
+/* ==== Estilos base ==== */
+.alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 22px;
+  margin: 24px 0;
+  border-left: 5px solid;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.alerta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.alerta-icono {
+  font-size: 1.8em;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.alerta:hover .alerta-icono {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.alerta-contenido {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ==== Colores modo claro ==== */
+:root {
+  --nota-bg: #f0f8ff;
+  --nota-border: #3498db;
+  --advertencia-bg: #fff4e6;
+  --advertencia-border: #e67e22;
+  --tip-bg: #e6f9f0;
+  --tip-border: #27ae60;
+  --exito-bg: #e6fff0;
+  --exito-border: #2ecc71;
+  --texto: #222;
+}
+
+/* ==== Colores modo oscuro ==== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nota-bg: #1e2a38;
+    --nota-border: #3498db;
+    --advertencia-bg: #3d2a1a;
+    --advertencia-border: #e67e22;
+    --tip-bg: #1a382a;
+    --tip-border: #27ae60;
+    --exito-bg: #1a382a;
+    --exito-border: #2ecc71;
+    --texto: #eee;
+  }
+}
+
+/* ==== Variantes ==== */
+.nota {
+  background-color: var(--nota-bg);
+  border-color: var(--nota-border);
+  color: var(--texto);
+}
+
+.advertencia {
+  background-color: var(--advertencia-bg);
+  border-color: var(--advertencia-border);
+  color: var(--texto);
+}
+
+.tip {
+  background-color: var(--tip-bg);
+  border-color: var(--tip-border);
+  color: var(--texto);
+}
+
+.exito {
+  background-color: var(--exito-bg);
+  border-color: var(--exito-border);
+  color: var(--texto);
+}
