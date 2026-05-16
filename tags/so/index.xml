@@ -1,131 +1,70 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>SO on JaimeAlberto.io</title>
-    <link>https://jaimealberto.io/tags/so/</link>
-    <description>Recent content in SO on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Tue, 21 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jaimealberto.io/tags/so/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>AutoHotkey v2. Instalar, configurar y aumentar la productividad</title>
-      <link>https://jaimealberto.io/post/47_autohotkey/</link>
-      <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/47_autohotkey/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/autohotkey.jpg&#34; alt=&#34;AutoHotkey v2. Instalar, configurar y aumentar la productividad&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title>
-      <link>https://jaimealberto.io/post/12_universosshiii/</link>
-      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/12_universosshiii/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tunelp.jpg&#34; alt=&#34;Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt;, llego la &lt;a href=&#34;https://jaimealberto.io/post/11_universosshii/&#34;&gt;segunda entrega&lt;/a&gt;. Como dicen que no hay dos sin tres pues vamos con la tercera entrega. Esta vez toca hablar de los &lt;a href=&#34;https://en.wikipedia.org/wiki/Tunneling_protocol&#34;&gt;túneles&lt;/a&gt;, popularmente conocidos como “ la vpn del pobre “. Algo que te pude sacar de muchos apuros.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Donde están los log`s del servidor SSH en Debian 12</title>
-      <link>https://jaimealberto.io/post/42_logssshdeb12/</link>
-      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/42_logssshdeb12/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/debian.jpg&#34; alt=&#34;Donde están los log`s del servidor SSH en Debian 12&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Sabes actualizar tu Linux ?</title>
-      <link>https://jaimealberto.io/post/40_distupgrade/</link>
-      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/40_distupgrade/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/update.jpg&#34; alt=&#34;Sabes actualizar tu Linux ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href=&#34;https://es.wikipedia.org/wiki/Advanced_Packaging_Tool&#34;&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Instalación de utilidades desde repositorios</title>
-      <link>https://jaimealberto.io/post/38_utils_repos/</link>
-      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/38_utils_repos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/utils_repos.jpg&#34; alt=&#34;Instalación de utilidades desde repositorios&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href=&#34;https://jaimealberto.io/post/37_navegadores_repos/&#34;&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Instalación de navegadores desde repositorios</title>
-      <link>https://jaimealberto.io/post/37_navegadores_repos/</link>
-      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/37_navegadores_repos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/navegadores_repos.jpg&#34; alt=&#34;Instalación de navegadores desde repositorios&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Terminator &#43; Zsh</title>
-      <link>https://jaimealberto.io/post/36_terminatorzsh/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/36_terminatorzsh/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/DECVT100.jpg&#34; alt=&#34;Terminator &amp;#43; Zsh&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Ya han pasado tiempo desde aquellos maravillosos &lt;a href=&#34;https://es.wikipedia.org/wiki/Terminal_tonta&#34;&gt;terminales&lt;/a&gt; “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal &lt;a href=&#34;https://github.com/software-jessies-org/jessies/wiki/Terminator&#34;&gt;Terminator&lt;/a&gt; y la &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt; &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Borrar kenels antiguos en Debian</title>
-      <link>https://jaimealberto.io/post/33_kernels/</link>
-      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/33_kernels/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/kernel.jpg&#34; alt=&#34;Borrar kenels antiguos en Debian&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Personalizar login en GNOME, GDM 3</title>
-      <link>https://jaimealberto.io/post/14_customgdm3/</link>
-      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/gdm.jpg&#34; alt=&#34;Personalizar login en GNOME, GDM 3&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Organizar escritorio en Windows</title>
-      <link>https://jaimealberto.io/post/24_windows1/</link>
-      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/24_windows1/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/windowsI.jpg&#34; alt=&#34;Organizar escritorio en Windows&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tips &amp; Tricks MacOS III de ?</title>
-      <link>https://jaimealberto.io/post/03_tipsmacos03/</link>
-      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/03_tipsmacos03/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickIII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS III de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de Trucos para MacOs &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;I&lt;/a&gt; y &lt;a href=&#34;https://jaimealberto.io/post/02_tipsmacos02/&#34;&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>iTerm2 &#43; Zsh</title>
-      <link>https://jaimealberto.io/post/23_itermzsh/</link>
-      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/23_itermzsh/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/iterm2zsh.jpg&#34; alt=&#34;iTerm2 &amp;#43; Zsh&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href=&#34;https://iterm2.com/&#34;&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tips &amp; Tricks MacOS II</title>
-      <link>https://jaimealberto.io/post/02_tipsmacos02/</link>
-      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/02_tipsmacos02/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Universo Ssh II</title>
-      <link>https://jaimealberto.io/post/11_universosshii/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/11_universosshii/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ssh2.jpg&#34; alt=&#34;Universo Ssh II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Universo Ssh I</title>
-      <link>https://jaimealberto.io/post/07_universosshi/</link>
-      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/07_universosshi/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ssh.jpg&#34; alt=&#34;Universo Ssh I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tips &amp; Tricks MacOS I de ?</title>
-      <link>https://jaimealberto.io/post/01_tipsmacos01/</link>
-      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/01_tipsmacos01/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trick.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS I de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;&#xA;&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Finder</title>
-      <link>https://jaimealberto.io/post/05_finder/</link>
-      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/05_finder/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/finder.jpg&#34; alt=&#34;Finder&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SO on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/so/</link><description>Recent content in SO on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Tue, 21 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/so/index.xml" rel="self" type="application/rss+xml"/><item><title>AutoHotkey v2. Instalar, configurar y aumentar la productividad</title><link>https://jaimealberto.io/post/47_autohotkey/</link><pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/47_autohotkey/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/autohotkey.jpg" alt="AutoHotkey v2. Instalar, configurar y aumentar la productividad"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href="https://es.wikipedia.org/wiki/Fan"&gt;fan&lt;/a&gt; de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.&lt;/p&gt;</description></item><item><title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title><link>https://jaimealberto.io/post/12_universosshiii/</link><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/12_universosshiii/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/tunelp.jpg" alt="Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/07_universosshi/"&gt;primera entrega&lt;/a&gt;, llego la &lt;a href="https://jaimealberto.io/post/11_universosshii/"&gt;segunda entrega&lt;/a&gt;. Como dicen que no hay dos sin tres pues vamos con la tercera entrega. Esta vez toca hablar de los &lt;a href="https://en.wikipedia.org/wiki/Tunneling_protocol"&gt;túneles&lt;/a&gt;, popularmente conocidos como “ la vpn del pobre “. Algo que te pude sacar de muchos apuros.&lt;/p&gt;</description></item><item><title>Donde están los log`s del servidor SSH en Debian 12</title><link>https://jaimealberto.io/post/42_logssshdeb12/</link><pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/42_logssshdeb12/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/debian.jpg" alt="Donde están los log`s del servidor SSH en Debian 12"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description></item><item><title>Sabes actualizar tu Linux ?</title><link>https://jaimealberto.io/post/40_distupgrade/</link><pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/40_distupgrade/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/update.jpg" alt="Sabes actualizar tu Linux ?"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href="https://es.wikipedia.org/wiki/Advanced_Packaging_Tool"&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description></item><item><title>Instalación de utilidades desde repositorios</title><link>https://jaimealberto.io/post/38_utils_repos/</link><pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/38_utils_repos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/utils_repos.jpg" alt="Instalación de utilidades desde repositorios"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de ver como &lt;a href="https://jaimealberto.io/post/28_vscodeinstall/"&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href="https://jaimealberto.io/post/37_navegadores_repos/"&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description></item><item><title>Instalación de navegadores desde repositorios</title><link>https://jaimealberto.io/post/37_navegadores_repos/</link><pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/37_navegadores_repos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/navegadores_repos.jpg" alt="Instalación de navegadores desde repositorios"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de ver como &lt;a href="https://jaimealberto.io/post/28_vscodeinstall/"&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description></item><item><title>Terminator + Zsh</title><link>https://jaimealberto.io/post/36_terminatorzsh/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/36_terminatorzsh/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/DECVT100.jpg" alt="Terminator &amp;#43; Zsh"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Ya han pasado tiempo desde aquellos maravillosos &lt;a href="https://es.wikipedia.org/wiki/Terminal_tonta"&gt;terminales&lt;/a&gt; “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal &lt;a href="https://github.com/software-jessies-org/jessies/wiki/Terminator"&gt;Terminator&lt;/a&gt; y la &lt;a href="https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)"&gt;Shell&lt;/a&gt; &lt;a href="https://es.wikipedia.org/wiki/Zsh"&gt;Zsh&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Borrar kenels antiguos en Debian</title><link>https://jaimealberto.io/post/33_kernels/</link><pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/33_kernels/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/kernel.jpg" alt="Borrar kenels antiguos en Debian"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description></item><item><title>Personalizar login en GNOME, GDM 3</title><link>https://jaimealberto.io/post/14_customgdm3/</link><pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/14_customgdm3/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/gdm.jpg" alt="Personalizar login en GNOME, GDM 3"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description></item><item><title>Organizar escritorio en Windows</title><link>https://jaimealberto.io/post/24_windows1/</link><pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/24_windows1/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/windowsI.jpg" alt="Organizar escritorio en Windows"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href="https://es.wikipedia.org/wiki/Fan"&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description></item><item><title>Tips &amp; Tricks MacOS III de ?</title><link>https://jaimealberto.io/post/03_tipsmacos03/</link><pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/03_tipsmacos03/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/trickIII.jpg" alt="Tips &amp;amp; Tricks MacOS III de ?"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de Trucos para MacOs &lt;a href="https://jaimealberto.io/post/01_tipsmacos01/"&gt;I&lt;/a&gt; y &lt;a href="https://jaimealberto.io/post/02_tipsmacos02/"&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description></item><item><title>iTerm2 + Zsh</title><link>https://jaimealberto.io/post/23_itermzsh/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/23_itermzsh/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/iterm2zsh.jpg" alt="iTerm2 &amp;#43; Zsh"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href="https://iterm2.com/"&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href="https://es.wikipedia.org/wiki/Zsh"&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href="https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)"&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Tips &amp; Tricks MacOS II</title><link>https://jaimealberto.io/post/02_tipsmacos02/</link><pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/02_tipsmacos02/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/trickII.jpg" alt="Tips &amp;amp; Tricks MacOS II"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/01_tipsmacos01/"&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description></item><item><title>Universo Ssh II</title><link>https://jaimealberto.io/post/11_universosshii/</link><pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/11_universosshii/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/ssh2.jpg" alt="Universo Ssh II"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/07_universosshi/"&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas que se apoyan en este protocolo.&lt;/p&gt;</description></item><item><title>Universo Ssh I</title><link>https://jaimealberto.io/post/07_universosshi/</link><pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/07_universosshi/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/ssh.jpg" alt="Universo Ssh I"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href="https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA"&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href="https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij"&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href="https://es.wikipedia.org/wiki/Ataque_de_REPLAY"&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description></item><item><title>Tips &amp; Tricks MacOS I de ?</title><link>https://jaimealberto.io/post/01_tipsmacos01/</link><pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/01_tipsmacos01/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/trick.jpg" alt="Tips &amp;amp; Tricks MacOS I de ?"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;
+&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description></item><item><title>Finder</title><link>https://jaimealberto.io/post/05_finder/</link><pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/05_finder/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/finder.jpg" alt="Finder"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description></item></channel></rss>
