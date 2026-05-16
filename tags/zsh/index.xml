@@ -13,7 +13,8 @@
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/53_zshmux/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/zshmux.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/zshmux.jpg&#34; alt=&#34;Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Si seguiste el &lt;a href=&#34;https://jaimealberto.github.io/post/52_debianluks&#34;&gt;artículo anterior&lt;/a&gt; tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.&lt;/p&gt;</description>

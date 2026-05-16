@@ -13,7 +13,8 @@
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/13_universosshiv/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/universoSSHIV.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/universoSSHIV.jpg&#34; alt=&#34;Universo SSH IV. Blindando el servidor&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description>
@@ -25,7 +26,8 @@
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/12_universosshiii/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/tunelp.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/tunelp.jpg&#34; alt=&#34;Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.github.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt;, llego la &lt;a href=&#34;https://jaimealberto.github.io/post/11_universosshii/&#34;&gt;segunda entrega&lt;/a&gt;. Como dicen que no hay dos sin tres pues vamos con la tercera entrega. Esta vez toca hablar de los &lt;a href=&#34;https://en.wikipedia.org/wiki/Tunneling_protocol&#34;&gt;túneles&lt;/a&gt;, popularmente conocidos como “ la vpn del pobre “. Algo que te pude sacar de muchos apuros.&lt;/p&gt;</description>
@@ -37,7 +39,8 @@
       <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/42_logssshdeb12/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34; alt=&#34;Donde están los log`s del servidor SSH en Debian 12&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
@@ -49,7 +52,8 @@
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/11_universosshii/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh2.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/ssh2.jpg&#34; alt=&#34;Universo Ssh II&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.github.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.&lt;/p&gt;</description>
@@ -61,7 +65,8 @@
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/07_universosshi/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/ssh.jpg&#34; alt=&#34;Universo Ssh I&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>

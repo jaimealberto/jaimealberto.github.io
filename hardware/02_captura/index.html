@@ -55,7 +55,7 @@
 	<div class="logo">
 		<a class="logo__link" href="/" rel="home">
 			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo.png">
+					<img class="logo__img" src="/img/logo.png" alt="">
 				</div>
 		</a>
 	</div>
@@ -139,12 +139,14 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/capture00.jpg"/>
+			<figure>
+  <img src="/img/capture00.jpg" alt="Captura y graba, hardware dedicado">
 </figure>
 
 <p>Buscando en un cajón aparecieron dos capturadoras de video chinas y decidir darlas utilidad. Normalmente la mayoría de la gente las utiliza con <a href="https://obsproject.com/es">OBS</a> como una fuente mas de entrada para grabar o hacer directos. A dia de hoy tengo la necesidad de algún invento, para el rack que estoy montando para mi laboratorio, que me de imagen de los servidores eventualmente sin llegar a tener nada fijo. Algo portable, barato y que no me suponga una gran inversión en un kvm por ejemplo, ni tampoco quería un monitor de 7 pulgadas o algo asi.</p>
 <p>Pues bien tengo dos capturadoras de video, voy a utilizar la pequeña por eso de que sea una solución portable, asi me la podre llevar junto con el portátil si fuera necesario. Con la capuradora viene un pequeño manual. Esta es la pagina donde tiene una foto y las especificaciones:</p>
-<figure><img src="/img/capturadora.jpg"/>
+<figure>
+  <img src="/img/capturadora.jpg" alt="Captura y graba, hardware dedicado">
 </figure>
 
 <h2 id="-que-necesitamos-">¿ Que necesitamos ?</h2>
@@ -185,7 +187,8 @@ Con el comando anterior nos muestra como reconoce el hardware y los tipos de cap
 <p>Habitualmente la capturadora de video se utiliza como fuente en programas como <a href="https://obsproject.com/es">OBS</a>, pero esta vez vamos ha ver un caso practico que puede sernos util. Tenemos un Raspberry Pi sin monitor, estamos en un CPD no tenemos monitor para conectar a un servidor o en el rack del laboratorio de casa no tenemos un KVM, etc. Pues bien la solución es simple, desde el terminal:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vlc v4l2:///dev/video2 --v4l2-width<span style="color:#f92672">=</span><span style="color:#ae81ff">1920</span> --v4l2-height<span style="color:#f92672">=</span><span style="color:#ae81ff">1080</span> --width<span style="color:#f92672">=</span><span style="color:#ae81ff">800</span> --height<span style="color:#f92672">=</span>600<span style="color:#e6db74">&#34;</span></span></span></code></pre></div></p>
 <p>Esto nos da la visualización de la salida de video de la Raspberry Pi conectada a nuestra capturadora, si le conectamos por usb un teclado ya podemos interactuar en la consola. En el siguiente gif animado se ve el proceso completo:</p>
-<figure><img src="/img/monitor.gif"/>
+<figure>
+  <img src="/img/monitor.gif" alt="Captura y graba, hardware dedicado">
 </figure>
 
 <p><strong>Terminal superior izquierda:</strong> Lanzo el comando que abre vlc conectándose a la capturadora la cual tiene conectado un cable HDMI a la salida de video de la Raspberry Pi.

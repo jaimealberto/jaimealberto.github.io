@@ -34,7 +34,8 @@
       <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/hardware/02_captura/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/capture00.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/capture00.jpg&#34; alt=&#34;Captura y graba, hardware dedicado&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Buscando en un cajón aparecieron dos capturadoras de video chinas y decidir darlas utilidad. Normalmente la mayoría de la gente las utiliza con &lt;a href=&#34;https://obsproject.com/es&#34;&gt;OBS&lt;/a&gt; como una fuente mas de entrada para grabar o hacer directos. A dia de hoy tengo la necesidad de algún invento, para el rack que estoy montando para mi laboratorio, que me de imagen de los servidores eventualmente sin llegar a tener nada fijo. Algo portable, barato y que no me suponga una gran inversión en un kvm por ejemplo, ni tampoco quería un monitor de 7 pulgadas o algo asi.&lt;/p&gt;</description>
@@ -46,7 +47,8 @@
       <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/46_smsi/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/smswg.jpg&#34;/&gt;
+      <description>&lt;p&gt;&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/smswg.jpg&#34; alt=&#34;SMS, envío local&#34;&gt;
 &lt;/figure&gt;
 
 Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
@@ -58,7 +60,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/45_nems00/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34; alt=&#34;Nems, primeros pasos 00&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la &lt;a href=&#34;https://docs.nemslinux.com/en/latest/&#34;&gt;documentación oficial&lt;/a&gt;.&lt;/p&gt;</description>

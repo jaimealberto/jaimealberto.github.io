@@ -55,7 +55,7 @@
 	<div class="logo">
 		<a class="logo__link" href="/" rel="home">
 			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo.png">
+					<img class="logo__img" src="/img/logo.png" alt="">
 				</div>
 		</a>
 	</div>
@@ -145,7 +145,8 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/nems_logo.webp"/>
+			<figure>
+  <img src="/img/nems_logo.webp" alt="Nems, primeros pasos 00">
 </figure>
 
 <p>Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la <a href="https://docs.nemslinux.com/en/latest/">documentación oficial</a>.</p>
@@ -226,7 +227,8 @@ Sincronizar y expulsar
 <li>Esperar aproximadamente 5 minutos para que se realicen las operaciones de primer arranque.</li>
 </ul>
 <p>Una vez termine el primer arranque se reiniciara solo.  Tendremos que averiguar la ip asignada mediante nuestro DHCP. Si no sabemos como hacerlo podemos conectar un monitor por la salida HDMI y obtendremos una imagen similar a esta:
-<figure><img src="/img/nems_tv.webp"/>
+<figure>
+  <img src="/img/nems_tv.webp" alt="Nems, primeros pasos 00">
 </figure>
 </p>
 <p>Una vez tengamos la ip asignada, nos conectaremos mediante ssh con las siguientes credenciales:</p>
@@ -246,7 +248,8 @@ Password: nemsadmin
 <p>Una vez realizado estos pasos, saldremos de la consola y abriremos un navegador con la url a la ip que nos conectamos via ssh mediante https:</p>
 <p>https://IP_NEMS</p>
 <p>Esto nos mostrara esta pantalla:
-<figure><img src="/img/nems_init.png"/>
+<figure>
+  <img src="/img/nems_init.png" alt="Nems, primeros pasos 00">
 </figure>
 </p>
 <p>Nos desplazaremos al menu SYSTEM y elegiremos la opción Cockpit. Esta es la herramienta que deberemos utilizar para cambiar parámetros del sistema. Es muy fácil e intuitiva, no requiere mayor explicación. Se aconseja configurar la red con ip fija y adecuar los parámetros a nuestro entorno junto con el hostname.</p>

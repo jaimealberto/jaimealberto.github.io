@@ -55,7 +55,7 @@
 	<div class="logo">
 		<a class="logo__link" href="/" rel="home">
 			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo.png">
+					<img class="logo__img" src="/img/logo.png" alt="">
 				</div>
 		</a>
 	</div>
@@ -146,7 +146,8 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/debian.jpg"/>
+			<figure>
+  <img src="/img/debian.jpg" alt="Donde están los log`s del servidor SSH en Debian 12">
 </figure>
 
 <p>Donde están mis log del servidor SSH ?. Pues bien desde <strong>Debian 12</strong>, ya no se generan automáticamente como en versiones anteriores en <code>/var/log/auth.log</code>. Ahora el sistema utiliza <strong>systemd‑journald</strong> como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.</p>

@@ -55,7 +55,7 @@
 	<div class="logo">
 		<a class="logo__link" href="/" rel="home">
 			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo.png">
+					<img class="logo__img" src="/img/logo.png" alt="">
 				</div>
 		</a>
 	</div>
@@ -127,7 +127,8 @@
 	</span>
 </div></div>
 		</header><div class="content post__content clearfix">
-			<figure><img src="/img/kernel.jpg"/>
+			<figure>
+  <img src="/img/kernel.jpg" alt="Borrar kenels antiguos en Debian">
 </figure>
 
 <p>Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.</p>
@@ -135,17 +136,20 @@
 <h1 id="procedimiento">Procedimiento</h1>
 <p>Desde nuestro terminal como, root, listamos lo que tenemos instalado ( kenels y headers ):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dpkg -l | grep -i linux-image <span style="color:#f92672">&amp;&amp;</span> dpkg -l | grep -i linux-headers</span></span></code></pre></div>
-<figure><img src="/img/image-headers.png"/>
+<figure>
+  <img src="/img/image-headers.png" alt="Borrar kenels antiguos en Debian">
 </figure>
 
 <p>Como se puede observar en la imagen anterior tenemos instalados varias imágenes de kernel y sus headers correspondientes. Ahora vamos a ver cual tenemos en uso:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>uname -rms</span></span></code></pre></div>
-<figure><img src="/img/kernel-actual.png"/>
+<figure>
+  <img src="/img/kernel-actual.png" alt="Borrar kenels antiguos en Debian">
 </figure>
 
 <p>Como se observa en la imagen estamos actualmente con la versión “ Linux 4.19.0-21 “, con lo cual el resto fuera, lo borramos.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt remove --purge linux-image-4.19.0-20-amd64 linux-headers-4.19.0-20-amd64 linux-headers-4.19.0-20-common</span></span></code></pre></div>
-<figure><img src="/img/erase.gif"/>
+<figure>
+  <img src="/img/erase.gif" alt="Borrar kenels antiguos en Debian">
 </figure>
 
 <p>Y ya terminamos, nuestro sistema limpio como la patena.</p>

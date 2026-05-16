@@ -13,7 +13,8 @@
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/54_ia_pii_security/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/ia_pii_security.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/ia_pii_security.jpg&#34; alt=&#34;Arquitectura de seguridad multicapa para un asistente IA con datos PII&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.&lt;/p&gt;</description>
@@ -25,7 +26,8 @@
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/52_debianluks/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debianluks.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/debianluks.jpg&#34; alt=&#34;Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.&lt;/p&gt;</description>
@@ -37,7 +39,8 @@
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/55_grupos/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gruposlinux.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/gruposlinux.jpg&#34; alt=&#34;Grupos en Linux. Control de acceso sin complicaciones&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description>
@@ -49,7 +52,8 @@
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/53_zshmux/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/zshmux.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/zshmux.jpg&#34; alt=&#34;Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Si seguiste el &lt;a href=&#34;https://jaimealberto.github.io/post/52_debianluks&#34;&gt;artículo anterior&lt;/a&gt; tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.&lt;/p&gt;</description>
@@ -82,7 +86,8 @@
       <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/46_smsi/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/smswg.jpg&#34;/&gt;
+      <description>&lt;p&gt;&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/smswg.jpg&#34; alt=&#34;SMS, envío local&#34;&gt;
 &lt;/figure&gt;
 
 Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
@@ -94,7 +99,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/45_nems00/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34; alt=&#34;Nems, primeros pasos 00&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la &lt;a href=&#34;https://docs.nemslinux.com/en/latest/&#34;&gt;documentación oficial&lt;/a&gt;.&lt;/p&gt;</description>
@@ -106,7 +112,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/44_permisos/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/permisos.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/permisos.jpg&#34; alt=&#34;Permisos en Linux&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description>
@@ -118,7 +125,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/33_kernels/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/kernel.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/kernel.jpg&#34; alt=&#34;Borrar kenels antiguos en Debian&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
@@ -130,7 +138,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/gdm.jpg&#34; alt=&#34;Personalizar login en GNOME, GDM 3&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
@@ -142,7 +151,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/27_usuariosii/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34;/&gt;
+      <description>&lt;p&gt;&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosii.jpg&#34; alt=&#34;Usuarios en Linux II, política de contraseñas&#34;&gt;
 &lt;/figure&gt;
 
 Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
@@ -154,7 +164,8 @@ Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administr
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/26_usuariosi/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/usuariosi.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/usuariosi.jpg&#34; alt=&#34;Usuarios en Linux I&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>

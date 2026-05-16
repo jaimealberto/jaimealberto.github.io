@@ -55,7 +55,7 @@
 	<div class="logo">
 		<a class="logo__link" href="/" rel="home">
 			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo.png">
+					<img class="logo__img" src="/img/logo.png" alt="">
 				</div>
 		</a>
 	</div>
@@ -152,7 +152,8 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/ssh.jpg"/>
+			<figure>
+  <img src="/img/ssh.jpg" alt="Universo Ssh I">
 </figure>
 
 <p>Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la <a href="https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA">IATA</a> del aeropuerto internacional <a href="https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij">Sharm el-sheij</a>, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de <a href="https://es.wikipedia.org/wiki/Ataque_de_REPLAY">REPLAY</a> se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.</p>
@@ -271,7 +272,8 @@ alias h1auth=&#34;ssh -t host1 &#39;tail -f /var/log/auth.log | ccze&#39;&#34;
 <p>Para generar nuestras llaves utilizaremos la siguiente linea de comando desde nuestro home de usuario en un terminal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh-keygen -b <span style="color:#ae81ff">4096</span> -t rsa -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">@</span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74">-</span><span style="color:#66d9ef">$(</span>date -I<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
 <p>Aquí se puede observar el proceso:</p>
-<figure><img src="/img/generatekey.gif"/>
+<figure>
+  <img src="/img/generatekey.gif" alt="Universo Ssh I">
 </figure>
 
 <p>Explicación de los parámetros utilizados:</p>
@@ -332,7 +334,8 @@ Port:         Indica un puerto especifico distinto al general.
 IdentityFile: Indica una llave distinta a la general.
 </code></pre><p>Como se puede observar podemos realizar configuraciones globales o bien especificas según necesidades. Se puede jugar con una gran cantidad de parámetros . Para realizar esta tarea si disponemos de un entorno gráfico, no siempre es así, tenemos herramientas como SSH Config Editor para MacOs. Pero nunca esta de mas saber como funciona el archivo para poder sacar el máximo partido. Como consejo final es importante comentar todo lo que se pueda el archivo, que luego tenemos que tocar algo y no sabemos el por que de un parámetro o valor.</p>
 <h2 id="resumen-gráfico">Resumen gráfico</h2>
-<figure><img src="/img/llavesssh.png"/>
+<figure>
+  <img src="/img/llavesssh.png" alt="Universo Ssh I">
 </figure>
 
 <p><a href="https://hejki.org/ssheditor/">SSH Config Editor</a></p>

@@ -23,7 +23,8 @@
       <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/46_smsi/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/smswg.jpg&#34;/&gt;
+      <description>&lt;p&gt;&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/smswg.jpg&#34; alt=&#34;SMS, envío local&#34;&gt;
 &lt;/figure&gt;
 
 Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
@@ -35,7 +36,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/45_nems00/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/nems_logo.webp&#34; alt=&#34;Nems, primeros pasos 00&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Llevo tiempo siguiendo este proyecto y la verdad dada mi experiencia con Nagios creo que es mi opción para una monitorización de mi homelab, no para cuadros de mando que eso es otra historia. Dado que el precio de las Raspberrys esta prohibitivo me deje de plantear el tema. Pero ahora gracias a un buen amigo que encontró una buena oferta en un kit voy afrontar el proyecto. En este artículo y posteriores que quiero ir escribiendo contare mi experiencia aportando lo que pueda y me apoyaré en la &lt;a href=&#34;https://docs.nemslinux.com/en/latest/&#34;&gt;documentación oficial&lt;/a&gt;.&lt;/p&gt;</description>
@@ -47,7 +49,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/42_logssshdeb12/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/debian.jpg&#34; alt=&#34;Donde están los log`s del servidor SSH en Debian 12&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
@@ -59,7 +62,8 @@ Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de ap
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/post/22_dnssec/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34;/&gt;
+      <description>&lt;figure&gt;
+  &lt;img src=&#34;https://jaimealberto.github.io/img/dnssec.jpg&#34; alt=&#34;DNS, protege tu privacidad sin perder velocidad&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Los servidores DNS son algo imprescindible para la navegación por Internet. Los utilizamos a diario sin darle quizá la importancia que realmente tienen. Según los dns que utilicemos puede afectar a nuestra velocidad de navegación. Esto es un factor importante el de la velocidad, pero otro creo que aun mas importante es el de nuestra privacidad.&lt;/p&gt;</description>

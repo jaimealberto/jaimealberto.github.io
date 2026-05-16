@@ -55,7 +55,7 @@
 	<div class="logo">
 		<a class="logo__link" href="/" rel="home">
 			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo.png">
+					<img class="logo__img" src="/img/logo.png" alt="">
 				</div>
 		</a>
 	</div>
@@ -138,7 +138,8 @@
 </nav>
 	</div>
 </div><div class="content post__content clearfix">
-			<figure><img src="/img/terraformII.jpg"/>
+			<figure>
+  <img src="/img/terraformII.jpg" alt="Terraform II">
 </figure>
 
 <p>Después de una <a href="https://jaimealberto.github.io/post/16_terraformi/">breve introducción</a> a <a href="https://es.wikipedia.org/wiki/Terraform_(software)">Terraform</a>, creo que la mejor manera de entender como funciona es con un ejemplo simple.</p>
@@ -195,7 +196,8 @@
 </span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS          PORTS                NAMES
 </span></span><span style="display:flex;"><span>0282aeb3e121   tutum/hello-world   <span style="color:#e6db74">&#34;/bin/sh -c &#39;php-fpm…&#34;</span>   <span style="color:#ae81ff">18</span> seconds ago   Up <span style="color:#ae81ff">16</span> seconds   0.0.0.0:80-&gt;80/tcp   cduser_hello_world</span></span></code></pre></div>
 <p>Vamos al navegador y ejecutamos http://localhost y debería aparece la imagen de Hello World del contenedor:</p>
-<figure><img src="/img/terraformdocker.png"/>
+<figure>
+  <img src="/img/terraformdocker.png" alt="Terraform II">
 </figure>
 
 <p>Como ya vemos que todo funciona, damos por terminada la practica. Destruimos la infraestructura.</p>
@@ -204,7 +206,8 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>docker ps
 </span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS          PORTS                NAMES</span></span></code></pre></div>
 <p>Aqui podemos ver el proceso completo:</p>
-<figure><img src="/img/terraformdocker.gif"/>
+<figure>
+  <img src="/img/terraformdocker.gif" alt="Terraform II">
 </figure>
 
 <p>Bueno pues por ahora ya hemos terminado, espero vernos en la próxima.</p>
