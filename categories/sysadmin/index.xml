@@ -65,18 +65,6 @@
     </item>
     
     <item>
-      <title>MicroSD, Raspberry Pi</title>
-      <link>https://jaimealberto.github.io/post/48_microsd/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaimealberto.github.io/post/48_microsd/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/microsd.jpg&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Todos los que estamos liados con alguna Raspberry Pi ya sabemos que la tarjetas MicroSD terminan mueriendo por el uso. Por eso siempre es aconsejable hacer un backup. En mi guía sobre Raspberry Pi explico como hacerlo en caliente. Pero siempre queda la duda si al restaurar lo estamos haciendo en una tarjeta que este bien y no escacharrada.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>SMS, envío local</title>
       <link>https://jaimealberto.github.io/post/46_smsi/</link>
       <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
