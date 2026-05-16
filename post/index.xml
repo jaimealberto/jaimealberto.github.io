@@ -6,7 +6,31 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</title>
+      <link>https://jaimealberto.github.io/post/52_debianluks/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/52_debianluks/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debianluks.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux</title>
+      <link>https://jaimealberto.github.io/post/53_zshmux/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/53_zshmux/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/zshmux.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Si seguiste el &lt;a href=&#34;https://jaimealberto.github.io/post/52_debianluks&#34;&gt;artículo anterior&lt;/a&gt; tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Guía para crear una contraseña de aplicación en Gmail</title>
       <link>https://jaimealberto.github.io/post/51_gmailaplicacion/</link>

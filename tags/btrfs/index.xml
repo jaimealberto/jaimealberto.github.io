@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>btrfs on </title>
+    <link>https://jaimealberto.github.io/tags/btrfs/</link>
+    <description>Recent content in btrfs on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/btrfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</title>
+      <link>https://jaimealberto.github.io/post/52_debianluks/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/52_debianluks/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/debianluks.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,22 +6,94 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>HomeLab</title>
-      <link>https://jaimealberto.github.io/tags/homelab/</link>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <title>btrfs</title>
+      <link>https://jaimealberto.github.io/tags/btrfs/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://jaimealberto.github.io/tags/homelab/</guid>
+      <guid>https://jaimealberto.github.io/tags/btrfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debian</title>
+      <link>https://jaimealberto.github.io/tags/debian/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LUKS</title>
+      <link>https://jaimealberto.github.io/tags/luks/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/luks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Portátil</title>
+      <link>https://jaimealberto.github.io/tags/port%C3%A1til/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/port%C3%A1til/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Terminal</title>
       <link>https://jaimealberto.github.io/tags/terminal/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://jaimealberto.github.io/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Timeshift</title>
+      <link>https://jaimealberto.github.io/tags/timeshift/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/timeshift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TLP</title>
+      <link>https://jaimealberto.github.io/tags/tlp/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/tlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tmux</title>
+      <link>https://jaimealberto.github.io/tags/tmux/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
+      <link>https://jaimealberto.github.io/tags/zsh/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HomeLab</title>
+      <link>https://jaimealberto.github.io/tags/homelab/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/tags/homelab/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,350 @@
+---
+title: "Universo Ssh IV, blindando tu Servidor SSH"
+description: "Cuarto post sobre Ssh, blindando tu Servidor SSH"
+date: 2026-02-18
+categories:
+  - "Ssh"
+  - "Redes"
+tags:
+  - "Seguridad"
+  - "Servidor"
+  - "SysAdmin"
+
+toc: true
+draft: true
+---
+{{< figure src="/img/construction.jpg">}}
+
+Hace tiempo escribí una serie de posts sobre la parte cliente de ssh, hoy toca la parte del servidor. La instalación es algo sencillo con un simple comando con el gestor de paquetes de nuestra distro es suficiente. Pero la securizacion del servicio ya es otro tema. Todo ello en el 90 % de las distribuciones se basa en un único fichero (/etc/ssh/sshd_config) el cual ahora veremos con detalle para ajustar su seguridad acorde con nuestras necesidades.
+<!--more-->
+Como diría el Maestro Yoda: *"En el puerto 22, el peligro acecha"*. Si dejas tu configuración de SSH por defecto, es como intentar defender la Estrella de la Muerte con una puerta de madera y una nota que diga "Por favor, no explotar". En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, necesitamos convertir nuestro acceso remoto en una fortaleza inexpugnable. No queremos que un extraño acabe diciendo aquello de: *"I'm in"*. 
+
+## Backup de la configuración
+Lo primero colchón por si pasa algo, backup de fichero de configuración.
+{{< highlight zsh >}}
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup$(date +%d-%m-%Y)
+{{< /highlight >}}
+
+Para ser lo mas directo posible y no perder el tiempo a continuación un ejemplo de fichero de configuración 
+{{< highlight zsh >}}
+#	$OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+Include /etc/ssh/sshd_config.d/*.conf
+# Por defecto el 22. ej. 49152 evita el 90% de los scripts automáticos.
+Port 49152
+#Version de protocolo ip ipv4 (inet). ipv6 (inet6).
+AddressFamily inet
+## Dirección ip de escucha del servicio, por defecto todas. Podemos especificar cual si el hosts tiene varias tanto en ipv 4 como ipv6
+ListenAddress 192.168.1.20
+#ListenAddress ::
+
+#HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_ecdsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging level
+#SyslogFacility AUTH
+#LogLevel INFO
+
+# Authentication  
+# Tiempo máximo (en segundos) que el servidor espera para que un usuario se autentique; si no lo logra, se cierra la conexión.
+LoginGraceTime 180
+# Permitir login como root
+PermitRootLogin no
+# Habilitar para verificar los permisos de las llaves de usuario 600 para authorized_keys
+StrictModes yes
+# Define el número máximo de intentos de autenticación permitidos por conexión
+MaxAuthTries 4
+# Define el número máximo de sesiones abiertas
+MaxSessions 4
+# Habilita un método de autenticación seguro basado en pares de claves criptográficas.
+PubkeyAuthentication yes
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+#AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# HostbasedAuthentication
+#IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+# Permitirá a los usuarios autenticarse utilizando su contraseña del sistema operativo, si se usan llaves poner no
+PasswordAuthentication no
+# Permitir login a usuarios con contraseñas vacias
+PermitEmptyPasswords no
+
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+# Este mecanismo permite al servidor realizar desafíos al cliente (por ejemplo, solicitar una contraseña, un token de un segundo factor, o preguntas personalizadas) y verificar las respuestas.
+ChallengeResponseAuthentication no
+
+# Kerberos options
+#KerberosAuthentication no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+#KerberosGetAFSToken no
+
+# GSSAPI options
+#GSSAPIAuthentication no
+#GSSAPICleanupCredentials yes
+#GSSAPIStrictAcceptorCheck yes
+#GSSAPIKeyExchange no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+#GatewayPorts no
+X11Forwarding yes
+#X11DisplayOffset 10
+#X11UseLocalhost yes
+#PermitTTY yes
+PrintMotd no
+PrintLastLog yes
+#TCPKeepAlive yes
+#PermitUserEnvironment no
+#Compression delayed
+# Desconecta automáticamente las sesiones inactivas después de 5 minutos, 300 segundos.
+ClientAliveInterval 300
+# define el número máximo de mensajes de "keepalive"
+ClientAliveCountMax 0
+# servidor realiza una búsqueda inversa de DNS (reverse DNS lookup) para la dirección IP del cliente que intenta conectarse. Con UseDNS yes (valor predeterminado), sshd verifica el nombre de host, lo que puede causar inicios de sesión lentos, pero mejora la seguridad al validar la IP. 
+#UseDNS no
+#PidFile /var/run/sshd.pid
+#MaxStartups 10:30:100
+#PermitTunnel no
+#ChrootDirectory none
+#VersionAddendum none
+
+# no default banner path
+#Banner none
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# override default of no subsystems
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#	X11Forwarding no
+#	AllowTcpForwarding no
+#	PermitTTY no
+#	ForceCommand cvs server
+{{< /highlight >}}
+
+
+
+
+
+* **Limitación de usuarios:** `AllowUsers obiwan luke`. Solo estos usuarios pueden entrar.
+AllowUsers adminuser backupuser
+AllowGroups sshusers
+DenyUsers testuser guest
+DenyGroups nogroup
+
+
+# Example with Match directive in sshd_config:
+Match Address 203.0.113.0/24
+    AllowUsers adminuser
+
+* **MaxAuthTries:** Configúralo en 3. A la cuarta vez que alguien falle la contraseña, la conexión se corta.
+* **Desactivar X11 Forwarding:** Si no necesitas entorno gráfico, apágalo para reducir la superficie de ataque.
+Configuring Idle Timeout and Connection Limits
+Limiting idle sessions and the number of concurrent connections helps prevent resource exhaustion and reduces the risk of hijacked sessions.
+
+10.1 ClientAliveInterval and ClientAliveCountMax
+These settings automatically disconnect idle SSH sessions.
+
+
+10.2 MaxSessions and MaxAuthTries
+Limit the number of concurrent sessions and authentication attempts to mitigate brute-force attacks.
+
+# In /etc/ssh/sshd_config:
+MaxSessions 2
+MaxAuthTries 3
+For more details, see SSH.com: sshd_config.
+
+
+
+## Aliados del servidor SSH.
+
+### Fail2ban: El portero de discoteca
+
+Fail2ban analiza los logs y banea IPs que muestran comportamientos sospechosos. Dependiendo de tu distro, configuraremos el "backend":
+
+* **Modo Log tradicional:** En `/etc/fail2ban/jail.local`, apuntamos a `logpath = /var/log/auth.log`.
+* **Modo Journalctl:** Para sistemas modernos con Systemd, usamos `backend = systemd`. Esto lee directamente del diario binario, siendo más eficiente y difícil de manipular.
+
+### Port Knocking: El código secreto
+
+Imagina que la puerta de tu servidor no existe... hasta que tocas con un ritmo específico. Con `knockd`, el puerto SSH permanece cerrado por el firewall hasta que envías una secuencia de paquetes a puertos específicos (ej: 7000, 8000, 9000). Solo entonces, la "puerta mágica" se abre por unos segundos.
+
+### Google Authenticator (MFA)
+
+Añadir una capa de **Autenticación de Dos Factores (2FA)**. Usando el módulo PAM de Google, el servidor te pedirá un código de 6 dígitos de tu móvil después de la contraseña.
+
+> **Nota:** Es la mejor defensa si alguna vez tu contraseña se filtra en la "Deep Web".
+
+---
+
+## 4. El Camino del Guerrero: Solo Llaves SSH
+
+Las contraseñas son cosa del siglo XX. El estándar de oro es usar criptografía de clave pública.
+
+1. Generas tu par: `ssh-keygen -t ed25519`. ssh-keygen -t ed25519 -a 100
+2. Subes la pública: `ssh-copy-id usuario@servidor`.
+3. **El paso crucial:** En `sshd_config`, pon `PasswordAuthentication no`.
+Ahora, sin la llave física (tu archivo privado), nadie entra. Ni siquiera con fuerza bruta infinita.
+
+---
+
+## 5. SSH y HTTPS en el mismo puerto: SSLH
+
+¿Estás detrás de un firewall corporativo que solo permite el puerto 443? **SSLH** es un multiplexor. Analiza los paquetes entrantes: si es HTTP, lo manda al servidor web; si es SSH, lo manda al demonio SSH. Es el "camuflaje óptico" perfecto para que tu tráfico parezca simple navegación web.
+
+# Example with UFW:
+sudo ufw allow from 203.0.113.10 to any port 2222
+
+
+
+---
+
+## 6. Playbook de Ansible: Automatización Total
+
+Aquí tienes un esqueleto de Playbook que utiliza `tags` para que puedas decidir qué nivel de seguridad aplicar.
+
+```yaml
+---
+- name: Hardening SSH Server
+  hosts: servers
+  become: yes
+  vars:
+    ssh_port: 49152
+
+  tasks:
+    - name: [Básico] Cambiar puerto y prohibir root
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "{{ item.reg }}"
+        line: "{{ item.line }}"
+      loop:
+        - { reg: '^#?Port', line: "Port {{ ssh_port }}" }
+        - { reg: '^#?PermitRootLogin', line: "PermitRootLogin no" }
+      tags: basic
+
+    - name: [Llaves] Desactivar contraseñas
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PasswordAuthentication'
+        line: "PasswordAuthentication no"
+      tags: keys_only
+
+    - name: [Fail2ban] Instalar y configurar
+      apt:
+        name: fail2ban
+        state: present
+      tags: fail2ban
+
+    - name: [MFA] Instalar Google Authenticator
+      apt:
+        name: libpam-google-authenticator
+        state: present
+      tags: mfa
+
+  handlers:
+    - name: restart ssh
+      service:
+        name: ssh
+        state: restarted
+
+```
+
+---
+ Example Ansible task
+- name: Harden SSH daemon
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PermitRootLogin'
+    line: 'PermitRootLogin no'
+    state: present
+¿Te gustaría que profundizara en la configuración específica de **SSLH** o que detallemos los pasos para configurar el **Port Knocking** en el firewall `ufw`?
+
+
+
+
+
+
+
+
+
+
+
+
+Notas ssh peladonerd III
+
+FordwardAgent: yes que es esto 
+LocalFordward : que cojones es esto?
+
+scp:
+
+no soporta resumido
+
+rsync --partial --progress --rsh=ssh archivo_origen.kk destino
+
+ssh -J 
+
+jump salta de un server a otro
+
+~C 
+
+ssh> -L 8080:localhost:80
+
+sshfs
+ssh-agent 
+FordwareAgent yes
+
+-t Terminal
+
+https://www.youtube.com/watch?v=ZHSGGG_WwUs
+
+scp en el post sshI
+
+
+
+https://www.secdevoops.es/index.php/2020/10/28/hardening-de-un-servidor-ssh/
+## ssh -t remotehost scree -r
+
+
+
+
