@@ -1,0 +1,237 @@
+---
+title: "Recursos"
+description: "Lista de recursos que creo interesantes"
+toc: true
+date: 2025-10-10
+author: JaimeAlberto
+menu:
+  main:
+    name: Recursos
+    weight: 80
+---
+
+## Herramientas on-line
+
+- [Color Hunt](https://colorhunt.co/), paleta de colores.
+- [Crontab generator](https://crontab-generator.org/), genera líneas de cron a partir de una interfaz visual.
+- [Drawio](https://app.diagrams.net/), diagramas y diagramas de red. `[Open Source]`
+- [Excalidraw](https://excalidraw.com/), diagramas con estilo boceto, muy visual. `[Open Source]`
+- [Internxt](https://send.internxt.com/), transferencia segura de ficheros cifrada extremo a extremo.
+- [MEditor](https://pandao.github.io/editor.md/en.html), editor Markdown en línea. `[Open Source]`
+- [One Time Secret](https://onetimesecret.com/), comparte información sensible con enlace de un solo uso.
+- [Private note](https://prinvote.net), notas que se autodestruyen tras ser leídas.
+- [SafeLayer](https://saferlayer.com/), protege tus documentos antes de enviarlos, añade marcas de agua y rastrea accesos.
+- [Smash](https://fromsmash.com/), transferencia de ficheros grandes sin límite de tamaño.
+- [TransferNow](https://www.transfernow.net/), transferencia segura de ficheros.
+- [WinGet Generator](https://winget.run/), genera el comando de instalación para cualquier software en Windows.
+- [Wormhole](https://wormhole.app/), transferencia cifrada punto a punto directamente desde el navegador.
+
+## Multimedia y assets
+
+- [Barnimages](https://pixabay.com/es/), banco de imágenes gratuito.
+- [Cutestockfootage](https://cutestockfootage.com/), banco de vídeos gratuito.
+- [Dareful](https://dareful.com/), banco de vídeos 4K gratuito.
+- [Dashboard Icons](https://dashboardicons.com/), iconos para dashboards de homelab (Heimdall, Homarr…).
+- [EmojiCombos](https://emojicombos.com/), base de datos de combinaciones de emojis.
+- [Emojipedia](https://emojipedia.org/), emojis y su significado oficial.
+- [Freepik](https://www.freepik.es/), banco de imágenes vectoriales.
+- [Free-stock](https://free-stock.video/), banco de vídeos gratuito.
+- [Lifeofvids](https://www.lifeofvids.com/), vídeos y GIFs bajo licencia CC0.
+- [Mazwai](https://mazwai.com/), vídeos cinematográficos gratuitos.
+- [Myinstants](https://myinstants.com/), sonidos cortos, útiles para cuñas de podcast.
+- [Pexels](https://www.pexels.com/es-es/videos/), banco de vídeos gratuito.
+- [Pikwizard](https://pikwizard.com/video), banco de vídeos gratuito.
+- [Pixabay](https://pixabay.com/es/s/), banco de imágenes y vídeos gratuito.
+- [ServerWorld](https://www.server-world.info/en/), guías de configuración de sistemas operativos de servidor.
+- [The Noun Project](https://thenounproject.com/), banco de iconos y símbolos.
+- [Unsplash](https://unsplash.com/), banco de fotografías de alta calidad gratuito.
+- [Videezy](https://es.videezy.com/), banco de vídeos gratuito.
+- [Vidsplay](https://www.vidsplay.com/), banco de vídeos gratuito.
+
+## Sitios
+
+- [Listas AdGuard](https://obiwan2208.wordpress.com/2021/03/08/listas-de-bloqueo-adguard/), listas de bloqueo para añadir a tu filtro DNS (Pi-hole, AdGuard Home…).
+- [WikiMediaCommons](https://commons.wikimedia.org/), contenido multimedia bajo licencia Creative Commons.
+
+## Buscadores alternativos
+
+- [Brave Search](https://search.brave.com/), buscador independiente con índice propio, sin rastreo.
+- [DuckDuckGo](https://duckduckgo.com/), buscador privado, sin historial ni perfiles de usuario.
+- [MetaGer](https://metager.org/), metabuscador open source centrado en privacidad. `[Open Source]`
+- [Qwant](https://www.qwant.com/), buscador europeo que no rastrea al usuario.
+- [SearXNG](https://searx.org/), metabuscador open source que puedes alojar tú mismo. `[Open Source]` `[Selfhosted]`
+- [Startpage](https://www.startpage.com/), resultados de Google sin el rastreo.
+- [WolframAlpha](https://www.wolframalpha.com/), motor de conocimiento computacional, ideal para consultas técnicas.
+
+## Servicios
+
+- [Bitwarden](https://bitwarden.com/), gestor de contraseñas en la nube. `[Open Source]` `[Selfhosted]`
+- [Check SSH Server](https://sshcheck.com/), comprueba la configuración de seguridad de un servidor SSH público.
+- [DigitalOcean](https://www.digitalocean.com/), proveedor de servidores virtuales privados. Si no tienes cuenta y quieres probar:
+
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%202.svg)](https://www.digitalocean.com/?refcode=b18868ab8e1c&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
+- [Duck DNS](https://www.duckdns.org/), DNS dinámico gratuito.
+- [Mocky](https://designer.mocky.io/), genera respuestas de API personalizadas para pruebas.
+- [Namecheap](https://www.namecheap.com/), registrador de dominios con servicios DNS y email.
+- [Netmaker](https://www.netmaker.io/), SD-WAN basado en WireGuard. `[Open Source]` `[Selfhosted]`
+- [Ngrok](https://ngrok.com/), expone puertos locales a internet para pruebas de desarrollo.
+- [Security Headers](https://securityheaders.com/), analiza las cabeceras HTTP de seguridad de cualquier web.
+- [Tailscale](https://tailscale.com/), VPN mesh basada en WireGuard, fácil de configurar.
+- [WordpressSecurityScanner](https://geekflare.com/tools/wordpress-security-scanner), escáner de seguridad para instalaciones WordPress.
+- [ZeroTier](https://www.zerotier.com/), SD-WAN, crea redes privadas virtuales entre dispositivos. `[Open Source]`
+
+## Libros
+
+- [El libro de Python](https://ellibrodepython.com/), guía completa de Python en español.
+- Repo [Mindcrypt](https://github.com/mindcrypt/libros), colección de libros de criptografía en abierto.
+- [McLibre](https://www.mclibre.org/), material libre de informática y programación.
+- [PDFDrive](https://es.pdfdrive.com/), buscador de libros en formato PDF.
+
+## CVE / Hardening
+
+- [CIS](https://www.cisecurity.org/), Center for Internet Security, benchmarks y controles de seguridad.
+- [CIS Hardening Debian 10 (OVH)](https://github.com/ovh/debian-cis/), guía CIS para Debian 10 mantenida por OVH. `[Open Source]`
+- [CVE Details](https://www.cvedetails.com/), base de datos de vulnerabilidades con estadísticas y filtros.
+- [Exploit DB](https://www.exploit-db.com/), repositorio público de exploits y shellcodes.
+- [NVD Feeds](https://nvd.nist.gov/vuln/data-feeds/), feeds oficiales del National Vulnerability Database del NIST.
+- [OpenCVE](https://www.opencve.io/welcome), plataforma para gestionar y recibir alertas de CVEs. `[Open Source]` `[Selfhosted]`
+
+## Ansible
+
+- [Ansible CIS Debian 10](https://github.com/dbernaci/CIS-Debian10-Ansible/), playbook para hardening de Debian 10 según el benchmark CIS. `[Open Source]`
+- [Ansible CIS Ubuntu 20.04 LTS](https://github.com/alivx/CIS-Ubuntu-20.04-Ansible/), playbook para hardening de Ubuntu 20.04 LTS según el benchmark CIS. `[Open Source]`
+
+## OSINT
+
+- [GooFuzz](https://github.com/m3n0sd0n4ld/GooFuzz), automatiza Google Dorks para encontrar información expuesta. `[Open Source]`
+- [IntelX](https://intelx.io/), motor de búsqueda de información en fuentes abiertas (Tor, paste sites, breaches…).
+- [iKy](https://github.com/kennbroorg/iKy), recopila información de redes sociales a partir de un email. `[Open Source]`
+- [Mosint](https://github.com/alpkeskin/mosint), herramienta OSINT especializada en cuentas de email. `[Open Source]`
+- [Osintgram](https://github.com/Datalux/Osintgram), análisis OSINT de cuentas de Instagram. `[Open Source]`
+- [ProtOSINT](https://github.com/pixelbubble/ProtOSINT/), investigación OSINT de cuentas ProtonMail y ProtonVPN. `[Open Source]`
+- [Malfrat's OSINT Map](https://map.malfrats.industries), mapa visual de herramientas OSINT clasificadas por categoría.
+- [Pastebin Search](https://search-pastebin.vercel.app/), buscador de contenido en Pastebin y sitios similares.
+- [Schema.org Validator](https://validator.schema.org/), valida el marcado estructurado JSON-LD / Schema.org de cualquier página web.
+- [Sherlock](https://github.com/sherlock-project/sherlock/), busca un nombre de usuario en cientos de redes sociales simultáneamente. `[Open Source]`
+- [Spiderfoot](https://www.spiderfoot.net/), framework OSINT automatizado con cientos de módulos. `[Open Source]` `[Selfhosted]`
+- [Sub3 Suite](https://github.com/3nock/s3s_doc/), suite OSINT open source para reconocimiento de infraestructura. `[Open Source]`
+- [The Harvester](https://github.com/laramies/theHarvester/), recopila emails, subdominios, IPs y URLs desde fuentes públicas. `[Open Source]`
+- [User Search](https://usersearch.org/index.php), busca un nombre de usuario en múltiples plataformas.
+
+## Hardware
+
+- [Discos SSD](https://www.losmejoresdiscosssd.es/), comparativa y análisis de discos SSD.
+- [Firewall con Fujitsu Futro S920 y OPNsense](https://www.kuerbis.org/2021/03/hochverfuegbare-firewall-mit-thin-client-fujitsu-futro-s920-und-opnsense/), guía para montar un firewall de bajo consumo con thin client.
+- [ThinkPad x260 upgrade guide](https://github.com/sjgasca77/thinkpad-x260-upgrade-guide), guía de actualización de hardware para ThinkPad x260. `[Open Source]`
+- [ThinkPad x260 Debian 11 post install](https://github.com/sjgasca77/debian11-post-install-x260), configuración post-instalación de Debian 11 en ThinkPad x260. `[Open Source]`
+
+## Software
+
+### Homelab
+
+- [Gotify](https://gotify.net/), servidor de notificaciones push selfhosted. `[Open Source]` `[Selfhosted]`
+- [Heimdall](https://heimdall.site/), dashboard de aplicaciones para el homelab. `[Open Source]` `[Selfhosted]`
+- [Homarr](https://homarr.dev/), dashboard moderno para homelab con integraciones. `[Open Source]` `[Selfhosted]`
+- [Jellyfin](https://jellyfin.org/), servidor multimedia selfhosted, alternativa a Plex/Emby. `[Open Source]` `[Selfhosted]`
+- [Proxmox VE](https://www.proxmox.com/en/proxmox-virtual-environment/overview), hipervisor tipo 1 basado en Debian, gestión de VMs y contenedores LXC. `[Open Source]`
+- [Proxmox Backup Server](https://www.proxmox.com/en/proxmox-backup-server/overview), solución de backup incremental para Proxmox. `[Open Source]`
+- [Syncthing](https://syncthing.net/), sincronización de ficheros entre dispositivos sin servidor central. `[Open Source]` `[Selfhosted]`
+- [Uptime Kuma](https://github.com/louislam/uptime-kuma), monitorización de servicios con interfaz web y alertas. `[Open Source]` `[Selfhosted]`
+
+### Monitorización
+
+- [Elasticsearch](https://www.elastic.co/), motor de búsqueda y análisis distribuido para grandes volúmenes de logs.
+- [GoAccess](https://goaccess.io/), analizador de logs de acceso web en tiempo real desde el terminal. `[Open Source]`
+- [Grafana](https://grafana.com/), visualización de métricas y cuadros de mando desde múltiples fuentes. `[Open Source]` `[Selfhosted]`
+- [Kibana](https://www.elastic.co/es/kibana/), interfaz de visualización y gestión para Elasticsearch.
+- [Logstash](https://www.elastic.co/es/logstash/), agregador y procesador de datos, envía a Elasticsearch.
+- [Maltrail](https://github.com/stamparm/maltrail), detección de tráfico malicioso basada en listas negras. `[Open Source]`
+- [Wazuh](https://wazuh.com/), plataforma de monitorización de seguridad y detección de amenazas. `[Open Source]` `[Selfhosted]`
+- [Zabbix](https://www.zabbix.com/), monitorización de infraestructura, redes y aplicaciones. `[Open Source]` `[Selfhosted]`
+- [Zeek](https://zeek.org/), framework de análisis de tráfico de red (NDIS). `[Open Source]`
+
+### Seguridad
+
+- [Greenbone](https://www.greenbone.net/), plataforma de gestión de vulnerabilidades basada en OpenVAS.
+- [OpenVAS](https://www.openvas.org/), escáner de vulnerabilidades open source. `[Open Source]`
+- [Osquery](https://osquery.io/), consulta el estado de sistemas operativos con sintaxis SQL. `[Open Source]`
+- [Octopus WAF](https://github.com/CoolerVoid/OctopusWAF), WAF open source para proteger aplicaciones web. `[Open Source]`
+- [Suricata](https://suricata.io/), IDS/IPS de red de alto rendimiento. `[Open Source]`
+- [TheHive](https://thehive-project.org/), plataforma de respuesta a incidentes de seguridad (SIRP). `[Open Source]` `[Selfhosted]`
+- [Wazuh containers for Docker](https://github.com/wazuh/wazuh-docker), Wazuh en Docker para entornos de prueba. `[Open Source]`
+
+### Almacenamiento y redes
+
+- [Cockpit](https://cockpit-project.org/), gestión de servidor mediante interfaz web. `[Open Source]`
+- [GestioIP](https://www.gestioip.net/), IPAM (gestión de direcciones IP). `[Open Source]` `[Selfhosted]`
+- [Netmaker](https://www.netmaker.io/), SD-WAN basado en WireGuard. `[Open Source]` `[Selfhosted]`
+- [Nextcloud](https://nextcloud.com), nube de archivos y colaboración selfhosted. `[Open Source]` `[Selfhosted]`
+- [OpenMediaVault](https://www.openmediavault.org/), NAS basado en Debian. `[Open Source]`
+- [OPNsense](https://opnsense.org/), firewall/router basado en FreeBSD, fork de pfSense. `[Open Source]`
+- [OPNsense Repo](https://www.routerperformance.net/opnsense-repo/), repositorio de paquetes adicionales para OPNsense.
+- [TrueNAS](https://www.truenas.com/download-truenas-core/), NAS basado en FreeBSD con soporte ZFS. `[Open Source]`
+- [WireGuard](https://www.wireguard.com/), VPN moderna, rápida y con código reducido. `[Open Source]`
+- [Xpenology](https://xpenology.net/), bootloader para usar el software DSM de Synology en hardware genérico.
+- [ZeroTier](https://www.zerotier.com/), SD-WAN, redes privadas virtuales entre dispositivos. `[Open Source]`
+
+### Gestión
+
+- [GLPI](https://glpi-project.org/), herramienta ITSM para gestión de activos, incidencias y cambios. `[Open Source]` `[Selfhosted]`
+- [Jitsi](https://jitsi.github.io/handbook/), servidor de videoconferencias selfhosted. `[Open Source]` `[Selfhosted]`
+- [LinuxServer.io](https://www.linuxserver.io/), repositorio de imágenes Docker mantenidas y actualizadas.
+- [OCSinventory](https://ocsinventory-ng.org/), inventario y gestión de activos IT. `[Open Source]` `[Selfhosted]`
+- [PWM](https://github.com/pwm-project/pwm), portal de autoservicio de cuentas y contraseñas. `[Open Source]`
+- [TeamPass](https://teampass.net/), gestor de contraseñas centralizado para equipos. `[Open Source]` `[Selfhosted]`
+
+### IA / LLM
+
+- [Claude](https://claude.ai/), asistente IA de Anthropic, especialmente capaz en tareas de código e infraestructura.
+- [Claude Code](https://claude.ai/code), CLI para usar Claude directamente desde el terminal. `[Open Source]`
+- [Ollama](https://ollama.com/), ejecuta modelos de lenguaje localmente con un solo comando. `[Open Source]` `[Selfhosted]`
+- [Open WebUI](https://openwebui.com/), interfaz web para Ollama y otros LLMs locales. `[Open Source]` `[Selfhosted]`
+- [LM Studio](https://lmstudio.ai/), aplicación de escritorio para descargar y usar LLMs localmente.
+- [Perplexity](https://www.perplexity.ai/), buscador aumentado con IA que cita sus fuentes.
+
+### Herramientas de desarrollo y sistema
+
+- [AutoHotkey](https://www.autohotkey.com/), asigna acciones y macros a combinaciones de teclas en Windows. `[Open Source]`
+- [Barrier](https://github.com/debauchee/barrier), KVM por software para compartir teclado y ratón entre equipos en red. `[Open Source]`
+- [Brave](https://brave.com/), navegador centrado en privacidad, bloquea rastreadores por defecto.
+- [Cmder](https://cmder.net/), terminal avanzado para Windows basado en ConEmu. `[Open Source]`
+- [ConEMU](https://conemu.github.io/), emulador de terminal para Windows con múltiples pestañas. `[Open Source]`
+- [Espanso](https://espanso.org/), expansor de texto multiplataforma, muy útil para snippets repetitivos. `[Open Source]`
+- [Fake Apache Log Generator](https://github.com/kiritbasu/Fake-Apache-Log-Generator), genera logs de Apache falsos para pruebas. `[Open Source]`
+- [Fakelogit](https://github.com/kfortney/fakelogit), generador de logs genérico para pruebas y formación. `[Open Source]`
+- [Flog](https://github.com/mingrammer/flog), genera logs en formatos apache-common, apache-error, syslog RFC3164. `[Open Source]`
+- [LanDrop](https://landrop.app/), envío de ficheros en red local sin necesidad de cuenta ni internet. `[Open Source]`
+- [Lazy Docker](https://github.com/jesseduffield/lazydocker), gestión de contenedores Docker desde el terminal con interfaz TUI. `[Open Source]`
+- [Libre Wolf](https://librewolf.net/), fork de Firefox centrado en privacidad y seguridad. `[Open Source]`
+- [Magic Wormhole](https://github.com/magic-wormhole/magic-wormhole), envío de ficheros cifrado punto a punto desde el terminal. `[Open Source]`
+- [OpenBoard](https://openboard.ch/download.en.html), pizarra digital open source para formación y presentaciones. `[Open Source]`
+- [PeTeReport](https://github.com/1modm/petereport), generación de informes de vulnerabilidades para pentest. `[Open Source]`
+- [pwnDoc](https://github.com/pwndoc/pwndoc/), generador de reportes para pentesting colaborativo. `[Open Source]`
+- [Python Fake Logs](https://github.com/s4tori/fake-logs), generador de logs en varios formatos para pruebas. `[Open Source]`
+- [RetroArch](https://www.retroarch.com/index.php), emulador retro multiplataforma con soporte para cientos de sistemas. `[Open Source]`
+- [ScreenToGif](https://www.screentogif.com/), captura pantalla, webcam o pizarra y guarda en GIF o vídeo. `[Open Source]`
+- [Scrivano](https://github.com/scrivanolabs/ScrivanoForLinux), notas a mano alzada para Linux. `[Open Source]`
+- [Ssh-vault](https://ssh-vault.com/), cifrado de secretos usando claves públicas SSH. `[Open Source]`
+- [Sysmon Simulator](https://github.com/ScarredMonk/SysmonSimulator/), genera eventos de sistema Windows para pruebas de detección. `[Open Source]`
+- [VirtualDesktopAccessor](https://github.com/Ciantic/VirtualDesktopAccessor), personaliza los atajos de escritorios virtuales en Windows. `[Open Source]`
+- [WkHtmlToPdf](https://wkhtmltopdf.org/), convierte URLs o HTML a PDF desde el terminal. `[Open Source]`
+
+## Raspberry Pi
+
+- [MotionEyeOS](https://github.com/motioneye-project/motioneyeos), sistema operativo para videovigilancia basado en Raspberry Pi. `[Open Source]`
+- [OctoPrint](https://github.com/OctoPrint/OctoPrint), control remoto de impresoras 3D desde el navegador. `[Open Source]` `[Selfhosted]`
+- [PiAlert](https://github.com/pucherot/Pi.Alert), detecta nuevos dispositivos en la red y envía alertas. `[Open Source]`
+- [PiBar](https://github.com/amiantos/pibar), gestión de Pi-hole desde la barra de menú de macOS. `[Open Source]`
+- [Pi-hole](https://pi-hole.net/), bloqueador de anuncios y rastreadores a nivel de red DNS. `[Open Source]` `[Selfhosted]`
+- [Pi-hole Monitoring](https://github.com/Brandawg93/Pi-Hole-Monitoring), panel de monitorización de Pi-hole en Grafana. `[Open Source]`
+- [Raspberry Pi Imager](https://www.raspberrypi.com/software/), crea imágenes SD personalizadas para Raspberry Pi.
+- [PiVPN](https://github.com/pivpn/pivpn), instalador simplificado de WireGuard/OpenVPN en Raspberry Pi. `[Open Source]`
+- [PiStats](https://github.com/Bunn/PiStats), monitorización de Pi-hole desde la barra de menú de macOS. `[Open Source]`
+- [ReconPi](https://github.com/x1mdev/ReconPi), herramienta de reconocimiento de red sobre Raspberry Pi. `[Open Source]`
+- [RetroPie](https://retropie.org.uk/), emulador de juegos retro para Raspberry Pi. `[Open Source]`
+- [RpiBSS](https://github.com/raajivrekha/rpi_pub), setup base y hardening de seguridad para Raspberry Pi. `[Open Source]`
+- [WireHole](https://github.com/IAmStoxe/wirehole), combina WireGuard, Pi-hole y Unbound en Docker. `[Open Source]` `[Selfhosted]`
