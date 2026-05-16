@@ -8,6 +8,18 @@
     <language>es</language>
     <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Grupos en Linux. Control de acceso sin complicaciones</title>
+      <link>https://jaimealberto.github.io/post/55_grupos/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaimealberto.github.io/post/55_grupos/</guid>
+      <description>&lt;figure&gt;&lt;img src=&#34;https://jaimealberto.github.io/img/gruposlinux.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux</title>
       <link>https://jaimealberto.github.io/post/53_zshmux/</link>
       <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
