@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 52" width="320" height="52">
+  <defs>
+    <style>
+      .term-bg { fill: #0d0d0d; rx: 5; }
+      .prompt  { font-family: 'JetBrains Mono', 'Hack', 'Courier New', monospace;
+                 font-size: 22px; font-weight: 700; fill: #FF6600; }
+      .text    { font-family: 'JetBrains Mono', 'Hack', 'Courier New', monospace;
+                 font-size: 22px; font-weight: 400; fill: #e8e8e8; }
+      .cursor  { font-family: 'JetBrains Mono', 'Hack', 'Courier New', monospace;
+                 font-size: 22px; font-weight: 700; fill: #FF6600;
+                 animation: blink 1s step-end infinite; }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50%      { opacity: 0; }
+      }
+    </style>
+  </defs>
+  <!-- fondo terminal -->
+  <rect width="320" height="52" fill="#0d0d0d" rx="5"/>
+  <!-- borde naranja sutil -->
+  <rect width="320" height="52" fill="none" stroke="#FF6600" stroke-width="1" stroke-opacity="0.3" rx="5"/>
+  <!-- prompt -->
+  <text x="12" y="35" class="prompt">❯</text>
+  <!-- nombre -->
+  <text x="36" y="35" class="text">JaimeAlberto.io</text>
+  <!-- cursor parpadeante -->
+  <text x="292" y="35" class="cursor">▋</text>
+</svg>
