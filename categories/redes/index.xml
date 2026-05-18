@@ -1,23 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Redes on JaimeAlberto.io</title><link>https://jaimealberto.io/categories/redes/</link><description>Recent content in Redes on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/categories/redes/index.xml" rel="self" type="application/rss+xml"/><item><title>Universo SSH IV. Blindando el servidor</title><link>https://jaimealberto.io/post/13_universosshiv/</link><pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/13_universosshiv/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/universoSSHIV.jpg" alt="Universo SSH IV. Blindando el servidor"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description></item><item><title>Subneteo en IPv4, sencillamente</title><link>https://jaimealberto.io/post/49_subnetting/</link><pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/49_subnetting/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/subnetting.webp" alt="Subneteo en IPv4, sencillamente"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;El &lt;em&gt;subneteo&lt;/em&gt; (subnetting) es el arte de dividir una red IP en redes más pequeñas llamadas &lt;strong&gt;subredes&lt;/strong&gt;. En este artículo aprenderás a hacerlo paso a paso de manera sencillo con ejemplos prácticos.&lt;/p&gt;
-&lt;h2 id="-qué-es-el-subneteo-en-ipv4"&gt;🧠 ¿Qué es el subneteo en IPv4?&lt;/h2&gt;
-&lt;p&gt;El &lt;strong&gt;subneteo&lt;/strong&gt; es la técnica que se utiliza para &lt;strong&gt;dividir una red grande en redes más pequeñas&lt;/strong&gt;. subredes. Esto nos permite mejorar el rendimiento, la seguridad y la administración de las direcciones IP. Por ejemplo, en vez de tener todos los dispositivos en una misma red 192.168.0.0/24, se puede dividir la red en subredes más pequeñas para cada departamento, area, servicio, exposición, etc.&lt;/p&gt;</description></item><item><title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title><link>https://jaimealberto.io/post/12_universosshiii/</link><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/12_universosshiii/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/tunelp.jpg" alt="Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/07_universosshi/"&gt;primera entrega&lt;/a&gt;, llego la &lt;a href="https://jaimealberto.io/post/11_universosshii/"&gt;segunda entrega&lt;/a&gt;. Como dicen que no hay dos sin tres pues vamos con la tercera entrega. Esta vez toca hablar de los &lt;a href="https://en.wikipedia.org/wiki/Tunneling_protocol"&gt;túneles&lt;/a&gt;, popularmente conocidos como “ la vpn del pobre “. Algo que te pude sacar de muchos apuros.&lt;/p&gt;</description></item><item><title>Universo Ssh II</title><link>https://jaimealberto.io/post/11_universosshii/</link><pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/11_universosshii/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/ssh2.jpg" alt="Universo Ssh II"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/07_universosshi/"&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas que se apoyan en este protocolo.&lt;/p&gt;</description></item><item><title>Universo Ssh I</title><link>https://jaimealberto.io/post/07_universosshi/</link><pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/07_universosshi/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/ssh.jpg" alt="Universo Ssh I"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href="https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA"&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href="https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij"&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href="https://es.wikipedia.org/wiki/Ataque_de_REPLAY"&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redes on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/categories/redes/</link>
+    <description>Recent content in Redes on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jaimealberto.io/categories/redes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Universo SSH IV. Blindando el servidor</title>
+      <link>https://jaimealberto.io/post/13_universosshiv/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/13_universosshiv/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/universoSSHIV.jpg&#34; alt=&#34;Universo SSH IV. Blindando el servidor&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Subneteo en IPv4, sencillamente</title>
+      <link>https://jaimealberto.io/post/49_subnetting/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/49_subnetting/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/subnetting.webp&#34; alt=&#34;Subneteo en IPv4, sencillamente&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El &lt;em&gt;subneteo&lt;/em&gt; (subnetting) es el arte de dividir una red IP en redes más pequeñas llamadas &lt;strong&gt;subredes&lt;/strong&gt;. En este artículo aprenderás a hacerlo paso a paso de manera sencillo con ejemplos prácticos.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-qué-es-el-subneteo-en-ipv4&#34;&gt;🧠 ¿Qué es el subneteo en IPv4?&lt;/h2&gt;&#xA;&lt;p&gt;El &lt;strong&gt;subneteo&lt;/strong&gt; es la técnica que se utiliza para &lt;strong&gt;dividir una red grande en redes más pequeñas&lt;/strong&gt;. subredes. Esto nos permite mejorar el rendimiento, la seguridad y la administración de las direcciones IP. Por ejemplo, en vez de tener todos los dispositivos en una misma red 192.168.0.0/24, se puede dividir la red en subredes más pequeñas para cada departamento, area, servicio, exposición, etc.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title>
+      <link>https://jaimealberto.io/post/12_universosshiii/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/12_universosshiii/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tunelp.jpg&#34; alt=&#34;Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt;, llego la &lt;a href=&#34;https://jaimealberto.io/post/11_universosshii/&#34;&gt;segunda entrega&lt;/a&gt;. Como dicen que no hay dos sin tres pues vamos con la tercera entrega. Esta vez toca hablar de los &lt;a href=&#34;https://en.wikipedia.org/wiki/Tunneling_protocol&#34;&gt;túneles&lt;/a&gt;, popularmente conocidos como “ la vpn del pobre “. Algo que te pude sacar de muchos apuros.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Universo Ssh II</title>
+      <link>https://jaimealberto.io/post/11_universosshii/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/11_universosshii/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ssh2.jpg&#34; alt=&#34;Universo Ssh II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Universo Ssh I</title>
+      <link>https://jaimealberto.io/post/07_universosshi/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/07_universosshi/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ssh.jpg&#34; alt=&#34;Universo Ssh I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

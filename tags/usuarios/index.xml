@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Usuarios on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/usuarios/</link><description>Recent content in Usuarios on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/usuarios/index.xml" rel="self" type="application/rss+xml"/><item><title>Grupos en Linux. Control de acceso sin complicaciones</title><link>https://jaimealberto.io/post/55_grupos/</link><pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/55_grupos/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/gruposlinux.jpg" alt="Grupos en Linux. Control de acceso sin complicaciones"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Usuarios on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/tags/usuarios/</link>
+    <description>Recent content in Usuarios on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jaimealberto.io/tags/usuarios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grupos en Linux. Control de acceso sin complicaciones</title>
+      <link>https://jaimealberto.io/post/55_grupos/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/55_grupos/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/gruposlinux.jpg&#34; alt=&#34;Grupos en Linux. Control de acceso sin complicaciones&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

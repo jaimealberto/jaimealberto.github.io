@@ -1,5 +1,194 @@
-<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Guía paso a paso para instalar Debian 13 en un portátil con cifrado completo LUKS2, btrfs con subvolúmenes, snapshots automáticos con Timeshift y gestión de batería con TLP."><link rel=canonical href=https://jaimealberto.io/post/52_debianluks/><meta property="og:url" content="https://jaimealberto.io/post/52_debianluks/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift"><meta property="og:description" content="Guía paso a paso para instalar Debian 13 en un portátil con cifrado completo LUKS2, btrfs con subvolúmenes, snapshots automáticos con Timeshift y gestión de batería con TLP."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-05-16T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-16T00:00:00+00:00"><meta property="article:tag" content="Debian"><meta property="article:tag" content="LUKS"><meta property="article:tag" content="Btrfs"><meta property="article:tag" content="Timeshift"><meta property="article:tag" content="TLP"><meta property="article:tag" content="Portátil"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift","description":"Guía paso a paso para instalar Debian 13 en un portátil con cifrado completo LUKS2, btrfs con subvolúmenes, snapshots automáticos con Timeshift y gestión de batería con TLP.","datePublished":"2026-05-16","dateModified":"2026-05-16","url":"https:\/\/jaimealberto.io\/post\/52_debianluks\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
-<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/linux/ rel=category>Linux</a>, <a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a></span></div></div></header><div class="post__toc toc"><div class=toc__title>Índice</div><div class=toc__menu><nav id=TableOfContents><ul><li><a href=#-el-esquema-de-particiones>🗂️ El esquema de particiones</a></li><li><a href=#-fase-1--preparar-el-usb-y-la-bios>💾 Fase 1 — Preparar el USB y la BIOS</a><ul><li><a href=#descargar-y-grabar-el-usb>Descargar y grabar el USB</a></li><li><a href=#configurar-la-bios>Configurar la BIOS</a></li></ul></li><li><a href=#-fase-2--instalador-debian>🛠️ Fase 2 — Instalador Debian</a><ul><li><a href=#particionado-manual>Particionado manual</a></li></ul></li><li><a href=#-fase-3--subvolúmenes-btrfs>🌿 Fase 3 — Subvolúmenes btrfs</a><ul><li><a href=#actualizar-etcfstab>Actualizar /etc/fstab</a></li><li><a href=#actualizar-etccrypttab>Actualizar /etc/crypttab</a></li><li><a href=#regenerar-initramfs-y-grub>Regenerar initramfs y GRUB</a></li></ul></li><li><a href=#-fase-4--swapfile-y-hibernación>💤 Fase 4 — Swapfile y hibernación</a><ul><li><a href=#configurar-la-hibernación>Configurar la hibernación</a></li></ul></li><li><a href=#-fase-5--post-instalación-kde-tlp-y-timeshift>⚡ Fase 5 — Post-instalación: KDE, TLP y Timeshift</a><ul><li><a href=#paquetes-base-y-kde>Paquetes base y KDE</a></li><li><a href=#tlp--protección-de-batería>TLP — protección de batería</a></li><li><a href=#timeshift--grub-btrfs--la-combinación-que-lo-cambia-todo>Timeshift + grub-btrfs — la combinación que lo cambia todo</a></li><li><a href=#tapa--hibernar>Tapa → hibernar</a></li></ul></li><li><a href=#-qué-tienes-cuando-terminas>✅ Qué tienes cuando terminas</a></li></ul></nav></div></div><div class="content post__content clearfix"><figure><img src=/img/debianluks.jpg alt="Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift"></figure><p>Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.</p><p>La base es simple pero potente: <strong>LUKS2</strong> para cifrar todo el disco, <strong>btrfs</strong> con subvolúmenes bien separados para que Timeshift pueda hacer snapshots de verdad, y <strong>grub-btrfs</strong> para que esos snapshots aparezcan directamente en el menú de arranque. Si el sistema revienta, entras al GRUB, seleccionas el snapshot del día anterior y listo.</p><p><strong>Nota:</strong> Esta guía está probada en un ThinkPad X270 con NVMe de 2 TB. Los comandos son los mismos para cualquier portátil con UEFI. Solo cambia el nombre del dispositivo — en NVMe será <code>/dev/nvme0n1</code>, en SATA será <code>/dev/sda</code>.</p><hr><h2 id=-el-esquema-de-particiones>🗂️ El esquema de particiones</h2><p>Antes de empezar, hay que tener claro qué vamos a crear y por qué:</p><pre tabindex=0><code>/dev/nvme0n1
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Guía paso a paso para instalar Debian 13 en un portátil con cifrado completo LUKS2, btrfs con subvolúmenes, snapshots automáticos con Timeshift y gestión de batería con TLP.">
+	<link rel="canonical" href="https://jaimealberto.io/post/52_debianluks/">
+		<meta property="og:url" content="https://jaimealberto.io/post/52_debianluks/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift">
+  <meta property="og:description" content="Guía paso a paso para instalar Debian 13 en un portátil con cifrado completo LUKS2, btrfs con subvolúmenes, snapshots automáticos con Timeshift y gestión de batería con TLP.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:tag" content="Debian">
+    <meta property="article:tag" content="LUKS">
+    <meta property="article:tag" content="Btrfs">
+    <meta property="article:tag" content="Timeshift">
+    <meta property="article:tag" content="TLP">
+    <meta property="article:tag" content="Portátil">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift",
+  "description": "Guía paso a paso para instalar Debian 13 en un portátil con cifrado completo LUKS2, btrfs con subvolúmenes, snapshots automáticos con Timeshift y gestión de batería con TLP.",
+  "datePublished": "2026-05-16",
+  "dateModified": "2026-05-16",
+  "url": "https:\/\/jaimealberto.io\/post\/52_debianluks\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https:\/\/jaimealberto.io\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-el-esquema-de-particiones">🗂️ El esquema de particiones</a></li>
+    <li><a href="#-fase-1--preparar-el-usb-y-la-bios">💾 Fase 1 — Preparar el USB y la BIOS</a>
+      <ul>
+        <li><a href="#descargar-y-grabar-el-usb">Descargar y grabar el USB</a></li>
+        <li><a href="#configurar-la-bios">Configurar la BIOS</a></li>
+      </ul>
+    </li>
+    <li><a href="#-fase-2--instalador-debian">🛠️ Fase 2 — Instalador Debian</a>
+      <ul>
+        <li><a href="#particionado-manual">Particionado manual</a></li>
+      </ul>
+    </li>
+    <li><a href="#-fase-3--subvolúmenes-btrfs">🌿 Fase 3 — Subvolúmenes btrfs</a>
+      <ul>
+        <li><a href="#actualizar-etcfstab">Actualizar /etc/fstab</a></li>
+        <li><a href="#actualizar-etccrypttab">Actualizar /etc/crypttab</a></li>
+        <li><a href="#regenerar-initramfs-y-grub">Regenerar initramfs y GRUB</a></li>
+      </ul>
+    </li>
+    <li><a href="#-fase-4--swapfile-y-hibernación">💤 Fase 4 — Swapfile y hibernación</a>
+      <ul>
+        <li><a href="#configurar-la-hibernación">Configurar la hibernación</a></li>
+      </ul>
+    </li>
+    <li><a href="#-fase-5--post-instalación-kde-tlp-y-timeshift">⚡ Fase 5 — Post-instalación: KDE, TLP y Timeshift</a>
+      <ul>
+        <li><a href="#paquetes-base-y-kde">Paquetes base y KDE</a></li>
+        <li><a href="#tlp--protección-de-batería">TLP — protección de batería</a></li>
+        <li><a href="#timeshift--grub-btrfs--la-combinación-que-lo-cambia-todo">Timeshift + grub-btrfs — la combinación que lo cambia todo</a></li>
+        <li><a href="#tapa--hibernar">Tapa → hibernar</a></li>
+      </ul>
+    </li>
+    <li><a href="#-qué-tienes-cuando-terminas">✅ Qué tienes cuando terminas</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/debianluks.jpg" alt="Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift">
+</figure>
+
+<p>Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.</p>
+<p>La base es simple pero potente: <strong>LUKS2</strong> para cifrar todo el disco, <strong>btrfs</strong> con subvolúmenes bien separados para que Timeshift pueda hacer snapshots de verdad, y <strong>grub-btrfs</strong> para que esos snapshots aparezcan directamente en el menú de arranque. Si el sistema revienta, entras al GRUB, seleccionas el snapshot del día anterior y listo.</p>
+<p><strong>Nota:</strong> Esta guía está probada en un ThinkPad X270 con NVMe de 2 TB. Los comandos son los mismos para cualquier portátil con UEFI. Solo cambia el nombre del dispositivo — en NVMe será <code>/dev/nvme0n1</code>, en SATA será <code>/dev/sda</code>.</p>
+<hr>
+<h2 id="-el-esquema-de-particiones">🗂️ El esquema de particiones</h2>
+<p>Antes de empezar, hay que tener claro qué vamos a crear y por qué:</p>
+<pre tabindex="0"><code>/dev/nvme0n1
 ├── nvme0n1p1    512 MB   FAT32    /boot/efi   (EFI — sin cifrar, lo necesita el firmware)
 ├── nvme0n1p2    1 GB     ext4     /boot        (GRUB — sin cifrar, más fiable así)
 └── nvme0n1p3    ~resto   LUKS2  → btrfs
@@ -10,40 +199,130 @@
                                    ├── @swap        →  /swap
                                    ├── @docker      →  /var/lib/docker
                                    └── @vms         →  /var/lib/libvirt/images
-</code></pre><p>El truco está en separar <code>/boot</code> de la partición cifrada. Muchos tutoriales meten GRUB dentro de LUKS y luego tienen problemas. Con <code>/boot</code> sin cifrar el proceso es más fiable y el arranque más rápido.</p><p>Los subvolúmenes de btrfs son la clave de la resiliencia: Timeshift hace snapshots del sistema (<code>@</code>) sin tocar Docker (<code>@docker</code>) ni las imágenes de VMs (<code>@vms</code>), que pueden pesar decenas de GB y no tienen sentido incluir en un snapshot del sistema.</p><hr><h2 id=-fase-1--preparar-el-usb-y-la-bios>💾 Fase 1 — Preparar el USB y la BIOS</h2><h3 id=descargar-y-grabar-el-usb>Descargar y grabar el USB</h3><p>Desde cualquier Linux descargamos la ISO de Debian 13 netinst y la grabamos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.0.0-amd64-netinst.iso
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Verificar que la descarga está íntegra</span>
-</span></span><span style=display:flex><span>wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS
-</span></span><span style=display:flex><span>sha256sum -c SHA256SUMS --ignore-missing
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Grabar en el USB — sustituir /dev/sdX por tu USB</span>
-</span></span><span style=display:flex><span>sudo dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>debian-13.0.0-amd64-netinst.iso of<span style=color:#f92672>=</span>/dev/sdX bs<span style=color:#f92672>=</span>4M status<span style=color:#f92672>=</span>progress conv<span style=color:#f92672>=</span>fsync</span></span></code></pre></div><p><strong>Nota:</strong> <code>conv=fsync</code> asegura que el contenido llega al USB antes de salir. Sin ello puedes arrancar con una imagen incompleta y no entender por qué falla.</p><h3 id=configurar-la-bios>Configurar la BIOS</h3><p>En el X270 se entra pulsando <strong>F1</strong> al arrancar. En otros portátiles suele ser <strong>Del</strong>, <strong>F2</strong> o <strong>Esc</strong> — depende del fabricante.</p><p>Ajustes imprescindibles:</p><table><thead><tr><th>Opción</th><th>Valor</th><th>Por qué</th></tr></thead><tbody><tr><td>Secure Boot</td><td>Disabled</td><td>Debian no lo soporta por defecto</td></tr><tr><td>Boot Mode</td><td>UEFI Only</td><td>Para que use la partición EFI que vamos a crear</td></tr><tr><td>VT-x / Intel Virtualization</td><td>Enabled</td><td>Para KVM si luego quieres VMs</td></tr></tbody></table><p>Guardar y al reiniciar pulsar <strong>F12</strong> (o el equivalente de tu portátil) para arrancar desde el USB.</p><hr><h2 id=-fase-2--instalador-debian>🛠️ Fase 2 — Instalador Debian</h2><p>Arrancamos con <strong>Graphical Install</strong> y seguimos hasta el paso de particionado. Los primeros pasos son los de siempre:</p><ul><li>Idioma: <code>Español</code> / Ubicación: <code>España</code> / Teclado: <code>Español</code></li><li>Hostname: el que quieras / Dominio: el tuyo o vacío</li><li>Contraseña root: fuerte</li><li>Usuario: el tuyo</li></ul><h3 id=particionado-manual>Particionado manual</h3><p>En el paso de particionado elegir <strong>Manual</strong> y crear la tabla GPT:</p><p><strong>Seleccionar el disco</strong> → <code>Nueva tabla de particiones</code> → <code>GPT</code></p><p><strong>Partición 1 — EFI (512 MB):</strong></p><ul><li>Tipo: <code>Partición del sistema EFI</code></li><li>Formato: <code>FAT32</code></li><li>Punto de montaje: <code>/boot/efi</code></li></ul><p><strong>Partición 2 — /boot sin cifrar (1 GB):</strong></p><ul><li>Tipo: <code>Partición primaria</code></li><li>Formato: <code>ext4</code></li><li>Punto de montaje: <code>/boot</code></li></ul><p><strong>Partición 3 — LUKS con el resto:</strong></p><ul><li>Tipo: <code>Volumen físico para cifrado</code></li><li>Ir a <code>Configurar volúmenes cifrados</code> → seleccionar la partición 3</li><li>Método: <strong>LUKS2</strong></li><li>Contraseña: la que se pedirá en cada arranque — que sea buena</li><li>El instalador crea <code>nvme0n1p3_crypt</code> → usarlo como <code>btrfs</code> / Punto de montaje: <code>/</code></li></ul><p>Continuamos con:</p><ul><li>Sistema base: <code>linux-image-amd64</code></li><li>Entorno escritorio: <strong>ninguno</strong> (lo instalamos después con más control)</li><li>SSH server: <strong>sí</strong></li><li>GRUB: instalar en el disco principal (<code>/dev/nvme0n1</code>)</li></ul><p>Reiniciamos. El sistema ya arranca pidiendo la contraseña LUKS.</p><hr><h2 id=-fase-3--subvolúmenes-btrfs>🌿 Fase 3 — Subvolúmenes btrfs</h2><blockquote><p>Hacer justo tras el primer arranque, antes de instalar nada más.</p></blockquote><p>El instalador crea un solo volumen btrfs. Lo restructuramos en subvolúmenes para que Timeshift funcione correctamente y los snapshots tengan sentido.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>su -
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Montar la raíz del volumen btrfs (sin subvolumen)</span>
-</span></span><span style=display:flex><span>mkdir /mnt/btrfs-root
-</span></span><span style=display:flex><span>mount -o subvolid<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span> /dev/mapper/nvme0n1p3_crypt /mnt/btrfs-root
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Crear los subvolúmenes</span>
-</span></span><span style=display:flex><span>cd /mnt/btrfs-root
-</span></span><span style=display:flex><span>btrfs subvolume create @
-</span></span><span style=display:flex><span>btrfs subvolume create @home
-</span></span><span style=display:flex><span>btrfs subvolume create @snapshots
-</span></span><span style=display:flex><span>btrfs subvolume create @var_log
-</span></span><span style=display:flex><span>btrfs subvolume create @swap
-</span></span><span style=display:flex><span>btrfs subvolume create @docker
-</span></span><span style=display:flex><span>btrfs subvolume create @vms
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Copiar el contenido existente a los subvolúmenes correctos</span>
-</span></span><span style=display:flex><span>rsync -aAX --exclude<span style=color:#f92672>=</span>/home --exclude<span style=color:#f92672>=</span>/var/log <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>  /mnt/btrfs-root/ /mnt/btrfs-root/@/
-</span></span><span style=display:flex><span>rsync -aAX /mnt/btrfs-root/home/    /mnt/btrfs-root/@home/
-</span></span><span style=display:flex><span>rsync -aAX /mnt/btrfs-root/var/log/ /mnt/btrfs-root/@var_log/
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Eliminar los directorios originales (ya están en los subvolúmenes)</span>
-</span></span><span style=display:flex><span>rm -rf /mnt/btrfs-root/home
-</span></span><span style=display:flex><span>rm -rf /mnt/btrfs-root/var/log</span></span></code></pre></div><h3 id=actualizar-etcfstab>Actualizar /etc/fstab</h3><p>Necesitamos los UUIDs de las tres particiones:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>blkid /dev/nvme0n1p1               <span style=color:#75715e># UUID de EFI</span>
-</span></span><span style=display:flex><span>blkid /dev/nvme0n1p2               <span style=color:#75715e># UUID de /boot</span>
-</span></span><span style=display:flex><span>blkid /dev/mapper/nvme0n1p3_crypt  <span style=color:#75715e># UUID del volumen btrfs (dentro de LUKS)</span></span></span></code></pre></div><p>Editamos el fstab del nuevo sistema:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nano /mnt/btrfs-root/@/etc/fstab</span></span></code></pre></div><pre tabindex=0><code># EFI
+</code></pre><p>El truco está en separar <code>/boot</code> de la partición cifrada. Muchos tutoriales meten GRUB dentro de LUKS y luego tienen problemas. Con <code>/boot</code> sin cifrar el proceso es más fiable y el arranque más rápido.</p>
+<p>Los subvolúmenes de btrfs son la clave de la resiliencia: Timeshift hace snapshots del sistema (<code>@</code>) sin tocar Docker (<code>@docker</code>) ni las imágenes de VMs (<code>@vms</code>), que pueden pesar decenas de GB y no tienen sentido incluir en un snapshot del sistema.</p>
+<hr>
+<h2 id="-fase-1--preparar-el-usb-y-la-bios">💾 Fase 1 — Preparar el USB y la BIOS</h2>
+<h3 id="descargar-y-grabar-el-usb">Descargar y grabar el USB</h3>
+<p>Desde cualquier Linux descargamos la ISO de Debian 13 netinst y la grabamos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.0.0-amd64-netinst.iso
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verificar que la descarga está íntegra</span>
+</span></span><span style="display:flex;"><span>wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS
+</span></span><span style="display:flex;"><span>sha256sum -c SHA256SUMS --ignore-missing
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Grabar en el USB — sustituir /dev/sdX por tu USB</span>
+</span></span><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>debian-13.0.0-amd64-netinst.iso of<span style="color:#f92672">=</span>/dev/sdX bs<span style="color:#f92672">=</span>4M status<span style="color:#f92672">=</span>progress conv<span style="color:#f92672">=</span>fsync</span></span></code></pre></div>
+<p><strong>Nota:</strong> <code>conv=fsync</code> asegura que el contenido llega al USB antes de salir. Sin ello puedes arrancar con una imagen incompleta y no entender por qué falla.</p>
+<h3 id="configurar-la-bios">Configurar la BIOS</h3>
+<p>En el X270 se entra pulsando <strong>F1</strong> al arrancar. En otros portátiles suele ser <strong>Del</strong>, <strong>F2</strong> o <strong>Esc</strong> — depende del fabricante.</p>
+<p>Ajustes imprescindibles:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Opción</th>
+          <th>Valor</th>
+          <th>Por qué</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Secure Boot</td>
+          <td>Disabled</td>
+          <td>Debian no lo soporta por defecto</td>
+      </tr>
+      <tr>
+          <td>Boot Mode</td>
+          <td>UEFI Only</td>
+          <td>Para que use la partición EFI que vamos a crear</td>
+      </tr>
+      <tr>
+          <td>VT-x / Intel Virtualization</td>
+          <td>Enabled</td>
+          <td>Para KVM si luego quieres VMs</td>
+      </tr>
+  </tbody>
+</table>
+<p>Guardar y al reiniciar pulsar <strong>F12</strong> (o el equivalente de tu portátil) para arrancar desde el USB.</p>
+<hr>
+<h2 id="-fase-2--instalador-debian">🛠️ Fase 2 — Instalador Debian</h2>
+<p>Arrancamos con <strong>Graphical Install</strong> y seguimos hasta el paso de particionado. Los primeros pasos son los de siempre:</p>
+<ul>
+<li>Idioma: <code>Español</code> / Ubicación: <code>España</code> / Teclado: <code>Español</code></li>
+<li>Hostname: el que quieras / Dominio: el tuyo o vacío</li>
+<li>Contraseña root: fuerte</li>
+<li>Usuario: el tuyo</li>
+</ul>
+<h3 id="particionado-manual">Particionado manual</h3>
+<p>En el paso de particionado elegir <strong>Manual</strong> y crear la tabla GPT:</p>
+<p><strong>Seleccionar el disco</strong> → <code>Nueva tabla de particiones</code> → <code>GPT</code></p>
+<p><strong>Partición 1 — EFI (512 MB):</strong></p>
+<ul>
+<li>Tipo: <code>Partición del sistema EFI</code></li>
+<li>Formato: <code>FAT32</code></li>
+<li>Punto de montaje: <code>/boot/efi</code></li>
+</ul>
+<p><strong>Partición 2 — /boot sin cifrar (1 GB):</strong></p>
+<ul>
+<li>Tipo: <code>Partición primaria</code></li>
+<li>Formato: <code>ext4</code></li>
+<li>Punto de montaje: <code>/boot</code></li>
+</ul>
+<p><strong>Partición 3 — LUKS con el resto:</strong></p>
+<ul>
+<li>Tipo: <code>Volumen físico para cifrado</code></li>
+<li>Ir a <code>Configurar volúmenes cifrados</code> → seleccionar la partición 3</li>
+<li>Método: <strong>LUKS2</strong></li>
+<li>Contraseña: la que se pedirá en cada arranque — que sea buena</li>
+<li>El instalador crea <code>nvme0n1p3_crypt</code> → usarlo como <code>btrfs</code> / Punto de montaje: <code>/</code></li>
+</ul>
+<p>Continuamos con:</p>
+<ul>
+<li>Sistema base: <code>linux-image-amd64</code></li>
+<li>Entorno escritorio: <strong>ninguno</strong> (lo instalamos después con más control)</li>
+<li>SSH server: <strong>sí</strong></li>
+<li>GRUB: instalar en el disco principal (<code>/dev/nvme0n1</code>)</li>
+</ul>
+<p>Reiniciamos. El sistema ya arranca pidiendo la contraseña LUKS.</p>
+<hr>
+<h2 id="-fase-3--subvolúmenes-btrfs">🌿 Fase 3 — Subvolúmenes btrfs</h2>
+<blockquote>
+<p>Hacer justo tras el primer arranque, antes de instalar nada más.</p>
+</blockquote>
+<p>El instalador crea un solo volumen btrfs. Lo restructuramos en subvolúmenes para que Timeshift funcione correctamente y los snapshots tengan sentido.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>su -
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Montar la raíz del volumen btrfs (sin subvolumen)</span>
+</span></span><span style="display:flex;"><span>mkdir /mnt/btrfs-root
+</span></span><span style="display:flex;"><span>mount -o subvolid<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> /dev/mapper/nvme0n1p3_crypt /mnt/btrfs-root
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Crear los subvolúmenes</span>
+</span></span><span style="display:flex;"><span>cd /mnt/btrfs-root
+</span></span><span style="display:flex;"><span>btrfs subvolume create @
+</span></span><span style="display:flex;"><span>btrfs subvolume create @home
+</span></span><span style="display:flex;"><span>btrfs subvolume create @snapshots
+</span></span><span style="display:flex;"><span>btrfs subvolume create @var_log
+</span></span><span style="display:flex;"><span>btrfs subvolume create @swap
+</span></span><span style="display:flex;"><span>btrfs subvolume create @docker
+</span></span><span style="display:flex;"><span>btrfs subvolume create @vms
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copiar el contenido existente a los subvolúmenes correctos</span>
+</span></span><span style="display:flex;"><span>rsync -aAX --exclude<span style="color:#f92672">=</span>/home --exclude<span style="color:#f92672">=</span>/var/log <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  /mnt/btrfs-root/ /mnt/btrfs-root/@/
+</span></span><span style="display:flex;"><span>rsync -aAX /mnt/btrfs-root/home/    /mnt/btrfs-root/@home/
+</span></span><span style="display:flex;"><span>rsync -aAX /mnt/btrfs-root/var/log/ /mnt/btrfs-root/@var_log/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Eliminar los directorios originales (ya están en los subvolúmenes)</span>
+</span></span><span style="display:flex;"><span>rm -rf /mnt/btrfs-root/home
+</span></span><span style="display:flex;"><span>rm -rf /mnt/btrfs-root/var/log</span></span></code></pre></div>
+<h3 id="actualizar-etcfstab">Actualizar /etc/fstab</h3>
+<p>Necesitamos los UUIDs de las tres particiones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>blkid /dev/nvme0n1p1               <span style="color:#75715e"># UUID de EFI</span>
+</span></span><span style="display:flex;"><span>blkid /dev/nvme0n1p2               <span style="color:#75715e"># UUID de /boot</span>
+</span></span><span style="display:flex;"><span>blkid /dev/mapper/nvme0n1p3_crypt  <span style="color:#75715e"># UUID del volumen btrfs (dentro de LUKS)</span></span></span></code></pre></div>
+<p>Editamos el fstab del nuevo sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nano /mnt/btrfs-root/@/etc/fstab</span></span></code></pre></div>
+<pre tabindex="0"><code># EFI
 UUID=&lt;uuid-efi&gt;    /boot/efi    vfat   umask=0077  0  1
 
 # /boot sin cifrar
@@ -57,74 +336,98 @@ UUID=&lt;uuid-crypt&gt;  /var/log     btrfs  noatime,compress=zstd:1,space_cache
 UUID=&lt;uuid-crypt&gt;  /swap        btrfs  noatime,space_cache=v2,subvol=@swap                       0  0
 UUID=&lt;uuid-crypt&gt;  /var/lib/docker         btrfs  noatime,space_cache=v2,subvol=@docker          0  0
 UUID=&lt;uuid-crypt&gt;  /var/lib/libvirt/images btrfs  nodatacow,space_cache=v2,subvol=@vms           0  0
-</code></pre><p><strong>Nota:</strong> <code>nodatacow</code> en <code>@vms</code> es obligatorio si vas a usarlo para VMs. Sin él los discos <code>.qcow2</code> tienen un rendimiento muy degradado por el Copy-on-Write de btrfs.</p><h3 id=actualizar-etccrypttab>Actualizar /etc/crypttab</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nano /mnt/btrfs-root/@/etc/crypttab</span></span></code></pre></div><pre tabindex=0><code># &lt;nombre&gt;              &lt;dispositivo&gt;           &lt;keyfile&gt;  &lt;opciones&gt;
+</code></pre><p><strong>Nota:</strong> <code>nodatacow</code> en <code>@vms</code> es obligatorio si vas a usarlo para VMs. Sin él los discos <code>.qcow2</code> tienen un rendimiento muy degradado por el Copy-on-Write de btrfs.</p>
+<h3 id="actualizar-etccrypttab">Actualizar /etc/crypttab</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nano /mnt/btrfs-root/@/etc/crypttab</span></span></code></pre></div>
+<pre tabindex="0"><code># &lt;nombre&gt;              &lt;dispositivo&gt;           &lt;keyfile&gt;  &lt;opciones&gt;
 nvme0n1p3_crypt         UUID=&lt;uuid-nvme0n1p3&gt;   none       luks,discard
-</code></pre><p><code>discard</code> activa TRIM a través de LUKS — mejora el rendimiento y la vida del SSD. El tradeoff es que revela qué bloques están en uso, algo irrelevante en un portátil personal.</p><h3 id=regenerar-initramfs-y-grub>Regenerar initramfs y GRUB</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># Montar todo para el chroot</span>
-</span></span><span style=display:flex><span>mount -o subvol<span style=color:#f92672>=</span>@ /dev/mapper/nvme0n1p3_crypt /mnt
-</span></span><span style=display:flex><span>mount -o subvol<span style=color:#f92672>=</span>@home    /dev/mapper/nvme0n1p3_crypt /mnt/home
-</span></span><span style=display:flex><span>mount -o subvol<span style=color:#f92672>=</span>@var_log /dev/mapper/nvme0n1p3_crypt /mnt/var/log
-</span></span><span style=display:flex><span>mount /dev/nvme0n1p2 /mnt/boot
-</span></span><span style=display:flex><span>mount /dev/nvme0n1p1 /mnt/boot/efi
-</span></span><span style=display:flex><span>mount --bind /dev  /mnt/dev
-</span></span><span style=display:flex><span>mount --bind /proc /mnt/proc
-</span></span><span style=display:flex><span>mount --bind /sys  /mnt/sys
-</span></span><span style=display:flex><span>mount --bind /run  /mnt/run
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>chroot /mnt
-</span></span><span style=display:flex><span>update-initramfs -u -k all
-</span></span><span style=display:flex><span>update-grub
-</span></span><span style=display:flex><span>exit
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>umount -R /mnt
-</span></span><span style=display:flex><span>reboot</span></span></code></pre></div><hr><h2 id=-fase-4--swapfile-y-hibernación>💤 Fase 4 — Swapfile y hibernación</h2><p>Con btrfs el swapfile tiene sus particularidades. No se puede crear como en ext4 — hay que desactivarle el CoW antes de escribir en él, si no el sistema te avisa de error al intentar activarlo.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>su -
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Crear el swapfile sin Copy-on-Write (obligatorio en btrfs)</span>
-</span></span><span style=display:flex><span>touch /swap/swapfile
-</span></span><span style=display:flex><span>chattr +C /swap/swapfile
-</span></span><span style=display:flex><span>dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>/dev/zero of<span style=color:#f92672>=</span>/swap/swapfile bs<span style=color:#f92672>=</span>1M count<span style=color:#f92672>=</span><span style=color:#ae81ff>65536</span>   <span style=color:#75715e># 64 GB</span>
-</span></span><span style=display:flex><span>chmod <span style=color:#ae81ff>600</span> /swap/swapfile
-</span></span><span style=display:flex><span>mkswap /swap/swapfile
-</span></span><span style=display:flex><span>swapon /swap/swapfile
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;/swap/swapfile none swap sw 0 0&#39;</span> &gt;&gt; /etc/fstab
-</span></span><span style=display:flex><span>swapon --show <span style=color:#f92672>&amp;&amp;</span> free -h</span></span></code></pre></div><h3 id=configurar-la-hibernación>Configurar la hibernación</h3><p>Para que la hibernación funcione con btrfs el GRUB necesita dos datos: el UUID del volumen y el offset físico del swapfile dentro de btrfs. Este offset es diferente al offset de fichero normal — hay que calcularlo con la herramienta de btrfs.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># Offset físico del swapfile — anotar este número</span>
-</span></span><span style=display:flex><span>btrfs inspect-internal map-swapfile -r /swap/swapfile
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># UUID del volumen LUKS abierto</span>
-</span></span><span style=display:flex><span>blkid /dev/mapper/nvme0n1p3_crypt | grep -o <span style=color:#e6db74>&#39;UUID=&#34;[^&#34;]*&#34;&#39;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>nano /etc/default/grub</span></span></code></pre></div><p>Añadir o modificar esta línea con tus valores:</p><pre tabindex=0><code>GRUB_CMDLINE_LINUX=&#34;resume=UUID=&lt;uuid-crypt&gt; resume_offset=&lt;offset&gt;&#34;
-</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>update-grub
-</span></span><span style=display:flex><span>update-initramfs -u -k all
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Probar que funciona — el equipo se apaga por completo</span>
-</span></span><span style=display:flex><span>systemctl hibernate</span></span></code></pre></div><p>Al encender, GRUB recupera la sesión donde la dejaste.</p><hr><h2 id=-fase-5--post-instalación-kde-tlp-y-timeshift>⚡ Fase 5 — Post-instalación: KDE, TLP y Timeshift</h2><h3 id=paquetes-base-y-kde>Paquetes base y KDE</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>su -
-</span></span><span style=display:flex><span>apt update <span style=color:#f92672>&amp;&amp;</span> apt upgrade -y
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Base del sistema</span>
-</span></span><span style=display:flex><span>apt install -y git curl wget rsync htop vim build-essential btrfs-progs acpid
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># WiFi + Bluetooth (mayoría de portátiles Intel)</span>
-</span></span><span style=display:flex><span>apt install -y firmware-iwlwifi bluetooth bluez
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Gestión de energía</span>
-</span></span><span style=display:flex><span>apt install -y tlp tlp-rdw thermald powertop
-</span></span><span style=display:flex><span>systemctl enable tlp
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># KDE Plasma</span>
-</span></span><span style=display:flex><span>apt install -y task-kde-desktop kde-standard <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>  plasma-workspace-wayland plasma-pa powerdevil bluedevil <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>  xserver-xorg-input-libinput
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Audio PipeWire (estándar en Debian 13)</span>
-</span></span><span style=display:flex><span>apt install -y pipewire pipewire-pulse wireplumber
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Plymouth — prompt LUKS con logo en el arranque</span>
-</span></span><span style=display:flex><span>apt install -y plymouth plymouth-themes
-</span></span><span style=display:flex><span>plymouth-set-default-theme -R bgrt
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>systemctl enable sddm
-</span></span><span style=display:flex><span>reboot</span></span></code></pre></div><h3 id=tlp--protección-de-batería>TLP — protección de batería</h3><p>TLP es imprescindible en cualquier portátil que pase tiempo enchufado. Sin umbrales de carga la batería pasa el día al 100% y se degrada mucho antes de lo necesario.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nano /etc/tlp.conf</span></span></code></pre></div><p>Descomentar y ajustar estos valores:</p><pre tabindex=0><code># Carga: empieza al bajar del 75%, para al llegar al 80%
+</code></pre><p><code>discard</code> activa TRIM a través de LUKS — mejora el rendimiento y la vida del SSD. El tradeoff es que revela qué bloques están en uso, algo irrelevante en un portátil personal.</p>
+<h3 id="regenerar-initramfs-y-grub">Regenerar initramfs y GRUB</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># Montar todo para el chroot</span>
+</span></span><span style="display:flex;"><span>mount -o subvol<span style="color:#f92672">=</span>@ /dev/mapper/nvme0n1p3_crypt /mnt
+</span></span><span style="display:flex;"><span>mount -o subvol<span style="color:#f92672">=</span>@home    /dev/mapper/nvme0n1p3_crypt /mnt/home
+</span></span><span style="display:flex;"><span>mount -o subvol<span style="color:#f92672">=</span>@var_log /dev/mapper/nvme0n1p3_crypt /mnt/var/log
+</span></span><span style="display:flex;"><span>mount /dev/nvme0n1p2 /mnt/boot
+</span></span><span style="display:flex;"><span>mount /dev/nvme0n1p1 /mnt/boot/efi
+</span></span><span style="display:flex;"><span>mount --bind /dev  /mnt/dev
+</span></span><span style="display:flex;"><span>mount --bind /proc /mnt/proc
+</span></span><span style="display:flex;"><span>mount --bind /sys  /mnt/sys
+</span></span><span style="display:flex;"><span>mount --bind /run  /mnt/run
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chroot /mnt
+</span></span><span style="display:flex;"><span>update-initramfs -u -k all
+</span></span><span style="display:flex;"><span>update-grub
+</span></span><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>umount -R /mnt
+</span></span><span style="display:flex;"><span>reboot</span></span></code></pre></div>
+<hr>
+<h2 id="-fase-4--swapfile-y-hibernación">💤 Fase 4 — Swapfile y hibernación</h2>
+<p>Con btrfs el swapfile tiene sus particularidades. No se puede crear como en ext4 — hay que desactivarle el CoW antes de escribir en él, si no el sistema te avisa de error al intentar activarlo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>su -
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Crear el swapfile sin Copy-on-Write (obligatorio en btrfs)</span>
+</span></span><span style="display:flex;"><span>touch /swap/swapfile
+</span></span><span style="display:flex;"><span>chattr +C /swap/swapfile
+</span></span><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>/swap/swapfile bs<span style="color:#f92672">=</span>1M count<span style="color:#f92672">=</span><span style="color:#ae81ff">65536</span>   <span style="color:#75715e"># 64 GB</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> /swap/swapfile
+</span></span><span style="display:flex;"><span>mkswap /swap/swapfile
+</span></span><span style="display:flex;"><span>swapon /swap/swapfile
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;/swap/swapfile none swap sw 0 0&#39;</span> &gt;&gt; /etc/fstab
+</span></span><span style="display:flex;"><span>swapon --show <span style="color:#f92672">&amp;&amp;</span> free -h</span></span></code></pre></div>
+<h3 id="configurar-la-hibernación">Configurar la hibernación</h3>
+<p>Para que la hibernación funcione con btrfs el GRUB necesita dos datos: el UUID del volumen y el offset físico del swapfile dentro de btrfs. Este offset es diferente al offset de fichero normal — hay que calcularlo con la herramienta de btrfs.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># Offset físico del swapfile — anotar este número</span>
+</span></span><span style="display:flex;"><span>btrfs inspect-internal map-swapfile -r /swap/swapfile
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># UUID del volumen LUKS abierto</span>
+</span></span><span style="display:flex;"><span>blkid /dev/mapper/nvme0n1p3_crypt | grep -o <span style="color:#e6db74">&#39;UUID=&#34;[^&#34;]*&#34;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nano /etc/default/grub</span></span></code></pre></div>
+<p>Añadir o modificar esta línea con tus valores:</p>
+<pre tabindex="0"><code>GRUB_CMDLINE_LINUX=&#34;resume=UUID=&lt;uuid-crypt&gt; resume_offset=&lt;offset&gt;&#34;
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>update-grub
+</span></span><span style="display:flex;"><span>update-initramfs -u -k all
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Probar que funciona — el equipo se apaga por completo</span>
+</span></span><span style="display:flex;"><span>systemctl hibernate</span></span></code></pre></div>
+<p>Al encender, GRUB recupera la sesión donde la dejaste.</p>
+<hr>
+<h2 id="-fase-5--post-instalación-kde-tlp-y-timeshift">⚡ Fase 5 — Post-instalación: KDE, TLP y Timeshift</h2>
+<h3 id="paquetes-base-y-kde">Paquetes base y KDE</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>su -
+</span></span><span style="display:flex;"><span>apt update <span style="color:#f92672">&amp;&amp;</span> apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Base del sistema</span>
+</span></span><span style="display:flex;"><span>apt install -y git curl wget rsync htop vim build-essential btrfs-progs acpid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># WiFi + Bluetooth (mayoría de portátiles Intel)</span>
+</span></span><span style="display:flex;"><span>apt install -y firmware-iwlwifi bluetooth bluez
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Gestión de energía</span>
+</span></span><span style="display:flex;"><span>apt install -y tlp tlp-rdw thermald powertop
+</span></span><span style="display:flex;"><span>systemctl enable tlp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># KDE Plasma</span>
+</span></span><span style="display:flex;"><span>apt install -y task-kde-desktop kde-standard <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  plasma-workspace-wayland plasma-pa powerdevil bluedevil <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  xserver-xorg-input-libinput
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Audio PipeWire (estándar en Debian 13)</span>
+</span></span><span style="display:flex;"><span>apt install -y pipewire pipewire-pulse wireplumber
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plymouth — prompt LUKS con logo en el arranque</span>
+</span></span><span style="display:flex;"><span>apt install -y plymouth plymouth-themes
+</span></span><span style="display:flex;"><span>plymouth-set-default-theme -R bgrt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>systemctl enable sddm
+</span></span><span style="display:flex;"><span>reboot</span></span></code></pre></div>
+<h3 id="tlp--protección-de-batería">TLP — protección de batería</h3>
+<p>TLP es imprescindible en cualquier portátil que pase tiempo enchufado. Sin umbrales de carga la batería pasa el día al 100% y se degrada mucho antes de lo necesario.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nano /etc/tlp.conf</span></span></code></pre></div>
+<p>Descomentar y ajustar estos valores:</p>
+<pre tabindex="0"><code># Carga: empieza al bajar del 75%, para al llegar al 80%
 START_CHARGE_THRESH_BAT0=75
 STOP_CHARGE_THRESH_BAT0=80
 
@@ -135,28 +438,179 @@ STOP_CHARGE_THRESH_BAT1=80
 # CPU en batería: ahorro de energía
 CPU_SCALING_GOVERNOR_ON_BAT=powersave
 CPU_ENERGY_PERF_POLICY_ON_BAT=power
-</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>tlp start
-</span></span><span style=display:flex><span>tlp-stat -b   <span style=color:#75715e># verificar que los umbrales están aplicados en hardware</span></span></span></code></pre></div><p><strong>Nota:</strong> Los umbrales de batería solo funcionan en hardware compatible. En ThinkPad con kernel reciente funciona sin problema vía <code>thinkpad_acpi</code>. En otros portátiles puede no estar soportado — <code>tlp-stat -b</code> te lo indica claramente.</p><h3 id=timeshift--grub-btrfs--la-combinación-que-lo-cambia-todo>Timeshift + grub-btrfs — la combinación que lo cambia todo</h3><p>Timeshift en modo btrfs hace snapshots instantáneos sin copiar datos, aprovechando el CoW del sistema de ficheros. grub-btrfs añade esos snapshots al menú de GRUB automáticamente — sin tocar nada a mano.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>apt install -y timeshift inotify-tools
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># grub-btrfs desde GitHub — el de los repos de Debian suele estar desactualizado</span>
-</span></span><span style=display:flex><span>apt install -y gawk   <span style=color:#75715e># necesario — mawk no es compatible con este script</span>
-</span></span><span style=display:flex><span>git clone https://github.com/Antynea/grub-btrfs.git /tmp/grub-btrfs
-</span></span><span style=display:flex><span>cd /tmp/grub-btrfs <span style=color:#f92672>&amp;&amp;</span> make install
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>systemctl enable --now grub-btrfsd</span></span></code></pre></div><p>Abrir Timeshift desde el menú de KDE y configurar:</p><ol><li>Tipo de snapshot: <strong>BTRFS</strong> (no RSYNC)</li><li>Dispositivo: seleccionar <code>/dev/mapper/nvme0n1p3_crypt</code></li><li>Retención de snapshots recomendada:</li></ol><table><thead><tr><th>Tipo</th><th>Retener</th><th>Cuándo</th></tr></thead><tbody><tr><td>Arranque</td><td>3</td><td>En cada arranque</td></tr><tr><td>Diario</td><td>5</td><td>Una vez al día</td></tr><tr><td>Semanal</td><td>3</td><td>Una vez a la semana</td></tr><tr><td>Mensual</td><td>2</td><td>Una vez al mes</td></tr></tbody></table><ol start=4><li>Incluir <code>/home/tuusuario</code> si quieres snapshot de home</li><li>Excluir: <code>/var/lib/docker</code>, <code>/var/lib/libvirt/images</code>, <code>/swap</code></li><li>Crear el primer snapshot manual → botón <strong>Crear</strong> → &ldquo;instalación base&rdquo;</li></ol><p>Desde ese momento, antes de cada arranque Timeshift crea un snapshot y grub-btrfsd actualiza el menú de GRUB. Si el sistema deja de arrancar, en el propio GRUB tienes la opción de entrar a cualquier snapshot anterior.</p><h3 id=tapa--hibernar>Tapa → hibernar</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nano /etc/systemd/logind.conf</span></span></code></pre></div><pre tabindex=0><code>HandleLidSwitch=hibernate              # en batería → hibernar
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>tlp start
+</span></span><span style="display:flex;"><span>tlp-stat -b   <span style="color:#75715e"># verificar que los umbrales están aplicados en hardware</span></span></span></code></pre></div>
+<p><strong>Nota:</strong> Los umbrales de batería solo funcionan en hardware compatible. En ThinkPad con kernel reciente funciona sin problema vía <code>thinkpad_acpi</code>. En otros portátiles puede no estar soportado — <code>tlp-stat -b</code> te lo indica claramente.</p>
+<h3 id="timeshift--grub-btrfs--la-combinación-que-lo-cambia-todo">Timeshift + grub-btrfs — la combinación que lo cambia todo</h3>
+<p>Timeshift en modo btrfs hace snapshots instantáneos sin copiar datos, aprovechando el CoW del sistema de ficheros. grub-btrfs añade esos snapshots al menú de GRUB automáticamente — sin tocar nada a mano.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install -y timeshift inotify-tools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># grub-btrfs desde GitHub — el de los repos de Debian suele estar desactualizado</span>
+</span></span><span style="display:flex;"><span>apt install -y gawk   <span style="color:#75715e"># necesario — mawk no es compatible con este script</span>
+</span></span><span style="display:flex;"><span>git clone https://github.com/Antynea/grub-btrfs.git /tmp/grub-btrfs
+</span></span><span style="display:flex;"><span>cd /tmp/grub-btrfs <span style="color:#f92672">&amp;&amp;</span> make install
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>systemctl enable --now grub-btrfsd</span></span></code></pre></div>
+<p>Abrir Timeshift desde el menú de KDE y configurar:</p>
+<ol>
+<li>Tipo de snapshot: <strong>BTRFS</strong> (no RSYNC)</li>
+<li>Dispositivo: seleccionar <code>/dev/mapper/nvme0n1p3_crypt</code></li>
+<li>Retención de snapshots recomendada:</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th>Tipo</th>
+          <th>Retener</th>
+          <th>Cuándo</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Arranque</td>
+          <td>3</td>
+          <td>En cada arranque</td>
+      </tr>
+      <tr>
+          <td>Diario</td>
+          <td>5</td>
+          <td>Una vez al día</td>
+      </tr>
+      <tr>
+          <td>Semanal</td>
+          <td>3</td>
+          <td>Una vez a la semana</td>
+      </tr>
+      <tr>
+          <td>Mensual</td>
+          <td>2</td>
+          <td>Una vez al mes</td>
+      </tr>
+  </tbody>
+</table>
+<ol start="4">
+<li>Incluir <code>/home/tuusuario</code> si quieres snapshot de home</li>
+<li>Excluir: <code>/var/lib/docker</code>, <code>/var/lib/libvirt/images</code>, <code>/swap</code></li>
+<li>Crear el primer snapshot manual → botón <strong>Crear</strong> → &ldquo;instalación base&rdquo;</li>
+</ol>
+<p>Desde ese momento, antes de cada arranque Timeshift crea un snapshot y grub-btrfsd actualiza el menú de GRUB. Si el sistema deja de arrancar, en el propio GRUB tienes la opción de entrar a cualquier snapshot anterior.</p>
+<h3 id="tapa--hibernar">Tapa → hibernar</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nano /etc/systemd/logind.conf</span></span></code></pre></div>
+<pre tabindex="0"><code>HandleLidSwitch=hibernate              # en batería → hibernar
 HandleLidSwitchExternalPower=suspend   # enchufado → suspender (más rápido)
 HandleLidSwitchDocked=ignore           # con monitor externo → no hacer nada
-</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>systemctl restart systemd-logind</span></span></code></pre></div><hr><h2 id=-qué-tienes-cuando-terminas>✅ Qué tienes cuando terminas</h2><ul><li><strong>Disco cifrado con LUKS2</strong> — sin la contraseña los datos son inaccesibles</li><li><strong>btrfs con subvolúmenes independientes</strong> — Docker y VMs no ensucian los snapshots del sistema</li><li><strong>Snapshots automáticos</strong> — en cada arranque, diario, semanal y mensual; en modo btrfs son instantáneos</li><li><strong>Restauración desde GRUB</strong> — si el sistema no arranca, seleccionas el snapshot anterior directamente en el menú de arranque, sin USB de rescate</li><li><strong>TLP con umbrales de carga</strong> — la batería no se pasa el día al 100% degradándose</li><li><strong>Hibernación funcional</strong> — cierras la tapa, al día siguiente abres y sigues donde lo dejaste</li></ul><p>En el siguiente artículo: personalización del terminal con zsh, oh-my-zsh, powerlevel10k y tmux.</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/debian/ rel=tag>Debian</a></li><li class=tags__item><a class="tags__link btn" href=/tags/luks/ rel=tag>LUKS</a></li><li class=tags__item><a class="tags__link btn" href=/tags/btrfs/ rel=tag>btrfs</a></li><li class=tags__item><a class="tags__link btn" href=/tags/timeshift/ rel=tag>Timeshift</a></li><li class=tags__item><a class="tags__link btn" href=/tags/tlp/ rel=tag>TLP</a></li><li class=tags__item><a class="tags__link btn" href=/tags/port%C3%A1til/ rel=tag>Portátil</a></li></ul></div></footer><div class=share-buttons><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f&amp;title=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift" rel="nofollow noopener noreferrer" class="share-btn linkedin"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-<span class=share-btn__text>LinkedIn</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://twitter.com/intent/tweet?text=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn twitter"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg>
-<span class=share-btn__text>Twitter</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn facebook"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-<span class=share-btn__text>Facebook</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f&amp;title=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift" rel="nofollow noopener noreferrer" class="share-btn reddit"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 00-9 9 9 9 0 009 9 9 9 0 009-9 9 9 0 00-9-9z"/><path d="M15 14c-1.5.0-3-.5-4.5-1.5S8 9.5 8 9.5v-2c0-1.5.5-3 1.5-3S12 4.5 12 6s-.5 3-1.5 3S8 9 8 7.5v-2H5.5c-.5.0-1 .5-1.5 1S3.5 8 4 9s0 0 0 0c1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5s-.5 1-1.5 1S14 16 13 15s-2.5-1.5-3.5-1.5S7 14 6 15s-1.5 1.5-1.5 1.5-1 0-1.5-.5-.5-1.5.0-2.5 2.5-3 3.5-3.5 2-1 3-1.5S12 6 13 5s1.5-1.5 1.5-2.5-1.5-3-3-3z"/></svg>
-<span class=share-btn__text>Reddit</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://telegram.me/share/url?text=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn telegram"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-<span class=share-btn__text>Telegram</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://api.whatsapp.com/send?text=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift%20https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921.0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957.0 0111 2c5.518.0 10 4.482 10 10.031z"/><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662s-.492-.016-.75-.016-.67.098-.913.435c-.243.336-.92 1.055-.92 2.57.0 1.516.945 2.977 1.074 3.167s.09.38-.04.532c-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3-4.004.0-7.25-3.246-7.25-7.25.0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974.0 003.107 1.17 6.974 6.974.0 003.107-1.17z"/></svg>
-<span class=share-btn__text>WhatsApp</span></a></div></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
-</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
-<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl restart systemd-logind</span></span></code></pre></div>
+<hr>
+<h2 id="-qué-tienes-cuando-terminas">✅ Qué tienes cuando terminas</h2>
+<ul>
+<li><strong>Disco cifrado con LUKS2</strong> — sin la contraseña los datos son inaccesibles</li>
+<li><strong>btrfs con subvolúmenes independientes</strong> — Docker y VMs no ensucian los snapshots del sistema</li>
+<li><strong>Snapshots automáticos</strong> — en cada arranque, diario, semanal y mensual; en modo btrfs son instantáneos</li>
+<li><strong>Restauración desde GRUB</strong> — si el sistema no arranca, seleccionas el snapshot anterior directamente en el menú de arranque, sin USB de rescate</li>
+<li><strong>TLP con umbrales de carga</strong> — la batería no se pasa el día al 100% degradándose</li>
+<li><strong>Hibernación funcional</strong> — cierras la tapa, al día siguiente abres y sigues donde lo dejaste</li>
+</ul>
+<p>En el siguiente artículo: personalización del terminal con zsh, oh-my-zsh, powerlevel10k y tmux.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/debian/" rel="tag">Debian</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/luks/" rel="tag">LUKS</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/btrfs/" rel="tag">btrfs</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/timeshift/" rel="tag">Timeshift</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/tlp/" rel="tag">TLP</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/port%C3%A1til/" rel="tag">Portátil</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+<div class="share-buttons">
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f&amp;title=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift" rel="nofollow noopener noreferrer" class="share-btn linkedin">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="share-btn__text">LinkedIn</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://twitter.com/intent/tweet?text=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn twitter">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+        <span class="share-btn__text">Twitter</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn facebook">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span class="share-btn__text">Facebook</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f&amp;title=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift" rel="nofollow noopener noreferrer" class="share-btn reddit">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path><path d="M15 14c-1.5 0-3-.5-4.5-1.5s-2.5-3-2.5-3v-2c0-1.5.5-3 1.5-3s2.5 0 2.5 1.5c0 1.5-.5 3-1.5 3s-2.5 0-2.5-1.5v-2h-2.5c-.5 0-1 .5-1.5 1s-.5 1.5 0 2.5c0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5 0 .5-.5 1-1.5 1s-2.5-.5-3.5-1.5c-1-1-2.5-1.5-3.5-1.5s-2.5.5-3.5 1.5c-1 1-1.5 1.5-1.5 1.5s-1 0-1.5-.5c-.5-.5-.5-1.5 0-2.5s2.5-3 3.5-3.5c1-.5 2-1 3-1.5s2.5-2.5 3.5-3.5c1-1 1.5-1.5 1.5-2.5s-1.5-3-3-3z"></path></svg>
+        <span class="share-btn__text">Reddit</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://telegram.me/share/url?text=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn telegram">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    <span class="share-btn__text">Telegram</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://api.whatsapp.com/send?text=Debian%2013%20en%20port%c3%a1til%3a%20instalaci%c3%b3n%20resiliente%20con%20LUKS%2c%20btrfs%20y%20Timeshift%20https%3a%2f%2fjaimealberto.io%2fpost%2f52_debianluks%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921 0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957 0 0 1 11 2c5.518 0 10 4.482 10 10.031z"></path><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662-.227-.008-.492-.016-.75-.016-.258 0-.67.098-.913.435-.243.336-.92 1.055-.92 2.57 0 1.516.945 2.977 1.074 3.167.129.19.09.38-.04.532-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3 0 0 0 0 0 0-4.004 0-7.25-3.246-7.25-7.25 0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974 0 0 0 3.107 1.17 6.974 6.974 0 0 0 3.107-1.17z"></path></svg>
+    <span class="share-btn__text">WhatsApp</span>
+    </a>
+</div>
+</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
