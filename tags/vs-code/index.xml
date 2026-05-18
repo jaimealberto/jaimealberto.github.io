@@ -1,13 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VS Code on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/vs-code/</link><description>Recent content in VS Code on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Sat, 30 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/vs-code/index.xml" rel="self" type="application/rss+xml"/><item><title>Visual Studio Code I</title><link>https://jaimealberto.io/post/25_vscodei/</link><pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/25_vscodei/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/vsci.jpg" alt="Visual Studio Code I"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Hace tiempo comencé con la búsqueda de un editor de código con el que pudiera escribir scripts (Bash, Powershell,Zsh, etc), código en Python, documentos en MarkDown, archivos de configuración , utilizar Hugo, guiones de Terraform, etc. Otro objetivo claro es que funcionara igual en cualquier entorno ( Linux, MacOs y Windows ), que fuera gratis y con gran comunidad. Pues bien dando muchas vueltas me decidí por Visual Studio Code (VSC).&lt;/p&gt;</description></item><item><title>Sincronizar configuración Visual Studio Code</title><link>https://jaimealberto.io/post/29_vscodesync/</link><pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/29_vscodesync/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/vssync.jpg" alt="Sincronizar configuración Visual Studio Code"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.&lt;/p&gt;</description></item><item><title>Integrar actualizaciones Visual Studio Code</title><link>https://jaimealberto.io/post/28_vscodeinstall/</link><pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/28_vscodeinstall/</guid><description>&lt;figure&gt;
- &lt;img src="https://jaimealberto.io/img/vsinstall.jpg" alt="Integrar actualizaciones Visual Studio Code"&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VS Code on JaimeAlberto.io</title>
+    <link>https://jaimealberto.io/tags/vs-code/</link>
+    <description>Recent content in VS Code on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 30 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jaimealberto.io/tags/vs-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual Studio Code I</title>
+      <link>https://jaimealberto.io/post/25_vscodei/</link>
+      <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/25_vscodei/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/vsci.jpg&#34; alt=&#34;Visual Studio Code I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Hace tiempo comencé con la búsqueda de  un editor de código con el que pudiera escribir scripts (Bash, Powershell,Zsh, etc), código en Python, documentos en MarkDown, archivos de configuración , utilizar Hugo, guiones de Terraform, etc. Otro objetivo claro es que funcionara igual en cualquier entorno ( Linux, MacOs y Windows ), que fuera gratis y con gran comunidad. Pues bien dando muchas vueltas me decidí por Visual Studio Code (VSC).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sincronizar configuración Visual Studio Code</title>
+      <link>https://jaimealberto.io/post/29_vscodesync/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/29_vscodesync/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/vssync.jpg&#34; alt=&#34;Sincronizar configuración Visual Studio Code&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Integrar actualizaciones Visual Studio Code</title>
+      <link>https://jaimealberto.io/post/28_vscodeinstall/</link>
+      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/28_vscodeinstall/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/vsinstall.jpg&#34; alt=&#34;Integrar actualizaciones Visual Studio Code&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

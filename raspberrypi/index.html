@@ -1,108 +1,678 @@
-<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Raspberry Pi - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Notas Raspberry Pi"><link rel=canonical href=https://jaimealberto.io/raspberrypi/><meta property="og:url" content="https://jaimealberto.io/raspberrypi/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="Raspberry Pi"><meta property="og:description" content="Notas Raspberry Pi"><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:published_time" content="2025-10-09T00:00:00+00:00"><meta property="article:modified_time" content="2025-10-09T00:00:00+00:00"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"Raspberry Pi","description":"Notas Raspberry Pi","datePublished":"2025-10-09","dateModified":"2025-10-09","url":"https:\/\/jaimealberto.io\/raspberrypi\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
-<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class="menu__item menu__item--active"><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Raspberry Pi</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2025-10-09T00:00:00Z>09-10-2025</time></div></div></header><div class="post__toc toc"><div class=toc__title>Índice</div><div class=toc__menu><nav id=TableOfContents><ul><li><a href=#raspi-config>Raspi-config</a></li><li><a href=#la-red>La red</a><ul><li><a href=#nombrar-el-interface-de-red-para-humanos>Nombrar el interface de red para humanos</a></li><li><a href=#deshabilitar-ipv6>Deshabilitar ipv6</a></li><li><a href=#configurar-dirección-ip-fija>Configurar dirección ip fija</a></li><li><a href=#configurar-wifi>Configurar Wifi</a></li><li><a href=#deshabilitar-wifi>Deshabilitar Wifi</a></li></ul></li><li><a href=#kernel-headers>Kernel headers</a></li><li><a href=#alimentación>Alimentación</a></li><li><a href=#temperatura>Temperatura</a></li><li><a href=#servicios>Servicios</a><ul><li><a href=#servidor-ssh>Servidor ssh</a></li><li><a href=#duckdns>DuckDns</a></li></ul></li><li><a href=#backup-tarjeta-sd>Backup tarjeta SD</a><ul><li><a href=#local>Local</a></li><li><a href=#remoto>Remoto</a></li></ul></li><li><a href=#restore-tarjeta-sd>Restore tarjeta SD</a><ul><li><a href=#local-1>Local</a></li></ul></li><li><a href=#consejos-de-seguridad>Consejos de seguridad</a></li><li><a href=#fecha-y-hora>Fecha y hora</a></li><li><a href=#idioma>Idioma</a></li></ul></nav></div></div><div class="content post__content clearfix"><p><figure><img src=/img/rpi.jpg alt="Raspberry Pi"></figure>Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo</p><h2 id=raspi-config>Raspi-config</h2><p>Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>raspi-config</span></span></code></pre></div><p>Menus:</p><ul><li>System Options<ul><li>Password ( cambiamos la contraseña del usuario pi )</li><li>Hostname ( cambiamos el nombre de host )</li><li>Boot / Auto Login<ul><li>Console Text console, requiring user to login ( elegimos esta opción )</li></ul></li><li>Network at Boot ( seleccionamos no para acelerar el arranque )</li></ul></li><li>Interface Options<ul><li>SSH Enabled/disable remote command line access using SSH ( enable )</li></ul></li><li>Location options<ul><li>Locale ( configuramos correctamente el idioma )</li><li>Timezone ( seleccionamos nuestra zona horaria )</li><li>Keyboard ( seleccionamos nuestra distribución de teclado )</li></ul></li><li>Update ( actualizamos la herramienta )</li></ul><p>Es necesario reiniciar para aplicar los cambios.</p><h2 id=la-red>La red</h2><p>Ahora vamos a dejar la red configurada según nuestras necesidades. Todas las operaciones son necesarias realizarlas como root y para aplicar los cambios se ha de reiniciar.</p><h3 id=nombrar-el-interface-de-red-para-humanos>Nombrar el interface de red para humanos</h3><p>Editamos /boot/cmdline.txt y añadimos al final &ldquo;net.ifnames=0&rdquo; quedando asi:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>console<span style=color:#f92672>=</span>serial0,115200 console<span style=color:#f92672>=</span>tty1 root<span style=color:#f92672>=</span>PARTUUID<span style=color:#f92672>=</span>9b849d88-02 rootfstype<span style=color:#f92672>=</span>ext4 fsck.repair<span style=color:#f92672>=</span>yes rootwait net.ifnames<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span></span></span></code></pre></div><h3 id=deshabilitar-ipv6>Deshabilitar ipv6</h3><p>Editamos /etc/sysctl.conf y añadimos al final :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>net.ipv6.conf.all.disable_ipv6 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>net.ipv6.conf.default.disable_ipv6 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>net.ipv6.conf.lo.disable_ipv6 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>net.ipv6.conf.eth0.disable_ipv6 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span></span></span></code></pre></div><p>Editamos /etc/rc.local y añadimos al final, si no esta ya :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>exit <span style=color:#ae81ff>0</span></span></span></code></pre></div><p>Otro modo de hacer esto, mas rápido y radical es modificando el cmdline.txt. Según modelo o sistema operativo se puede encortar en varias rutas, revisa las dos posibilidades segun tu hardware y sistema:</p><ul><li>/boot/cmdline.txt</li><li>/boot/firmware/cmdline.txt</li></ul><p>Te encontraras algo parecido a esto:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>console<span style=color:#f92672>=</span>serial0,115200 console<span style=color:#f92672>=</span>tty1 root<span style=color:#f92672>=</span>PARTUUID<span style=color:#f92672>=</span>5b621bc5-02 rootfstype<span style=color:#f92672>=</span>ext4 fsck.repair<span style=color:#f92672>=</span>yes rootwait net.ifnames<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span></span></span></code></pre></div><p>Solo tienes que añadir un espacio y luego <strong>ipv6.disable=1</strong>, de tal forma que quedaria asi:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>console<span style=color:#f92672>=</span>serial0,115200 console<span style=color:#f92672>=</span>tty1 root<span style=color:#f92672>=</span>PARTUUID<span style=color:#f92672>=</span>5b621bc5-02 rootfstype<span style=color:#f92672>=</span>ext4 fsck.repair<span style=color:#f92672>=</span>yes rootwait net.ifnames<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span> ipv6.disable<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span></span></span></code></pre></div><h3 id=configurar-dirección-ip-fija>Configurar dirección ip fija</h3><p>Editamos /etc/dhcpcd.conf y configuramos los parámetros correspondientes, ejemplo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>interface eth0
-</span></span><span style=display:flex><span>static ip_address<span style=color:#f92672>=</span>192.168.0.69/24
-</span></span><span style=display:flex><span>static routers<span style=color:#f92672>=</span>192.168.0.1
-</span></span><span style=display:flex><span>static domain_name_servers<span style=color:#f92672>=</span>9.9.9.9 1.1.1.1</span></span></code></pre></div><p>Donde:</p><p>interface &ldquo;nombre interface de red&rdquo;
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Raspberry Pi - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Notas Raspberry Pi">
+	<link rel="canonical" href="https://jaimealberto.io/raspberrypi/">
+		<meta property="og:url" content="https://jaimealberto.io/raspberrypi/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Raspberry Pi">
+  <meta property="og:description" content="Notas Raspberry Pi">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-10-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-09T00:00:00+00:00">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Raspberry Pi",
+  "description": "Notas Raspberry Pi",
+  "datePublished": "2025-10-09",
+  "dateModified": "2025-10-09",
+  "url": "https:\/\/jaimealberto.io\/raspberrypi\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https:\/\/jaimealberto.io\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item menu__item--active">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Raspberry Pi</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-10-09T00:00:00Z">09-10-2025</time></div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#raspi-config">Raspi-config</a></li>
+    <li><a href="#la-red">La red</a>
+      <ul>
+        <li><a href="#nombrar-el-interface-de-red-para-humanos">Nombrar el interface de red para humanos</a></li>
+        <li><a href="#deshabilitar-ipv6">Deshabilitar ipv6</a></li>
+        <li><a href="#configurar-dirección-ip-fija">Configurar dirección ip fija</a></li>
+        <li><a href="#configurar-wifi">Configurar Wifi</a></li>
+        <li><a href="#deshabilitar-wifi">Deshabilitar Wifi</a></li>
+      </ul>
+    </li>
+    <li><a href="#kernel-headers">Kernel headers</a></li>
+    <li><a href="#alimentación">Alimentación</a></li>
+    <li><a href="#temperatura">Temperatura</a></li>
+    <li><a href="#servicios">Servicios</a>
+      <ul>
+        <li><a href="#servidor-ssh">Servidor ssh</a></li>
+        <li><a href="#duckdns">DuckDns</a></li>
+      </ul>
+    </li>
+    <li><a href="#backup-tarjeta-sd">Backup tarjeta SD</a>
+      <ul>
+        <li><a href="#local">Local</a></li>
+        <li><a href="#remoto">Remoto</a></li>
+      </ul>
+    </li>
+    <li><a href="#restore-tarjeta-sd">Restore tarjeta SD</a>
+      <ul>
+        <li><a href="#local-1">Local</a></li>
+      </ul>
+    </li>
+    <li><a href="#consejos-de-seguridad">Consejos de seguridad</a></li>
+    <li><a href="#fecha-y-hora">Fecha y hora</a></li>
+    <li><a href="#idioma">Idioma</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p><figure>
+  <img src="/img/rpi.jpg" alt="Raspberry Pi">
+</figure>
+
+Mi chuleta para los despliegues y laboratorios de cacharreo con la Raspberry y su mundo</p>
+<h2 id="raspi-config">Raspi-config</h2>
+<p>Utilidad del termina que nos permite realizar algunos cambios de manera sencilla. Desde el terminal como root:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>raspi-config</span></span></code></pre></div>
+<p>Menus:</p>
+<ul>
+<li>System Options
+<ul>
+<li>Password ( cambiamos la contraseña del usuario pi )</li>
+<li>Hostname ( cambiamos el nombre de host )</li>
+<li>Boot / Auto Login
+<ul>
+<li>Console Text console, requiring user to login ( elegimos esta opción )</li>
+</ul>
+</li>
+<li>Network at Boot ( seleccionamos no para acelerar el arranque )</li>
+</ul>
+</li>
+<li>Interface Options
+<ul>
+<li>SSH Enabled/disable remote command line access using SSH ( enable )</li>
+</ul>
+</li>
+<li>Location options
+<ul>
+<li>Locale ( configuramos correctamente el idioma )</li>
+<li>Timezone ( seleccionamos nuestra zona horaria )</li>
+<li>Keyboard ( seleccionamos nuestra distribución de teclado )</li>
+</ul>
+</li>
+<li>Update ( actualizamos la herramienta )</li>
+</ul>
+<p>Es necesario reiniciar para aplicar los cambios.</p>
+<h2 id="la-red">La red</h2>
+<p>Ahora vamos a dejar la red configurada según nuestras necesidades. Todas las operaciones son necesarias realizarlas como root y para aplicar los cambios se ha de reiniciar.</p>
+<h3 id="nombrar-el-interface-de-red-para-humanos">Nombrar el interface de red para humanos</h3>
+<p>Editamos /boot/cmdline.txt y añadimos al final &ldquo;net.ifnames=0&rdquo; quedando asi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>console<span style="color:#f92672">=</span>serial0,115200 console<span style="color:#f92672">=</span>tty1 root<span style="color:#f92672">=</span>PARTUUID<span style="color:#f92672">=</span>9b849d88-02 rootfstype<span style="color:#f92672">=</span>ext4 fsck.repair<span style="color:#f92672">=</span>yes rootwait net.ifnames<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<h3 id="deshabilitar-ipv6">Deshabilitar ipv6</h3>
+<p>Editamos /etc/sysctl.conf y añadimos al final :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>net.ipv6.conf.all.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>net.ipv6.conf.default.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>net.ipv6.conf.lo.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>net.ipv6.conf.eth0.disable_ipv6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+<p>Editamos /etc/rc.local y añadimos al final, si no esta ya :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<p>Otro modo de hacer esto, mas rápido y radical es modificando el cmdline.txt. Según modelo o sistema operativo se puede encortar en varias rutas, revisa las dos posibilidades segun tu hardware y sistema:</p>
+<ul>
+<li>/boot/cmdline.txt</li>
+<li>/boot/firmware/cmdline.txt</li>
+</ul>
+<p>Te encontraras algo parecido a esto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>console<span style="color:#f92672">=</span>serial0,115200 console<span style="color:#f92672">=</span>tty1 root<span style="color:#f92672">=</span>PARTUUID<span style="color:#f92672">=</span>5b621bc5-02 rootfstype<span style="color:#f92672">=</span>ext4 fsck.repair<span style="color:#f92672">=</span>yes rootwait net.ifnames<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span></span></span></code></pre></div>
+<p>Solo tienes que añadir un espacio y luego <strong>ipv6.disable=1</strong>, de tal forma que quedaria asi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>console<span style="color:#f92672">=</span>serial0,115200 console<span style="color:#f92672">=</span>tty1 root<span style="color:#f92672">=</span>PARTUUID<span style="color:#f92672">=</span>5b621bc5-02 rootfstype<span style="color:#f92672">=</span>ext4 fsck.repair<span style="color:#f92672">=</span>yes rootwait net.ifnames<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> ipv6.disable<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span></span></span></code></pre></div>
+<h3 id="configurar-dirección-ip-fija">Configurar dirección ip fija</h3>
+<p>Editamos /etc/dhcpcd.conf  y configuramos los parámetros correspondientes, ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>interface eth0
+</span></span><span style="display:flex;"><span>static ip_address<span style="color:#f92672">=</span>192.168.0.69/24
+</span></span><span style="display:flex;"><span>static routers<span style="color:#f92672">=</span>192.168.0.1
+</span></span><span style="display:flex;"><span>static domain_name_servers<span style="color:#f92672">=</span>9.9.9.9 1.1.1.1</span></span></code></pre></div>
+<p>Donde:</p>
+<p>interface &ldquo;nombre interface de red&rdquo;
 static ip_address &ldquo;ip/mascara&rdquo;
 static routers &ldquo;default gateway&rdquo;
-static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundario&rdquo;</p><p>Reiniciamos para aplicar los cambios.</p><p>En las nuevas versiones de Raspberry Pi OS ( anteriormente Raspbian) que están basadas en Debian 12 (bookworm) o superior la configuración de la red se controla de manera distinta, utiliza network manager. Para ello se utiliza el comando nmcli. Vamos a ver rápidamente como hacer esto, desde la consola con privilegios de root:</p><p>Identificar nombres de nuestros interfaces que estén conectados, obtendremos una salida parecida e esta:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nmcli -p connection show
-</span></span><span style=display:flex><span><span style=color:#f92672>============================================</span>
-</span></span><span style=display:flex><span>  Perfiles de conexiones de NetworkManager
-</span></span><span style=display:flex><span><span style=color:#f92672>============================================</span>
-</span></span><span style=display:flex><span>NAME                 UUID                                  TYPE      DEVICE     
-</span></span><span style=display:flex><span>----------------------------------------------------------------------------
-</span></span><span style=display:flex><span>Conexión cableada <span style=color:#ae81ff>1</span>  7470081f-935c-35a2-9c7b-66a33272fab5  ethernet  eth0       </span></span></code></pre></div></p><p>En esta caso vamos a configurar &ldquo;Conexión cableada 1&rdquo; con los siguientes parámetros:</p><ul><li>Dirección IP 192.168.1.100</li><li>Puerta de enlace 192.168.1.1</li><li>Mascara de subred /24</li><li>Servidores DNS 8.8.8.8 y 8.8.4.4</li><li>Nombre de la interfaz de red Conexión cableada 1</li></ul><p>Con el siguiente comando aplicamos la configuración:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nmcli connection  modify <span style=color:#e6db74>&#34;Conexión cableada 1&#34;</span> ipv4.method manual ipv4.addresses 192.168.1.1100/24 ipv4.gateway 192.168.1.1 ipv4.dns <span style=color:#e6db74>&#34;8.8.8.8 y 8.8.4.4&#34;</span></span></span></code></pre></div></p><p>Para que los cambios surtan efecto, reiniciaremos Network Manager:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nmcli con down <span style=color:#e6db74>&#34;Conexión cableada 1&#34;</span> <span style=color:#f92672>&amp;&amp;</span> nmcli con up <span style=color:#e6db74>&#34;Conexión cableada 1&#34;</span></span></span></code></pre></div></p><blockquote><p>ℹ️ Nota: Otra opción disponible es reiniciar la Raspberry Pi.</p></blockquote><p>Ahora verificamos los camios y consultamos la configuración actual de nuestra conexión ethernet. El resultado será parecido al siguiente, <strong>la salida esta cortada mostrando solo lo que nos interesa, es muy detallada ////</strong>:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nmcli -p connection show <span style=color:#e6db74>&#34;Conexión cableada 1&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>===============================================================================</span>
-</span></span><span style=display:flex><span>            Detalles del perfil de conexiones <span style=color:#f92672>(</span>Conexión cableada 1<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>===============================================================================</span>
-</span></span><span style=display:flex><span>///////////////////////////////////////////////////////////////////////////////
-</span></span><span style=display:flex><span>ipv4.method:                            manual
-</span></span><span style=display:flex><span>ipv4.dns:                               8.8.8.8 y 8.8.4.4
-</span></span><span style=display:flex><span>ipv4.dns-search:                        --
-</span></span><span style=display:flex><span>ipv4.dns-options:                       --
-</span></span><span style=display:flex><span>ipv4.dns-priority:                      <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>ipv4.addresses:                         192.168.1.100/24
-</span></span><span style=display:flex><span>ipv4.gateway:                           192.168.1.1
-</span></span><span style=display:flex><span>ipv4.routes:                            --
-</span></span><span style=display:flex><span>ipv4.route-metric:                      -1
-</span></span><span style=display:flex><span>///////////////////////////////////////////////////////////////////////////////
-</span></span><span style=display:flex><span>802-3-ethernet.port:                    --
-</span></span><span style=display:flex><span>802-3-ethernet.speed:                   <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>802-3-ethernet.duplex:                  --
-</span></span><span style=display:flex><span>802-3-ethernet.auto-negotiate:          no
-</span></span><span style=display:flex><span>802-3-ethernet.mac-address:             --
-</span></span><span style=display:flex><span>802-3-ethernet.cloned-mac-address:      --
-</span></span><span style=display:flex><span>802-3-ethernet.generate-mac-address-mask:--
-</span></span><span style=display:flex><span>802-3-ethernet.mac-address-blacklist:   --
-</span></span><span style=display:flex><span>802-3-ethernet.mtu:                     auto
-</span></span><span style=display:flex><span>802-3-ethernet.s390-subchannels:        --
-</span></span><span style=display:flex><span>802-3-ethernet.s390-nettype:            --
-</span></span><span style=display:flex><span>802-3-ethernet.s390-options:            --
-</span></span><span style=display:flex><span>802-3-ethernet.wake-on-lan:             default
-</span></span><span style=display:flex><span>802-3-ethernet.wake-on-lan-password:    --
-</span></span><span style=display:flex><span>802-3-ethernet.accept-all-mac-addresses:-1 <span style=color:#f92672>(</span>default<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>-------------------------------------------------------------------------------
-</span></span><span style=display:flex><span>ipv4.method:                            manual
-</span></span><span style=display:flex><span>ipv4.dns:                               9.9.9.9,1.1.1.1
-</span></span><span style=display:flex><span>///////////////////////////////////////////////////////////////////////////////</span></span></code></pre></div></p><p>Otros que nos pueden interesar</p><p>Ip dinámica IpV4:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nmcli con modify <span style=color:#e6db74>&#34;Conexión cableada 1&#34;</span> ipv4.method auto</span></span></code></pre></div></p><p>Ip dinámica IpV6:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nmcli con modify <span style=color:#e6db74>&#34;Conexión cableada 1&#34;</span> ipv6.method auto</span></span></code></pre></div></p><p>Para que los cambios surjan efecto, o reiniciar el servicio o la Raspberry Pi.</p><p>Evitar conexión automática, interesante con la WiFi:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>nmcli con modify <span style=color:#e6db74>&#34;preconfigured&#34;</span> connection.autoconnect no</span></span></code></pre></div></p><p><a href=https://docs.redhat.com/es/documentation/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/configuring-a-static-ethernet-connection-using-nmcli_configuring-and-managing-network-access>Fuente e información sobre nmcli</a></p><h3 id=configurar-wifi>Configurar Wifi</h3><p>Configuración en <strong>Raspberry Pi OS 12 (Bookworm)</strong>.</p><p>Desde el terminal con privilegios de root editamos el archivo de configuración de red &ldquo;/etc/wpa_supplicant/wpa_supplicant.conf&rdquo;. Añadir al final (cambia SSID y contraseña):<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>network<span style=color:#f92672>={</span>
-</span></span><span style=display:flex><span>    ssid<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;TuNombreDeWiFi&#34;</span>
-</span></span><span style=display:flex><span>    psk<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;TuContraseñaWiFi&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span></span></span></code></pre></div></p><p>Reinicimaos el servicio de red:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>wpa_cli -i wlan0 reconfigure</span></span></code></pre></div></p><p>⚙️ Consejos útiles</p><ul><li>Comprbar zona/país con <code>raspi-config</code> → <strong>Localisation Options</strong> → <strong>WLAN Country</strong>.</li><li>Si no detecta redes, prueba:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>rfkill unblock wifi
-</span></span><span style=display:flex><span>ifconfig wlan0 up</span></span></code></pre></div></li><li>Puedes listar redes disponibles con:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>iwlist wlan0 scan | grep ESSID</span></span></code></pre></div></li></ul><h3 id=deshabilitar-wifi>Deshabilitar Wifi</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>iwconfig wlan0 txpower off</span></span></code></pre></div><h2 id=kernel-headers>Kernel headers</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>apt install linux-headers-<span style=color:#66d9ef>$(</span>uname -r<span style=color:#66d9ef>)</span></span></span></code></pre></div><h2 id=alimentación>Alimentación</h2><p>Según el fabricante:</p><table><thead><tr><th>Modelo</th><th>Alimentación recomendada</th></tr></thead><tbody><tr><td>Raspberry Pi Zero 2 W</td><td>600 mA</td></tr><tr><td>Raspberry Pi 5</td><td>5 A</td></tr><tr><td>Raspberry Pi A</td><td>700 mA</td></tr><tr><td>Raspberry Pi B</td><td>1,2 A</td></tr><tr><td>Raspberry Pi A+</td><td>700 mA</td></tr><tr><td>Raspberry Pi B+</td><td>1,8 A</td></tr><tr><td>Raspberry Pi 2 B</td><td>1,8 A</td></tr><tr><td>Raspberry Pi 3 B</td><td>2,5 A</td></tr><tr><td>Raspberry Pi 3 A+</td><td>2,5 A</td></tr><tr><td>Raspberry Pi 3 B+</td><td>2,5 A</td></tr><tr><td>Raspberry Pi 4 B</td><td>3 A</td></tr><tr><td>Raspberry Pi Zero</td><td>1,2 A</td></tr><tr><td>Raspberry Pi Zero W</td><td>1,2 A</td></tr></tbody></table><p>Si tenemos problemas de alimentación puede que no arranque o bien si arranca saldrá un aviso durante el arranque y posteriormente en la esquina superior derecha en el entorno grafico. Pero si no es así lo podemos comprobar desde la consola con privilegios de root:</p><p>Instalamos el paquete necesario, si no lo tenemos ya:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>apt install libraspberrypi-bin</span></span></code></pre></div><p>Ejecutamos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>vcgencmd get_throttled</span></span></code></pre></div><table><thead><tr><th>Respuesta</th><th>Significado</th></tr></thead><tbody><tr><td>0x0</td><td>todo ok</td></tr><tr><td>0x50000</td><td>tiene o tuvo problemas de voltaje desde el ultimo arranque</td></tr><tr><td>0x80000</td><td>tiene problemas de temperatura</td></tr></tbody></table><p>Los mensajes se guardan el el syslog del sistema:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>/varlog/syslog</span></span></code></pre></div><p>El cual podemos consultar para buscar patrones con el comando dmesg del siguiente modo, ejemplo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>dmesg | grep -iC <span style=color:#ae81ff>3</span> <span style=color:#e6db74>&#34;under-voltage detected&#34;</span></span></span></code></pre></div><h2 id=temperatura>Temperatura</h2><p>Como todos sabemos uno de los problemas que nos podemos encontrar es la temperatura. La podemos leer de dos maneras:</p><p>En formato bruto con tres decimales grados centígrados:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>cat /sys/class/thermal/thermal_zone0/temp</span></span></code></pre></div><p>Con la utilidad vcgencmd la cual nos lo muestra con un decimal:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>vcgencmd measure_temp</span></span></code></pre></div><p>Esta información la podemos utilizar para monitorizar, tomar acciones con scripts, etc.</p><h2 id=servicios>Servicios</h2><h3 id=servidor-ssh>Servidor ssh</h3><p>El servicio ssh es el que nos proporciona acceso remoto a nuestra Rpi. Para gestionarlo utilizaremos el comando service desde la terminal:</p><p>Arrancar:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>systemctl start sshd</span></span></code></pre></div></p><p>Reiniciar:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>systemctl restart sshd</span></span></code></pre></div></p><p>Ver estado:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>systemctl status sshd -l</span></span></code></pre></div></p><p>Parar:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>systemctl stop sshd</span></span></code></pre></div><p><strong>Si estamos conectados en remoto y paramos el servicio se cortara la cnexion.</strong></p><p>Es aconsejable realizar una serie de ajustes para que se lo mas suegro posible. El fichero donde se almacena toda la configuración del servicio esta en /etc/ssh/sshd_config.</p><p>Vamos a cambiar / definir una serie de parámetros. Antes de esto es aconsejable tener creadas las llaves de acceso remoto, <a href=https://jaimealberto.io/post/07_universosshi/#llaves>aquí</a>
-puedes ver como hacerlo.</p><p>Ejemplo de fichero de configuración con comentarios:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># Version del protocolo</span>
-</span></span><span style=display:flex><span>Protocol <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Puerto</span>
-</span></span><span style=display:flex><span>Port <span style=color:#ae81ff>22445</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># AddressFamily any</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># ListenAddress 0.0.0.0</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># ListenAddress ::</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># No permitir login remoto a root</span>
-</span></span><span style=display:flex><span>PermitRootLogin no
-</span></span><span style=display:flex><span><span style=color:#75715e># Tiempo necesario para introducir la contraseña</span>
-</span></span><span style=display:flex><span>LoginGraceTime <span style=color:#ae81ff>30</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Número de intentos permitidos al introducir la contraseña</span>
-</span></span><span style=display:flex><span>MaxAuthTries <span style=color:#ae81ff>3</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Número de logins simultáneos desde una IP</span>
-</span></span><span style=display:flex><span>MaxStartups <span style=color:#ae81ff>3</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Lista blanca de usuarios</span>
-</span></span><span style=display:flex><span>AllowUsers jhon fulano
-</span></span><span style=display:flex><span><span style=color:#75715e># Lista negra de usuarios</span>
-</span></span><span style=display:flex><span>DenyUsers adrian adrian2
-</span></span><span style=display:flex><span><span style=color:#75715e># Lista blanca de grupos</span>
-</span></span><span style=display:flex><span>AllowGroups admin sistemas
-</span></span><span style=display:flex><span><span style=color:#75715e># Lista negra de grupos</span>
-</span></span><span style=display:flex><span>DenyGroups marketing ventas
-</span></span><span style=display:flex><span><span style=color:#75715e># Deshabilitar usuario y contraseña necesarias llaves</span>
-</span></span><span style=display:flex><span>PasswordAuthentication no
-</span></span><span style=display:flex><span><span style=color:#75715e># Habilitar el uso de llaves.</span>
-</span></span><span style=display:flex><span>PubkeyAuthentication yes
-</span></span><span style=display:flex><span><span style=color:#75715e># Nivel de log </span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Deshabilitar túneles</span>
-</span></span><span style=display:flex><span>AllowTcpForwarding no
-</span></span><span style=display:flex><span><span style=color:#75715e># Habilitar túneles para el usuario sistemas</span>
-</span></span><span style=display:flex><span>Match User sistemas
-</span></span><span style=display:flex><span>AllowTcpForwarding yes
-</span></span><span style=display:flex><span><span style=color:#75715e># Banner</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># PrintLastLog</span></span></span></code></pre></div><h3 id=duckdns>DuckDns</h3><p>Para tener nuestra conexión localizada por ip por si la necesitamos.
-Registramos los dominios en <a href=https://www.duckdns.org/>Duckdns</a> obteniendo un token. Desde el terminal con una cuenta de usuario:</p><ul><li>Creeamos el script:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>mkdir duckdns
-</span></span><span style=display:flex><span>cd duckdns
-</span></span><span style=display:flex><span>vi duck.sh</span></span></code></pre></div></li><li>Contenido:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>echo url<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.duckdns.org/update?domains=dominio1,dominio2&amp;token=MI_TOKEN_ULTRA_SECRETO&amp;ip=&#34;</span> | curl -k -o ~/duckdns/duck.log -K -</span></span></code></pre></div></li><li>Le damos permisos de ejecución:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>chmod +x duck.sh</span></span></code></pre></div></li><li>Lo programamos en el cron<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>crontab -e
-</span></span><span style=display:flex><span>*/5 * * * * ~/duckdns/duck.sh &gt;/dev/null 2&gt;&amp;<span style=color:#ae81ff>1</span></span></span></code></pre></div>Ahora cada 5 minutos se ejecutara y escribirá el resultado en el fichero duck.log. Sera ok o ko.</li></ul><h2 id=backup-tarjeta-sd>Backup tarjeta SD</h2><h3 id=local>Local</h3><p>Apagáramos la Rpi y la insertamos en nuestro equipo. Abrimos un terminal con privilegios de root e identificamos cual es el device de la tarjeta sd:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>fdisk -l</span></span></code></pre></div><p>Suponiendo que sea /dev/sdb, esto varia en función de lo que tengamos conectado. Utilizaremos el comando dd y opcionalmente el pv para tener una barra de progreso. al directorio que queramos. Este comando tiene la siguiente estructura:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>/dev/sdb bs<span style=color:#f92672>=</span>1M status<span style=color:#f92672>=</span>progress of<span style=color:#f92672>=</span>raspbackup.img</span></span></code></pre></div><p>Si queremos restaurar la copia:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>raspbackup.img bs<span style=color:#f92672>=</span>1M status<span style=color:#f92672>=</span>progress of<span style=color:#f92672>=</span>/dev/sdb</span></span></code></pre></div><h3 id=remoto>Remoto</h3><p>Puede que en algún momento necesitemos realizar una copia por red o que tengamos algo en producción con lo cual no podemos parar.Desde el terminal:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>ssh pi@192.168.1.155 <span style=color:#e6db74>&#34;sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -&#34;</span> | dd of<span style=color:#f92672>=</span>backup.gz</span></span></code></pre></div><p>Donde:</p><ul><li>&ldquo;pi&rdquo; El usuario que se conecta y puede ejecutar sudo sin pedir contraseña.</li><li>&ldquo;192.168.1.155&rdquo; Dirección ip de nuestra Rpi.</li><li>&ldquo;backup.gz&rdquo; fichero donde se guardara la copia.</li><li>&ldquo;1M&rdquo; Tamaño de 1 Megabyte del bloque al realizar la copia.</li></ul><p>Tener en cuenta:</p><p>Se añade el parámetro &ldquo;status=progess&rdquo;, si vamos a programar la tarea en el cron lo deberíamos omitir.</p><p>La copia se realiza comprimida al añadir &ldquo;gzip -&rdquo;. Es opcional.</p><p>Este procedimiento no me fallado nunca, esto no quiere decir que sea infalible tener en cuenta que esta en funcionamiento y se realiza el caliente.</p><h2 id=restore-tarjeta-sd>Restore tarjeta SD</h2><h3 id=local-1>Local</h3><p>Desde nuestro terminal como root donde tengamos el de la copia:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>gzip -dc fichero_backup.gz | dd bs<span style=color:#f92672>=</span>1M status<span style=color:#f92672>=</span>progress of<span style=color:#f92672>=</span>/dev/sdd</span></span></code></pre></div><p>Donde /dev/sdd es nuestra tarjeta sd donde restauraremos el backup.</p><h2 id=consejos-de-seguridad>Consejos de seguridad</h2><p>Consejos de seguridad</p><ul><li>No utilizar el inicio de sesión automático ni contraseñas vacías.</li></ul><p>Las contraseñas son una parte muy importante de la seguridad de nuestro sistema.</p><ul><li><p>Asegurarnos de que todos los accesos críticos piden una contraseña.</p></li><li><p>Buscar contraseñas vacías:</p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo awk -F: <span style=color:#e6db74>&#39;($2 == &#34;&#34;) {print}&#39;</span> /etc/shadow</span></span></code></pre></div><ul><li>Bloquear las cuentas no seguras:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>passwd -l &lt;nombre de usuario&gt;</span></span></code></pre></div><ul><li>Cambiar la contraseña por defecto del usuario pi, logueados como usuario pi:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>passwd</span></span></code></pre></div><ul><li>Deshabilitar el usuario pi:</li></ul><p>Crear un nuevo usuario:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo adduser &lt;nombre de usuario&gt;</span></span></code></pre></div></p><p>Dar privilegios sudo, si es necesario:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo adduser &lt;nombredeusuario&gt; sudo</span></span></code></pre></div></p><p>Comprobar que todo funciona correctamente (acceso ssh, sudo, &mldr;).
-Copiar los archivos del usuario pi al nuevo usuario si es necesario:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo cp /home/pi/Documentos/* /home/&lt;nombredeusuario&gt;/Documentos/ ...</span></span></code></pre></div></p><p>Eliminar el usuario pi:<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo deluser -remove-home pi</span></span></code></pre></div></p><p>Se puedes empezar por bloquear la cuenta y eliminarla sólo cuando se compruebe que con el nuevo usuario todo esta ok.</p><ul><li>Deshabilitar servicios innecesarios</li></ul><p>Tener servicios en ejecución es una clara brecha de seguridad en cualquier sistema.</p><p>Listar servicios en ejecución:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo service --status-all</span></span></code></pre></div><p>Parar un servicio:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo service &lt;nombre del servicio&gt; stop</span></span></code></pre></div><p>Si el servicio arranca automáticamente:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo update-rc.d &lt;nombre-del-servicio&gt; remove</span></span></code></pre></div><p>Para desinstalarlo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo apt remove &lt;nombre-del-servicio&gt;</span></span></code></pre></div><ul><li>Solicitar contraseña para el uso de</li></ul><p>Editar :</p><p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>sudo visudo</span></span></code></pre></div>Buscar :</p><p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>pi ALL<span style=color:#f92672>=(</span>ALL<span style=color:#f92672>)</span> NOPASSWD: ALL</span></span></code></pre></div>#tldr
-Sustitúyala por :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span>pi ALL<span style=color:#f92672>=(</span>ALL<span style=color:#f92672>)</span> PASSWD: ALL</span></span></code></pre></div><p>Realiza esta operación con los usuarios que tengan que utilizar sudo</p><ul><li><p>Realizar backup´s periódicamente de la tarjeta SD.</p></li><li><p>Securizar servicio ssh.</p></li></ul><h2 id=fecha-y-hora>Fecha y hora</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e>#raspi-config</span></span></span></code></pre></div><h2 id=idioma>Idioma</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e>#raspi-config</span></span></span></code></pre></div></div><div class=share-buttons><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f&amp;title=Raspberry%20Pi" rel="nofollow noopener noreferrer" class="share-btn linkedin"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-<span class=share-btn__text>LinkedIn</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://twitter.com/intent/tweet?text=Raspberry%20Pi&amp;url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn twitter"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg>
-<span class=share-btn__text>Twitter</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn facebook"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-<span class=share-btn__text>Facebook</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f&amp;title=Raspberry%20Pi" rel="nofollow noopener noreferrer" class="share-btn reddit"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 00-9 9 9 9 0 009 9 9 9 0 009-9 9 9 0 00-9-9z"/><path d="M15 14c-1.5.0-3-.5-4.5-1.5S8 9.5 8 9.5v-2c0-1.5.5-3 1.5-3S12 4.5 12 6s-.5 3-1.5 3S8 9 8 7.5v-2H5.5c-.5.0-1 .5-1.5 1S3.5 8 4 9s0 0 0 0c1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5s-.5 1-1.5 1S14 16 13 15s-2.5-1.5-3.5-1.5S7 14 6 15s-1.5 1.5-1.5 1.5-1 0-1.5-.5-.5-1.5.0-2.5 2.5-3 3.5-3.5 2-1 3-1.5S12 6 13 5s1.5-1.5 1.5-2.5-1.5-3-3-3z"/></svg>
-<span class=share-btn__text>Reddit</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://telegram.me/share/url?text=Raspberry%20Pi&amp;url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn telegram"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-<span class=share-btn__text>Telegram</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://api.whatsapp.com/send?text=Raspberry%20Pi%20https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921.0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957.0 0111 2c5.518.0 10 4.482 10 10.031z"/><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662s-.492-.016-.75-.016-.67.098-.913.435c-.243.336-.92 1.055-.92 2.57.0 1.516.945 2.977 1.074 3.167s.09.38-.04.532c-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3-4.004.0-7.25-3.246-7.25-7.25.0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974.0 003.107 1.17 6.974 6.974.0 003.107-1.17z"/></svg>
-<span class=share-btn__text>WhatsApp</span></a></div></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
-</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
-<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>
+static domain_name_servers &ldquo;ip dns primario&rdquo; &ldquo;ip dns secundario&rdquo;</p>
+<p>Reiniciamos para aplicar los cambios.</p>
+<p>En las nuevas versiones de Raspberry Pi OS ( anteriormente Raspbian) que están basadas en Debian 12 (bookworm) o superior la configuración de la red se controla de manera distinta, utiliza network manager. Para ello se utiliza el comando nmcli. Vamos a ver rápidamente como hacer esto, desde la consola con privilegios de root:</p>
+<p>Identificar nombres de nuestros interfaces que estén conectados, obtendremos una salida parecida e esta:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli -p connection show
+</span></span><span style="display:flex;"><span><span style="color:#f92672">============================================</span>
+</span></span><span style="display:flex;"><span>  Perfiles de conexiones de NetworkManager
+</span></span><span style="display:flex;"><span><span style="color:#f92672">============================================</span>
+</span></span><span style="display:flex;"><span>NAME                 UUID                                  TYPE      DEVICE     
+</span></span><span style="display:flex;"><span>----------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>Conexión cableada <span style="color:#ae81ff">1</span>  7470081f-935c-35a2-9c7b-66a33272fab5  ethernet  eth0       </span></span></code></pre></div></p>
+<p>En esta caso vamos a configurar &ldquo;Conexión cableada 1&rdquo; con los siguientes parámetros:</p>
+<ul>
+<li>Dirección IP	192.168.1.100</li>
+<li>Puerta de enlace	192.168.1.1</li>
+<li>Mascara de subred	/24</li>
+<li>Servidores DNS	8.8.8.8 y 8.8.4.4</li>
+<li>Nombre de la interfaz de red	Conexión cableada 1</li>
+</ul>
+<p>Con el siguiente comando aplicamos la configuración:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli connection  modify <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> ipv4.method manual ipv4.addresses 192.168.1.1100/24 ipv4.gateway 192.168.1.1 ipv4.dns <span style="color:#e6db74">&#34;8.8.8.8 y 8.8.4.4&#34;</span></span></span></code></pre></div></p>
+<p>Para que los cambios surtan efecto, reiniciaremos Network Manager:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con down <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> <span style="color:#f92672">&amp;&amp;</span> nmcli con up <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span></span></span></code></pre></div></p>
+<blockquote>
+<p>ℹ️ Nota: Otra opción disponible es reiniciar la Raspberry Pi.</p>
+</blockquote>
+<p>Ahora verificamos los camios y consultamos la configuración actual de nuestra conexión ethernet. El resultado será parecido al siguiente, <strong>la salida esta cortada mostrando solo lo que nos interesa, es muy detallada ////</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli -p connection show <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span>            Detalles del perfil de conexiones <span style="color:#f92672">(</span>Conexión cableada 1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">===============================================================================</span>
+</span></span><span style="display:flex;"><span>///////////////////////////////////////////////////////////////////////////////
+</span></span><span style="display:flex;"><span>ipv4.method:                            manual
+</span></span><span style="display:flex;"><span>ipv4.dns:                               8.8.8.8 y 8.8.4.4
+</span></span><span style="display:flex;"><span>ipv4.dns-search:                        --
+</span></span><span style="display:flex;"><span>ipv4.dns-options:                       --
+</span></span><span style="display:flex;"><span>ipv4.dns-priority:                      <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>ipv4.addresses:                         192.168.1.100/24
+</span></span><span style="display:flex;"><span>ipv4.gateway:                           192.168.1.1
+</span></span><span style="display:flex;"><span>ipv4.routes:                            --
+</span></span><span style="display:flex;"><span>ipv4.route-metric:                      -1
+</span></span><span style="display:flex;"><span>///////////////////////////////////////////////////////////////////////////////
+</span></span><span style="display:flex;"><span>802-3-ethernet.port:                    --
+</span></span><span style="display:flex;"><span>802-3-ethernet.speed:                   <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>802-3-ethernet.duplex:                  --
+</span></span><span style="display:flex;"><span>802-3-ethernet.auto-negotiate:          no
+</span></span><span style="display:flex;"><span>802-3-ethernet.mac-address:             --
+</span></span><span style="display:flex;"><span>802-3-ethernet.cloned-mac-address:      --
+</span></span><span style="display:flex;"><span>802-3-ethernet.generate-mac-address-mask:--
+</span></span><span style="display:flex;"><span>802-3-ethernet.mac-address-blacklist:   --
+</span></span><span style="display:flex;"><span>802-3-ethernet.mtu:                     auto
+</span></span><span style="display:flex;"><span>802-3-ethernet.s390-subchannels:        --
+</span></span><span style="display:flex;"><span>802-3-ethernet.s390-nettype:            --
+</span></span><span style="display:flex;"><span>802-3-ethernet.s390-options:            --
+</span></span><span style="display:flex;"><span>802-3-ethernet.wake-on-lan:             default
+</span></span><span style="display:flex;"><span>802-3-ethernet.wake-on-lan-password:    --
+</span></span><span style="display:flex;"><span>802-3-ethernet.accept-all-mac-addresses:-1 <span style="color:#f92672">(</span>default<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>-------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>ipv4.method:                            manual
+</span></span><span style="display:flex;"><span>ipv4.dns:                               9.9.9.9,1.1.1.1
+</span></span><span style="display:flex;"><span>///////////////////////////////////////////////////////////////////////////////</span></span></code></pre></div></p>
+<p>Otros que nos pueden interesar</p>
+<p>Ip dinámica IpV4:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con modify <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> ipv4.method auto</span></span></code></pre></div></p>
+<p>Ip dinámica IpV6:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con modify <span style="color:#e6db74">&#34;Conexión cableada 1&#34;</span> ipv6.method auto</span></span></code></pre></div></p>
+<p>Para que los cambios surjan efecto, o reiniciar el servicio o la Raspberry Pi.</p>
+<p>Evitar conexión automática, interesante con la WiFi:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>nmcli con modify <span style="color:#e6db74">&#34;preconfigured&#34;</span> connection.autoconnect no</span></span></code></pre></div></p>
+<p><a href="https://docs.redhat.com/es/documentation/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/configuring-a-static-ethernet-connection-using-nmcli_configuring-and-managing-network-access">Fuente e información sobre nmcli</a></p>
+<h3 id="configurar-wifi">Configurar Wifi</h3>
+<p>Configuración en <strong>Raspberry Pi OS 12 (Bookworm)</strong>.</p>
+<p>Desde el terminal con privilegios de root editamos el archivo de configuración de red &ldquo;/etc/wpa_supplicant/wpa_supplicant.conf&rdquo;.  Añadir al final (cambia SSID y contraseña):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>network<span style="color:#f92672">={</span>
+</span></span><span style="display:flex;"><span>    ssid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TuNombreDeWiFi&#34;</span>
+</span></span><span style="display:flex;"><span>    psk<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TuContraseñaWiFi&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span></span></span></code></pre></div></p>
+<p>Reinicimaos el servicio de red:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>wpa_cli -i wlan0 reconfigure</span></span></code></pre></div></p>
+<p>⚙️ Consejos útiles</p>
+<ul>
+<li>Comprbar zona/país con <code>raspi-config</code> → <strong>Localisation Options</strong> → <strong>WLAN Country</strong>.</li>
+<li>Si no detecta redes, prueba:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>rfkill unblock wifi
+</span></span><span style="display:flex;"><span>ifconfig wlan0 up</span></span></code></pre></div></li>
+<li>Puedes listar redes disponibles con:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>iwlist wlan0 scan | grep ESSID</span></span></code></pre></div></li>
+</ul>
+<h3 id="deshabilitar-wifi">Deshabilitar Wifi</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>iwconfig wlan0 txpower off</span></span></code></pre></div>
+<h2 id="kernel-headers">Kernel headers</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install linux-headers-<span style="color:#66d9ef">$(</span>uname -r<span style="color:#66d9ef">)</span></span></span></code></pre></div>
+<h2 id="alimentación">Alimentación</h2>
+<p>Según el fabricante:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Modelo</th>
+          <th>Alimentación recomendada</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Raspberry Pi Zero 2 W</td>
+          <td>600 mA</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 5</td>
+          <td>5 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi A</td>
+          <td>700 mA</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi B</td>
+          <td>1,2 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi A+</td>
+          <td>700 mA</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi B+</td>
+          <td>1,8 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 2 B</td>
+          <td>1,8 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 3 B</td>
+          <td>2,5 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 3 A+</td>
+          <td>2,5 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 3 B+</td>
+          <td>2,5 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 4 B</td>
+          <td>3 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi Zero</td>
+          <td>1,2 A</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi Zero W</td>
+          <td>1,2 A</td>
+      </tr>
+  </tbody>
+</table>
+<p>Si tenemos problemas de alimentación puede que no arranque o bien si arranca saldrá un aviso durante el arranque y posteriormente en la esquina superior derecha en el entorno grafico. Pero si no es así lo podemos comprobar desde la consola con privilegios de root:</p>
+<p>Instalamos el paquete necesario, si no lo tenemos ya:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>apt install libraspberrypi-bin</span></span></code></pre></div>
+<p>Ejecutamos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vcgencmd get_throttled</span></span></code></pre></div>
+<table>
+  <thead>
+      <tr>
+          <th>Respuesta</th>
+          <th>Significado</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0x0</td>
+          <td>todo ok</td>
+      </tr>
+      <tr>
+          <td>0x50000</td>
+          <td>tiene o tuvo problemas de voltaje desde el ultimo arranque</td>
+      </tr>
+      <tr>
+          <td>0x80000</td>
+          <td>tiene problemas de temperatura</td>
+      </tr>
+  </tbody>
+</table>
+<p>Los mensajes se guardan el el syslog del sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>/varlog/syslog</span></span></code></pre></div>
+<p>El cual podemos consultar para buscar patrones con el comando dmesg del siguiente modo, ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dmesg | grep -iC <span style="color:#ae81ff">3</span> <span style="color:#e6db74">&#34;under-voltage detected&#34;</span></span></span></code></pre></div>
+<h2 id="temperatura">Temperatura</h2>
+<p>Como todos sabemos uno de los problemas que nos podemos encontrar es la temperatura. La podemos leer de dos maneras:</p>
+<p>En formato bruto con tres decimales grados centígrados:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>cat /sys/class/thermal/thermal_zone0/temp</span></span></code></pre></div>
+<p>Con la utilidad vcgencmd la cual nos lo muestra con un decimal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>vcgencmd measure_temp</span></span></code></pre></div>
+<p>Esta información la podemos utilizar para monitorizar, tomar acciones con scripts, etc.</p>
+<h2 id="servicios">Servicios</h2>
+<h3 id="servidor-ssh">Servidor ssh</h3>
+<p>El servicio ssh es el que nos proporciona acceso remoto a nuestra Rpi. Para gestionarlo utilizaremos el comando service desde la terminal:</p>
+<p>Arrancar:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl start sshd</span></span></code></pre></div></p>
+<p>Reiniciar:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl restart sshd</span></span></code></pre></div></p>
+<p>Ver estado:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl status sshd -l</span></span></code></pre></div></p>
+<p>Parar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>systemctl stop sshd</span></span></code></pre></div>
+<p><strong>Si estamos conectados en remoto y paramos el servicio se cortara la cnexion.</strong></p>
+<p>Es aconsejable realizar una serie de ajustes para que se lo mas suegro posible. El fichero donde se almacena toda la configuración del servicio esta en /etc/ssh/sshd_config.</p>
+<p>Vamos a cambiar / definir una serie de parámetros. Antes de esto es aconsejable tener creadas las llaves de acceso remoto, <a href="https://jaimealberto.io/post/07_universosshi/#llaves">aquí</a>
+puedes ver como hacerlo.</p>
+<p>Ejemplo de fichero de configuración con comentarios:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># Version del protocolo</span>
+</span></span><span style="display:flex;"><span>Protocol <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Puerto</span>
+</span></span><span style="display:flex;"><span>Port <span style="color:#ae81ff">22445</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># AddressFamily any</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ListenAddress 0.0.0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ListenAddress ::</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># No permitir login remoto a root</span>
+</span></span><span style="display:flex;"><span>PermitRootLogin no
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tiempo necesario para introducir la contraseña</span>
+</span></span><span style="display:flex;"><span>LoginGraceTime <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Número de intentos permitidos al introducir la contraseña</span>
+</span></span><span style="display:flex;"><span>MaxAuthTries <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Número de logins simultáneos desde una IP</span>
+</span></span><span style="display:flex;"><span>MaxStartups <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista blanca de usuarios</span>
+</span></span><span style="display:flex;"><span>AllowUsers jhon fulano
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista negra de usuarios</span>
+</span></span><span style="display:flex;"><span>DenyUsers adrian adrian2
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista blanca de grupos</span>
+</span></span><span style="display:flex;"><span>AllowGroups admin sistemas
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lista negra de grupos</span>
+</span></span><span style="display:flex;"><span>DenyGroups marketing ventas
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deshabilitar usuario y contraseña necesarias llaves</span>
+</span></span><span style="display:flex;"><span>PasswordAuthentication no
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Habilitar el uso de llaves.</span>
+</span></span><span style="display:flex;"><span>PubkeyAuthentication yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nivel de log </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deshabilitar túneles</span>
+</span></span><span style="display:flex;"><span>AllowTcpForwarding no
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Habilitar túneles para el usuario sistemas</span>
+</span></span><span style="display:flex;"><span>Match User sistemas
+</span></span><span style="display:flex;"><span>AllowTcpForwarding yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Banner</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PrintLastLog</span></span></span></code></pre></div>
+<h3 id="duckdns">DuckDns</h3>
+<p>Para tener nuestra conexión localizada por ip por si la necesitamos.
+Registramos los dominios en <a href="https://www.duckdns.org/">Duckdns</a> obteniendo un token. Desde el terminal con una cuenta de usuario:</p>
+<ul>
+<li>Creeamos el script:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>mkdir duckdns
+</span></span><span style="display:flex;"><span>cd duckdns
+</span></span><span style="display:flex;"><span>vi duck.sh</span></span></code></pre></div></li>
+<li>Contenido:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>echo url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.duckdns.org/update?domains=dominio1,dominio2&amp;token=MI_TOKEN_ULTRA_SECRETO&amp;ip=&#34;</span> | curl -k -o ~/duckdns/duck.log -K -</span></span></code></pre></div></li>
+<li>Le damos permisos de ejecución:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>chmod +x duck.sh</span></span></code></pre></div></li>
+<li>Lo programamos en el cron
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>crontab -e
+</span></span><span style="display:flex;"><span>*/5 * * * * ~/duckdns/duck.sh &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span></span></span></code></pre></div>
+Ahora cada 5 minutos se ejecutara y escribirá el resultado en el fichero duck.log. Sera ok o ko.</li>
+</ul>
+<h2 id="backup-tarjeta-sd">Backup tarjeta SD</h2>
+<h3 id="local">Local</h3>
+<p>Apagáramos la Rpi y la insertamos en nuestro equipo. Abrimos un terminal con privilegios de root e identificamos cual es el device de la tarjeta sd:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>fdisk -l</span></span></code></pre></div>
+<p>Suponiendo que sea /dev/sdb, esto varia en función de lo que tengamos conectado. Utilizaremos el comando dd y opcionalmente el pv para tener una barra de progreso. al directorio que queramos. Este comando tiene la siguiente estructura:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdb bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>raspbackup.img</span></span></code></pre></div>
+<p>Si queremos restaurar la copia:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>raspbackup.img bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>/dev/sdb</span></span></code></pre></div>
+<h3 id="remoto">Remoto</h3>
+<p>Puede que en algún momento necesitemos realizar una copia por red o que tengamos algo en producción con lo cual no podemos parar.Desde el terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>ssh pi@192.168.1.155 <span style="color:#e6db74">&#34;sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -&#34;</span> | dd of<span style="color:#f92672">=</span>backup.gz</span></span></code></pre></div>
+<p>Donde:</p>
+<ul>
+<li>&ldquo;pi&rdquo; El usuario que se conecta y puede ejecutar sudo sin pedir contraseña.</li>
+<li>&ldquo;192.168.1.155&rdquo; Dirección ip de nuestra Rpi.</li>
+<li>&ldquo;backup.gz&rdquo; fichero donde se guardara la copia.</li>
+<li>&ldquo;1M&rdquo; Tamaño de 1 Megabyte del bloque al realizar la copia.</li>
+</ul>
+<p>Tener en cuenta:</p>
+<p>Se añade el parámetro &ldquo;status=progess&rdquo;, si vamos a  programar la tarea en el cron lo deberíamos omitir.</p>
+<p>La copia se realiza comprimida al añadir &ldquo;gzip -&rdquo;. Es opcional.</p>
+<p>Este procedimiento no me fallado nunca, esto no quiere decir que sea infalible tener en cuenta que esta en funcionamiento y se realiza el caliente.</p>
+<h2 id="restore-tarjeta-sd">Restore tarjeta SD</h2>
+<h3 id="local-1">Local</h3>
+<p>Desde nuestro terminal como root donde tengamos el de la copia:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>gzip -dc fichero_backup.gz | dd bs<span style="color:#f92672">=</span>1M status<span style="color:#f92672">=</span>progress of<span style="color:#f92672">=</span>/dev/sdd</span></span></code></pre></div>
+<p>Donde /dev/sdd es nuestra tarjeta sd donde restauraremos el backup.</p>
+<h2 id="consejos-de-seguridad">Consejos de seguridad</h2>
+<p>Consejos de seguridad</p>
+<ul>
+<li>No utilizar el inicio de sesión automático ni contraseñas vacías.</li>
+</ul>
+<p>Las contraseñas son una parte muy importante de la seguridad de nuestro sistema.</p>
+<ul>
+<li>
+<p>Asegurarnos de que todos los accesos críticos piden una contraseña.</p>
+</li>
+<li>
+<p>Buscar contraseñas vacías:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo awk -F: <span style="color:#e6db74">&#39;($2 == &#34;&#34;) {print}&#39;</span> /etc/shadow</span></span></code></pre></div>
+<ul>
+<li>Bloquear las cuentas no seguras:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>passwd -l &lt;nombre de usuario&gt;</span></span></code></pre></div>
+<ul>
+<li>Cambiar la contraseña por defecto del usuario pi, logueados como usuario pi:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>passwd</span></span></code></pre></div>
+<ul>
+<li>Deshabilitar el usuario pi:</li>
+</ul>
+<p>Crear un nuevo usuario:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo adduser &lt;nombre de usuario&gt;</span></span></code></pre></div></p>
+<p>Dar privilegios sudo, si es necesario:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo adduser &lt;nombredeusuario&gt; sudo</span></span></code></pre></div></p>
+<p>Comprobar que todo funciona correctamente (acceso ssh, sudo, &hellip;).
+Copiar los archivos del usuario pi al nuevo usuario si es necesario:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo cp /home/pi/Documentos/* /home/&lt;nombredeusuario&gt;/Documentos/ ...</span></span></code></pre></div></p>
+<p>Eliminar el usuario pi:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo deluser -remove-home pi</span></span></code></pre></div></p>
+<p>Se  puedes empezar por bloquear la cuenta y eliminarla sólo cuando se compruebe que con el nuevo usuario todo esta ok.</p>
+<ul>
+<li>Deshabilitar  servicios innecesarios</li>
+</ul>
+<p>Tener servicios en ejecución es una clara brecha de seguridad en cualquier sistema.</p>
+<p>Listar servicios en ejecución:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo service --status-all</span></span></code></pre></div>
+<p>Parar un servicio:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo service &lt;nombre del servicio&gt; stop</span></span></code></pre></div>
+<p>Si el servicio arranca automáticamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo update-rc.d &lt;nombre-del-servicio&gt; remove</span></span></code></pre></div>
+<p>Para desinstalarlo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo apt remove &lt;nombre-del-servicio&gt;</span></span></code></pre></div>
+<ul>
+<li>Solicitar contraseña para el uso de</li>
+</ul>
+<p>Editar :</p>
+<p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo visudo</span></span></code></pre></div>
+Buscar :</p>
+<p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>pi ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: ALL</span></span></code></pre></div>
+#tldr
+Sustitúyala por :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>pi ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> PASSWD: ALL</span></span></code></pre></div>
+<p>Realiza esta operación con los usuarios que tengan que utilizar sudo</p>
+<ul>
+<li>
+<p>Realizar backup´s periódicamente de la tarjeta SD.</p>
+</li>
+<li>
+<p>Securizar servicio ssh.</p>
+</li>
+</ul>
+<h2 id="fecha-y-hora">Fecha y hora</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#raspi-config</span></span></span></code></pre></div>
+<h2 id="idioma">Idioma</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#raspi-config</span></span></span></code></pre></div>
+
+		</div>
+<div class="share-buttons">
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f&amp;title=Raspberry%20Pi" rel="nofollow noopener noreferrer" class="share-btn linkedin">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="share-btn__text">LinkedIn</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://twitter.com/intent/tweet?text=Raspberry%20Pi&amp;url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn twitter">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+        <span class="share-btn__text">Twitter</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn facebook">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span class="share-btn__text">Facebook</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f&amp;title=Raspberry%20Pi" rel="nofollow noopener noreferrer" class="share-btn reddit">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path><path d="M15 14c-1.5 0-3-.5-4.5-1.5s-2.5-3-2.5-3v-2c0-1.5.5-3 1.5-3s2.5 0 2.5 1.5c0 1.5-.5 3-1.5 3s-2.5 0-2.5-1.5v-2h-2.5c-.5 0-1 .5-1.5 1s-.5 1.5 0 2.5c0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5 0 .5-.5 1-1.5 1s-2.5-.5-3.5-1.5c-1-1-2.5-1.5-3.5-1.5s-2.5.5-3.5 1.5c-1 1-1.5 1.5-1.5 1.5s-1 0-1.5-.5c-.5-.5-.5-1.5 0-2.5s2.5-3 3.5-3.5c1-.5 2-1 3-1.5s2.5-2.5 3.5-3.5c1-1 1.5-1.5 1.5-2.5s-1.5-3-3-3z"></path></svg>
+        <span class="share-btn__text">Reddit</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://telegram.me/share/url?text=Raspberry%20Pi&amp;url=https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn telegram">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    <span class="share-btn__text">Telegram</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://api.whatsapp.com/send?text=Raspberry%20Pi%20https%3a%2f%2fjaimealberto.io%2fraspberrypi%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921 0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957 0 0 1 11 2c5.518 0 10 4.482 10 10.031z"></path><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662-.227-.008-.492-.016-.75-.016-.258 0-.67.098-.913.435-.243.336-.92 1.055-.92 2.57 0 1.516.945 2.977 1.074 3.167.129.19.09.38-.04.532-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3 0 0 0 0 0 0-4.004 0-7.25-3.246-7.25-7.25 0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974 0 0 0 3.107 1.17 6.974 6.974 0 0 0 3.107-1.17z"></path></svg>
+    <span class="share-btn__text">WhatsApp</span>
+    </a>
+</div>
+</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

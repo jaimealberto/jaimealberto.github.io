@@ -1,59 +1,455 @@
-<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Arquitectura de seguridad multicapa para un asistente IA con datos PII - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Cuando integras contactos personales en un asistente de IA self-hosted, el modelo de amenaza cambia completamente. Así diseñamos seis capas de protección para que el asistente no sepa más de lo que debe."><link rel=canonical href=https://jaimealberto.io/post/54_ia_pii_security/><meta property="og:url" content="https://jaimealberto.io/post/54_ia_pii_security/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="Arquitectura de seguridad multicapa para un asistente IA con datos PII"><meta property="og:description" content="Cuando integras contactos personales en un asistente de IA self-hosted, el modelo de amenaza cambia completamente. Así diseñamos seis capas de protección para que el asistente no sepa más de lo que debe."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-05-16T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-16T00:00:00+00:00"><meta property="article:tag" content="IA"><meta property="article:tag" content="Privacidad"><meta property="article:tag" content="GPG"><meta property="article:tag" content="Selfhosted"><meta property="article:tag" content="Python"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"Arquitectura de seguridad multicapa para un asistente IA con datos PII","description":"Cuando integras contactos personales en un asistente de IA self-hosted, el modelo de amenaza cambia completamente. Así diseñamos seis capas de protección para que el asistente no sepa más de lo que debe.","datePublished":"2026-05-16","dateModified":"2026-05-16","url":"https:\/\/jaimealberto.io\/post\/54_ia_pii_security\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
-<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Arquitectura de seguridad multicapa para un asistente IA con datos PII</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/seguridad/ rel=category>Seguridad</a>, <a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a></span></div></div></header><div class="post__toc toc"><div class=toc__title>Índice</div><div class=toc__menu><nav id=TableOfContents><ul><li><a href=#-modelo-de-amenaza>🎯 Modelo de amenaza</a></li><li><a href=#-capa-1--cifrado-en-reposo-con-gpg-aes-256>🔐 Capa 1 — Cifrado en reposo con GPG AES-256</a></li><li><a href=#-capa-2--contraseña-fuera-del-canal-del-asistente>🚪 Capa 2 — Contraseña fuera del canal del asistente</a></li><li><a href=#-capa-3--mcp-con-detección-dinámica-de-directorios-restringidos>🤖 Capa 3 — MCP con detección dinámica de directorios restringidos</a></li><li><a href=#-capa-4--indexador-meilisearch-con-filtrado-automático>🔍 Capa 4 — Indexador Meilisearch con filtrado automático</a></li><li><a href=#-capa-5--gestión-de-claves-en-meilisearch>🗝️ Capa 5 — Gestión de claves en Meilisearch</a></li><li><a href=#-capa-6--exclusión-de-git-y-memoria-del-asistente>🧹 Capa 6 — Exclusión de git y memoria del asistente</a></li><li><a href=#-propiedades-de-seguridad-resultantes>✅ Propiedades de seguridad resultantes</a></li><li><a href=#-pendientes-y-mejoras-futuras>🔜 Pendientes y mejoras futuras</a></li></ul></nav></div></div><div class="content post__content clearfix"><figure><img src=/img/ia_pii_security.jpg alt="Arquitectura de seguridad multicapa para un asistente IA con datos PII"></figure><p>Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.</p><p>Un contacto no es una nota técnica. Tiene nombre, teléfono, dirección. Datos que no son solo míos — son también de las personas que me los dieron. Antes de seguir adelante decidí que el sistema tenía que garantizar algo concreto: <strong>el asistente solo puede acceder a esos datos cuando yo le doy permiso explícito, y en ningún otro momento</strong>.</p><p>Este artículo documenta las decisiones de arquitectura para conseguirlo. No es teoría — es lo que hay montado.</p><p><strong>Stack:</strong> vault de notas Markdown + Meilisearch + scripts Bash/Python + GPG + KDE + LLM vía MCP</p><hr><h2 id=-modelo-de-amenaza>🎯 Modelo de amenaza</h2><p>Antes de escribir una línea de código, definí los vectores reales a mitigar. No los teóricos — los que podían ocurrir con mi setup concreto:</p><table><thead><tr><th>Amenaza</th><th>Vector</th><th>Severidad</th></tr></thead><tbody><tr><td>El LLM lee contactos sin autorización explícita</td><td>MCP sin control de acceso</td><td>Alta</td></tr><tr><td>Los contactos se indexan en claro en Meilisearch</td><td>Indexador sin filtrado</td><td>Alta</td></tr><tr><td>La contraseña queda en el historial del chat</td><td>Input de texto en conversación</td><td>Alta</td></tr><tr><td>Datos recuperables tras borrado</td><td><code>rm</code> estándar</td><td>Media</td></tr><tr><td>Master key de Meilisearch en el repo</td><td>Documentación en vault</td><td>Media</td></tr><tr><td>Credenciales persistentes en memoria del asistente</td><td>Sistema de memoria</td><td>Media</td></tr></tbody></table><p>Con el mapa claro, diseñé seis capas independientes. Si una falla, las demás aguantan.</p><hr><h2 id=-capa-1--cifrado-en-reposo-con-gpg-aes-256>🔐 Capa 1 — Cifrado en reposo con GPG AES-256</h2><p>La unidad de confidencialidad es el <strong>directorio del vault</strong>. Cada directorio sensible puede abrirse y cerrarse de forma independiente. En reposo, los ficheros <code>.md</code> son ficheros <code>.md.gpg</code> — ruido ininteligible sin la passphrase.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Cerrar: cifrar y destruir el original</span>
-</span></span><span style=display:flex><span>gpg --batch --yes --quiet <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    --symmetric --cipher-algo AES256 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    --passphrase <span style=color:#e6db74>&#34;</span>$PASS<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    -o <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>f<span style=color:#e6db74>}</span><span style=color:#e6db74>.gpg&#34;</span> <span style=color:#e6db74>&#34;</span>$f<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>shred -u <span style=color:#e6db74>&#34;</span>$f<span style=color:#e6db74>&#34;</span>   <span style=color:#75715e># sobreescritura segura: 3 pasadas, sin recuperación forense</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Abrir: descifrar a .md temporal</span>
-</span></span><span style=display:flex><span>gpg --batch --yes --quiet <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    --passphrase <span style=color:#e6db74>&#34;</span>$PASS<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    --decrypt -o <span style=color:#e6db74>&#34;</span>$out<span style=color:#e6db74>&#34;</span> <span style=color:#e6db74>&#34;</span>$f<span style=color:#e6db74>&#34;</span></span></span></code></pre></div><p><strong>Por qué cifrado simétrico y no asimétrico:</strong> el caso de uso es un único propietario. GPG asimétrico añade gestión de claves sin ningún beneficio real aquí.</p><p><strong>Por qué <code>shred</code> y no <code>rm</code>:</strong> en sistemas de ficheros con journaling (ext4, btrfs), <code>rm</code> no garantiza la eliminación física de los datos. <code>shred -u</code> sobreescribe antes de desvincular.</p><hr><h2 id=-capa-2--contraseña-fuera-del-canal-del-asistente>🚪 Capa 2 — Contraseña fuera del canal del asistente</h2><p>Este es el punto donde la mayoría de implementaciones fallan. Si le dices la contraseña al asistente en el chat, esa contraseña queda en el historial de conversación, potencialmente en logs, potencialmente en memoria persistente.</p><p>El flujo que implementé separa completamente los canales:</p><pre tabindex=0><code>Usuario → kdialog (diálogo gráfico nativo KDE)
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Arquitectura de seguridad multicapa para un asistente IA con datos PII - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Cuando integras contactos personales en un asistente de IA self-hosted, el modelo de amenaza cambia completamente. Así diseñamos seis capas de protección para que el asistente no sepa más de lo que debe.">
+	<link rel="canonical" href="https://jaimealberto.io/post/54_ia_pii_security/">
+		<meta property="og:url" content="https://jaimealberto.io/post/54_ia_pii_security/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Arquitectura de seguridad multicapa para un asistente IA con datos PII">
+  <meta property="og:description" content="Cuando integras contactos personales en un asistente de IA self-hosted, el modelo de amenaza cambia completamente. Así diseñamos seis capas de protección para que el asistente no sepa más de lo que debe.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-16T00:00:00+00:00">
+    <meta property="article:tag" content="IA">
+    <meta property="article:tag" content="Privacidad">
+    <meta property="article:tag" content="GPG">
+    <meta property="article:tag" content="Selfhosted">
+    <meta property="article:tag" content="Python">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Arquitectura de seguridad multicapa para un asistente IA con datos PII",
+  "description": "Cuando integras contactos personales en un asistente de IA self-hosted, el modelo de amenaza cambia completamente. Así diseñamos seis capas de protección para que el asistente no sepa más de lo que debe.",
+  "datePublished": "2026-05-16",
+  "dateModified": "2026-05-16",
+  "url": "https:\/\/jaimealberto.io\/post\/54_ia_pii_security\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https:\/\/jaimealberto.io\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Arquitectura de seguridad multicapa para un asistente IA con datos PII</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-modelo-de-amenaza">🎯 Modelo de amenaza</a></li>
+    <li><a href="#-capa-1--cifrado-en-reposo-con-gpg-aes-256">🔐 Capa 1 — Cifrado en reposo con GPG AES-256</a></li>
+    <li><a href="#-capa-2--contraseña-fuera-del-canal-del-asistente">🚪 Capa 2 — Contraseña fuera del canal del asistente</a></li>
+    <li><a href="#-capa-3--mcp-con-detección-dinámica-de-directorios-restringidos">🤖 Capa 3 — MCP con detección dinámica de directorios restringidos</a></li>
+    <li><a href="#-capa-4--indexador-meilisearch-con-filtrado-automático">🔍 Capa 4 — Indexador Meilisearch con filtrado automático</a></li>
+    <li><a href="#-capa-5--gestión-de-claves-en-meilisearch">🗝️ Capa 5 — Gestión de claves en Meilisearch</a></li>
+    <li><a href="#-capa-6--exclusión-de-git-y-memoria-del-asistente">🧹 Capa 6 — Exclusión de git y memoria del asistente</a></li>
+    <li><a href="#-propiedades-de-seguridad-resultantes">✅ Propiedades de seguridad resultantes</a></li>
+    <li><a href="#-pendientes-y-mejoras-futuras">🔜 Pendientes y mejoras futuras</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/ia_pii_security.jpg" alt="Arquitectura de seguridad multicapa para un asistente IA con datos PII">
+</figure>
+
+<p>Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.</p>
+<p>Un contacto no es una nota técnica. Tiene nombre, teléfono, dirección. Datos que no son solo míos — son también de las personas que me los dieron. Antes de seguir adelante decidí que el sistema tenía que garantizar algo concreto: <strong>el asistente solo puede acceder a esos datos cuando yo le doy permiso explícito, y en ningún otro momento</strong>.</p>
+<p>Este artículo documenta las decisiones de arquitectura para conseguirlo. No es teoría — es lo que hay montado.</p>
+<p><strong>Stack:</strong> vault de notas Markdown + Meilisearch + scripts Bash/Python + GPG + KDE + LLM vía MCP</p>
+<hr>
+<h2 id="-modelo-de-amenaza">🎯 Modelo de amenaza</h2>
+<p>Antes de escribir una línea de código, definí los vectores reales a mitigar. No los teóricos — los que podían ocurrir con mi setup concreto:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Amenaza</th>
+          <th>Vector</th>
+          <th>Severidad</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>El LLM lee contactos sin autorización explícita</td>
+          <td>MCP sin control de acceso</td>
+          <td>Alta</td>
+      </tr>
+      <tr>
+          <td>Los contactos se indexan en claro en Meilisearch</td>
+          <td>Indexador sin filtrado</td>
+          <td>Alta</td>
+      </tr>
+      <tr>
+          <td>La contraseña queda en el historial del chat</td>
+          <td>Input de texto en conversación</td>
+          <td>Alta</td>
+      </tr>
+      <tr>
+          <td>Datos recuperables tras borrado</td>
+          <td><code>rm</code> estándar</td>
+          <td>Media</td>
+      </tr>
+      <tr>
+          <td>Master key de Meilisearch en el repo</td>
+          <td>Documentación en vault</td>
+          <td>Media</td>
+      </tr>
+      <tr>
+          <td>Credenciales persistentes en memoria del asistente</td>
+          <td>Sistema de memoria</td>
+          <td>Media</td>
+      </tr>
+  </tbody>
+</table>
+<p>Con el mapa claro, diseñé seis capas independientes. Si una falla, las demás aguantan.</p>
+<hr>
+<h2 id="-capa-1--cifrado-en-reposo-con-gpg-aes-256">🔐 Capa 1 — Cifrado en reposo con GPG AES-256</h2>
+<p>La unidad de confidencialidad es el <strong>directorio del vault</strong>. Cada directorio sensible puede abrirse y cerrarse de forma independiente. En reposo, los ficheros <code>.md</code> son ficheros <code>.md.gpg</code> — ruido ininteligible sin la passphrase.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cerrar: cifrar y destruir el original</span>
+</span></span><span style="display:flex;"><span>gpg --batch --yes --quiet <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --symmetric --cipher-algo AES256 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --passphrase <span style="color:#e6db74">&#34;</span>$PASS<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -o <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>f<span style="color:#e6db74">}</span><span style="color:#e6db74">.gpg&#34;</span> <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>shred -u <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span>   <span style="color:#75715e"># sobreescritura segura: 3 pasadas, sin recuperación forense</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Abrir: descifrar a .md temporal</span>
+</span></span><span style="display:flex;"><span>gpg --batch --yes --quiet <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --passphrase <span style="color:#e6db74">&#34;</span>$PASS<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --decrypt -o <span style="color:#e6db74">&#34;</span>$out<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
+<p><strong>Por qué cifrado simétrico y no asimétrico:</strong> el caso de uso es un único propietario. GPG asimétrico añade gestión de claves sin ningún beneficio real aquí.</p>
+<p><strong>Por qué <code>shred</code> y no <code>rm</code>:</strong> en sistemas de ficheros con journaling (ext4, btrfs), <code>rm</code> no garantiza la eliminación física de los datos. <code>shred -u</code> sobreescribe antes de desvincular.</p>
+<hr>
+<h2 id="-capa-2--contraseña-fuera-del-canal-del-asistente">🚪 Capa 2 — Contraseña fuera del canal del asistente</h2>
+<p>Este es el punto donde la mayoría de implementaciones fallan. Si le dices la contraseña al asistente en el chat, esa contraseña queda en el historial de conversación, potencialmente en logs, potencialmente en memoria persistente.</p>
+<p>El flujo que implementé separa completamente los canales:</p>
+<pre tabindex="0"><code>Usuario → kdialog (diálogo gráfico nativo KDE)
                ↓
         /tmp/.harper_pass  (chmod 600, vida &lt; 5 segundos)
                ↓
         script de cifrado / descifrado
-</code></pre><p><code>kdialog</code> se lanza mediante un atajo de teclado global registrado en el sistema operativo — sin pasar por el asistente en ningún momento. La contraseña llega al script a través de un fichero temporal con permisos restrictivos que el script elimina tras leer.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>printf <span style=color:#e6db74>&#39;%s&#39;</span> <span style=color:#e6db74>&#34;</span>$pass<span style=color:#e6db74>&#34;</span> &gt; /tmp/.harper_pass
-</span></span><span style=display:flex><span>chmod <span style=color:#ae81ff>600</span> /tmp/.harper_pass
-</span></span><span style=display:flex><span><span style=color:#75715e># El script lee y destruye inmediatamente</span>
-</span></span><span style=display:flex><span>rm -f /tmp/.harper_pass</span></span></code></pre></div><p><strong>Por qué no variables de entorno:</strong> las variables de entorno son visibles en <code>/proc/&lt;pid>/environ</code> para cualquier proceso del mismo usuario. El fichero temporal con chmod 600 y vida corta es más seguro en este contexto.</p><hr><h2 id=-capa-3--mcp-con-detección-dinámica-de-directorios-restringidos>🤖 Capa 3 — MCP con detección dinámica de directorios restringidos</h2><p>El servidor MCP expone herramientas de lectura, escritura y búsqueda en el vault. Sin protección, el LLM podría leer ficheros descifrados durante una sesión abierta. La protección no es una lista estática que hay que mantener a mano — eso se queda desactualizado.</p><p>La detección es dinámica: <strong>un directorio está restringido si contiene algún fichero <code>.md.gpg</code></strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_get_restricted_dirs</span>() <span style=color:#f92672>-&gt;</span> set:
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;Directorios con .md.gpg presentes = cifrados = fuera de límites.&#34;&#34;&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {p<span style=color:#f92672>.</span>parent<span style=color:#f92672>.</span>name <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> VAULT<span style=color:#f92672>.</span>rglob(<span style=color:#e6db74>&#34;*.md.gpg&#34;</span>)}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_is_restricted</span>(path: Path) <span style=color:#f92672>-&gt;</span> bool:
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
-</span></span><span style=display:flex><span>        parts <span style=color:#f92672>=</span> path<span style=color:#f92672>.</span>relative_to(VAULT)<span style=color:#f92672>.</span>parts
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> bool(parts <span style=color:#f92672>and</span> parts[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>in</span> _get_restricted_dirs())
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>ValueError</span>:
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span></span></span></code></pre></div><p>Esta función se evalúa en cada llamada a herramienta. El coste es despreciable (glob local). La ventaja: cualquier nuevo directorio cifrado queda protegido automáticamente sin tocar el código. Todas las herramientas que acceden a ficheros pasan por <code>_is_restricted()</code> antes de operar.</p><hr><h2 id=-capa-4--indexador-meilisearch-con-filtrado-automático>🔍 Capa 4 — Indexador Meilisearch con filtrado automático</h2><p>El indexador mantiene el motor de búsqueda actualizado. El problema: si se ejecuta mientras un directorio cifrado está temporalmente abierto, los datos PII acaban en el índice en claro.</p><p>La misma lógica dinámica del MCP se aplica al indexador:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_get_restricted_dirs</span>() <span style=color:#f92672>-&gt;</span> set:
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {
-</span></span><span style=display:flex><span>        os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>basename(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>dirname(p))
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> glob<span style=color:#f92672>.</span>glob(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>VAULT_DIR<span style=color:#e6db74>}</span><span style=color:#e6db74>/**/*.md.gpg&#34;</span>, recursive<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># En index_all():</span>
-</span></span><span style=display:flex><span>restricted <span style=color:#f92672>=</span> _get_restricted_dirs()
-</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> path <span style=color:#f92672>in</span> glob<span style=color:#f92672>.</span>glob(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>VAULT_DIR<span style=color:#e6db74>}</span><span style=color:#e6db74>/**/*.md&#34;</span>, recursive<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>):
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> _is_restricted(path):
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>continue</span>  <span style=color:#75715e># nunca indexar, ni siquiera en claro</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># En index_file():</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> _is_restricted(path):
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;✗ Rechazado: directorio cifrado — </span><span style=color:#e6db74>{</span>rel<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span></span></span></code></pre></div><p><strong>La propiedad clave:</strong> mientras exista al menos un <code>.md.gpg</code> en el directorio, todos los <code>.md</code> de ese directorio quedan excluidos del índice. No hay ventana de vulnerabilidad entre el descifrado y la indexación.</p><hr><h2 id=-capa-5--gestión-de-claves-en-meilisearch>🗝️ Capa 5 — Gestión de claves en Meilisearch</h2><p>Meilisearch usa un modelo de claves derivadas de una master key. Definí tres claves con ámbitos distintos:</p><table><thead><tr><th>Key</th><th>Permisos</th><th>Almacenamiento</th></tr></thead><tbody><tr><td>master</td><td>Administración total</td><td>Solo gestor de contraseñas — <strong>nunca en vault ni scripts</strong></td></tr><tr><td>search-only</td><td>Solo búsqueda</td><td>Servidor MCP (riesgo aceptado: red privada)</td></tr><tr><td>indexer</td><td>documents.add, indexes.get</td><td>Script indexador (riesgo aceptado: red privada)</td></tr></tbody></table><p><strong>Nota:</strong> la master key no vive en ningún fichero del repositorio, ni en comentarios, ni en documentación. Si se compromete, cualquiera puede crear claves de administración con acceso total a todos los índices.</p><hr><h2 id=-capa-6--exclusión-de-git-y-memoria-del-asistente>🧹 Capa 6 — Exclusión de git y memoria del asistente</h2><pre tabindex=0><code># .gitignore
+</code></pre><p><code>kdialog</code> se lanza mediante un atajo de teclado global registrado en el sistema operativo — sin pasar por el asistente en ningún momento. La contraseña llega al script a través de un fichero temporal con permisos restrictivos que el script elimina tras leer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;%s&#39;</span> <span style="color:#e6db74">&#34;</span>$pass<span style="color:#e6db74">&#34;</span> &gt; /tmp/.harper_pass
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> /tmp/.harper_pass
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># El script lee y destruye inmediatamente</span>
+</span></span><span style="display:flex;"><span>rm -f /tmp/.harper_pass</span></span></code></pre></div>
+<p><strong>Por qué no variables de entorno:</strong> las variables de entorno son visibles en <code>/proc/&lt;pid&gt;/environ</code> para cualquier proceso del mismo usuario. El fichero temporal con chmod 600 y vida corta es más seguro en este contexto.</p>
+<hr>
+<h2 id="-capa-3--mcp-con-detección-dinámica-de-directorios-restringidos">🤖 Capa 3 — MCP con detección dinámica de directorios restringidos</h2>
+<p>El servidor MCP expone herramientas de lectura, escritura y búsqueda en el vault. Sin protección, el LLM podría leer ficheros descifrados durante una sesión abierta. La protección no es una lista estática que hay que mantener a mano — eso se queda desactualizado.</p>
+<p>La detección es dinámica: <strong>un directorio está restringido si contiene algún fichero <code>.md.gpg</code></strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_get_restricted_dirs</span>() <span style="color:#f92672">-&gt;</span> set:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Directorios con .md.gpg presentes = cifrados = fuera de límites.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {p<span style="color:#f92672">.</span>parent<span style="color:#f92672">.</span>name <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> VAULT<span style="color:#f92672">.</span>rglob(<span style="color:#e6db74">&#34;*.md.gpg&#34;</span>)}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_is_restricted</span>(path: Path) <span style="color:#f92672">-&gt;</span> bool:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        parts <span style="color:#f92672">=</span> path<span style="color:#f92672">.</span>relative_to(VAULT)<span style="color:#f92672">.</span>parts
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> bool(parts <span style="color:#f92672">and</span> parts[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">in</span> _get_restricted_dirs())
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span></span></span></code></pre></div>
+<p>Esta función se evalúa en cada llamada a herramienta. El coste es despreciable (glob local). La ventaja: cualquier nuevo directorio cifrado queda protegido automáticamente sin tocar el código. Todas las herramientas que acceden a ficheros pasan por <code>_is_restricted()</code> antes de operar.</p>
+<hr>
+<h2 id="-capa-4--indexador-meilisearch-con-filtrado-automático">🔍 Capa 4 — Indexador Meilisearch con filtrado automático</h2>
+<p>El indexador mantiene el motor de búsqueda actualizado. El problema: si se ejecuta mientras un directorio cifrado está temporalmente abierto, los datos PII acaban en el índice en claro.</p>
+<p>La misma lógica dinámica del MCP se aplica al indexador:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_get_restricted_dirs</span>() <span style="color:#f92672">-&gt;</span> set:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>basename(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(p))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> glob<span style="color:#f92672">.</span>glob(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>VAULT_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">/**/*.md.gpg&#34;</span>, recursive<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># En index_all():</span>
+</span></span><span style="display:flex;"><span>restricted <span style="color:#f92672">=</span> _get_restricted_dirs()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> path <span style="color:#f92672">in</span> glob<span style="color:#f92672">.</span>glob(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>VAULT_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">/**/*.md&#34;</span>, recursive<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> _is_restricted(path):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>  <span style="color:#75715e"># nunca indexar, ni siquiera en claro</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># En index_file():</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> _is_restricted(path):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;✗ Rechazado: directorio cifrado — </span><span style="color:#e6db74">{</span>rel<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span></span></span></code></pre></div>
+<p><strong>La propiedad clave:</strong> mientras exista al menos un <code>.md.gpg</code> en el directorio, todos los <code>.md</code> de ese directorio quedan excluidos del índice. No hay ventana de vulnerabilidad entre el descifrado y la indexación.</p>
+<hr>
+<h2 id="-capa-5--gestión-de-claves-en-meilisearch">🗝️ Capa 5 — Gestión de claves en Meilisearch</h2>
+<p>Meilisearch usa un modelo de claves derivadas de una master key. Definí tres claves con ámbitos distintos:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Key</th>
+          <th>Permisos</th>
+          <th>Almacenamiento</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>master</td>
+          <td>Administración total</td>
+          <td>Solo gestor de contraseñas — <strong>nunca en vault ni scripts</strong></td>
+      </tr>
+      <tr>
+          <td>search-only</td>
+          <td>Solo búsqueda</td>
+          <td>Servidor MCP (riesgo aceptado: red privada)</td>
+      </tr>
+      <tr>
+          <td>indexer</td>
+          <td>documents.add, indexes.get</td>
+          <td>Script indexador (riesgo aceptado: red privada)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Nota:</strong> la master key no vive en ningún fichero del repositorio, ni en comentarios, ni en documentación. Si se compromete, cualquiera puede crear claves de administración con acceso total a todos los índices.</p>
+<hr>
+<h2 id="-capa-6--exclusión-de-git-y-memoria-del-asistente">🧹 Capa 6 — Exclusión de git y memoria del asistente</h2>
+<pre tabindex="0"><code># .gitignore
 directorio_sensible/
-</code></pre><p>El directorio de datos sensibles no se versiona. Ni los <code>.md.gpg</code>. Esto elimina el riesgo de exposición vía historial de git o repositorio remoto — incluso si el repo acaba siendo público por error.</p><p>El sistema de memoria persistente del asistente tiene una regla explícita: <strong>las contraseñas no se persisten nunca</strong>. El protocolo de cierre de sesión incluye verificación activa de que no queden credenciales almacenadas.</p><hr><h2 id=-propiedades-de-seguridad-resultantes>✅ Propiedades de seguridad resultantes</h2><table><thead><tr><th>Propiedad</th><th>Garantía</th></tr></thead><tbody><tr><td>Confidencialidad en reposo</td><td>GPG AES-256; datos ilegibles sin passphrase</td></tr><tr><td>Separación de canales</td><td>Contraseña nunca en historial de conversación</td></tr><tr><td>Mínimo privilegio</td><td>El LLM solo accede cuando la sesión está abierta explícitamente</td></tr><tr><td>Eliminación segura</td><td><code>shred -u</code>; sin recuperación forense básica</td></tr><tr><td>Detección automática</td><td>Sin listas estáticas; basada en presencia de <code>.md.gpg</code></td></tr><tr><td>Sin rastro en índice</td><td>Meilisearch excluye dirs cifrados independientemente del estado</td></tr></tbody></table><hr><h2 id=-pendientes-y-mejoras-futuras>🔜 Pendientes y mejoras futuras</h2><ul><li><strong>TLS para Meilisearch:</strong> actualmente HTTP en red privada. Un reverse proxy Nginx o certificado self-signed lo resolverían.</li><li><strong>Rotación de claves:</strong> no hay proceso definido para rotar las claves search-only e indexer.</li><li><strong>Audit log:</strong> no hay registro de cuándo se abre o cierra un directorio cifrado.</li></ul><p>La arquitectura no es perfecta. Pero el modelo de amenaza está cubierto donde más importa: el asistente no puede leer lo que no debe, la contraseña nunca toca el canal del chat y los datos no aparecen donde no tienen que aparecer.</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/ia/ rel=tag>IA</a></li><li class=tags__item><a class="tags__link btn" href=/tags/privacidad/ rel=tag>Privacidad</a></li><li class=tags__item><a class="tags__link btn" href=/tags/gpg/ rel=tag>GPG</a></li><li class=tags__item><a class="tags__link btn" href=/tags/selfhosted/ rel=tag>Selfhosted</a></li><li class=tags__item><a class="tags__link btn" href=/tags/python/ rel=tag>Python</a></li></ul></div></footer><div class=share-buttons><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f&amp;title=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII" rel="nofollow noopener noreferrer" class="share-btn linkedin"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-<span class=share-btn__text>LinkedIn</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://twitter.com/intent/tweet?text=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn twitter"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg>
-<span class=share-btn__text>Twitter</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn facebook"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-<span class=share-btn__text>Facebook</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f&amp;title=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII" rel="nofollow noopener noreferrer" class="share-btn reddit"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 00-9 9 9 9 0 009 9 9 9 0 009-9 9 9 0 00-9-9z"/><path d="M15 14c-1.5.0-3-.5-4.5-1.5S8 9.5 8 9.5v-2c0-1.5.5-3 1.5-3S12 4.5 12 6s-.5 3-1.5 3S8 9 8 7.5v-2H5.5c-.5.0-1 .5-1.5 1S3.5 8 4 9s0 0 0 0c1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5s-.5 1-1.5 1S14 16 13 15s-2.5-1.5-3.5-1.5S7 14 6 15s-1.5 1.5-1.5 1.5-1 0-1.5-.5-.5-1.5.0-2.5 2.5-3 3.5-3.5 2-1 3-1.5S12 6 13 5s1.5-1.5 1.5-2.5-1.5-3-3-3z"/></svg>
-<span class=share-btn__text>Reddit</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://telegram.me/share/url?text=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn telegram"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-<span class=share-btn__text>Telegram</span>
-</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://api.whatsapp.com/send?text=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII%20https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921.0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957.0 0111 2c5.518.0 10 4.482 10 10.031z"/><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662s-.492-.016-.75-.016-.67.098-.913.435c-.243.336-.92 1.055-.92 2.57.0 1.516.945 2.977 1.074 3.167s.09.38-.04.532c-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3-4.004.0-7.25-3.246-7.25-7.25.0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974.0 003.107 1.17 6.974 6.974.0 003.107-1.17z"/></svg>
-<span class=share-btn__text>WhatsApp</span></a></div></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
-</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
-<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>
+</code></pre><p>El directorio de datos sensibles no se versiona. Ni los <code>.md.gpg</code>. Esto elimina el riesgo de exposición vía historial de git o repositorio remoto — incluso si el repo acaba siendo público por error.</p>
+<p>El sistema de memoria persistente del asistente tiene una regla explícita: <strong>las contraseñas no se persisten nunca</strong>. El protocolo de cierre de sesión incluye verificación activa de que no queden credenciales almacenadas.</p>
+<hr>
+<h2 id="-propiedades-de-seguridad-resultantes">✅ Propiedades de seguridad resultantes</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Propiedad</th>
+          <th>Garantía</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Confidencialidad en reposo</td>
+          <td>GPG AES-256; datos ilegibles sin passphrase</td>
+      </tr>
+      <tr>
+          <td>Separación de canales</td>
+          <td>Contraseña nunca en historial de conversación</td>
+      </tr>
+      <tr>
+          <td>Mínimo privilegio</td>
+          <td>El LLM solo accede cuando la sesión está abierta explícitamente</td>
+      </tr>
+      <tr>
+          <td>Eliminación segura</td>
+          <td><code>shred -u</code>; sin recuperación forense básica</td>
+      </tr>
+      <tr>
+          <td>Detección automática</td>
+          <td>Sin listas estáticas; basada en presencia de <code>.md.gpg</code></td>
+      </tr>
+      <tr>
+          <td>Sin rastro en índice</td>
+          <td>Meilisearch excluye dirs cifrados independientemente del estado</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-pendientes-y-mejoras-futuras">🔜 Pendientes y mejoras futuras</h2>
+<ul>
+<li><strong>TLS para Meilisearch:</strong> actualmente HTTP en red privada. Un reverse proxy Nginx o certificado self-signed lo resolverían.</li>
+<li><strong>Rotación de claves:</strong> no hay proceso definido para rotar las claves search-only e indexer.</li>
+<li><strong>Audit log:</strong> no hay registro de cuándo se abre o cierra un directorio cifrado.</li>
+</ul>
+<p>La arquitectura no es perfecta. Pero el modelo de amenaza está cubierto donde más importa: el asistente no puede leer lo que no debe, la contraseña nunca toca el canal del chat y los datos no aparecen donde no tienen que aparecer.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ia/" rel="tag">IA</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/privacidad/" rel="tag">Privacidad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/gpg/" rel="tag">GPG</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/selfhosted/" rel="tag">Selfhosted</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/python/" rel="tag">Python</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+<div class="share-buttons">
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f&amp;title=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII" rel="nofollow noopener noreferrer" class="share-btn linkedin">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="share-btn__text">LinkedIn</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://twitter.com/intent/tweet?text=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn twitter">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+        <span class="share-btn__text">Twitter</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn facebook">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span class="share-btn__text">Facebook</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f&amp;title=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII" rel="nofollow noopener noreferrer" class="share-btn reddit">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path><path d="M15 14c-1.5 0-3-.5-4.5-1.5s-2.5-3-2.5-3v-2c0-1.5.5-3 1.5-3s2.5 0 2.5 1.5c0 1.5-.5 3-1.5 3s-2.5 0-2.5-1.5v-2h-2.5c-.5 0-1 .5-1.5 1s-.5 1.5 0 2.5c0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5 0 .5-.5 1-1.5 1s-2.5-.5-3.5-1.5c-1-1-2.5-1.5-3.5-1.5s-2.5.5-3.5 1.5c-1 1-1.5 1.5-1.5 1.5s-1 0-1.5-.5c-.5-.5-.5-1.5 0-2.5s2.5-3 3.5-3.5c1-.5 2-1 3-1.5s2.5-2.5 3.5-3.5c1-1 1.5-1.5 1.5-2.5s-1.5-3-3-3z"></path></svg>
+        <span class="share-btn__text">Reddit</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://telegram.me/share/url?text=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn telegram">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    <span class="share-btn__text">Telegram</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://api.whatsapp.com/send?text=Arquitectura%20de%20seguridad%20multicapa%20para%20un%20asistente%20IA%20con%20datos%20PII%20https%3a%2f%2fjaimealberto.io%2fpost%2f54_ia_pii_security%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921 0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957 0 0 1 11 2c5.518 0 10 4.482 10 10.031z"></path><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662-.227-.008-.492-.016-.75-.016-.258 0-.67.098-.913.435-.243.336-.92 1.055-.92 2.57 0 1.516.945 2.977 1.074 3.167.129.19.09.38-.04.532-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3 0 0 0 0 0 0-4.004 0-7.25-3.246-7.25-7.25 0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974 0 0 0 3.107 1.17 6.974 6.974 0 0 0 3.107-1.17z"></path></svg>
+    <span class="share-btn__text">WhatsApp</span>
+    </a>
+</div>
+</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

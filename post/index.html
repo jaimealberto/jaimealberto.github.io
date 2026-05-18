@@ -1,71 +1,505 @@
-<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Posts - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content><link rel=canonical href=https://jaimealberto.io/post/><meta property="og:url" content="https://jaimealberto.io/post/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="Posts"><meta property="og:description" content="Post, Notas y varios personales del dìa a dìa de un habitante de la red de redes"><meta property="og:locale" content="es"><meta property="og:type" content="website"><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel=alternate type=application/rss+xml href=/post/index.xml title=JaimeAlberto.io><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
-<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class="main list" role=main><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/61_waf_cloudflare/ rel=bookmark>WAF en Cloudflare para una web estática. Dos reglas, API y pruebas</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-18T00:00:00Z>18-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/seguridad/ rel=category>Seguridad</a>, <a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/waf_cloudflare.jpg alt="WAF en Cloudflare para una web estática. Dos reglas, API y pruebas"></figure><p>Esta web es un sitio estático generado con Hugo. No tiene base de datos, no tiene PHP, no tiene WordPress. Y aun así, si miro los logs de Cloudflare, veo peticiones a <code>/wp-admin</code>, <code>/wp-login.php</code> y <code>/xmlrpc.php</code> cada pocos minutos. Bots que recorren internet buscando instalaciones de WordPress vulnerables sin importarles lo que hay realmente en el servidor.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/54_ia_pii_security/ rel=bookmark>Arquitectura de seguridad multicapa para un asistente IA con datos PII</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/seguridad/ rel=category>Seguridad</a>, <a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/ia_pii_security.jpg alt="Arquitectura de seguridad multicapa para un asistente IA con datos PII"></figure><p>Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/52_debianluks/ rel=bookmark>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/linux/ rel=category>Linux</a>, <a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/debianluks.jpg alt="Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift"></figure><p>Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/55_grupos/ rel=bookmark>Grupos en Linux. Control de acceso sin complicaciones</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a>, <a class=meta__link href=/categories/linux/ rel=category>Linux</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/gruposlinux.jpg alt="Grupos en Linux. Control de acceso sin complicaciones"></figure><p>Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/53_zshmux/ rel=bookmark>Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/linux/ rel=category>Linux</a>, <a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/zshmux.jpg alt="Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux"></figure><p>Si seguiste el <a href=/post/52_debianluks>artículo anterior</a> tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/13_universosshiv/ rel=bookmark>Universo SSH IV. Blindando el servidor</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/ssh/ rel=category>Ssh</a>, <a class=meta__link href=/categories/redes/ rel=category>Redes</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/universoSSHIV.jpg alt="Universo SSH IV. Blindando el servidor"></figure><p>Como diría el Maestro Yoda: <em>&ldquo;En el puerto 22, el peligro acecha&rdquo;</em>. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &ldquo;Por favor, no explotar&rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/51_gmailaplicacion/ rel=bookmark>Guía para crear una contraseña de aplicación en Gmail</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2025-12-10T00:00:00Z>10-12-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a>, <a class=meta__link href=/categories/linux/ rel=category>Linux</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/51gmail.jpg alt="Guía para crear una contraseña de aplicación en Gmail"></figure><h2 id=introducción>Introducción</h2><p>En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.</p><blockquote><p>⚠️ <strong>Importante:</strong>
-Solo puedes crear una contraseña de aplicación si tienes habilitada la <strong>Verificación en dos pasos</strong> (2FA) en tu cuenta de Google.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/49_subnetting/ rel=bookmark>Subneteo en IPv4, sencillamente</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2025-10-28T00:00:00Z>28-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/redes/ rel=category>Redes</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/subnetting.webp alt="Subneteo en IPv4, sencillamente"></figure><p>El <em>subneteo</em> (subnetting) es el arte de dividir una red IP en redes más pequeñas llamadas <strong>subredes</strong>. En este artículo aprenderás a hacerlo paso a paso de manera sencillo con ejemplos prácticos.</p><h2 id=-qué-es-el-subneteo-en-ipv4>🧠 ¿Qué es el subneteo en IPv4?</h2><p>El <strong>subneteo</strong> es la técnica que se utiliza para <strong>dividir una red grande en redes más pequeñas</strong>. subredes. Esto nos permite mejorar el rendimiento, la seguridad y la administración de las direcciones IP. Por ejemplo, en vez de tener todos los dispositivos en una misma red 192.168.0.0/24, se puede dividir la red en subredes más pequeñas para cada departamento, area, servicio, exposición, etc.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/47_autohotkey/ rel=bookmark>AutoHotkey v2. Instalar, configurar y aumentar la productividad</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2025-10-21T00:00:00Z>21-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/windows/ rel=category>Windows</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><figure><img src=/img/autohotkey.jpg alt="AutoHotkey v2. Instalar, configurar y aumentar la productividad"></figure><p>Todo el que me conoce sabe que no soy un <a href=https://es.wikipedia.org/wiki/Fan>fan</a> de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.</p></div></article><article class="list__item post"><header class=list__header><h2 class="list__title post__title"><a href=/post/46_smsi/ rel=bookmark>SMS, envío local</a></h2><div class="list__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2025-10-18T00:00:00Z>18-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a>, <a class=meta__link href=/categories/linux/ rel=category>Linux</a>, <a class=meta__link href=/categories/servicios/ rel=category>Servicios</a></span></div></div></header><div class="content list__excerpt post__content clearfix"><p><figure><img src=/img/smswg.jpg alt="SMS, envío local"></figure>Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.</p></div></article></main><div class=pagination><span class="pagination__item pagination__item--current">1</span>
-<a class="pagination__item btn" href=/post/page/2/>2</a>
-<a class="pagination__item btn" href=/post/page/3/>3</a>
-<span class="pagination__item pagination__item--ellipsis">…</span>
-<a class="pagination__item btn" href=/post/page/5/>5</a>
-<a class="pagination__item pagination__item--next btn" href=/post/page/2/>»</a></div></div><aside class="sidebar sidebar--left"><div class="widget-categories widget"><h4 class=widget__title>Categorías</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/-redes-/>Redes </a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/ansible/>Ansible</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/devops/>DevOps</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">7</span></li><li class=widget__item><a class=widget__link href=/categories/hardwarehacking/>HardwareHacking</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/linux/>Linux</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">21</span></li><li class=widget__item><a class=widget__link href=/categories/macos-/>MacOS </a>&nbsp;
-<span class="widget__counter widget__counter--bubble">12</span></li><li class=widget__item><a class=widget__link href=/categories/redes/>Redes</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">5</span></li><li class=widget__item><a class=widget__link href=/categories/seguridad/>Seguridad</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">4</span></li><li class=widget__item><a class=widget__link href=/categories/servicios/>Servicios</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/ssh/>Ssh</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">5</span></li><li class=widget__item><a class=widget__link href=/categories/sysadmin/>Sysadmin</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">12</span></li><li class=widget__item><a class=widget__link href=/categories/terminal/>Terminal</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">6</span></li><li class=widget__item><a class=widget__link href=/categories/visual-studio-code/>Visual Studio Code</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/wazuh/>Wazuh</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span></li><li class=widget__item><a class=widget__link href=/categories/windows/>Windows</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">3</span></li><li class=widget__item><a class=widget__link href=/categories/wireguard/>WireGuard</a>&nbsp;
-<span class="widget__counter widget__counter--bubble">1</span></li></ul></div></div><div class="widget-taglist widget"><h4 class=widget__title>Etiquetas</h4><div class=widget__content><a class="widget-taglist__link widget__link btn" href=/tags/ansible/ title=Ansible>Ansible (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/api/ title=API>API (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/apuntes/ title=Apuntes>Apuntes (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/autohotkey/ title=AutoHotkey>AutoHotkey (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/automatizaci%C3%B3n/ title=Automatización>Automatización (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/btrfs/ title=Btrfs>Btrfs (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/cliente/ title=Cliente>Cliente (4)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/cloudflare/ title=Cloudflare>Cloudflare (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/debian/ title=Debian>Debian (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/edr/ title=EDR>EDR (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/formaci%C3%B3n/ title=Formación>Formación (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/gpg/ title=GPG>GPG (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/gui/ title=GUI>GUI (5)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/hardware/ title=Hardware>Hardware (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/homelab/ title=HomeLab>HomeLab (3)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/ia/ title=IA>IA (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/luks/ title=LUKS>LUKS (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/port%C3%A1til/ title=Portátil>Portátil (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/privacidad/ title=Privacidad>Privacidad (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/productividad/ title=Productividad>Productividad (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/python/ title=Python>Python (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/redes/ title=Redes>Redes (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/seguridad/ title=Seguridad>Seguridad (7)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/selfhosted/ title=Selfhosted>Selfhosted (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/servidor/ title=Servidor>Servidor (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/shell/ title=Shell>Shell (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/siem/ title=SIEM>SIEM (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/so/ title=SO>SO (17)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/sysadmin/ title=SysAdmin>SysAdmin (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/teclas-r%C3%A1pidas/ title="Teclas Rápidas">Teclas Rápidas (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/terminal/ title=Terminal>Terminal (20)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/terraform/ title=Terraform>Terraform (2)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/timeshift/ title=Timeshift>Timeshift (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/tlp/ title=TLP>TLP (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/tmux/ title=Tmux>Tmux (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/usuarios/ title=Usuarios>Usuarios (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/utilidades/ title=Utilidades>Utilidades (20)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/vpn/ title=VPN>VPN (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/vs-code/ title="VS Code">VS Code (3)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/waf/ title=WAF>WAF (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/wazuh/ title=Wazuh>Wazuh (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/wifi/ title=Wifi>Wifi (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/wireguard/ title=WireGuard>WireGuard (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/xdr/ title=XDR>XDR (1)</a>
-<a class="widget-taglist__link widget__link btn" href=/tags/zsh/ title=Zsh>Zsh (1)</a></div></div><div class="widget-social widget"><h4 class="widget-social__title widget__title">Social</h4><div class="widget-social__content widget__content"><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title=LinkedIn rel="noopener noreferrer" href=https://linkedin.com/in/jaimealbertoio target=_blank><svg class="widget-social__link-icon icon icon-linkedin" width="24" height="24" viewBox="0 0 352 352"><path d="M0 40v272c0 21.9 18.1 40 40 40h272c21.9.0 40-18.1 40-40V40c0-21.9-18.1-40-40-40H40C18.1.0.0 18.1.0 40zm312-8c4.6.0 8 3.4 8 8v272c0 4.6-3.4 8-8 8H40c-4.6.0-8-3.4-8-8V40c0-4.6 3.4-8 8-8H312zM59.5 87c0 15.2 12.3 27.5 27.5 27.5s27.5-12.3 27.5-27.5S102.2 59.5 87 59.5 59.5 71.8 59.5 87zM187 157h-1v-21h-45v152h47v-75c0-19.8 3.9-39 28.5-39 24.2.0 24.5 22.4 24.5 40v74h47v-83.5c0-40.9-8.7-72-56.5-72-23 0-38.2 12.6-44.5 24.5zM64 288h47.5V136H64V288z"/></svg>
-<span>LinkedIn</span></a></div><div class="widget-social__item widget__item"><a class="widget-social__link widget__link btn" title=GitHub rel="noopener noreferrer" href=https://github.com/jaimealberto target=_blank><svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0C85.9.0.0 85.8.0 191.7c0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2.0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8.0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7.0.0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4.0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5.0 25.6-.2 46.3-.2 52.6.0 5.1 3.5 11.1 13.2 9.2C329 348.2 384 276.4 384 191.7 384 85.8 298 0 192 0z"/></svg>
-<span>GitHub</span></a></div></div></div></aside></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
-<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script></body></html>
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Posts - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="canonical" href="https://jaimealberto.io/post/">
+		<meta property="og:url" content="https://jaimealberto.io/post/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="Post, Notas y varios personales del dìa a dìa de un habitante de la red de redes">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="website">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="alternate" type="application/rss+xml" href="/post/index.xml" title="JaimeAlberto.io">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main"><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/62_mcp_askpass/" rel="bookmark">
+			Contraseñas seguras en Claude Code: popup nativo sin exponer nada en el chat
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-18T00:00:00Z">18-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>, <a class="meta__link" href="/categories/ia/" rel="category">IA</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/mcp_askpass.jpg" alt="Contraseñas seguras en Claude Code: popup nativo sin exponer nada en el chat">
+</figure>
+
+<p>Cuando empecé a usar Claude Code para tareas de administración real — conectarse a servidores, autenticarse en APIs, gestionar servicios — llegó el momento inevitable: Claude necesita una contraseña.</p>
+<p>La respuesta obvia es escribirla en el chat. Y es un error.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/61_waf_cloudflare/" rel="bookmark">
+			WAF en Cloudflare para una web estática. Dos reglas, API y pruebas
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-18T00:00:00Z">18-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/waf_cloudflare.jpg" alt="WAF en Cloudflare para una web estática. Dos reglas, API y pruebas">
+</figure>
+
+<p>Esta web es un sitio estático generado con Hugo. No tiene base de datos, no tiene PHP, no tiene WordPress. Y aun así, si miro los logs de Cloudflare, veo peticiones a <code>/wp-admin</code>, <code>/wp-login.php</code> y <code>/xmlrpc.php</code> cada pocos minutos. Bots que recorren internet buscando instalaciones de WordPress vulnerables sin importarles lo que hay realmente en el servidor.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/54_ia_pii_security/" rel="bookmark">
+			Arquitectura de seguridad multicapa para un asistente IA con datos PII
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/ia_pii_security.jpg" alt="Arquitectura de seguridad multicapa para un asistente IA con datos PII">
+</figure>
+
+<p>Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/52_debianluks/" rel="bookmark">
+			Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/debianluks.jpg" alt="Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift">
+</figure>
+
+<p>Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/55_grupos/" rel="bookmark">
+			Grupos en Linux. Control de acceso sin complicaciones
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/gruposlinux.jpg" alt="Grupos en Linux. Control de acceso sin complicaciones">
+</figure>
+
+<p>Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/53_zshmux/" rel="bookmark">
+			Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/zshmux.jpg" alt="Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux">
+</figure>
+
+<p>Si seguiste el <a href="/post/52_debianluks">artículo anterior</a> tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/13_universosshiv/" rel="bookmark">
+			Universo SSH IV. Blindando el servidor
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ssh/" rel="category">SSH</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/universoSSHIV.jpg" alt="Universo SSH IV. Blindando el servidor">
+</figure>
+
+<p>Como diría el Maestro Yoda: <em>&ldquo;En el puerto 22, el peligro acecha&rdquo;</em>. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &ldquo;Por favor, no explotar&rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/51_gmailaplicacion/" rel="bookmark">
+			Guía para crear una contraseña de aplicación en Gmail
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-12-10T00:00:00Z">10-12-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/51gmail.jpg" alt="Guía para crear una contraseña de aplicación en Gmail">
+</figure>
+
+<h2 id="introducción">Introducción</h2>
+<p>En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.</p>
+<blockquote>
+<p>⚠️ <strong>Importante:</strong>
+Solo puedes crear una contraseña de aplicación si tienes habilitada la <strong>Verificación en dos pasos</strong> (2FA) en tu cuenta de Google.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/49_subnetting/" rel="bookmark">
+			Subneteo en IPv4, sencillamente
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-10-28T00:00:00Z">28-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/subnetting.webp" alt="Subneteo en IPv4, sencillamente">
+</figure>
+
+<p>El <em>subneteo</em> (subnetting) es el arte de dividir una red IP en redes más pequeñas llamadas <strong>subredes</strong>. En este artículo aprenderás a hacerlo paso a paso de manera sencillo con ejemplos prácticos.</p>
+<h2 id="-qué-es-el-subneteo-en-ipv4">🧠 ¿Qué es el subneteo en IPv4?</h2>
+<p>El <strong>subneteo</strong> es la técnica que se utiliza para <strong>dividir una red grande en redes más pequeñas</strong>. subredes. Esto nos permite mejorar el rendimiento, la seguridad y la administración de las direcciones IP. Por ejemplo, en vez de tener todos los dispositivos en una misma red 192.168.0.0/24, se puede dividir la red en subredes más pequeñas para cada departamento, area, servicio, exposición, etc.</p>
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/47_autohotkey/" rel="bookmark">
+			AutoHotkey v2. Instalar, configurar y aumentar la productividad
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2025-10-21T00:00:00Z">21-10-2025</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/windows/" rel="category">Windows</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<figure>
+  <img src="/img/autohotkey.jpg" alt="AutoHotkey v2. Instalar, configurar y aumentar la productividad">
+</figure>
+
+<p>Todo el que me conoce sabe que no soy un <a href="https://es.wikipedia.org/wiki/Fan">fan</a> de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.</p>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+			<span class="pagination__item pagination__item--current">1</span>
+			<a class="pagination__item btn" href="/post/page/2/">2</a>
+			<a class="pagination__item btn" href="/post/page/3/">3</a>
+			<span class="pagination__item pagination__item--ellipsis">…</span>
+			<a class="pagination__item btn" href="/post/page/5/">5</a>
+	<a class="pagination__item pagination__item--next btn" href="/post/page/2/">»</a>
+</div>
+
+
+			</div>
+			
+<aside class="sidebar sidebar--left">
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categorías</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/-redes-/"> Redes </a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">1</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ansible/">Ansible</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">1</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/devops/">DevOps</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">7</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hardwarehacking/">HardwareHacking</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">1</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ia/">IA</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">1</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/linux/">Linux</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">21</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/macos-/">MacOS </a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">12</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/redes/">Redes</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">5</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/seguridad/">Seguridad</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">5</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/servicios/">Servicios</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">3</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ssh/">SSH</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">5</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/sysadmin/">Sysadmin</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">12</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/terminal/">Terminal</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">6</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/visual-studio-code/">Visual Studio Code</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">3</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/wazuh/">Wazuh</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">1</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/windows/">Windows</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">3</span>
+				</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/wireguard/">WireGuard</a>&nbsp;
+				<span class="widget__counter widget__counter--bubble">1</span>
+				</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Etiquetas</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/ansible/" title="Ansible">Ansible (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/api/" title="API">API (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/apuntes/" title="Apuntes">Apuntes (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/autohotkey/" title="AutoHotkey">AutoHotkey (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/automatizaci%C3%B3n/" title="Automatización">Automatización (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/btrfs/" title="Btrfs">Btrfs (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/claude-code/" title="Claude Code">Claude Code (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cliente/" title="Cliente">Cliente (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare/" title="Cloudflare">Cloudflare (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/debian/" title="Debian">Debian (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/edr/" title="EDR">EDR (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/formaci%C3%B3n/" title="Formación">Formación (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gpg/" title="GPG">GPG (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gui/" title="GUI">GUI (5)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hardware/" title="Hardware">Hardware (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homelab/" title="HomeLab">HomeLab (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ia/" title="IA">IA (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kde/" title="KDE">KDE (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/luks/" title="LUKS">LUKS (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mcp/" title="MCP">MCP (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/port%C3%A1til/" title="Portátil">Portátil (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/privacidad/" title="Privacidad">Privacidad (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/productividad/" title="Productividad">Productividad (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/redes/" title="Redes">Redes (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (8)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/selfhosted/" title="Selfhosted">Selfhosted (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/servidor/" title="Servidor">Servidor (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/shell/" title="Shell">Shell (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/siem/" title="SIEM">SIEM (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/so/" title="SO">SO (17)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sysadmin/" title="SysAdmin">SysAdmin (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/teclas-r%C3%A1pidas/" title="Teclas Rápidas">Teclas Rápidas (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/terminal/" title="Terminal">Terminal (20)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/timeshift/" title="Timeshift">Timeshift (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tlp/" title="TLP">TLP (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tmux/" title="Tmux">Tmux (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/usuarios/" title="Usuarios">Usuarios (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/utilidades/" title="Utilidades">Utilidades (20)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn/" title="VPN">VPN (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vs-code/" title="VS Code">VS Code (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/waf/" title="WAF">WAF (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wazuh/" title="Wazuh">Wazuh (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wifi/" title="Wifi">Wifi (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wireguard/" title="WireGuard">WireGuard (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/xdr/" title="XDR">XDR (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh (1)</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/jaimealbertoio" target="_blank">
+				<svg class="widget-social__link-icon icon icon-linkedin" width="24" height="24" viewBox="0 0 352 352"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/jaimealberto" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+
+		
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script></body>
+</html>
