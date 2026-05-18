@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jaimealberto.io/tags/api/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/categories/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/cloudflare/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/post/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/categories/seguridad/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/seguridad/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/selfhosted/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/categories/sysadmin/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/waf/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/post/61_waf_cloudflare/</loc>
+    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jaimealberto.io/tags/ansible/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
@@ -9,9 +45,6 @@
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/btrfs/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/categories/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/debian/</loc>
@@ -29,9 +62,6 @@
     <loc>https://jaimealberto.io/tags/ia/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.io/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.io/categories/linux/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
@@ -39,9 +69,6 @@
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/port%C3%A1til/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/post/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/privacidad/</loc>
@@ -53,28 +80,13 @@
     <loc>https://jaimealberto.io/categories/redes/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.io/categories/seguridad/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/tags/seguridad/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/tags/selfhosted/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.io/tags/servidor/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/categories/ssh/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.io/categories/sysadmin/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.io/tags/sysadmin/</loc>
-    <lastmod>2026-05-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/tags/</loc>
     <lastmod>2026-05-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/terminal/</loc>

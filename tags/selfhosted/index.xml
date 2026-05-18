@@ -6,8 +6,15 @@
     <description>Recent content in Selfhosted on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jaimealberto.io/tags/selfhosted/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WAF en Cloudflare para una web estática. Dos reglas, API y pruebas</title>
+      <link>https://jaimealberto.io/post/61_waf_cloudflare/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/post/61_waf_cloudflare/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/waf_cloudflare.jpg&#34; alt=&#34;WAF en Cloudflare para una web estática. Dos reglas, API y pruebas&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Esta web es un sitio estático generado con Hugo. No tiene base de datos, no tiene PHP, no tiene WordPress. Y aun así, si miro los logs de Cloudflare, veo peticiones a &lt;code&gt;/wp-admin&lt;/code&gt;, &lt;code&gt;/wp-login.php&lt;/code&gt; y &lt;code&gt;/xmlrpc.php&lt;/code&gt; cada pocos minutos. Bots que recorren internet buscando instalaciones de WordPress vulnerables sin importarles lo que hay realmente en el servidor.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Arquitectura de seguridad multicapa para un asistente IA con datos PII</title>
       <link>https://jaimealberto.io/post/54_ia_pii_security/</link>
