@@ -1,341 +1,196 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on JaimeAlberto.io</title>
-    <link>https://jaimealberto.io/post/</link>
-    <description>Recent content in Posts on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jaimealberto.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>WAF en Cloudflare para una web estática. Dos reglas, API y pruebas</title>
-      <link>https://jaimealberto.io/post/61_waf_cloudflare/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/61_waf_cloudflare/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/waf_cloudflare.jpg&#34; alt=&#34;WAF en Cloudflare para una web estática. Dos reglas, API y pruebas&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Esta web es un sitio estático generado con Hugo. No tiene base de datos, no tiene PHP, no tiene WordPress. Y aun así, si miro los logs de Cloudflare, veo peticiones a &lt;code&gt;/wp-admin&lt;/code&gt;, &lt;code&gt;/wp-login.php&lt;/code&gt; y &lt;code&gt;/xmlrpc.php&lt;/code&gt; cada pocos minutos. Bots que recorren internet buscando instalaciones de WordPress vulnerables sin importarles lo que hay realmente en el servidor.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Arquitectura de seguridad multicapa para un asistente IA con datos PII</title>
-      <link>https://jaimealberto.io/post/54_ia_pii_security/</link>
-      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/54_ia_pii_security/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ia_pii_security.jpg&#34; alt=&#34;Arquitectura de seguridad multicapa para un asistente IA con datos PII&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</title>
-      <link>https://jaimealberto.io/post/52_debianluks/</link>
-      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/52_debianluks/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/debianluks.jpg&#34; alt=&#34;Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Grupos en Linux. Control de acceso sin complicaciones</title>
-      <link>https://jaimealberto.io/post/55_grupos/</link>
-      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/55_grupos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/gruposlinux.jpg&#34; alt=&#34;Grupos en Linux. Control de acceso sin complicaciones&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux</title>
-      <link>https://jaimealberto.io/post/53_zshmux/</link>
-      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/53_zshmux/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/zshmux.jpg&#34; alt=&#34;Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Si seguiste el &lt;a href=&#34;https://jaimealberto.io/post/52_debianluks&#34;&gt;artículo anterior&lt;/a&gt; tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Universo SSH IV. Blindando el servidor</title>
-      <link>https://jaimealberto.io/post/13_universosshiv/</link>
-      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/13_universosshiv/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/universoSSHIV.jpg&#34; alt=&#34;Universo SSH IV. Blindando el servidor&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Guía para crear una contraseña de aplicación en Gmail</title>
-      <link>https://jaimealberto.io/post/51_gmailaplicacion/</link>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/51_gmailaplicacion/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/51gmail.jpg&#34; alt=&#34;Guía para crear una contraseña de aplicación en Gmail&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;&#xA;&lt;p&gt;En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;Importante:&lt;/strong&gt;&#xA;Solo puedes crear una contraseña de aplicación si tienes habilitada la &lt;strong&gt;Verificación en dos pasos&lt;/strong&gt; (2FA) en tu cuenta de Google.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Subneteo en IPv4, sencillamente</title>
-      <link>https://jaimealberto.io/post/49_subnetting/</link>
-      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/49_subnetting/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/subnetting.webp&#34; alt=&#34;Subneteo en IPv4, sencillamente&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El &lt;em&gt;subneteo&lt;/em&gt; (subnetting) es el arte de dividir una red IP en redes más pequeñas llamadas &lt;strong&gt;subredes&lt;/strong&gt;. En este artículo aprenderás a hacerlo paso a paso de manera sencillo con ejemplos prácticos.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-qué-es-el-subneteo-en-ipv4&#34;&gt;🧠 ¿Qué es el subneteo en IPv4?&lt;/h2&gt;&#xA;&lt;p&gt;El &lt;strong&gt;subneteo&lt;/strong&gt; es la técnica que se utiliza para &lt;strong&gt;dividir una red grande en redes más pequeñas&lt;/strong&gt;. subredes. Esto nos permite mejorar el rendimiento, la seguridad y la administración de las direcciones IP. Por ejemplo, en vez de tener todos los dispositivos en una misma red 192.168.0.0/24, se puede dividir la red en subredes más pequeñas para cada departamento, area, servicio, exposición, etc.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AutoHotkey v2. Instalar, configurar y aumentar la productividad</title>
-      <link>https://jaimealberto.io/post/47_autohotkey/</link>
-      <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/47_autohotkey/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/autohotkey.jpg&#34; alt=&#34;AutoHotkey v2. Instalar, configurar y aumentar la productividad&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>SMS, envío local</title>
-      <link>https://jaimealberto.io/post/46_smsi/</link>
-      <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/46_smsi/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/smswg.jpg&#34; alt=&#34;SMS, envío local&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title>
-      <link>https://jaimealberto.io/post/12_universosshiii/</link>
-      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/12_universosshiii/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tunelp.jpg&#34; alt=&#34;Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt;, llego la &lt;a href=&#34;https://jaimealberto.io/post/11_universosshii/&#34;&gt;segunda entrega&lt;/a&gt;. Como dicen que no hay dos sin tres pues vamos con la tercera entrega. Esta vez toca hablar de los &lt;a href=&#34;https://en.wikipedia.org/wiki/Tunneling_protocol&#34;&gt;túneles&lt;/a&gt;, popularmente conocidos como “ la vpn del pobre “. Algo que te pude sacar de muchos apuros.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Permisos en Linux</title>
-      <link>https://jaimealberto.io/post/44_permisos/</link>
-      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/44_permisos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/permisos.jpg&#34; alt=&#34;Permisos en Linux&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar  forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Donde están los log`s del servidor SSH en Debian 12</title>
-      <link>https://jaimealberto.io/post/42_logssshdeb12/</link>
-      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/42_logssshdeb12/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/debian.jpg&#34; alt=&#34;Donde están los log`s del servidor SSH en Debian 12&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Sabes actualizar tu Linux ?</title>
-      <link>https://jaimealberto.io/post/40_distupgrade/</link>
-      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/40_distupgrade/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/update.jpg&#34; alt=&#34;Sabes actualizar tu Linux ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href=&#34;https://es.wikipedia.org/wiki/Advanced_Packaging_Tool&#34;&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Instalación de utilidades desde repositorios</title>
-      <link>https://jaimealberto.io/post/38_utils_repos/</link>
-      <pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/38_utils_repos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/utils_repos.jpg&#34; alt=&#34;Instalación de utilidades desde repositorios&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href=&#34;https://jaimealberto.io/post/37_navegadores_repos/&#34;&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Instalación de navegadores desde repositorios</title>
-      <link>https://jaimealberto.io/post/37_navegadores_repos/</link>
-      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/37_navegadores_repos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/navegadores_repos.jpg&#34; alt=&#34;Instalación de navegadores desde repositorios&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de ver como &lt;a href=&#34;https://jaimealberto.io/post/28_vscodeinstall/&#34;&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Terminator &#43; Zsh</title>
-      <link>https://jaimealberto.io/post/36_terminatorzsh/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/36_terminatorzsh/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/DECVT100.jpg&#34; alt=&#34;Terminator &amp;#43; Zsh&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Ya han pasado tiempo desde aquellos maravillosos &lt;a href=&#34;https://es.wikipedia.org/wiki/Terminal_tonta&#34;&gt;terminales&lt;/a&gt; “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal &lt;a href=&#34;https://github.com/software-jessies-org/jessies/wiki/Terminator&#34;&gt;Terminator&lt;/a&gt; y la &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt; &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ansible</title>
-      <link>https://jaimealberto.io/post/31_ansiblei/</link>
-      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/31_ansiblei/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ansiblei.jpg&#34; alt=&#34;Ansible&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Segun la Wikipedia, &lt;a href=&#34;https://es.wikipedia.org/wiki/Ansible_(software)&#34;&gt;Ansible&lt;/a&gt; es una plataforma de software libre para configurar y administrar ordenadores.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>WireGuard</title>
-      <link>https://jaimealberto.io/post/35_wireguard/</link>
-      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/35_wireguard/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/wireguard.png&#34; alt=&#34;WireGuard&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Según la &lt;a href=&#34;https://es.wikipedia.org/wiki/WireGuard&#34;&gt;Wikipedia&lt;/a&gt; “ WireGuard es una aplicación de software libre y de código abierto y un protocolo de comunicación que implementa técnicas de red privada virtual (VPN) para crear conexiones seguras punto a punto en configuraciones enrutadas o puenteadas. Se ejecuta como un módulo dentro del núcleo Linux y tiene como objetivo un mejor rendimiento que los protocolos de tunelización IPsec y OpenVPN.2​ Fue escrito por Jason A. Donenfeld y se publica bajo la segunda versión de la GNU General Public License (GPL).3​ El sitio web oficial describe el protocolo como un trabajo en progreso. ”&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Logos en videos</title>
-      <link>https://jaimealberto.io/post/34_logosvideos/</link>
-      <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/34_logosvideos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/stamp.jpg&#34; alt=&#34;Logos en videos&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Creamos &lt;a href=&#34;https://jaimealberto.io/post/06_grabarterminal/&#34;&gt;videos del terminal&lt;/a&gt;, cuando vemos un vídeotutorial,etc. Casi siempre tienen alguna marca de agua donde se visualiza el nombre del autor, un logotipo, una url, etc.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Borrar kenels antiguos en Debian</title>
-      <link>https://jaimealberto.io/post/33_kernels/</link>
-      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/33_kernels/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/kernel.jpg&#34; alt=&#34;Borrar kenels antiguos en Debian&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Wazuh</title>
-      <link>https://jaimealberto.io/post/32_wazuh/</link>
-      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/32_wazuh/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/Wazuh.png&#34; alt=&#34;Wazuh&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Según la &lt;a href=&#34;https://es.wikipedia.org/wiki/Wazuh&#34;&gt;Wikipedia&lt;/a&gt; “ Wazuh es un sistema de detección de intrusos basado en host de código abierto y libre (HIDS). Realiza análisis de registro, comprobación de integridad, supervisión del registro de Windows, detección de rootkits, alertas basadas en el tiempo y respuesta activa. Proporciona detección de intrusiones para la mayoría de los sistemas operativos, incluyendo Linux, AIX, HP-UX, macOS, Solaris y Windows. Wazuh tiene una arquitectura centralizada y multiplataforma que permite que múltiples sistemas sean fácilmente monitoreados y administrados ”.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Personalizar login en GNOME, GDM 3</title>
-      <link>https://jaimealberto.io/post/14_customgdm3/</link>
-      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/14_customgdm3/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/gdm.jpg&#34; alt=&#34;Personalizar login en GNOME, GDM 3&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Usuarios en Linux II, política de contraseñas</title>
-      <link>https://jaimealberto.io/post/27_usuariosii/</link>
-      <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/27_usuariosii/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/usuariosii.jpg&#34; alt=&#34;Usuarios en Linux II, política de contraseñas&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;Como ya sabemos todos un &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href=&#34;https://es.wikipedia.org/wiki/Administrador_de_sistemas&#34;&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Usuarios en Linux I</title>
-      <link>https://jaimealberto.io/post/26_usuariosi/</link>
-      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/26_usuariosi/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/usuariosi.jpg&#34; alt=&#34;Usuarios en Linux I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de  usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de  seguridad en nuestros sistemas.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Visual Studio Code I</title>
-      <link>https://jaimealberto.io/post/25_vscodei/</link>
-      <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/25_vscodei/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/vsci.jpg&#34; alt=&#34;Visual Studio Code I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Hace tiempo comencé con la búsqueda de  un editor de código con el que pudiera escribir scripts (Bash, Powershell,Zsh, etc), código en Python, documentos en MarkDown, archivos de configuración , utilizar Hugo, guiones de Terraform, etc. Otro objetivo claro es que funcionara igual en cualquier entorno ( Linux, MacOs y Windows ), que fuera gratis y con gran comunidad. Pues bien dando muchas vueltas me decidí por Visual Studio Code (VSC).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Sincronizar configuración Visual Studio Code</title>
-      <link>https://jaimealberto.io/post/29_vscodesync/</link>
-      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/29_vscodesync/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/vssync.jpg&#34; alt=&#34;Sincronizar configuración Visual Studio Code&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Integrar actualizaciones Visual Studio Code</title>
-      <link>https://jaimealberto.io/post/28_vscodeinstall/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/28_vscodeinstall/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/vsinstall.jpg&#34; alt=&#34;Integrar actualizaciones Visual Studio Code&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Organizar escritorio en Windows</title>
-      <link>https://jaimealberto.io/post/24_windows1/</link>
-      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/24_windows1/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/windowsI.jpg&#34; alt=&#34;Organizar escritorio en Windows&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Digital Ocean, utilidades</title>
-      <link>https://jaimealberto.io/post/19_doutils/</link>
-      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/19_doutils/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/doutils.jpg&#34; alt=&#34;Digital Ocean, utilidades&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Amsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Utilidades terminal IV</title>
-      <link>https://jaimealberto.io/post/21_utilidadesterminaliv/</link>
-      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/21_utilidadesterminaliv/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool4.jpg&#34; alt=&#34;Utilidades terminal IV&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href=&#34;https://es.wikipedia.org/wiki/Star_Wars&#34;&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tips &amp; Tricks MacOS III de ?</title>
-      <link>https://jaimealberto.io/post/03_tipsmacos03/</link>
-      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/03_tipsmacos03/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickIII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS III de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de Trucos para MacOs &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;I&lt;/a&gt; y &lt;a href=&#34;https://jaimealberto.io/post/02_tipsmacos02/&#34;&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Terraform II</title>
-      <link>https://jaimealberto.io/post/17_terraformii/</link>
-      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/17_terraformii/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/terraformII.jpg&#34; alt=&#34;Terraform II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de una &lt;a href=&#34;https://jaimealberto.io/post/16_terraformi/&#34;&gt;breve introducción&lt;/a&gt; a &lt;a href=&#34;https://es.wikipedia.org/wiki/Terraform_(software)&#34;&gt;Terraform&lt;/a&gt;, creo que la mejor manera de entender como funciona es con un ejemplo simple.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>iTerm2 &#43; Zsh</title>
-      <link>https://jaimealberto.io/post/23_itermzsh/</link>
-      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/23_itermzsh/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/iterm2zsh.jpg&#34; alt=&#34;iTerm2 &amp;#43; Zsh&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href=&#34;https://iterm2.com/&#34;&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href=&#34;https://es.wikipedia.org/wiki/Zsh&#34;&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href=&#34;https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)&#34;&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>DNS, protege tu privacidad sin perder velocidad</title>
-      <link>https://jaimealberto.io/post/22_dnssec/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/22_dnssec/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/dnssec.jpg&#34; alt=&#34;DNS, protege tu privacidad sin perder velocidad&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Los servidores DNS son algo imprescindible para la navegación por Internet. Los utilizamos a diario sin darle quizá la importancia que realmente tienen. Según los dns que utilicemos puede afectar a nuestra velocidad de navegación. Esto es un factor importante el de la velocidad, pero otro creo que aun mas importante es el de nuestra privacidad.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tips &amp; Tricks MacOS II</title>
-      <link>https://jaimealberto.io/post/02_tipsmacos02/</link>
-      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/02_tipsmacos02/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trickII.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/01_tipsmacos01/&#34;&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Terraform I</title>
-      <link>https://jaimealberto.io/post/16_terraformi/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/16_terraformi/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/terraform.jpg&#34; alt=&#34;Terraform I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;https://es.wikipedia.org/wiki/Terraform_(software)&#34;&gt;Terraform&lt;/a&gt; es un software que trata la infraestructura como código  desarrollado por &lt;a href=&#34;https://www.hashicorp.com/&#34;&gt;HashiCorp&lt;/a&gt;.Esto permite al usuario mediante ejecución de código construir, combinar y poner en marcha de manera segura y eficiente infraestructuras rápidamente.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Utilidades terminal III</title>
-      <link>https://jaimealberto.io/post/15_utilidadesterminaliii/</link>
-      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/15_utilidadesterminaliii/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool3.jpg&#34; alt=&#34;Utilidades terminal III&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Universo Ssh II</title>
-      <link>https://jaimealberto.io/post/11_universosshii/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/11_universosshii/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ssh2.jpg&#34; alt=&#34;Universo Ssh II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de la &lt;a href=&#34;https://jaimealberto.io/post/07_universosshi/&#34;&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Donde están mis contraseñas Wifi</title>
-      <link>https://jaimealberto.io/post/09_passwordwifi/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/09_passwordwifi/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/pwdwifi.jpg&#34; alt=&#34;Donde están mis contraseñas Wifi&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Utilidades terminal II</title>
-      <link>https://jaimealberto.io/post/10_utilidadesterminalii/</link>
-      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/10_utilidadesterminalii/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool2.jpg&#34; alt=&#34;Utilidades terminal II&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href=&#34;https://jaimealberto.io/post/08_utilidadesterminali/&#34;&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Universo Ssh I</title>
-      <link>https://jaimealberto.io/post/07_universosshi/</link>
-      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/07_universosshi/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/ssh.jpg&#34; alt=&#34;Universo Ssh I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href=&#34;https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA&#34;&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href=&#34;https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij&#34;&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href=&#34;https://es.wikipedia.org/wiki/Ataque_de_REPLAY&#34;&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Utilidades terminal I</title>
-      <link>https://jaimealberto.io/post/08_utilidadesterminali/</link>
-      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/08_utilidadesterminali/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/tool.jpg&#34; alt=&#34;Utilidades terminal I&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de escribir el articulo sobre la &lt;a href=&#34;https://jaimealberto.io/post/06_grabarterminal/&#34;&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tips &amp; Tricks MacOS I de ?</title>
-      <link>https://jaimealberto.io/post/01_tipsmacos01/</link>
-      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/01_tipsmacos01/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/trick.jpg&#34; alt=&#34;Tips &amp;amp; Tricks MacOS I de ?&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;&#xA;&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Finder</title>
-      <link>https://jaimealberto.io/post/05_finder/</link>
-      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/05_finder/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/finder.jpg&#34; alt=&#34;Finder&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Grabar el terminal</title>
-      <link>https://jaimealberto.io/post/06_grabarterminal/</link>
-      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/06_grabarterminal/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/grabarterminal.jpg&#34; alt=&#34;Grabar el terminal&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Combo I, la VPN del pobre</title>
-      <link>https://jaimealberto.io/post/43_comboi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/43_comboi/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/comboI.jpg&#34; alt=&#34;Combo I, la VPN del pobre&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Recordando viejos tiempos, que uno tiene ya una edad, en aquellos días de los buenos &lt;a href=&#34;https://es.wikipedia.org/wiki/Arcade&#34;&gt;arcades&lt;/a&gt;. Todos andábamos locos con los &lt;a href=&#34;https://es.wikipedia.org/wiki/Combo_(videojuegos)&#34;&gt;combos.&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on JaimeAlberto.io</title><link>https://jaimealberto.io/post/</link><description>Recent content in Posts on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>WAF en Cloudflare para una web estática. Dos reglas, API y pruebas</title><link>https://jaimealberto.io/post/61_waf_cloudflare/</link><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/61_waf_cloudflare/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/waf_cloudflare.jpg" alt="WAF en Cloudflare para una web estática. Dos reglas, API y pruebas"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Esta web es un sitio estático generado con Hugo. No tiene base de datos, no tiene PHP, no tiene WordPress. Y aun así, si miro los logs de Cloudflare, veo peticiones a &lt;code&gt;/wp-admin&lt;/code&gt;, &lt;code&gt;/wp-login.php&lt;/code&gt; y &lt;code&gt;/xmlrpc.php&lt;/code&gt; cada pocos minutos. Bots que recorren internet buscando instalaciones de WordPress vulnerables sin importarles lo que hay realmente en el servidor.&lt;/p&gt;</description></item><item><title>Arquitectura de seguridad multicapa para un asistente IA con datos PII</title><link>https://jaimealberto.io/post/54_ia_pii_security/</link><pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/54_ia_pii_security/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/ia_pii_security.jpg" alt="Arquitectura de seguridad multicapa para un asistente IA con datos PII"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Llevo meses con un asistente de IA corriendo sobre infraestructura propia: notas, servidores, tareas, automatizaciones. Funciona bien. Demasiado bien, de hecho. Tan bien que llegó el momento de añadirle la agenda de contactos personales. Y ahí me detuve.&lt;/p&gt;</description></item><item><title>Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift</title><link>https://jaimealberto.io/post/52_debianluks/</link><pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/52_debianluks/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/debianluks.jpg" alt="Debian 13 en portátil: instalación resiliente con LUKS, btrfs y Timeshift"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Cuando reinstalé mi portátil quería algo más que una instalación típica. Quería que si un día el sistema dejaba de arrancar pudiera recuperarlo en minutos. Que si metía la pata con una actualización hubiera vuelta atrás. Que si el portátil caía en manos equivocadas los datos estuvieran protegidos. Esta guía es exactamente eso: una instalación de Debian 13 pensada para la resiliencia real, no para el tutorial de turno.&lt;/p&gt;</description></item><item><title>Grupos en Linux. Control de acceso sin complicaciones</title><link>https://jaimealberto.io/post/55_grupos/</link><pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/55_grupos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/gruposlinux.jpg" alt="Grupos en Linux. Control de acceso sin complicaciones"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.&lt;/p&gt;</description></item><item><title>Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux</title><link>https://jaimealberto.io/post/53_zshmux/</link><pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/53_zshmux/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/zshmux.jpg" alt="Terminal a tu medida: zsh, oh-my-zsh, powerlevel10k y tmux"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Si seguiste el &lt;a href="https://jaimealberto.io/post/52_debianluks"&gt;artículo anterior&lt;/a&gt; tienes un Debian 13 sólido y cifrado. Ahora toca hacer que el terminal sea un sitio en el que apetezca trabajar. El bash por defecto de Debian hace lo que tiene que hacer, pero hay vida más allá. En este artículo montamos zsh con oh-my-zsh, el tema powerlevel10k y tmux para gestionar sesiones y paneles como se merece.&lt;/p&gt;</description></item><item><title>Universo SSH IV. Blindando el servidor</title><link>https://jaimealberto.io/post/13_universosshiv/</link><pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/13_universosshiv/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/universoSSHIV.jpg" alt="Universo SSH IV. Blindando el servidor"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Como diría el Maestro Yoda: &lt;em&gt;&amp;ldquo;En el puerto 22, el peligro acecha&amp;rdquo;&lt;/em&gt;. Si dejas la configuración SSH por defecto, es como defender la Estrella de la Muerte con una puerta de madera y una nota que diga &amp;ldquo;Por favor, no explotar&amp;rdquo;. En un universo donde los ataques de fuerza bruta son más comunes que los cameos de Stan Lee, toca convertir el acceso remoto en una fortaleza.&lt;/p&gt;</description></item><item><title>Guía para crear una contraseña de aplicación en Gmail</title><link>https://jaimealberto.io/post/51_gmailaplicacion/</link><pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/51_gmailaplicacion/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/51gmail.jpg" alt="Guía para crear una contraseña de aplicación en Gmail"&gt;
+&lt;/figure&gt;
+
+&lt;h2 id="introducción"&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Importante:&lt;/strong&gt;
+Solo puedes crear una contraseña de aplicación si tienes habilitada la &lt;strong&gt;Verificación en dos pasos&lt;/strong&gt; (2FA) en tu cuenta de Google.&lt;/p&gt;</description></item><item><title>Subneteo en IPv4, sencillamente</title><link>https://jaimealberto.io/post/49_subnetting/</link><pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/49_subnetting/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/subnetting.webp" alt="Subneteo en IPv4, sencillamente"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;El &lt;em&gt;subneteo&lt;/em&gt; (subnetting) es el arte de dividir una red IP en redes más pequeñas llamadas &lt;strong&gt;subredes&lt;/strong&gt;. En este artículo aprenderás a hacerlo paso a paso de manera sencillo con ejemplos prácticos.&lt;/p&gt;
+&lt;h2 id="-qué-es-el-subneteo-en-ipv4"&gt;🧠 ¿Qué es el subneteo en IPv4?&lt;/h2&gt;
+&lt;p&gt;El &lt;strong&gt;subneteo&lt;/strong&gt; es la técnica que se utiliza para &lt;strong&gt;dividir una red grande en redes más pequeñas&lt;/strong&gt;. subredes. Esto nos permite mejorar el rendimiento, la seguridad y la administración de las direcciones IP. Por ejemplo, en vez de tener todos los dispositivos en una misma red 192.168.0.0/24, se puede dividir la red en subredes más pequeñas para cada departamento, area, servicio, exposición, etc.&lt;/p&gt;</description></item><item><title>AutoHotkey v2. Instalar, configurar y aumentar la productividad</title><link>https://jaimealberto.io/post/47_autohotkey/</link><pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/47_autohotkey/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/autohotkey.jpg" alt="AutoHotkey v2. Instalar, configurar y aumentar la productividad"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href="https://es.wikipedia.org/wiki/Fan"&gt;fan&lt;/a&gt; de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.&lt;/p&gt;</description></item><item><title>SMS, envío local</title><link>https://jaimealberto.io/post/46_smsi/</link><pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/46_smsi/</guid><description>&lt;p&gt;&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/smswg.jpg" alt="SMS, envío local"&gt;
+&lt;/figure&gt;
+
+Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description></item><item><title>Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos</title><link>https://jaimealberto.io/post/12_universosshiii/</link><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/12_universosshiii/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/tunelp.jpg" alt="Universo Ssh III. Guía Completa de Túneles SSH y Port Forwarding: Acceso Seguro a Servicios Internos"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/07_universosshi/"&gt;primera entrega&lt;/a&gt;, llego la &lt;a href="https://jaimealberto.io/post/11_universosshii/"&gt;segunda entrega&lt;/a&gt;. Como dicen que no hay dos sin tres pues vamos con la tercera entrega. Esta vez toca hablar de los &lt;a href="https://en.wikipedia.org/wiki/Tunneling_protocol"&gt;túneles&lt;/a&gt;, popularmente conocidos como “ la vpn del pobre “. Algo que te pude sacar de muchos apuros.&lt;/p&gt;</description></item><item><title>Permisos en Linux</title><link>https://jaimealberto.io/post/44_permisos/</link><pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/44_permisos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/permisos.jpg" alt="Permisos en Linux"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Hoy nos toca hablar las crípticas letras que aparecen al usar el comando &lt;code&gt;ls -l&lt;/code&gt;. Entender los permisos es imprescindible para la seguridad y el control del sistema. A continuación intentare explicar forma clara qué son, para qué sirven y cómo puedes modificarlos de dos maneras diferentes.&lt;/p&gt;</description></item><item><title>Donde están los log`s del servidor SSH en Debian 12</title><link>https://jaimealberto.io/post/42_logssshdeb12/</link><pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/42_logssshdeb12/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/debian.jpg" alt="Donde están los log`s del servidor SSH en Debian 12"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Donde están mis log del servidor SSH ?. Pues bien desde &lt;strong&gt;Debian 12&lt;/strong&gt;, ya no se generan automáticamente como en versiones anteriores en &lt;code&gt;/var/log/auth.log&lt;/code&gt;. Ahora el sistema utiliza &lt;strong&gt;systemd‑journald&lt;/strong&gt; como gestor de logs. Pero no desesperes vamos a ver como hacerlo con unos simples pasos.&lt;/p&gt;</description></item><item><title>Sabes actualizar tu Linux ?</title><link>https://jaimealberto.io/post/40_distupgrade/</link><pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/40_distupgrade/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/update.jpg" alt="Sabes actualizar tu Linux ?"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Una de las tareas mas repetitivas es la de actualizar nuestros sistemas y a la vez lo mas pesado. Dentro de la familia de Linux tenemos Debian y derivados. Una de las herramientas que se utiliza es su gestor de paquetes &lt;a href="https://es.wikipedia.org/wiki/Advanced_Packaging_Tool"&gt;apt&lt;/a&gt;. Vamos a revisar sus opciones y veremos cual es la mas correcta según que casos para nuestros sistemas.&lt;/p&gt;</description></item><item><title>Instalación de utilidades desde repositorios</title><link>https://jaimealberto.io/post/38_utils_repos/</link><pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/38_utils_repos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/utils_repos.jpg" alt="Instalación de utilidades desde repositorios"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de ver como &lt;a href="https://jaimealberto.io/post/28_vscodeinstall/"&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft, &lt;a href="https://jaimealberto.io/post/37_navegadores_repos/"&gt;instalar navegadores desdde sus repositorios&lt;/a&gt;. Ahora veremos como realizar esto mismo con varias utilidades.&lt;/p&gt;</description></item><item><title>Instalación de navegadores desde repositorios</title><link>https://jaimealberto.io/post/37_navegadores_repos/</link><pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/37_navegadores_repos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/navegadores_repos.jpg" alt="Instalación de navegadores desde repositorios"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de ver como &lt;a href="https://jaimealberto.io/post/28_vscodeinstall/"&gt;instalar la ultima versión de Visual Estudio Code desde el repositorio oficial&lt;/a&gt; de Microsoft. Ahora veremos como realizar esto mismo con varios navegadores.&lt;/p&gt;</description></item><item><title>Terminator + Zsh</title><link>https://jaimealberto.io/post/36_terminatorzsh/</link><pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/36_terminatorzsh/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/DECVT100.jpg" alt="Terminator &amp;#43; Zsh"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Ya han pasado tiempo desde aquellos maravillosos &lt;a href="https://es.wikipedia.org/wiki/Terminal_tonta"&gt;terminales&lt;/a&gt; “tontos” vt100 que se estilaban en los años 70. Pero a día de hoy, por suerte, seguimos utilizando el terminal y la shell. Cada uno tenemos nuestras preferencias, al igual que por los sistemas operativos. Personalmente si trabajo en un entorno Linux con Gnome me gusta como emulador de terminal &lt;a href="https://github.com/software-jessies-org/jessies/wiki/Terminator"&gt;Terminator&lt;/a&gt; y la &lt;a href="https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)"&gt;Shell&lt;/a&gt; &lt;a href="https://es.wikipedia.org/wiki/Zsh"&gt;Zsh&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Ansible</title><link>https://jaimealberto.io/post/31_ansiblei/</link><pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/31_ansiblei/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/ansiblei.jpg" alt="Ansible"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Segun la Wikipedia, &lt;a href="https://es.wikipedia.org/wiki/Ansible_(software)"&gt;Ansible&lt;/a&gt; es una plataforma de software libre para configurar y administrar ordenadores.&lt;/p&gt;</description></item><item><title>WireGuard</title><link>https://jaimealberto.io/post/35_wireguard/</link><pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/35_wireguard/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/wireguard.png" alt="WireGuard"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Según la &lt;a href="https://es.wikipedia.org/wiki/WireGuard"&gt;Wikipedia&lt;/a&gt; “ WireGuard es una aplicación de software libre y de código abierto y un protocolo de comunicación que implementa técnicas de red privada virtual (VPN) para crear conexiones seguras punto a punto en configuraciones enrutadas o puenteadas. Se ejecuta como un módulo dentro del núcleo Linux y tiene como objetivo un mejor rendimiento que los protocolos de tunelización IPsec y OpenVPN.2​ Fue escrito por Jason A. Donenfeld y se publica bajo la segunda versión de la GNU General Public License (GPL).3​ El sitio web oficial describe el protocolo como un trabajo en progreso. ”&lt;/p&gt;</description></item><item><title>Logos en videos</title><link>https://jaimealberto.io/post/34_logosvideos/</link><pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/34_logosvideos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/stamp.jpg" alt="Logos en videos"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Creamos &lt;a href="https://jaimealberto.io/post/06_grabarterminal/"&gt;videos del terminal&lt;/a&gt;, cuando vemos un vídeotutorial,etc. Casi siempre tienen alguna marca de agua donde se visualiza el nombre del autor, un logotipo, una url, etc.&lt;/p&gt;</description></item><item><title>Borrar kenels antiguos en Debian</title><link>https://jaimealberto.io/post/33_kernels/</link><pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/33_kernels/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/kernel.jpg" alt="Borrar kenels antiguos en Debian"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Actualmente tener kernels antiguos instalados en nuestros sistemas no creo que nos cree un problema de espacio, quizá si de seguridad.&lt;/p&gt;</description></item><item><title>Wazuh</title><link>https://jaimealberto.io/post/32_wazuh/</link><pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/32_wazuh/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/Wazuh.png" alt="Wazuh"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Según la &lt;a href="https://es.wikipedia.org/wiki/Wazuh"&gt;Wikipedia&lt;/a&gt; “ Wazuh es un sistema de detección de intrusos basado en host de código abierto y libre (HIDS). Realiza análisis de registro, comprobación de integridad, supervisión del registro de Windows, detección de rootkits, alertas basadas en el tiempo y respuesta activa. Proporciona detección de intrusiones para la mayoría de los sistemas operativos, incluyendo Linux, AIX, HP-UX, macOS, Solaris y Windows. Wazuh tiene una arquitectura centralizada y multiplataforma que permite que múltiples sistemas sean fácilmente monitoreados y administrados ”.&lt;/p&gt;</description></item><item><title>Personalizar login en GNOME, GDM 3</title><link>https://jaimealberto.io/post/14_customgdm3/</link><pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/14_customgdm3/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/gdm.jpg" alt="Personalizar login en GNOME, GDM 3"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;El login grafico en nuestros sistemas Linux de vez en cuando es necesario personalizarlos un poco según el usuario destino. Pues bien hoy veremos como cambiar algunos parámetros interesantes de la pantalla de login.&lt;/p&gt;</description></item><item><title>Usuarios en Linux II, política de contraseñas</title><link>https://jaimealberto.io/post/27_usuariosii/</link><pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/27_usuariosii/</guid><description>&lt;p&gt;&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/usuariosii.jpg" alt="Usuarios en Linux II, política de contraseñas"&gt;
+&lt;/figure&gt;
+
+Como ya sabemos todos un &lt;a href="https://es.wikipedia.org/wiki/Administrador_de_sistemas"&gt;administrador de sistemas&lt;/a&gt; no descansa ni su &lt;a href="https://es.wikipedia.org/wiki/Administrador_de_sistemas"&gt;día de celebración&lt;/a&gt;. Todo el día luchando para resolver problemas de los usuarios, al fin de al cabo es su trabajo. Pero también tiene que implementar medidas que no son bien venidas por los usuarios.&lt;/p&gt;</description></item><item><title>Usuarios en Linux I</title><link>https://jaimealberto.io/post/26_usuariosi/</link><pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/26_usuariosi/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/usuariosi.jpg" alt="Usuarios en Linux I"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Como ya sabemos Linux es un sistema multiusuario, por lo tanto, la gestión de usuarios y grupos es algo de lo mas habitual. Es importante tener claro todo esto, pues si no tendremos un gran agujero de seguridad en nuestros sistemas.&lt;/p&gt;</description></item><item><title>Visual Studio Code I</title><link>https://jaimealberto.io/post/25_vscodei/</link><pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/25_vscodei/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/vsci.jpg" alt="Visual Studio Code I"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Hace tiempo comencé con la búsqueda de un editor de código con el que pudiera escribir scripts (Bash, Powershell,Zsh, etc), código en Python, documentos en MarkDown, archivos de configuración , utilizar Hugo, guiones de Terraform, etc. Otro objetivo claro es que funcionara igual en cualquier entorno ( Linux, MacOs y Windows ), que fuera gratis y con gran comunidad. Pues bien dando muchas vueltas me decidí por Visual Studio Code (VSC).&lt;/p&gt;</description></item><item><title>Sincronizar configuración Visual Studio Code</title><link>https://jaimealberto.io/post/29_vscodesync/</link><pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/29_vscodesync/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/vssync.jpg" alt="Sincronizar configuración Visual Studio Code"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Una de las mayores ventajas que le encuentro al Visual Studio Code es que lo puedo tener instalado en cualquier entorno en los que trabajo habitualmente. Pero claro siempre encuentro alguna pega, la configuración en un entorno nuevo.&lt;/p&gt;</description></item><item><title>Integrar actualizaciones Visual Studio Code</title><link>https://jaimealberto.io/post/28_vscodeinstall/</link><pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/28_vscodeinstall/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/vsinstall.jpg" alt="Integrar actualizaciones Visual Studio Code"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Visual Studio Code es mi editor preferido por muchos motivos. Pero siempre que toca actualizar el sistema operativo o el software instalado según realizamos su instalación se incluye o no. Pues bien ahora veremos como instalarlo para que al actualizar nuestro sistema se incluya en dicha actualización.&lt;/p&gt;</description></item><item><title>Organizar escritorio en Windows</title><link>https://jaimealberto.io/post/24_windows1/</link><pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/24_windows1/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/windowsI.jpg" alt="Organizar escritorio en Windows"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href="https://es.wikipedia.org/wiki/Fan"&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description></item><item><title>Digital Ocean, utilidades</title><link>https://jaimealberto.io/post/19_doutils/</link><pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/19_doutils/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/doutils.jpg" alt="Digital Ocean, utilidades"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Digital Ocean es un proveedor estadounidense de servidores virtuales privados con sede central en Nueva York. La compañía dispone de centros de cómputo en Nueva York, Toronto, Bangalore, Amsterdam, San Francisco, Londres y Singapur entre otros.&lt;/p&gt;</description></item><item><title>Utilidades terminal IV</title><link>https://jaimealberto.io/post/21_utilidadesterminaliv/</link><pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/21_utilidadesterminaliv/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/tool4.jpg" alt="Utilidades terminal IV"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Ya estoy aquí de vuelta, después de los capítulos I, II y III vamos evidentemente por el IV. Este es el orden natural de las cosas, lo natural no tiene por que ser lo correcto, un ejemplo claro lo tenemos con la &lt;a href="https://es.wikipedia.org/wiki/Star_Wars"&gt;Saga Star Wars&lt;/a&gt;. Bueno sin mas dilaciones vamos al lio.&lt;/p&gt;</description></item><item><title>Tips &amp; Tricks MacOS III de ?</title><link>https://jaimealberto.io/post/03_tipsmacos03/</link><pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/03_tipsmacos03/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/trickIII.jpg" alt="Tips &amp;amp; Tricks MacOS III de ?"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de Trucos para MacOs &lt;a href="https://jaimealberto.io/post/01_tipsmacos01/"&gt;I&lt;/a&gt; y &lt;a href="https://jaimealberto.io/post/02_tipsmacos02/"&gt;II&lt;/a&gt; , llega la tercera. Pues bien vamos por ella, hoy hablaremos de alguna que otra cosa sobe aplicaciones que uso habitualmente como VSCode o la aplicación nativa de MacOs para gestionar el correo electrónico.&lt;/p&gt;</description></item><item><title>Terraform II</title><link>https://jaimealberto.io/post/17_terraformii/</link><pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/17_terraformii/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/terraformII.jpg" alt="Terraform II"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de una &lt;a href="https://jaimealberto.io/post/16_terraformi/"&gt;breve introducción&lt;/a&gt; a &lt;a href="https://es.wikipedia.org/wiki/Terraform_(software)"&gt;Terraform&lt;/a&gt;, creo que la mejor manera de entender como funciona es con un ejemplo simple.&lt;/p&gt;</description></item><item><title>iTerm2 + Zsh</title><link>https://jaimealberto.io/post/23_itermzsh/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/23_itermzsh/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/iterm2zsh.jpg" alt="iTerm2 &amp;#43; Zsh"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Existen muchísimas opciones para utilizar como terminal, pero por excelencia en MacOs se utiliza &lt;a href="https://iterm2.com/"&gt;iTerm2&lt;/a&gt;. No viene de serie con MacOs. Ahora veremos como instalarlo, algunas opciones de configuración. También veremos como aumentar su ponencia utilizando &lt;a href="https://es.wikipedia.org/wiki/Zsh"&gt;Zsh&lt;/a&gt; con personalización apoyándonos en software adicional para esta &lt;a href="https://es.wikipedia.org/wiki/Shell_(inform%C3%A1tica)"&gt;Shell&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>DNS, protege tu privacidad sin perder velocidad</title><link>https://jaimealberto.io/post/22_dnssec/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/22_dnssec/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/dnssec.jpg" alt="DNS, protege tu privacidad sin perder velocidad"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Los servidores DNS son algo imprescindible para la navegación por Internet. Los utilizamos a diario sin darle quizá la importancia que realmente tienen. Según los dns que utilicemos puede afectar a nuestra velocidad de navegación. Esto es un factor importante el de la velocidad, pero otro creo que aun mas importante es el de nuestra privacidad.&lt;/p&gt;</description></item><item><title>Tips &amp; Tricks MacOS II</title><link>https://jaimealberto.io/post/02_tipsmacos02/</link><pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/02_tipsmacos02/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/trickII.jpg" alt="Tips &amp;amp; Tricks MacOS II"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/01_tipsmacos01/"&gt;primera entrega&lt;/a&gt; de trucos para utilizar en nuestro Mac y mejorar nuestra productividad vamos por la segunda, dicen que segundas partes nunca son buenas. Discrepo tenemos alguna que otra saga de películas que desmienten este mito. Bueno sin mas dilaciones vamos por la segunda parte, que espero que sea mejor que la primera y peor que las siguientes.&lt;/p&gt;</description></item><item><title>Terraform I</title><link>https://jaimealberto.io/post/16_terraformi/</link><pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/16_terraformi/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/terraform.jpg" alt="Terraform I"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href="https://es.wikipedia.org/wiki/Terraform_(software)"&gt;Terraform&lt;/a&gt; es un software que trata la infraestructura como código desarrollado por &lt;a href="https://www.hashicorp.com/"&gt;HashiCorp&lt;/a&gt;.Esto permite al usuario mediante ejecución de código construir, combinar y poner en marcha de manera segura y eficiente infraestructuras rápidamente.&lt;/p&gt;</description></item><item><title>Utilidades terminal III</title><link>https://jaimealberto.io/post/15_utilidadesterminaliii/</link><pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/15_utilidadesterminaliii/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/tool3.jpg" alt="Utilidades terminal III"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Por aquí de nuevo con la tercera entrega de la saga. Hoy mas que utilidades vamos a ver las teclas rápidas para e terminal y a comentar alguna que otra cosa sobre el historial de comandos.&lt;/p&gt;</description></item><item><title>Universo Ssh II</title><link>https://jaimealberto.io/post/11_universosshii/</link><pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/11_universosshii/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/ssh2.jpg" alt="Universo Ssh II"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de la &lt;a href="https://jaimealberto.io/post/07_universosshi/"&gt;primera entrega&lt;/a&gt; donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas que se apoyan en este protocolo.&lt;/p&gt;</description></item><item><title>Donde están mis contraseñas Wifi</title><link>https://jaimealberto.io/post/09_passwordwifi/</link><pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/09_passwordwifi/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/pwdwifi.jpg" alt="Donde están mis contraseñas Wifi"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description></item><item><title>Utilidades terminal II</title><link>https://jaimealberto.io/post/10_utilidadesterminalii/</link><pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/10_utilidadesterminalii/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/tool2.jpg" alt="Utilidades terminal II"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Bueno ya estamos aquí de nuevo, despues de la &lt;a href="https://jaimealberto.io/post/08_utilidadesterminali/"&gt;primera entrega&lt;/a&gt; hablando de pastebinit, sednemail y magic-wormhole, hoy toca mas …&amp;hellip;Vamos por ello y espero que disfrutéis con la lectura y lo podáis aplicar en vuestro día a día.&lt;/p&gt;</description></item><item><title>Universo Ssh I</title><link>https://jaimealberto.io/post/07_universosshi/</link><pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/07_universosshi/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/ssh.jpg" alt="Universo Ssh I"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Dentro de lo que conocemos como ssh, a parte de ser en la nomenclatura de la &lt;a href="https://es.wikipedia.org/wiki/C%C3%B3digo_de_aeropuertos_de_IATA"&gt;IATA&lt;/a&gt; del aeropuerto internacional &lt;a href="https://es.wikipedia.org/wiki/Aeropuerto_Internacional_de_Sharm_el-Sheij"&gt;Sharm el-sheij&lt;/a&gt;, es un protocolo de comunicaciones el cual se apoyan muchas herramientas no solo ssh como herramienta. Trabaja de forma parecida a telnet, pero impedimenta una seguridad basada en un sistema de intercambio de llaves seguro. Este sistema identifica la identidad de ambos extremos de la comunicación e implementa varios tipos de cifrado mediante un túnel impidiendo que los amigos de lo ajeno se apropien de lo trasmitimos en nuestras comunicaciones. No obstante como ya sabemos nada es !00% seguro, por medio de ataques de &lt;a href="https://es.wikipedia.org/wiki/Ataque_de_REPLAY"&gt;REPLAY&lt;/a&gt; se puede atacar. Pero nos da cierta seguridad, la cual podemos aumentar con medidas adicionales.&lt;/p&gt;</description></item><item><title>Utilidades terminal I</title><link>https://jaimealberto.io/post/08_utilidadesterminali/</link><pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/08_utilidadesterminali/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/tool.jpg" alt="Utilidades terminal I"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de escribir el articulo sobre la &lt;a href="https://jaimealberto.io/post/06_grabarterminal/"&gt;grabación del terminal&lt;/a&gt; me dije, por que no una serie de artículos sobre utilidades para la terminal, pues bien vamos a ello.&lt;/p&gt;</description></item><item><title>Tips &amp; Tricks MacOS I de ?</title><link>https://jaimealberto.io/post/01_tipsmacos01/</link><pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/01_tipsmacos01/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/trick.jpg" alt="Tips &amp;amp; Tricks MacOS I de ?"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Desde que comencé mi camino en el mundo de IT, independientemente del sistema operativo que utilice, necesito un terminal, lo del entorno grafico no me va mucho. Con lo cual MacOS no podría ser menos. MacOS tiene los dos mundos, uno no es mejor que otro, para mi son complementarios. En una estación de trabajo que tenga los dos lo entiendo perfectamente y se agradece para el aumento de la productividad en el día a día. Lo que no veo sentido es un entorno grafico en un servidor, pero esto es una opinión personal que seguramente es muy discutible para muchos.&lt;/p&gt;
+&lt;p&gt;Con lo cual intento sacar el máximo partido a los dos mundos de cada sistema operativo. Escribiré una serie de artículos, no se cuantos ni cada cuanto, contando pequeños trucos para los dos mundos. Este es el primero, que espero de muchos.&lt;/p&gt;</description></item><item><title>Finder</title><link>https://jaimealberto.io/post/05_finder/</link><pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/05_finder/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/finder.jpg" alt="Finder"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Después de dar un par de teclas rápidas y algún truquillo para el Finder, nuestro gran amigo de MacOs, creo que ya es hora de dar algunas teclas rápidas para su uso diario. Aquí están para mi las mas habituales.&lt;/p&gt;</description></item><item><title>Grabar el terminal</title><link>https://jaimealberto.io/post/06_grabarterminal/</link><pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/06_grabarterminal/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/grabarterminal.jpg" alt="Grabar el terminal"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Que cierta es la frase “ Una imagen vale mas que mil palabras “, si le añades un video pues mejor no ?. Muchas veces tenemos que explicar algun proceso que se ejecuta en el terminal, si tenemos entorno grafico se puede solucionar con la típica herramienta que graba la ventana o incluso en algunos sistemas operativos la herramienta que graba en escritorio es nativa del propio sistema. Pero si tenemos una herramienta que nos permite grabar nativa mente el terminal obtenemos dos ventajas: no dependemos de tener entorno grafico y es mucho mas ligera. Incluso lo podemos hacer en un servidor en consola o incluso si estamos conectados en remoto por ssh.&lt;/p&gt;</description></item><item><title>Combo I, la VPN del pobre</title><link>https://jaimealberto.io/post/43_comboi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/43_comboi/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/comboI.jpg" alt="Combo I, la VPN del pobre"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Recordando viejos tiempos, que uno tiene ya una edad, en aquellos días de los buenos &lt;a href="https://es.wikipedia.org/wiki/Arcade"&gt;arcades&lt;/a&gt;. Todos andábamos locos con los &lt;a href="https://es.wikipedia.org/wiki/Combo_(videojuegos)"&gt;combos.&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
