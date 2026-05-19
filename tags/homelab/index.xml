@@ -1,33 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>HomeLab on JaimeAlberto.io</title>
-    <link>https://jaimealberto.io/tags/homelab/</link>
-    <description>Recent content in HomeLab on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jaimealberto.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Guía para crear una contraseña de aplicación en Gmail</title>
-      <link>https://jaimealberto.io/post/51_gmailaplicacion/</link>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/51_gmailaplicacion/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/51gmail.jpg&#34; alt=&#34;Guía para crear una contraseña de aplicación en Gmail&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;&#xA;&lt;p&gt;En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;Importante:&lt;/strong&gt;&#xA;Solo puedes crear una contraseña de aplicación si tienes habilitada la &lt;strong&gt;Verificación en dos pasos&lt;/strong&gt; (2FA) en tu cuenta de Google.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Captura y graba, hardware dedicado</title>
-      <link>https://jaimealberto.io/hardware/02_captura/</link>
-      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/hardware/02_captura/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/capture00.jpg&#34; alt=&#34;Captura y graba, hardware dedicado&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Buscando en un cajón aparecieron dos capturadoras de video chinas y decidir darlas utilidad. Normalmente la mayoría de la gente las utiliza con &lt;a href=&#34;https://obsproject.com/es&#34;&gt;OBS&lt;/a&gt; como una fuente mas de entrada para grabar o hacer directos. A dia de hoy tengo la necesidad de algún invento, para el rack que estoy montando para mi laboratorio, que me de imagen de los servidores eventualmente sin llegar a tener nada fijo. Algo portable, barato y que no me suponga una gran inversión en un kvm por ejemplo, ni tampoco quería un monitor de 7 pulgadas o algo asi.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>SMS, envío local</title>
-      <link>https://jaimealberto.io/post/46_smsi/</link>
-      <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/46_smsi/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/smswg.jpg&#34; alt=&#34;SMS, envío local&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HomeLab on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/homelab/</link><description>Recent content in HomeLab on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/homelab/index.xml" rel="self" type="application/rss+xml"/><item><title>Guía para crear una contraseña de aplicación en Gmail</title><link>https://jaimealberto.io/post/51_gmailaplicacion/</link><pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/51_gmailaplicacion/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/51gmail.jpg" alt="Guía para crear una contraseña de aplicación en Gmail"&gt;
+&lt;/figure&gt;
+
+&lt;h2 id="introducción"&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;En muchas ocasiones necesitamos configurar alguna aplicación, un script, etc para enviar correos con nuestra cuenta de GMail pero actualmente GMail por segundad aconseja tener activado la autenticación de doble factor (2FA). Para estos casos tenemos una alternativa que ahora explicare como configurar.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Importante:&lt;/strong&gt;
+Solo puedes crear una contraseña de aplicación si tienes habilitada la &lt;strong&gt;Verificación en dos pasos&lt;/strong&gt; (2FA) en tu cuenta de Google.&lt;/p&gt;</description></item><item><title>Captura y graba, hardware dedicado</title><link>https://jaimealberto.io/hardware/02_captura/</link><pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/hardware/02_captura/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/capture00.jpg" alt="Captura y graba, hardware dedicado"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Buscando en un cajón aparecieron dos capturadoras de video chinas y decidir darlas utilidad. Normalmente la mayoría de la gente las utiliza con &lt;a href="https://obsproject.com/es"&gt;OBS&lt;/a&gt; como una fuente mas de entrada para grabar o hacer directos. A dia de hoy tengo la necesidad de algún invento, para el rack que estoy montando para mi laboratorio, que me de imagen de los servidores eventualmente sin llegar a tener nada fijo. Algo portable, barato y que no me suponga una gran inversión en un kvm por ejemplo, ni tampoco quería un monitor de 7 pulgadas o algo asi.&lt;/p&gt;</description></item><item><title>SMS, envío local</title><link>https://jaimealberto.io/post/46_smsi/</link><pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/46_smsi/</guid><description>&lt;p&gt;&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/smswg.jpg" alt="SMS, envío local"&gt;
+&lt;/figure&gt;
+
+Pese al nivel de comunicaciones que tenemos en nuestro dia a dia con miles de aplicaciones de mensajería, redes sociales, y mas. Todavía los sms se siguen utilizando dado que es una tecnología rápida y muy estable.&lt;/p&gt;</description></item></channel></rss>

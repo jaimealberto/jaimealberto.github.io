@@ -1,419 +1,68 @@
-<!DOCTYPE html>
-<html class="no-js" lang="es">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Grupos en Linux. Control de acceso sin complicaciones - JaimeAlberto.io</title>
-	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios.">
-	<link rel="canonical" href="https://jaimealberto.io/post/55_grupos/">
-		<meta property="og:url" content="https://jaimealberto.io/post/55_grupos/">
-  <meta property="og:site_name" content="JaimeAlberto.io">
-  <meta property="og:title" content="Grupos en Linux. Control de acceso sin complicaciones">
-  <meta property="og:description" content="Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios.">
-  <meta property="og:locale" content="es">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-05-16T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-16T00:00:00+00:00">
-    <meta property="article:tag" content="Terminal">
-    <meta property="article:tag" content="Seguridad">
-    <meta property="article:tag" content="Usuarios">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "Grupos en Linux. Control de acceso sin complicaciones",
-  "description": "Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios.",
-  "datePublished": "2026-05-16",
-  "dateModified": "2026-05-16",
-  "url": "https:\/\/jaimealberto.io\/post\/55_grupos\/",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "https://www.linkedin.com/in/jaimealbertoio/",
-    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "https:\/\/jaimealberto.io\/"
-  }
-}
-</script>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
-
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/custom.css">
-
-	<link rel="shortcut icon" href="/favicon.ico">
-</head>
-<body class="body">
-	<div class="container container--outer">
-		<header class="header">
-	<div class="container header__container">
-		
-	<div class="logo">
-		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
-			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
-				</div>
-		</a>
-	</div>
-		
-<nav class="menu">
-	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-		<span class="menu__btn-title" tabindex="-1">Menú</span>
-	</button>
-	<ul class="menu__list">
-		<li class="menu__item">
-			<a class="menu__link" href="/yo/">
-				
-				<span class="menu__text">Sobre mí</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/post/">
-				
-				<span class="menu__text">Artículos</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/hardware/">
-				
-				<span class="menu__text">Hardware</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recetas/">
-				
-				<span class="menu__text">Recetas</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/raspberrypi/">
-				
-				<span class="menu__text">Raspberry Pi</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recursos/">
-				
-				<span class="menu__text">Recursos</span>
-				
-			</a>
-		</li>
-	</ul>
-</nav>
-
-	</div>
-</header>
-		<div class="wrapper flex">
-			<div class="primary">
-			
-<main class="main" role="main">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">Grupos en Linux. Control de acceso sin complicaciones</h1>
-			<div class="post__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-16T00:00:00Z">16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
-	</span>
-</div></div>
-		</header>
-<div class="post__toc toc">
-	<div class="toc__title">Índice</div>
-	<div class="toc__menu">
-		<nav id="TableOfContents">
-  <ul>
-    <li><a href="#-grupo-primario-y-grupo-secundario">👥 Grupo primario y grupo secundario</a></li>
-    <li><a href="#-el-fichero-etcgroup">📄 El fichero /etc/group</a></li>
-    <li><a href="#-gestión-de-grupos">⚙️ Gestión de grupos</a>
-      <ul>
-        <li><a href="#crear">Crear</a></li>
-        <li><a href="#modificar">Modificar</a></li>
-        <li><a href="#eliminar">Eliminar</a></li>
-      </ul>
-    </li>
-    <li><a href="#-añadir-y-quitar-usuarios-de-grupos">👤 Añadir y quitar usuarios de grupos</a>
-      <ul>
-        <li><a href="#el-error-clásico-con-usermod">El error clásico con usermod</a></li>
-        <li><a href="#con-gpasswd">Con gpasswd</a></li>
-        <li><a href="#aplicar-sin-cerrar-sesión">Aplicar sin cerrar sesión</a></li>
-      </ul>
-    </li>
-    <li><a href="#-permisos-por-grupo-en-la-práctica">🔐 Permisos por grupo en la práctica</a>
-      <ul>
-        <li><a href="#cambiar-el-grupo-propietario-de-un-fichero">Cambiar el grupo propietario de un fichero</a></li>
-        <li><a href="#permisos-de-grupo-con-chmod">Permisos de grupo con chmod</a></li>
-        <li><a href="#el-bit-setgid--directorios-compartidos">El bit setgid — directorios compartidos</a></li>
-      </ul>
-    </li>
-    <li><a href="#-el-grupo-sudo">🔑 El grupo sudo</a></li>
-    <li><a href="#-resultado">✅ Resultado</a></li>
-  </ul>
-</nav>
-	</div>
-</div><div class="content post__content clearfix">
-			<figure>
-  <img src="/img/gruposlinux.jpg" alt="Grupos en Linux. Control de acceso sin complicaciones">
-</figure>
-
-<p>Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.</p>
-<p>Este artículo complementa <a href="/post/26_usuariosI">Usuarios en Linux I</a> y <a href="/post/27_usuariosII">Usuarios en Linux II</a>. Si no los has leído, empieza por ahí.</p>
-<hr>
-<h2 id="-grupo-primario-y-grupo-secundario">👥 Grupo primario y grupo secundario</h2>
-<p>Cada usuario pertenece a <strong>un grupo primario</strong> y puede pertenecer a <strong>varios grupos secundarios</strong>.</p>
-<ul>
-<li><strong>Grupo primario:</strong> el que se asigna a los ficheros que crea el usuario. Normalmente tiene el mismo nombre que el usuario.</li>
-<li><strong>Grupos secundarios:</strong> grupos adicionales que otorgan acceso a recursos concretos (impresoras, discos, sudo, etc.).</li>
-</ul>
-<p>Para ver los grupos de un usuario:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Grupos del usuario actual</span>
-</span></span><span style="display:flex;"><span>groups
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Grupos de un usuario concreto</span>
-</span></span><span style="display:flex;"><span>groups sistemas
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Información completa: UID, GID primario y grupos secundarios</span>
-</span></span><span style="display:flex;"><span>id sistemas</span></span></code></pre></div>
-<hr>
-<h2 id="-el-fichero-etcgroup">📄 El fichero /etc/group</h2>
-<p>Toda la información de grupos vive en <code>/etc/group</code>. Su formato es sencillo:</p>
-<pre tabindex="0"><code>nombre:contraseña:GID:miembros
-</code></pre><p>Un ejemplo real:</p>
-<pre tabindex="0"><code>sudo:x:27:gonzo,sistemas
+<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Grupos en Linux. Control de acceso sin complicaciones - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios."><link rel=canonical href=https://jaimealberto.io/post/55_grupos/><meta property="og:url" content="https://jaimealberto.io/post/55_grupos/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="Grupos en Linux. Control de acceso sin complicaciones"><meta property="og:description" content="Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-05-16T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-16T00:00:00+00:00"><meta property="article:tag" content="Terminal"><meta property="article:tag" content="Seguridad"><meta property="article:tag" content="Usuarios"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"Grupos en Linux. Control de acceso sin complicaciones","description":"Guía práctica de gestión de grupos en Linux: groupadd, groupmod, usermod -aG, permisos por grupo, setgid y el grupo sudo. El complemento natural a la gestión de usuarios.","datePublished":"2026-05-16","dateModified":"2026-05-16","url":"https:\/\/jaimealberto.io\/post\/55_grupos\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Grupos en Linux. Control de acceso sin complicaciones</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-16T00:00:00Z>16-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a>, <a class=meta__link href=/categories/linux/ rel=category>Linux</a></span></div></div></header><div class="post__toc toc"><div class=toc__title>Índice</div><div class=toc__menu><nav id=TableOfContents><ul><li><a href=#-grupo-primario-y-grupo-secundario>👥 Grupo primario y grupo secundario</a></li><li><a href=#-el-fichero-etcgroup>📄 El fichero /etc/group</a></li><li><a href=#-gestión-de-grupos>⚙️ Gestión de grupos</a><ul><li><a href=#crear>Crear</a></li><li><a href=#modificar>Modificar</a></li><li><a href=#eliminar>Eliminar</a></li></ul></li><li><a href=#-añadir-y-quitar-usuarios-de-grupos>👤 Añadir y quitar usuarios de grupos</a><ul><li><a href=#el-error-clásico-con-usermod>El error clásico con usermod</a></li><li><a href=#con-gpasswd>Con gpasswd</a></li><li><a href=#aplicar-sin-cerrar-sesión>Aplicar sin cerrar sesión</a></li></ul></li><li><a href=#-permisos-por-grupo-en-la-práctica>🔐 Permisos por grupo en la práctica</a><ul><li><a href=#cambiar-el-grupo-propietario-de-un-fichero>Cambiar el grupo propietario de un fichero</a></li><li><a href=#permisos-de-grupo-con-chmod>Permisos de grupo con chmod</a></li><li><a href=#el-bit-setgid--directorios-compartidos>El bit setgid — directorios compartidos</a></li></ul></li><li><a href=#-el-grupo-sudo>🔑 El grupo sudo</a></li><li><a href=#-resultado>✅ Resultado</a></li></ul></nav></div></div><div class="content post__content clearfix"><figure><img src=/img/gruposlinux.jpg alt="Grupos en Linux. Control de acceso sin complicaciones"></figure><p>Si los usuarios son los actores, los grupos son el reparto. Asignar permisos usuario a usuario es perder el tiempo — los grupos permiten gestionar el acceso a recursos para varios usuarios de una vez, cambiando una sola línea. Es la forma correcta de hacer administración de sistemas en Linux.</p><p>Este artículo complementa <a href=/post/26_usuariosI>Usuarios en Linux I</a> y <a href=/post/27_usuariosII>Usuarios en Linux II</a>. Si no los has leído, empieza por ahí.</p><hr><h2 id=-grupo-primario-y-grupo-secundario>👥 Grupo primario y grupo secundario</h2><p>Cada usuario pertenece a <strong>un grupo primario</strong> y puede pertenecer a <strong>varios grupos secundarios</strong>.</p><ul><li><strong>Grupo primario:</strong> el que se asigna a los ficheros que crea el usuario. Normalmente tiene el mismo nombre que el usuario.</li><li><strong>Grupos secundarios:</strong> grupos adicionales que otorgan acceso a recursos concretos (impresoras, discos, sudo, etc.).</li></ul><p>Para ver los grupos de un usuario:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Grupos del usuario actual</span>
+</span></span><span style=display:flex><span>groups
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Grupos de un usuario concreto</span>
+</span></span><span style=display:flex><span>groups sistemas
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Información completa: UID, GID primario y grupos secundarios</span>
+</span></span><span style=display:flex><span>id sistemas</span></span></code></pre></div><hr><h2 id=-el-fichero-etcgroup>📄 El fichero /etc/group</h2><p>Toda la información de grupos vive en <code>/etc/group</code>. Su formato es sencillo:</p><pre tabindex=0><code>nombre:contraseña:GID:miembros
+</code></pre><p>Un ejemplo real:</p><pre tabindex=0><code>sudo:x:27:gonzo,sistemas
 docker:x:999:gonzo
 sshusers:x:1001:adminuser,backupuser
-</code></pre><ul>
-<li><code>x</code> en el campo de contraseña significa que la contraseña está en <code>/etc/gshadow</code> (prácticamente en desuso).</li>
-<li>El campo de miembros son los usuarios con ese grupo como <strong>secundario</strong> — los que lo tienen como primario no aparecen listados aquí.</li>
-</ul>
-<hr>
-<h2 id="-gestión-de-grupos">⚙️ Gestión de grupos</h2>
-<h3 id="crear">Crear</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crear grupo con GID automático</span>
-</span></span><span style="display:flex;"><span>groupadd desarrolladores
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Crear grupo con GID específico</span>
-</span></span><span style="display:flex;"><span>groupadd -g <span style="color:#ae81ff">1500</span> desarrolladores</span></span></code></pre></div>
-<h3 id="modificar">Modificar</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cambiar el nombre del grupo</span>
-</span></span><span style="display:flex;"><span>groupmod -n devs desarrolladores
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Cambiar el GID</span>
-</span></span><span style="display:flex;"><span>groupmod -g <span style="color:#ae81ff">1600</span> devs</span></span></code></pre></div>
-<h3 id="eliminar">Eliminar</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>groupdel devs</span></span></code></pre></div>
-<p><strong>Nota:</strong> no se puede eliminar un grupo que sea el grupo primario de algún usuario. Hay que reasignar antes.</p>
-<hr>
-<h2 id="-añadir-y-quitar-usuarios-de-grupos">👤 Añadir y quitar usuarios de grupos</h2>
-<h3 id="el-error-clásico-con-usermod">El error clásico con usermod</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># MAL — reemplaza todos los grupos secundarios del usuario</span>
-</span></span><span style="display:flex;"><span>usermod -G docker sistemas
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># BIEN — añade al grupo sin tocar los demás (-a de append)</span>
-</span></span><span style="display:flex;"><span>usermod -aG docker sistemas</span></span></code></pre></div>
-<p>Olvidar la <code>-a</code> es el error más común. El resultado es que el usuario pierde acceso a todo lo que tenía — incluido <code>sudo</code> si pertenecía a ese grupo.</p>
-<h3 id="con-gpasswd">Con gpasswd</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Añadir usuario al grupo</span>
-</span></span><span style="display:flex;"><span>gpasswd -a sistemas docker
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Quitar usuario del grupo</span>
-</span></span><span style="display:flex;"><span>gpasswd -d sistemas docker</span></span></code></pre></div>
-<h3 id="aplicar-sin-cerrar-sesión">Aplicar sin cerrar sesión</h3>
-<p>Los cambios de grupo no se aplican hasta que el usuario abre una nueva sesión. Para aplicarlos en la sesión actual sin salir:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newgrp docker</span></span></code></pre></div>
-<hr>
-<h2 id="-permisos-por-grupo-en-la-práctica">🔐 Permisos por grupo en la práctica</h2>
-<h3 id="cambiar-el-grupo-propietario-de-un-fichero">Cambiar el grupo propietario de un fichero</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cambiar grupo de un fichero</span>
-</span></span><span style="display:flex;"><span>chgrp desarrolladores proyecto.tar.gz
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Cambiar propietario y grupo a la vez</span>
-</span></span><span style="display:flex;"><span>chown sistemas:desarrolladores proyecto.tar.gz
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Recursivo para un directorio</span>
-</span></span><span style="display:flex;"><span>chown -R sistemas:desarrolladores /srv/proyecto/</span></span></code></pre></div>
-<h3 id="permisos-de-grupo-con-chmod">Permisos de grupo con chmod</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Dar lectura y escritura al grupo</span>
-</span></span><span style="display:flex;"><span>chmod g+rw fichero.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Quitar ejecución al grupo</span>
-</span></span><span style="display:flex;"><span>chmod g-x script.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Notación octal: propietario=7, grupo=5, otros=0</span>
-</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">750</span> /srv/proyecto/</span></span></code></pre></div>
-<h3 id="el-bit-setgid--directorios-compartidos">El bit setgid — directorios compartidos</h3>
-<p>El bit setgid en un directorio hace que todos los ficheros creados dentro hereden el grupo del directorio, no el grupo primario del usuario que los crea. Imprescindible para carpetas compartidas entre varios usuarios:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crear directorio compartido</span>
-</span></span><span style="display:flex;"><span>mkdir /srv/compartido
-</span></span><span style="display:flex;"><span>chgrp desarrolladores /srv/compartido
-</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">2770</span> /srv/compartido   <span style="color:#75715e"># el 2 activa el setgid</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verificar</span>
-</span></span><span style="display:flex;"><span>ls -ld /srv/compartido
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># drwxrws--- 2 root desarrolladores 4096 ...</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># La &#39;s&#39; en la posición del grupo indica setgid activo</span></span></span></code></pre></div>
-<p>Sin setgid, cada usuario crearía ficheros con su propio grupo primario y los demás del equipo no podrían editarlos.</p>
-<hr>
-<h2 id="-el-grupo-sudo">🔑 El grupo sudo</h2>
-<p>En Debian/Ubuntu el acceso a <code>sudo</code> se gestiona mediante el grupo <code>sudo</code>. En Red Hat/Fedora es el grupo <code>wheel</code>. Añadir un usuario a ese grupo es la forma limpia de darle privilegios de administración sin tocar <code>/etc/sudoers</code> a mano:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Debian/Ubuntu</span>
-</span></span><span style="display:flex;"><span>usermod -aG sudo sistemas
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Red Hat/Fedora/CentOS</span>
-</span></span><span style="display:flex;"><span>usermod -aG wheel sistemas</span></span></code></pre></div>
-<p>Para revocar el acceso basta con quitarlo del grupo — sin editar ningún fichero de configuración:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gpasswd -d sistemas sudo</span></span></code></pre></div>
-<hr>
-<h2 id="-resultado">✅ Resultado</h2>
-<table>
-  <thead>
-      <tr>
-          <th>Operación</th>
-          <th>Comando</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Ver grupos de un usuario</td>
-          <td><code>groups usuario</code> / <code>id usuario</code></td>
-      </tr>
-      <tr>
-          <td>Crear grupo</td>
-          <td><code>groupadd nombre</code></td>
-      </tr>
-      <tr>
-          <td>Renombrar grupo</td>
-          <td><code>groupmod -n nuevo_nombre nombre</code></td>
-      </tr>
-      <tr>
-          <td>Añadir usuario a grupo</td>
-          <td><code>usermod -aG grupo usuario</code></td>
-      </tr>
-      <tr>
-          <td>Quitar usuario de grupo</td>
-          <td><code>gpasswd -d usuario grupo</code></td>
-      </tr>
-      <tr>
-          <td>Cambiar grupo de fichero</td>
-          <td><code>chgrp grupo fichero</code></td>
-      </tr>
-      <tr>
-          <td>Directorio compartido con setgid</td>
-          <td><code>chmod 2770 directorio</code></td>
-      </tr>
-      <tr>
-          <td>Dar sudo</td>
-          <td><code>usermod -aG sudo usuario</code></td>
-      </tr>
-  </tbody>
-</table>
-<p>Con los grupos bien configurados puedes controlar el acceso a cualquier recurso del sistema sin tocar los permisos de cada fichero individualmente. Un usuario entra al grupo, accede al recurso. Sale del grupo, pierde el acceso. Simple y auditable.</p>
-		</div>
-		<footer class="post__footer">
-			
-<div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/terminal/" rel="tag">Terminal</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/usuarios/" rel="tag">Usuarios</a>
-		</li>
-	</ul>
-</div>
-		</footer>
-<div class="share-buttons">
-    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f&amp;title=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones" rel="nofollow noopener noreferrer" class="share-btn linkedin">
-        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        <span class="share-btn__text">LinkedIn</span>
-    </a>
-    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://twitter.com/intent/tweet?text=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn twitter">
-        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-        <span class="share-btn__text">Twitter</span>
-    </a>
-    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn facebook">
-        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        <span class="share-btn__text">Facebook</span>
-    </a>
-    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f&amp;title=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones" rel="nofollow noopener noreferrer" class="share-btn reddit">
-        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path><path d="M15 14c-1.5 0-3-.5-4.5-1.5s-2.5-3-2.5-3v-2c0-1.5.5-3 1.5-3s2.5 0 2.5 1.5c0 1.5-.5 3-1.5 3s-2.5 0-2.5-1.5v-2h-2.5c-.5 0-1 .5-1.5 1s-.5 1.5 0 2.5c0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5 0 .5-.5 1-1.5 1s-2.5-.5-3.5-1.5c-1-1-2.5-1.5-3.5-1.5s-2.5.5-3.5 1.5c-1 1-1.5 1.5-1.5 1.5s-1 0-1.5-.5c-.5-.5-.5-1.5 0-2.5s2.5-3 3.5-3.5c1-.5 2-1 3-1.5s2.5-2.5 3.5-3.5c1-1 1.5-1.5 1.5-2.5s-1.5-3-3-3z"></path></svg>
-        <span class="share-btn__text">Reddit</span>
-    </a>
-    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://telegram.me/share/url?text=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn telegram">
-    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-    <span class="share-btn__text">Telegram</span>
-    </a>
-    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://api.whatsapp.com/send?text=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones%20https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp">
-    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921 0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957 0 0 1 11 2c5.518 0 10 4.482 10 10.031z"></path><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662-.227-.008-.492-.016-.75-.016-.258 0-.67.098-.913.435-.243.336-.92 1.055-.92 2.57 0 1.516.945 2.977 1.074 3.167.129.19.09.38-.04.532-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3 0 0 0 0 0 0-4.004 0-7.25-3.246-7.25-7.25 0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974 0 0 0 3.107 1.17 6.974 6.974 0 0 0 3.107-1.17z"></path></svg>
-    <span class="share-btn__text">WhatsApp</span>
-    </a>
-</div>
-</article>
-</main>
-
-<div class="authorbox clearfix">
-	<figure class="authorbox__avatar">
-		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
-	</figure>
-	<div class="authorbox__header">
-		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
-	</div>
-	<div class="authorbox__description">
-		The BOFH of this Site
-	</div>
-</div>
-<div class="cta">
-	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
-	<div class="cta__links">
-		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
-			LinkedIn
-		</a>
-		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
-			GitHub
-		</a>
-	</div>
-</div>
-
-
-
-
-			</div>
-			
-		</div>
-		<footer class="footer">
-	<div class="container footer__container flex">
-		
-<div class="footer__links">
-	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
-</div>
-		<div class="footer__copyright">
-			&copy; 2026 JaimeAlberto.
-			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
-		</div>
-	</div>
-</footer>
-	</div>
-<script async defer src="/js/menu.js"></script>
-<script src="/js/custom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
-</body>
-</html>
+</code></pre><ul><li><code>x</code> en el campo de contraseña significa que la contraseña está en <code>/etc/gshadow</code> (prácticamente en desuso).</li><li>El campo de miembros son los usuarios con ese grupo como <strong>secundario</strong> — los que lo tienen como primario no aparecen listados aquí.</li></ul><hr><h2 id=-gestión-de-grupos>⚙️ Gestión de grupos</h2><h3 id=crear>Crear</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Crear grupo con GID automático</span>
+</span></span><span style=display:flex><span>groupadd desarrolladores
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Crear grupo con GID específico</span>
+</span></span><span style=display:flex><span>groupadd -g <span style=color:#ae81ff>1500</span> desarrolladores</span></span></code></pre></div><h3 id=modificar>Modificar</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Cambiar el nombre del grupo</span>
+</span></span><span style=display:flex><span>groupmod -n devs desarrolladores
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cambiar el GID</span>
+</span></span><span style=display:flex><span>groupmod -g <span style=color:#ae81ff>1600</span> devs</span></span></code></pre></div><h3 id=eliminar>Eliminar</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>groupdel devs</span></span></code></pre></div><p><strong>Nota:</strong> no se puede eliminar un grupo que sea el grupo primario de algún usuario. Hay que reasignar antes.</p><hr><h2 id=-añadir-y-quitar-usuarios-de-grupos>👤 Añadir y quitar usuarios de grupos</h2><h3 id=el-error-clásico-con-usermod>El error clásico con usermod</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># MAL — reemplaza todos los grupos secundarios del usuario</span>
+</span></span><span style=display:flex><span>usermod -G docker sistemas
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># BIEN — añade al grupo sin tocar los demás (-a de append)</span>
+</span></span><span style=display:flex><span>usermod -aG docker sistemas</span></span></code></pre></div><p>Olvidar la <code>-a</code> es el error más común. El resultado es que el usuario pierde acceso a todo lo que tenía — incluido <code>sudo</code> si pertenecía a ese grupo.</p><h3 id=con-gpasswd>Con gpasswd</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Añadir usuario al grupo</span>
+</span></span><span style=display:flex><span>gpasswd -a sistemas docker
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Quitar usuario del grupo</span>
+</span></span><span style=display:flex><span>gpasswd -d sistemas docker</span></span></code></pre></div><h3 id=aplicar-sin-cerrar-sesión>Aplicar sin cerrar sesión</h3><p>Los cambios de grupo no se aplican hasta que el usuario abre una nueva sesión. Para aplicarlos en la sesión actual sin salir:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>newgrp docker</span></span></code></pre></div><hr><h2 id=-permisos-por-grupo-en-la-práctica>🔐 Permisos por grupo en la práctica</h2><h3 id=cambiar-el-grupo-propietario-de-un-fichero>Cambiar el grupo propietario de un fichero</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Cambiar grupo de un fichero</span>
+</span></span><span style=display:flex><span>chgrp desarrolladores proyecto.tar.gz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cambiar propietario y grupo a la vez</span>
+</span></span><span style=display:flex><span>chown sistemas:desarrolladores proyecto.tar.gz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Recursivo para un directorio</span>
+</span></span><span style=display:flex><span>chown -R sistemas:desarrolladores /srv/proyecto/</span></span></code></pre></div><h3 id=permisos-de-grupo-con-chmod>Permisos de grupo con chmod</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Dar lectura y escritura al grupo</span>
+</span></span><span style=display:flex><span>chmod g+rw fichero.txt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Quitar ejecución al grupo</span>
+</span></span><span style=display:flex><span>chmod g-x script.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Notación octal: propietario=7, grupo=5, otros=0</span>
+</span></span><span style=display:flex><span>chmod <span style=color:#ae81ff>750</span> /srv/proyecto/</span></span></code></pre></div><h3 id=el-bit-setgid--directorios-compartidos>El bit setgid — directorios compartidos</h3><p>El bit setgid en un directorio hace que todos los ficheros creados dentro hereden el grupo del directorio, no el grupo primario del usuario que los crea. Imprescindible para carpetas compartidas entre varios usuarios:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Crear directorio compartido</span>
+</span></span><span style=display:flex><span>mkdir /srv/compartido
+</span></span><span style=display:flex><span>chgrp desarrolladores /srv/compartido
+</span></span><span style=display:flex><span>chmod <span style=color:#ae81ff>2770</span> /srv/compartido   <span style=color:#75715e># el 2 activa el setgid</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Verificar</span>
+</span></span><span style=display:flex><span>ls -ld /srv/compartido
+</span></span><span style=display:flex><span><span style=color:#75715e># drwxrws--- 2 root desarrolladores 4096 ...</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># La &#39;s&#39; en la posición del grupo indica setgid activo</span></span></span></code></pre></div><p>Sin setgid, cada usuario crearía ficheros con su propio grupo primario y los demás del equipo no podrían editarlos.</p><hr><h2 id=-el-grupo-sudo>🔑 El grupo sudo</h2><p>En Debian/Ubuntu el acceso a <code>sudo</code> se gestiona mediante el grupo <code>sudo</code>. En Red Hat/Fedora es el grupo <code>wheel</code>. Añadir un usuario a ese grupo es la forma limpia de darle privilegios de administración sin tocar <code>/etc/sudoers</code> a mano:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Debian/Ubuntu</span>
+</span></span><span style=display:flex><span>usermod -aG sudo sistemas
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Red Hat/Fedora/CentOS</span>
+</span></span><span style=display:flex><span>usermod -aG wheel sistemas</span></span></code></pre></div><p>Para revocar el acceso basta con quitarlo del grupo — sin editar ningún fichero de configuración:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>gpasswd -d sistemas sudo</span></span></code></pre></div><hr><h2 id=-resultado>✅ Resultado</h2><table><thead><tr><th>Operación</th><th>Comando</th></tr></thead><tbody><tr><td>Ver grupos de un usuario</td><td><code>groups usuario</code> / <code>id usuario</code></td></tr><tr><td>Crear grupo</td><td><code>groupadd nombre</code></td></tr><tr><td>Renombrar grupo</td><td><code>groupmod -n nuevo_nombre nombre</code></td></tr><tr><td>Añadir usuario a grupo</td><td><code>usermod -aG grupo usuario</code></td></tr><tr><td>Quitar usuario de grupo</td><td><code>gpasswd -d usuario grupo</code></td></tr><tr><td>Cambiar grupo de fichero</td><td><code>chgrp grupo fichero</code></td></tr><tr><td>Directorio compartido con setgid</td><td><code>chmod 2770 directorio</code></td></tr><tr><td>Dar sudo</td><td><code>usermod -aG sudo usuario</code></td></tr></tbody></table><p>Con los grupos bien configurados puedes controlar el acceso a cualquier recurso del sistema sin tocar los permisos de cada fichero individualmente. Un usuario entra al grupo, accede al recurso. Sale del grupo, pierde el acceso. Simple y auditable.</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/terminal/ rel=tag>Terminal</a></li><li class=tags__item><a class="tags__link btn" href=/tags/seguridad/ rel=tag>Seguridad</a></li><li class=tags__item><a class="tags__link btn" href=/tags/usuarios/ rel=tag>Usuarios</a></li></ul></div></footer><div class=share-buttons><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f&amp;title=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones" rel="nofollow noopener noreferrer" class="share-btn linkedin"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+<span class=share-btn__text>LinkedIn</span>
+</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://twitter.com/intent/tweet?text=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn twitter"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg>
+<span class=share-btn__text>Twitter</span>
+</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn facebook"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+<span class=share-btn__text>Facebook</span>
+</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://www.reddit.com/submit?url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f&amp;title=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones" rel="nofollow noopener noreferrer" class="share-btn reddit"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 00-9 9 9 9 0 009 9 9 9 0 009-9 9 9 0 00-9-9z"/><path d="M15 14c-1.5.0-3-.5-4.5-1.5S8 9.5 8 9.5v-2c0-1.5.5-3 1.5-3S12 4.5 12 6s-.5 3-1.5 3S8 9 8 7.5v-2H5.5c-.5.0-1 .5-1.5 1S3.5 8 4 9s0 0 0 0c1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5s-.5 1-1.5 1S14 16 13 15s-2.5-1.5-3.5-1.5S7 14 6 15s-1.5 1.5-1.5 1.5-1 0-1.5-.5-.5-1.5.0-2.5 2.5-3 3.5-3.5 2-1 3-1.5S12 6 13 5s1.5-1.5 1.5-2.5-1.5-3-3-3z"/></svg>
+<span class=share-btn__text>Reddit</span>
+</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://telegram.me/share/url?text=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones&amp;url=https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn telegram"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+<span class=share-btn__text>Telegram</span>
+</a><a target=_blank onclick='return window.open(this.href,"","width=600,height=400"),!1' href="https://api.whatsapp.com/send?text=Grupos%20en%20Linux.%20Control%20de%20acceso%20sin%20complicaciones%20https%3a%2f%2fjaimealberto.io%2fpost%2f55_grupos%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp"><svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921.0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957.0 0111 2c5.518.0 10 4.482 10 10.031z"/><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662s-.492-.016-.75-.016-.67.098-.913.435c-.243.336-.92 1.055-.92 2.57.0 1.516.945 2.977 1.074 3.167s.09.38-.04.532c-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3-4.004.0-7.25-3.246-7.25-7.25.0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974.0 003.107 1.17 6.974 6.974.0 003.107-1.17z"/></svg>
+<span class=share-btn__text>WhatsApp</span></a></div></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
+</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
+<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>

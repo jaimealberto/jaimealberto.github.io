@@ -1,33 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Windows on JaimeAlberto.io</title>
-    <link>https://jaimealberto.io/categories/windows/</link>
-    <description>Recent content in Windows on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Tue, 21 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jaimealberto.io/categories/windows/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>AutoHotkey v2. Instalar, configurar y aumentar la productividad</title>
-      <link>https://jaimealberto.io/post/47_autohotkey/</link>
-      <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/47_autohotkey/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/autohotkey.jpg&#34; alt=&#34;AutoHotkey v2. Instalar, configurar y aumentar la productividad&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Organizar escritorio en Windows</title>
-      <link>https://jaimealberto.io/post/24_windows1/</link>
-      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/24_windows1/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/windowsI.jpg&#34; alt=&#34;Organizar escritorio en Windows&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href=&#34;https://es.wikipedia.org/wiki/Fan&#34;&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Donde están mis contraseñas Wifi</title>
-      <link>https://jaimealberto.io/post/09_passwordwifi/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/09_passwordwifi/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/pwdwifi.jpg&#34; alt=&#34;Donde están mis contraseñas Wifi&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on JaimeAlberto.io</title><link>https://jaimealberto.io/categories/windows/</link><description>Recent content in Windows on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Tue, 21 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/categories/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>AutoHotkey v2. Instalar, configurar y aumentar la productividad</title><link>https://jaimealberto.io/post/47_autohotkey/</link><pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/47_autohotkey/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/autohotkey.jpg" alt="AutoHotkey v2. Instalar, configurar y aumentar la productividad"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href="https://es.wikipedia.org/wiki/Fan"&gt;fan&lt;/a&gt; de Windows. No es el primero en mi lista de opciones. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte — creo que cada entorno tiene sus cosas buenas y sus cosas malas. Para ganarme la vida no tengo más remedio que tragar con Windows en el trabajo diario, así que cuanto más productivo sea y menos tenga que repetir tareas, mejor.&lt;/p&gt;</description></item><item><title>Organizar escritorio en Windows</title><link>https://jaimealberto.io/post/24_windows1/</link><pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/24_windows1/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/windowsI.jpg" alt="Organizar escritorio en Windows"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Todo el que me conoce sabe que no soy un &lt;a href="https://es.wikipedia.org/wiki/Fan"&gt;fan&lt;/a&gt; de Windows. Si tengo que elegir como entorno de trabajo mi ultima opción siempre sera Windows. Tampoco soy ningún nazi de los que solo defienden un sistema operativo a muerte, creo que cada entorno tiene sus cosas buenas y sus cosas malas. En ocasiones no tengo mas remedio que trabajar con Windows, con lo cual voy a dedicar algunos post para tener como referencia de mi día a día y ser lo mas productivo posible.&lt;/p&gt;</description></item><item><title>Donde están mis contraseñas Wifi</title><link>https://jaimealberto.io/post/09_passwordwifi/</link><pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/09_passwordwifi/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/pwdwifi.jpg" alt="Donde están mis contraseñas Wifi"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.&lt;/p&gt;</description></item></channel></rss>

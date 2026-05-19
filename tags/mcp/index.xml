@@ -1,26 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>MCP on JaimeAlberto.io</title>
-    <link>https://jaimealberto.io/tags/mcp/</link>
-    <description>Recent content in MCP on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Tue, 19 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jaimealberto.io/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MCP en el homelab. Conecta Claude Code con tu infraestructura</title>
-      <link>https://jaimealberto.io/post/56_mcp_intro/</link>
-      <pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/56_mcp_intro/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/mcp_intro.jpg&#34; alt=&#34;MCP en el homelab. Conecta Claude Code con tu infraestructura&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;video src=&#34;https://jaimealberto.io/img/mcp_intro_clip.mp4&#34; controls style=&#34;width:100%;border-radius:4px;margin:1.5rem 0;&#34;&gt;&lt;/video&gt;&lt;/p&gt;&#xA;&lt;p&gt;Llevas años automatizando tu infraestructura con scripts, Ansible y cron. Funciona. Pero cada vez que quieres que algo haga algo tienes que decirle exactamente cómo hacerlo. Con MCP, Claude Code puede hacer el trabajo directamente — sin que tú escribas ni un comando.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Contraseñas seguras en Claude Code: popup nativo sin exponer nada en el chat</title>
-      <link>https://jaimealberto.io/post/62_mcp_askpass/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/post/62_mcp_askpass/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;https://jaimealberto.io/img/mcp_askpass.jpg&#34; alt=&#34;Contraseñas seguras en Claude Code: popup nativo sin exponer nada en el chat&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Cuando empecé a usar Claude Code para tareas de administración real — conectarse a servidores, autenticarse en APIs, gestionar servicios — llegó el momento inevitable: Claude necesita una contraseña.&lt;/p&gt;&#xA;&lt;p&gt;La respuesta obvia es escribirla en el chat. Y es un error.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MCP on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/mcp/</link><description>Recent content in MCP on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Tue, 19 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/mcp/index.xml" rel="self" type="application/rss+xml"/><item><title>MCP en el homelab. Conecta Claude Code con tu infraestructura</title><link>https://jaimealberto.io/post/56_mcp_intro/</link><pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/56_mcp_intro/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/mcp_intro.jpg" alt="MCP en el homelab. Conecta Claude Code con tu infraestructura"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;video src="https://jaimealberto.io/img/mcp_intro_clip.mp4" controls style="width:100%;border-radius:4px;margin:1.5rem 0;"&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;Llevas años automatizando tu infraestructura con scripts, Ansible y cron. Funciona. Pero cada vez que quieres que algo haga algo tienes que decirle exactamente cómo hacerlo. Con MCP, Claude Code puede hacer el trabajo directamente — sin que tú escribas ni un comando.&lt;/p&gt;</description></item><item><title>Contraseñas seguras en Claude Code: popup nativo sin exponer nada en el chat</title><link>https://jaimealberto.io/post/62_mcp_askpass/</link><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/62_mcp_askpass/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/mcp_askpass.jpg" alt="Contraseñas seguras en Claude Code: popup nativo sin exponer nada en el chat"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Cuando empecé a usar Claude Code para tareas de administración real — conectarse a servidores, autenticarse en APIs, gestionar servicios — llegó el momento inevitable: Claude necesita una contraseña.&lt;/p&gt;
+&lt;p&gt;La respuesta obvia es escribirla en el chat. Y es un error.&lt;/p&gt;</description></item></channel></rss>
