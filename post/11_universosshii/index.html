@@ -156,6 +156,9 @@
 </figure>
 
 <p>Después de la <a href="https://jaimealberto.io/post/07_universosshi/">primera entrega</a> donde ya vimos lo básico sobre la parte cliente de Ssh y alguna que otra utilidad. Ahora toca ver algunas utilidades mas  que se apoyan en este protocolo.</p>
+<blockquote>
+<p><em>El contenido de este artículo tiene fines educativos. Las técnicas descritas están pensadas para su uso en sistemas propios o con autorización. El autor no asume responsabilidad por usos que contravengan la legislación aplicable.</em></p>
+</blockquote>
 <h2 id="magic-wormhole">Magic Wormhole</h2>
 <p>Ya hablamos de la <a href="/post/07_universosshi/#llaves">generación de llaves</a> para conexión sin contraseña en el <a href="https://jaimealberto.io/post/07_universosshi/">post anterior</a>. Uno de los fallos  garrafales, desde mi punto de vista, es la utilización de scp o ssh-copy-id para transferir la llave al servidor remoto desde la parte cliente. Pues durante el proceso solicita la contraseña de usuario y el objetivo es no utilizarla. Bueno para esta tarea tenemos a nuestro amigo <a href="https://github.com/warner/magic-wormhole">Magic-Wormhole</a> el cual tiene implementado una opción para realizar esta acción sin necesidad de contraseña. Si no lo tienes ya instalado puedes consultar el post <a href="/post/08_utilidadesterminali/#magic-wormhole">Utilidades terminal I</a> donde se explica el procedimiento y uso básico.</p>
 <p>La parte del servidor por seguridad tiene que invitar al cliente. Esta operación se realiza desde el terminal del servidor logeado con el usuario que tiene que conectarse, lo habitual es que el administrador ( <a href="https://es.wikipedia.org/wiki/Root">root</a> ) invite al usuario, con el siguiente comando:</p>

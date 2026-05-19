@@ -158,6 +158,9 @@
 </figure>
 
 <p>Esta web es un sitio estático generado con Hugo. No tiene base de datos, no tiene PHP, no tiene WordPress. Y aun así, si miro los logs de Cloudflare, veo peticiones a <code>/wp-admin</code>, <code>/wp-login.php</code> y <code>/xmlrpc.php</code> cada pocos minutos. Bots que recorren internet buscando instalaciones de WordPress vulnerables sin importarles lo que hay realmente en el servidor.</p>
+<blockquote>
+<p><em>El contenido de este artículo tiene fines educativos. Las técnicas descritas están pensadas para su uso en sistemas propios o con autorización. El autor no asume responsabilidad por usos que contravengan la legislación aplicable.</em></p>
+</blockquote>
 <p>La respuesta obvia es bloquearlo. Y ya que tengo el dominio en Cloudflare con proxy activo, el WAF está a un par de llamadas API de distancia.</p>
 <p>Este artículo documenta exactamente lo que hice: qué reglas creé, cómo las apliqué sin tocar el panel web y cómo las verifiqué.</p>
 <hr>
