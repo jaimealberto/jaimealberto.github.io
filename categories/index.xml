@@ -6,13 +6,20 @@
     <description>Recent content in Categories on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jaimealberto.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IA</title>
       <link>https://jaimealberto.io/categories/ia/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate>
       <guid>https://jaimealberto.io/categories/ia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sysadmin</title>
+      <link>https://jaimealberto.io/categories/sysadmin/</link>
+      <pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://jaimealberto.io/categories/sysadmin/</guid>
       <description></description>
     </item>
     <item>
@@ -20,13 +27,6 @@
       <link>https://jaimealberto.io/categories/seguridad/</link>
       <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
       <guid>https://jaimealberto.io/categories/seguridad/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sysadmin</title>
-      <link>https://jaimealberto.io/categories/sysadmin/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://jaimealberto.io/categories/sysadmin/</guid>
       <description></description>
     </item>
     <item>

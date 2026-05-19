@@ -2,10 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jaimealberto.io/tags/api/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
+    <loc>https://jaimealberto.io/tags/automatizaci%C3%B3n/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/categories/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/claude/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/categories/ia/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/mcp/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/post/56_mcp_intro/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/post/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/selfhosted/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/categories/sysadmin/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/</loc>
+    <lastmod>2026-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jaimealberto.io/tags/api/</loc>
     <lastmod>2026-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/claude-code/</loc>
@@ -17,37 +47,16 @@
     <loc>https://jaimealberto.io/post/62_mcp_askpass/</loc>
     <lastmod>2026-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.io/categories/ia/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.io/tags/kde/</loc>
     <lastmod>2026-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/linux/</loc>
     <lastmod>2026-05-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jaimealberto.io/tags/mcp/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/post/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jaimealberto.io/categories/seguridad/</loc>
     <lastmod>2026-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/seguridad/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/tags/selfhosted/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/categories/sysadmin/</loc>
-    <lastmod>2026-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/tags/</loc>
     <lastmod>2026-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/waf/</loc>
@@ -159,9 +168,6 @@
     <lastmod>2025-10-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/post/47_autohotkey/</loc>
-    <lastmod>2025-10-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jaimealberto.io/tags/automatizaci%C3%B3n/</loc>
     <lastmod>2025-10-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jaimealberto.io/tags/productividad/</loc>

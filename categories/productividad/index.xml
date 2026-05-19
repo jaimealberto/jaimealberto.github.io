@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productividad on JaimeAlberto.io</title>
+    <link>http://localhost:1313/categories/productividad/</link>
+    <description>Recent content in Productividad on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/productividad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>harper-obsidian. Tu vault de Obsidian accesible desde Claude Code</title>
+      <link>http://localhost:1313/post/57_mcp_obsidian/</link>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/57_mcp_obsidian/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/mcp_obsidian.jpg&#34; alt=&#34;harper-obsidian. Tu vault de Obsidian accesible desde Claude Code&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Obsidian es donde vive el conocimiento: notas, documentación, proyectos, ideas. Claude Code es donde ocurre el trabajo. Con harper-obsidian, el asistente puede leer y escribir en tu vault directamente — sin copiar y pegar, sin cambiar de ventana.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

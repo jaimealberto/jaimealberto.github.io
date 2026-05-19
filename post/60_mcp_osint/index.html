@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>harper-osint. Investigación OSINT integrada en Claude Code - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Busca usuarios en 3000 sitios, analiza dominios, verifica emails en brechas de datos y genera dossiers completos desde Claude Code. Todo con maigret, holehe, sherlock y theHarvester.">
+	<link rel="canonical" href="http://localhost:1313/post/60_mcp_osint/">
+		<meta property="og:url" content="http://localhost:1313/post/60_mcp_osint/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="harper-osint. Investigación OSINT integrada en Claude Code">
+  <meta property="og:description" content="Busca usuarios en 3000 sitios, analiza dominios, verifica emails en brechas de datos y genera dossiers completos desde Claude Code. Todo con maigret, holehe, sherlock y theHarvester.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-06-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-20T00:00:00+00:00">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="OSINT">
+    <meta property="article:tag" content="Seguridad">
+    <meta property="article:tag" content="Selfhosted">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "harper-osint. Investigación OSINT integrada en Claude Code",
+  "description": "Busca usuarios en 3000 sitios, analiza dominios, verifica emails en brechas de datos y genera dossiers completos desde Claude Code. Todo con maigret, holehe, sherlock y theHarvester.",
+  "datePublished": "2026-06-20",
+  "dateModified": "2026-06-20",
+  "url": "http:\/\/localhost:1313\/post\/60_mcp_osint\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1313\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">harper-osint. Investigación OSINT integrada en Claude Code</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-20T00:00:00Z">20-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ia/" rel="category">IA</a>, <a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-instalación">🔧 Instalación</a>
+      <ul>
+        <li><a href="#dependencias-base">Dependencias base</a></li>
+        <li><a href="#herramientas-opcionales--más-cobertura">Herramientas opcionales — más cobertura</a></li>
+      </ul>
+    </li>
+    <li><a href="#-configuración">⚙️ Configuración</a>
+      <ul>
+        <li><a href="#añadir-a-claude-code">Añadir a Claude Code</a></li>
+      </ul>
+    </li>
+    <li><a href="#-herramientas-disponibles">🛠️ Herramientas disponibles</a>
+      <ul>
+        <li><a href="#osint_username--maigret"><code>osint_username</code> — Maigret</a></li>
+        <li><a href="#osint_email--holehe"><code>osint_email</code> — Holehe</a></li>
+        <li><a href="#osint_social_scan--sherlock"><code>osint_social_scan</code> — Sherlock</a></li>
+        <li><a href="#osint_domain--theharvester"><code>osint_domain</code> — theHarvester</a></li>
+        <li><a href="#osint_whois"><code>osint_whois</code></a></li>
+        <li><a href="#osint_dns"><code>osint_dns</code></a></li>
+        <li><a href="#osint_phone"><code>osint_phone</code></a></li>
+        <li><a href="#osint_ip"><code>osint_ip</code></a></li>
+        <li><a href="#osint_breach_check"><code>osint_breach_check</code></a></li>
+        <li><a href="#osint_dossier"><code>osint_dossier</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-ejemplo-de-sesión-real">💬 Ejemplo de sesión real</a></li>
+    <li><a href="#-la-serie-completa">📚 La serie completa</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/mcp_osint.jpg" alt="harper-osint. Investigación OSINT integrada en Claude Code">
+</figure>
+
+<p>La investigación OSINT siempre ha requerido combinar herramientas distintas, copiar resultados entre terminales y sintetizar todo a mano. harper-osint integra maigret, holehe, sherlock, theHarvester y varias librerías especializadas en un único servidor MCP. Claude hace la investigación. Tú lees el informe.</p>
+<blockquote>
+<p><strong>Aviso legal:</strong> Usa estas herramientas exclusivamente sobre objetivos para los que tengas autorización expresa: tu propia infraestructura, pruebas de penetración contratadas, investigación académica o CTF. El uso sobre terceros sin consentimiento puede ser ilegal en tu jurisdicción.</p>
+</blockquote>
+<p>Este es el quinto y último artículo de la serie <a href="/post/56_mcp_intro">MCP en el homelab</a>.</p>
+<hr>
+<h2 id="-instalación">🔧 Instalación</h2>
+<h3 id="dependencias-base">Dependencias base</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install python-whois dnspython phonenumbers</span></span></code></pre></div>
+<h3 id="herramientas-opcionales--más-cobertura">Herramientas opcionales — más cobertura</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install maigret          <span style="color:#75715e"># Búsqueda username en 3000+ sitios</span>
+</span></span><span style="display:flex;"><span>pip install holehe           <span style="color:#75715e"># Email en 120+ plataformas</span>
+</span></span><span style="display:flex;"><span>pip install sherlock-project <span style="color:#75715e"># Username en 400+ redes sociales</span>
+</span></span><span style="display:flex;"><span>pip install theHarvester     <span style="color:#75715e"># Emails/subdominios/IPs de un dominio</span></span></span></code></pre></div>
+<p><strong>Nota:</strong> theHarvester puede tener conflictos de dependencias. Se recomienda un entorno virtual separado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m venv ~/.venv/osint
+</span></span><span style="display:flex;"><span>source ~/.venv/osint/bin/activate
+</span></span><span style="display:flex;"><span>pip install maigret holehe sherlock-project theHarvester python-whois dnspython phonenumbers</span></span></code></pre></div>
+<p>Si usas un entorno separado, define la variable de entorno:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export THEHARVESTER_BIN<span style="color:#f92672">=</span>/home/usuario/.venv/osint/bin/theHarvester</span></span></code></pre></div>
+<hr>
+<h2 id="-configuración">⚙️ Configuración</h2>
+<h3 id="añadir-a-claude-code">Añadir a Claude Code</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;harper-osint&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;stdio&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;python3&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;/ruta/a/harper-mcps/mcp_osint_server.py&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;THEHARVESTER_BIN&#34;</span>: <span style="color:#e6db74">&#34;/home/usuario/.venv/osint/bin/theHarvester&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<hr>
+<h2 id="-herramientas-disponibles">🛠️ Herramientas disponibles</h2>
+<h3 id="osint_username--maigret"><code>osint_username</code> — Maigret</h3>
+<p>Busca un nombre de usuario en más de 3000 sitios web. Devuelve dónde existe la cuenta.</p>
+<pre tabindex="0"><code>Busca el usuario &#34;jdoe&#34; en redes sociales
+→ osint_username(&#34;jdoe&#34;)
+</code></pre><h3 id="osint_email--holehe"><code>osint_email</code> — Holehe</h3>
+<p>Comprueba si un email está registrado en más de 120 plataformas (Instagram, Twitter, Spotify, etc.).</p>
+<pre tabindex="0"><code>¿En qué servicios está registrado admin@ejemplo.com?
+→ osint_email(&#34;admin@ejemplo.com&#34;)
+</code></pre><h3 id="osint_social_scan--sherlock"><code>osint_social_scan</code> — Sherlock</h3>
+<p>Búsqueda rápida de username en más de 400 redes sociales.</p>
+<h3 id="osint_domain--theharvester"><code>osint_domain</code> — theHarvester</h3>
+<p>Recolecta emails, subdominios, IPs y nombres de empleados asociados a un dominio mediante múltiples fuentes (Google, Bing, LinkedIn, Shodan).</p>
+<pre tabindex="0"><code>¿Qué información pública hay sobre ejemplo.com?
+→ osint_domain(&#34;ejemplo.com&#34;)
+</code></pre><h3 id="osint_whois"><code>osint_whois</code></h3>
+<p>WHOIS completo de un dominio o IP: registrador, fechas, nameservers, datos de contacto.</p>
+<h3 id="osint_dns"><code>osint_dns</code></h3>
+<p>DNS completo: registros A, MX, NS, TXT, SPF, DMARC, DKIM y subdominios comunes.</p>
+<h3 id="osint_phone"><code>osint_phone</code></h3>
+<p>País, operador y tipo de línea (móvil/fijo/VoIP) a partir de un número de teléfono.</p>
+<h3 id="osint_ip"><code>osint_ip</code></h3>
+<p>ASN, organización, geolocalización y contacto de abuso para una IP pública.</p>
+<h3 id="osint_breach_check"><code>osint_breach_check</code></h3>
+<p>Comprueba si un email aparece en brechas de datos conocidas mediante la API de <a href="https://haveibeenpwned.com">HaveIBeenPwned</a>. Requiere API key (~3,50 €/mes).</p>
+<h3 id="osint_dossier"><code>osint_dossier</code></h3>
+<p>Combina varias herramientas en un único informe completo y lo guarda automáticamente como nota en el vault de Obsidian.</p>
+<pre tabindex="0"><code>Genera un dossier completo sobre el dominio ejemplo.com
+→ osint_dossier(&#34;ejemplo.com&#34;, tipo=&#34;dominio&#34;)
+</code></pre><hr>
+<h2 id="-ejemplo-de-sesión-real">💬 Ejemplo de sesión real</h2>
+<pre tabindex="0"><code>Tú: Investiga el dominio acme-corp.com para un pentest autorizado.
+
+Claude: [osint_whois(&#34;acme-corp.com&#34;)]    → registrado en GoDaddy, 2018
+Claude: [osint_dns(&#34;acme-corp.com&#34;)]      → MX apunta a Google, sin DMARC
+Claude: [osint_domain(&#34;acme-corp.com&#34;)]   → 3 subdominios, 2 emails encontrados
+Claude: [osint_email(&#34;admin@acme-corp.com&#34;)] → registrado en 8 plataformas
+Claude: [osint_dossier(&#34;acme-corp.com&#34;, tipo=&#34;dominio&#34;)]
+        → Dossier guardado en vault/07-Cerebro/OSINT/acme-corp.com.md
+
+Claude: Resumen: el dominio carece de DMARC (riesgo de spoofing),
+        expone 2 emails corporativos y tiene 3 subdominios accesibles.
+        Dossier completo guardado en el vault.
+</code></pre><hr>
+<h2 id="-la-serie-completa">📚 La serie completa</h2>
+<ul>
+<li><a href="/post/56_mcp_intro">Parte 1 — Introducción y visión general</a></li>
+<li><a href="/post/57_mcp_obsidian">Parte 2 — harper-obsidian: tu vault desde el chat</a></li>
+<li><a href="/post/58_mcp_ssh">Parte 3 — harper-ssh: SSH y nmap sin salir de Claude</a></li>
+<li><a href="/post/59_mcp_winrm">Parte 4 — harper-winrm: administrar Windows desde Linux</a></li>
+<li><strong>[Parte 5 — harper-osint]</strong> ← estás aquí</li>
+</ul>
+<p>Repo: <a href="https://github.com/jaimealberto/harper-mcps">github.com/jaimealberto/harper-mcps</a></p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/mcp/" rel="tag">MCP</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/claude/" rel="tag">Claude</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/osint/" rel="tag">OSINT</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/selfhosted/" rel="tag">Selfhosted</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+<div class="share-buttons">
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2f60_mcp_osint%2f&amp;title=harper-osint.%20Investigaci%c3%b3n%20OSINT%20integrada%20en%20Claude%20Code" rel="nofollow noopener noreferrer" class="share-btn linkedin">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="share-btn__text">LinkedIn</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://twitter.com/intent/tweet?text=harper-osint.%20Investigaci%c3%b3n%20OSINT%20integrada%20en%20Claude%20Code&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2f60_mcp_osint%2f" rel="nofollow noopener noreferrer" class="share-btn twitter">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+        <span class="share-btn__text">Twitter</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.facebook.com/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpost%2f60_mcp_osint%2f" rel="nofollow noopener noreferrer" class="share-btn facebook">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span class="share-btn__text">Facebook</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fpost%2f60_mcp_osint%2f&amp;title=harper-osint.%20Investigaci%c3%b3n%20OSINT%20integrada%20en%20Claude%20Code" rel="nofollow noopener noreferrer" class="share-btn reddit">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path><path d="M15 14c-1.5 0-3-.5-4.5-1.5s-2.5-3-2.5-3v-2c0-1.5.5-3 1.5-3s2.5 0 2.5 1.5c0 1.5-.5 3-1.5 3s-2.5 0-2.5-1.5v-2h-2.5c-.5 0-1 .5-1.5 1s-.5 1.5 0 2.5c0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5 0 .5-.5 1-1.5 1s-2.5-.5-3.5-1.5c-1-1-2.5-1.5-3.5-1.5s-2.5.5-3.5 1.5c-1 1-1.5 1.5-1.5 1.5s-1 0-1.5-.5c-.5-.5-.5-1.5 0-2.5s2.5-3 3.5-3.5c1-.5 2-1 3-1.5s2.5-2.5 3.5-3.5c1-1 1.5-1.5 1.5-2.5s-1.5-3-3-3z"></path></svg>
+        <span class="share-btn__text">Reddit</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://telegram.me/share/url?text=harper-osint.%20Investigaci%c3%b3n%20OSINT%20integrada%20en%20Claude%20Code&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2f60_mcp_osint%2f" rel="nofollow noopener noreferrer" class="share-btn telegram">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    <span class="share-btn__text">Telegram</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://api.whatsapp.com/send?text=harper-osint.%20Investigaci%c3%b3n%20OSINT%20integrada%20en%20Claude%20Code%20http%3a%2f%2flocalhost%3a1313%2fpost%2f60_mcp_osint%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921 0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957 0 0 1 11 2c5.518 0 10 4.482 10 10.031z"></path><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662-.227-.008-.492-.016-.75-.016-.258 0-.67.098-.913.435-.243.336-.92 1.055-.92 2.57 0 1.516.945 2.977 1.074 3.167.129.19.09.38-.04.532-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3 0 0 0 0 0 0-4.004 0-7.25-3.246-7.25-7.25 0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974 0 0 0 3.107 1.17 6.974 6.974 0 0 0 3.107-1.17z"></path></svg>
+    <span class="share-btn__text">WhatsApp</span>
+    </a>
+</div>
+</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

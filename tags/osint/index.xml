@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OSINT on JaimeAlberto.io</title>
+    <link>http://localhost:1313/tags/osint/</link>
+    <description>Recent content in OSINT on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/osint/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>harper-osint. Investigación OSINT integrada en Claude Code</title>
+      <link>http://localhost:1313/post/60_mcp_osint/</link>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/60_mcp_osint/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/mcp_osint.jpg&#34; alt=&#34;harper-osint. Investigación OSINT integrada en Claude Code&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;La investigación OSINT siempre ha requerido combinar herramientas distintas, copiar resultados entre terminales y sintetizar todo a mano. harper-osint integra maigret, holehe, sherlock, theHarvester y varias librerías especializadas en un único servidor MCP. Claude hace la investigación. Tú lees el informe.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
