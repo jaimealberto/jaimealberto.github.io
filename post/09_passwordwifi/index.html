@@ -149,6 +149,10 @@
 </figure>
 
 <p>Muchas veces estamos trabajando con un equipo que tenemos ya configuradas las conexiones a varias redes Wifi y necesitamos ver una configuración para utilizarla en otro equipo o dispositivo, pero que pasa cuando no podemos ver por la interface grafica la contraseña de conexión. Pues bien a continuación vamos a ver como solucionar esto.</p>
+<blockquote>
+<p>Todo el contenido publicado aquí —artículos, scripts, herramientas y configuraciones— tiene fines exclusivamente educativos y refleja mi experiencia personal trabajando sobre infraestructura propia o en entornos de laboratorio controlados.</p>
+<p>Las técnicas, metodologías y herramientas descritas están pensadas para su uso en sistemas propios o con autorización explícita de sus propietarios. Si reutilizas o adaptas lo que encuentres aquí, eres responsable de hacerlo dentro del marco legal de tu país, especialmente en materia de protección de datos (RGPD), acceso no autorizado a sistemas (art. 197 bis CP) y privacidad. El autor no asume responsabilidad por usos que contravengan la legislación aplicable.</p>
+</blockquote>
 <h2 id="linux">Linux</h2>
 <p>Abrimos un terminal y vamos al lio:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sudo cat /etc/NetworkManager/system-connections/nombre_de_la_red_wifi | grep psk<span style="color:#f92672">=</span></span></span></code></pre></div>

@@ -124,7 +124,10 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div></div>
 		</header><div class="content post__content clearfix">
-			<p>Desde el terminal:</p>
+			<blockquote>
+<p>Las técnicas descritas aquí están pensadas para su uso en redes propias o con autorización explícita. Escanear redes ajenas sin permiso puede ser ilegal. El autor no asume responsabilidad por usos que contravengan la legislación aplicable.</p>
+</blockquote>
+<p>Desde el terminal:</p>
 <p>Con ping:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> IP in 192.168.1.<span style="color:#f92672">{</span>1..254<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">if</span> ping $IP -c <span style="color:#ae81ff">1</span> &gt; /dev/null; <span style="color:#66d9ef">then</span> echo $IP alive; <span style="color:#66d9ef">else</span> echo $IP dead; <span style="color:#66d9ef">fi</span>; <span style="color:#66d9ef">done</span></span></span></code></pre></div></p>
 <p>Con nmap:</p>
