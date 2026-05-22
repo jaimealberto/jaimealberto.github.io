@@ -1,19 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>PowerShell on JaimeAlberto.io</title>
-    <link>http://localhost:1313/tags/powershell/</link>
-    <description>Recent content in PowerShell on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Fri, 22 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>harper-winrm. Administrar Windows desde Claude Code</title>
-      <link>http://localhost:1313/post/59_mcp_winrm/</link>
-      <pubDate>Fri, 22 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/59_mcp_winrm/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/mcp_winrm.jpg&#34; alt=&#34;harper-winrm. Administrar Windows desde Claude Code&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Administrar Windows desde Linux siempre ha sido incómodo: RDP para operaciones gráficas, PSExec para scripts remotos, soluciones parcheadas. WinRM es el protocolo nativo de Microsoft para gestión remota — y harper-winrm lo conecta directamente a Claude Code.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PowerShell on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/powershell/</link><description>Recent content in PowerShell on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Fri, 22 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/powershell/index.xml" rel="self" type="application/rss+xml"/><item><title>harper-winrm. Administrar Windows desde Claude Code</title><link>https://jaimealberto.io/post/59_mcp_winrm/</link><pubDate>Fri, 22 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/59_mcp_winrm/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/mcp_winrm.jpg" alt="harper-winrm. Administrar Windows desde Claude Code"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Administrar Windows desde Linux siempre ha sido incómodo: RDP para operaciones gráficas, PSExec para scripts remotos, soluciones parcheadas. WinRM es el protocolo nativo de Microsoft para gestión remota — y harper-winrm lo conecta directamente a Claude Code.&lt;/p&gt;</description></item></channel></rss>
