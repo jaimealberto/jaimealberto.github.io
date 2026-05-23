@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SPF, DKIM y DMARC: guía práctica para administradores - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Tres registros DNS que definen si tu correo llega o va a spam — y si alguien puede suplantar tu dominio. Cómo funcionan, cómo se configuran y cómo se verifican, sin teoría de relleno.">
+	<link rel="canonical" href="http://localhost:1314/post/63_spf_dkim_dmarc/">
+		<meta property="og:url" content="http://localhost:1314/post/63_spf_dkim_dmarc/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="SPF, DKIM y DMARC: guía práctica para administradores">
+  <meta property="og:description" content="Tres registros DNS que definen si tu correo llega o va a spam — y si alguien puede suplantar tu dominio. Cómo funcionan, cómo se configuran y cómo se verifican, sin teoría de relleno.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-05-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-24T00:00:00+00:00">
+    <meta property="article:tag" content="Email">
+    <meta property="article:tag" content="DNS">
+    <meta property="article:tag" content="Seguridad">
+    <meta property="article:tag" content="SPF">
+    <meta property="article:tag" content="DKIM">
+    <meta property="article:tag" content="DMARC">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "SPF, DKIM y DMARC: guía práctica para administradores",
+  "description": "Tres registros DNS que definen si tu correo llega o va a spam — y si alguien puede suplantar tu dominio. Cómo funcionan, cómo se configuran y cómo se verifican, sin teoría de relleno.",
+  "datePublished": "2026-05-24",
+  "dateModified": "2026-05-24",
+  "url": "http:\/\/localhost:1314\/post\/63_spf_dkim_dmarc\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1314\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">SPF, DKIM y DMARC: guía práctica para administradores</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-24T00:00:00Z">24-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#el-problema-que-resuelven">El problema que resuelven</a></li>
+    <li><a href="#spf--quién-puede-enviar-en-tu-nombre">SPF — quién puede enviar en tu nombre</a>
+      <ul>
+        <li><a href="#qué-hace">Qué hace</a></li>
+        <li><a href="#sintaxis-básica">Sintaxis básica</a></li>
+        <li><a href="#errores-comunes">Errores comunes</a></li>
+        <li><a href="#crear-el-registro">Crear el registro</a></li>
+        <li><a href="#verificar">Verificar</a></li>
+      </ul>
+    </li>
+    <li><a href="#dkim--la-firma-digital-del-correo">DKIM — la firma digital del correo</a>
+      <ul>
+        <li><a href="#qué-hace-1">Qué hace</a></li>
+        <li><a href="#cómo-funciona">Cómo funciona</a></li>
+        <li><a href="#generación-de-claves">Generación de claves</a></li>
+        <li><a href="#publicar-en-dns">Publicar en DNS</a></li>
+        <li><a href="#configurar-postfix--opendkim">Configurar Postfix + opendkim</a></li>
+        <li><a href="#si-usas-un-servicio-externo">Si usas un servicio externo</a></li>
+        <li><a href="#verificar-1">Verificar</a></li>
+        <li><a href="#rotación-de-claves">Rotación de claves</a></li>
+      </ul>
+    </li>
+    <li><a href="#dmarc--la-política-que-une-todo">DMARC — la política que une todo</a>
+      <ul>
+        <li><a href="#qué-hace-2">Qué hace</a></li>
+        <li><a href="#sintaxis-básica-1">Sintaxis básica</a></li>
+        <li><a href="#crear-el-registro-1">Crear el registro</a></li>
+        <li><a href="#los-informes-rua">Los informes RUA</a></li>
+        <li><a href="#subir-de-pnone-a-preject">Subir de p=none a p=reject</a></li>
+      </ul>
+    </li>
+    <li><a href="#orden-correcto-de-despliegue">Orden correcto de despliegue</a></li>
+    <li><a href="#herramientas-de-verificación">Herramientas de verificación</a></li>
+    <li><a href="#checklist-rápido">Checklist rápido</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/spf_dkim_dmarc.jpg" alt="SPF, DKIM y DMARC: guía práctica para administradores">
+</figure>
+
+<p>Hace unos años configurar un servidor de correo era instalar Postfix y listo. Hoy, si no tienes SPF, DKIM y DMARC bien configurados, tus correos acaban en spam — o peor, alguien puede enviar correos suplantando tu dominio sin que puedas hacer nada.</p>
+<p>Los tres son registros DNS. Los tres sirven para autenticar el correo. Pero hacen cosas distintas y se despliegan en un orden concreto. Este artículo explica cómo funcionan, cómo se configuran y cómo se verifica que todo está bien.</p>
+<blockquote>
+<p><em>El contenido de este artículo tiene fines educativos. Las técnicas descritas están pensadas para su uso en sistemas propios o con autorización. El autor no asume responsabilidad por usos que contravengan la legislación aplicable.</em></p>
+</blockquote>
+<hr>
+<h2 id="el-problema-que-resuelven">El problema que resuelven</h2>
+<p>El protocolo SMTP no tiene autenticación de origen. Cualquier servidor puede enviar un correo diciendo que viene de <code>@tu-empresa.com</code>. Esto es spoofing, y es trivial de hacer.</p>
+<p>SPF, DKIM y DMARC son tres capas de defensa que los servidores receptores (Gmail, Outlook, tu servidor de correo) consultan para decidir si un correo es legítimo:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Mecanismo</th>
+          <th>Qué valida</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>SPF</strong></td>
+          <td>Qué servidores tienen permiso para enviar correo de tu dominio</td>
+      </tr>
+      <tr>
+          <td><strong>DKIM</strong></td>
+          <td>Que el contenido del correo no fue modificado en tránsito</td>
+      </tr>
+      <tr>
+          <td><strong>DMARC</strong></td>
+          <td>Qué hacer si SPF o DKIM fallan, y a quién informar</td>
+      </tr>
+  </tbody>
+</table>
+<p>Sin los tres, tu dominio está expuesto. Con solo SPF o DKIM, sigues teniendo huecos. DMARC es lo que los une y les da dientes.</p>
+<hr>
+<h2 id="spf--quién-puede-enviar-en-tu-nombre">SPF — quién puede enviar en tu nombre</h2>
+<h3 id="qué-hace">Qué hace</h3>
+<p>SPF (Sender Policy Framework) es un registro TXT en tu DNS que lista qué servidores IP están autorizados a enviar correo desde tu dominio. Cuando llega un correo de <code>@ejemplo.com</code>, el servidor receptor consulta el DNS de <code>ejemplo.com</code> y comprueba si la IP del servidor que lo envió está en esa lista.</p>
+<h3 id="sintaxis-básica">Sintaxis básica</h3>
+<pre tabindex="0"><code>v=spf1 [mecanismos] [modificador final]
+</code></pre><p>Un SPF típico para una empresa que usa Google Workspace y tiene un servidor propio:</p>
+<pre tabindex="0"><code>v=spf1 include:_spf.google.com ip4:203.0.113.45 ~all
+</code></pre><p>Los mecanismos más usados:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Mecanismo</th>
+          <th>Significado</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>ip4:x.x.x.x</code></td>
+          <td>Esta IP concreta está autorizada</td>
+      </tr>
+      <tr>
+          <td><code>ip4:x.x.x.x/24</code></td>
+          <td>Este rango de IPs está autorizado</td>
+      </tr>
+      <tr>
+          <td><code>include:dominio.com</code></td>
+          <td>Incluir el SPF de otro dominio (ej: tu proveedor de correo)</td>
+      </tr>
+      <tr>
+          <td><code>a</code></td>
+          <td>La IP que resuelve el registro A del dominio está autorizada</td>
+      </tr>
+      <tr>
+          <td><code>mx</code></td>
+          <td>Las IPs de los registros MX del dominio están autorizadas</td>
+      </tr>
+  </tbody>
+</table>
+<p>El modificador final determina qué pasa si la IP no está en la lista:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Modificador</th>
+          <th>Comportamiento</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>-all</code></td>
+          <td>Fail duro — rechazar si no coincide</td>
+      </tr>
+      <tr>
+          <td><code>~all</code></td>
+          <td>Softfail — marcar como sospechoso pero no rechazar</td>
+      </tr>
+      <tr>
+          <td><code>?all</code></td>
+          <td>Neutral — no hacer nada</td>
+      </tr>
+      <tr>
+          <td><code>+all</code></td>
+          <td>⚠️ Permite cualquier IP — no usar nunca</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="errores-comunes">Errores comunes</h3>
+<p><strong>Demasiados lookups DNS.</strong> SPF tiene un límite de 10 consultas DNS por evaluación. Cada <code>include:</code> cuenta como una. Si superas 10, el registro falla con <code>PermError</code>. Si usas varios servicios de email (marketing, CRM, transaccional), puedes llegar al límite fácilmente.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Verificar cuántos lookups tiene tu SPF</span>
+</span></span><span style="display:flex;"><span>dig TXT ejemplo.com | grep spf
+</span></span></code></pre></div><p><strong>Dos registros SPF.</strong> Solo puede haber uno. Si tienes dos registros <code>v=spf1</code>, la validación falla. Si necesitas añadir servidores, edita el existente.</p>
+<p><strong>Usar <code>-all</code> antes de validar en producción.</strong> Si pones <code>-all</code> desde el principio y hay un servidor legítimo que no has incluido, tus correos se rechazan. Empieza con <code>~all</code>, verifica que todo funciona, y entonces pasa a <code>-all</code>.</p>
+<h3 id="crear-el-registro">Crear el registro</h3>
+<p>En tu panel DNS, crea un registro TXT en la raíz del dominio (<code>@</code> o <code>ejemplo.com</code>):</p>
+<pre tabindex="0"><code>Tipo: TXT
+Nombre: @
+Valor: v=spf1 include:_spf.google.com ip4:203.0.113.45 ~all
+TTL: 3600
+</code></pre><h3 id="verificar">Verificar</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Consulta directa</span>
+</span></span><span style="display:flex;"><span>dig TXT ejemplo.com +short
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Con nslookup</span>
+</span></span><span style="display:flex;"><span>nslookup -type<span style="color:#f92672">=</span>TXT ejemplo.com
+</span></span></code></pre></div><hr>
+<h2 id="dkim--la-firma-digital-del-correo">DKIM — la firma digital del correo</h2>
+<h3 id="qué-hace-1">Qué hace</h3>
+<p>DKIM (DomainKeys Identified Mail) añade una firma criptográfica a cada correo que envías. El servidor que recibe el correo consulta tu DNS para obtener la clave pública y verifica que la firma es válida. Si alguien modifica el correo en tránsito (cabeceras, cuerpo), la firma no coincide y el correo falla DKIM.</p>
+<p>A diferencia de SPF, que valida el servidor que envía, DKIM valida la integridad del contenido.</p>
+<h3 id="cómo-funciona">Cómo funciona</h3>
+<ol>
+<li>Tu servidor de correo tiene un par de claves RSA: privada (en el servidor) y pública (en tu DNS)</li>
+<li>Al enviar un correo, el servidor firma parte de las cabeceras y el cuerpo con la clave privada</li>
+<li>La firma viaja en la cabecera <code>DKIM-Signature</code> del correo</li>
+<li>El servidor receptor descarga la clave pública de tu DNS y verifica la firma</li>
+</ol>
+<h3 id="generación-de-claves">Generación de claves</h3>
+<p>Si usas Postfix con <code>opendkim</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Instalar</span>
+</span></span><span style="display:flex;"><span>apt install opendkim opendkim-tools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generar par de claves para el selector &#34;mail&#34; del dominio ejemplo.com</span>
+</span></span><span style="display:flex;"><span>opendkim-genkey -t -s mail -d ejemplo.com
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Genera dos ficheros:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mail.private — clave privada (va en el servidor)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mail.txt     — registro DNS con la clave pública</span>
+</span></span></code></pre></div><p>El fichero <code>mail.txt</code> contiene algo así:</p>
+<pre tabindex="0"><code>mail._domainkey IN TXT ( &#34;v=DKIM1; k=rsa; &#34;
+    &#34;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC...&#34;  )
+</code></pre><h3 id="publicar-en-dns">Publicar en DNS</h3>
+<p>El registro DKIM va en un subdominio específico: <code>selector._domainkey.ejemplo.com</code></p>
+<pre tabindex="0"><code>Tipo: TXT
+Nombre: mail._domainkey
+Valor: v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC...
+TTL: 3600
+</code></pre><p>El <code>selector</code> (<code>mail</code> en este caso) es un nombre que tú eliges. Puedes tener varios selectores activos — útil para rotar claves o tener distintos selectores para distintos servicios de envío.</p>
+<h3 id="configurar-postfix--opendkim">Configurar Postfix + opendkim</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># /etc/opendkim.conf</span>
+</span></span><span style="display:flex;"><span>Domain                  ejemplo.com
+</span></span><span style="display:flex;"><span>KeyFile                 /etc/opendkim/keys/mail.private
+</span></span><span style="display:flex;"><span>Selector                mail
+</span></span><span style="display:flex;"><span>Socket                  inet:12301@localhost
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># /etc/postfix/main.cf — añadir al final</span>
+</span></span><span style="display:flex;"><span>milter_default_action <span style="color:#f92672">=</span> accept
+</span></span><span style="display:flex;"><span>milter_protocol <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>smtpd_milters <span style="color:#f92672">=</span> inet:localhost:12301
+</span></span><span style="display:flex;"><span>non_smtpd_milters <span style="color:#f92672">=</span> $smtpd_milters
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart opendkim postfix
+</span></span></code></pre></div><h3 id="si-usas-un-servicio-externo">Si usas un servicio externo</h3>
+<p>Google Workspace, Microsoft 365, Mailchimp, Brevo — todos generan sus propias claves DKIM y te dan el registro DNS que tienes que publicar. Solo tienes que copiar y pegar. El proceso de generación manual solo aplica si gestionas tu propio servidor de correo.</p>
+<h3 id="verificar-1">Verificar</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Consultar el registro</span>
+</span></span><span style="display:flex;"><span>dig TXT mail._domainkey.ejemplo.com +short
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enviar un correo a check-auth@verifier.port25.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Te responden con un informe completo de SPF/DKIM/DMARC</span>
+</span></span></code></pre></div><h3 id="rotación-de-claves">Rotación de claves</h3>
+<p>DKIM usa RSA. Las buenas prácticas dicen rotar las claves cada 6-12 meses:</p>
+<ol>
+<li>Generar un nuevo par con un selector distinto (<code>mail2</code>, <code>202601</code>, lo que prefieras)</li>
+<li>Publicar la nueva clave pública en DNS</li>
+<li>Esperar a que propague (TTL)</li>
+<li>Cambiar el servidor para firmar con la nueva clave privada</li>
+<li>Esperar unos días (correos en tránsito con firma antigua)</li>
+<li>Borrar el registro DNS del selector antiguo</li>
+</ol>
+<hr>
+<h2 id="dmarc--la-política-que-une-todo">DMARC — la política que une todo</h2>
+<h3 id="qué-hace-2">Qué hace</h3>
+<p>DMARC (Domain-based Message Authentication, Reporting and Conformance) le dice a los servidores receptores qué hacer cuando un correo falla SPF o DKIM. Sin DMARC, aunque SPF o DKIM fallen, la mayoría de servidores reciben el correo de todas formas.</p>
+<p>DMARC también introduce el concepto de <strong>alineación</strong>: no basta con que SPF o DKIM pasen — el dominio que pasa la validación tiene que ser el mismo que aparece en el <code>From:</code> del correo.</p>
+<h3 id="sintaxis-básica-1">Sintaxis básica</h3>
+<pre tabindex="0"><code>v=DMARC1; p=none; rua=mailto:dmarc@ejemplo.com
+</code></pre><p>Los parámetros más importantes:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Parámetro</th>
+          <th>Significado</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>p=none</code></td>
+          <td>Solo monitorizar, no hacer nada con los fallos</td>
+      </tr>
+      <tr>
+          <td><code>p=quarantine</code></td>
+          <td>Enviar a spam los correos que fallan</td>
+      </tr>
+      <tr>
+          <td><code>p=reject</code></td>
+          <td>Rechazar los correos que fallan</td>
+      </tr>
+      <tr>
+          <td><code>rua=mailto:...</code></td>
+          <td>Dirección para recibir informes agregados diarios</td>
+      </tr>
+      <tr>
+          <td><code>ruf=mailto:...</code></td>
+          <td>Dirección para recibir informes forenses (correo a correo)</td>
+      </tr>
+      <tr>
+          <td><code>pct=50</code></td>
+          <td>Aplicar la política solo al 50% del tráfico (útil en transición)</td>
+      </tr>
+      <tr>
+          <td><code>adkim=r</code></td>
+          <td>Alineación DKIM relajada (<code>r</code>) o estricta (<code>s</code>)</td>
+      </tr>
+      <tr>
+          <td><code>aspf=r</code></td>
+          <td>Alineación SPF relajada (<code>r</code>) o estricta (<code>s</code>)</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="crear-el-registro-1">Crear el registro</h3>
+<p>El registro DMARC va en <code>_dmarc.ejemplo.com</code>:</p>
+<pre tabindex="0"><code>Tipo: TXT
+Nombre: _dmarc
+Valor: v=DMARC1; p=none; rua=mailto:dmarc@ejemplo.com
+TTL: 3600
+</code></pre><h3 id="los-informes-rua">Los informes RUA</h3>
+<p>Con <code>rua</code> activo, recibirás un XML comprimido cada día de cada servidor que haya recibido correo de tu dominio. El XML es ilegible a mano, pero herramientas como <a href="https://dmarcian.com">dmarcian</a>, <a href="https://dmarc.postmarkapp.com">Postmark DMARC</a> o <a href="https://mxtoolbox.com/dmarc/analyzer">MXToolbox DMARC Analyzer</a> lo parsean y te muestran un dashboard legible.</p>
+<p>Lo que buscas en los informes:</p>
+<ul>
+<li>Correos que pasan SPF y DKIM → legítimos, correcto</li>
+<li>Correos que fallan ambos desde IPs desconocidas → spoofing o configuración incompleta</li>
+<li>Correos legítimos que fallan → tienes servicios de envío que no están en SPF o sin DKIM configurado</li>
+</ul>
+<h3 id="subir-de-pnone-a-preject">Subir de p=none a p=reject</h3>
+<p><strong>No pases directamente a <code>p=reject</code>.</strong> Es el error más común y puede hacer que correos legítimos se rechacen.</p>
+<p>El proceso correcto:</p>
+<ol>
+<li>Publicar <code>p=none</code> con <code>rua</code> activo</li>
+<li>Revisar informes durante 2-4 semanas</li>
+<li>Identificar todos los servicios que envían correo de tu dominio y asegurarte de que están en SPF con DKIM configurado</li>
+<li>Subir a <code>p=quarantine; pct=10</code> — aplica la política al 10% del tráfico</li>
+<li>Ampliar gradualmente el <code>pct</code> mientras revisas que no hay falsos positivos</li>
+<li>Cuando <code>pct=100</code> funciona bien, pasar a <code>p=reject</code></li>
+</ol>
+<hr>
+<h2 id="orden-correcto-de-despliegue">Orden correcto de despliegue</h2>
+<p>Si partes de cero:</p>
+<pre tabindex="0"><code>1. Configurar SPF con ~all
+2. Configurar DKIM y publicar clave pública
+3. Publicar DMARC con p=none + rua
+4. Revisar informes (mínimo 2 semanas)
+5. Corregir lo que falle (servicios no incluidos en SPF, DKIM sin configurar en algún servicio)
+6. Cambiar SPF a -all
+7. Subir DMARC a p=quarantine (pct bajo, ir subiendo)
+8. Subir DMARC a p=reject
+</code></pre><p>No te saltes el paso de los informes. Siempre hay un servicio que se te ha olvidado: el CRM que envía notificaciones, el formulario de contacto de la web, el sistema de facturación.</p>
+<hr>
+<h2 id="herramientas-de-verificación">Herramientas de verificación</h2>
+<p><strong>Línea de comandos:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># SPF</span>
+</span></span><span style="display:flex;"><span>dig TXT ejemplo.com +short
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DKIM (sustituir &#34;mail&#34; por tu selector)</span>
+</span></span><span style="display:flex;"><span>dig TXT mail._domainkey.ejemplo.com +short
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DMARC</span>
+</span></span><span style="display:flex;"><span>dig TXT _dmarc.ejemplo.com +short
+</span></span></code></pre></div><p><strong>Online:</strong></p>
+<ul>
+<li><strong><a href="https://mxtoolbox.com/SuperTool.aspx">MXToolbox SuperTool</a></strong> — SPF, DKIM, DMARC, DNSBL en un sitio</li>
+<li><strong><a href="https://www.mail-tester.com">mail-tester.com</a></strong> — envías un correo a una dirección temporal y te da puntuación con diagnóstico completo</li>
+<li><strong><a href="https://toolbox.googleapps.com/apps/checkmx/">Google Admin Toolbox — Check MX</a></strong> — valida configuración de correo, útil si tienes Google Workspace</li>
+<li><strong>Port25 Verifier</strong> — envía un correo a <code>check-auth@verifier.port25.com</code> y recibes un informe detallado directamente en tu bandeja</li>
+</ul>
+<hr>
+<h2 id="checklist-rápido">Checklist rápido</h2>
+<p>Antes de dar el dominio por configurado:</p>
+<pre tabindex="0"><code>□ dig TXT dominio.com → muestra registro v=spf1 válido
+□ El SPF tiene menos de 10 lookups DNS
+□ Solo hay un registro SPF (no dos)
+□ dig TXT selector._domainkey.dominio.com → muestra clave pública DKIM
+□ El servidor de correo firma los correos salientes (verificar cabecera DKIM-Signature)
+□ dig TXT _dmarc.dominio.com → muestra registro v=DMARC1 válido
+□ La dirección rua recibe informes
+□ Los informes no muestran servicios legítimos fallando
+□ p=none → quarantine → reject completado gradualmente
+□ Clave DKIM rotada o con fecha de rotación programada
+</code></pre><hr>
+<p>Tres registros, un objetivo: que nadie pueda enviar correo suplantando tu dominio y que tus correos legítimos lleguen donde tienen que llegar. SPF y DKIM solos no son suficientes — DMARC es lo que les da efecto. Y los informes DMARC son la única forma de saber si algo está fallando antes de que te lo digan tus usuarios.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/email/" rel="tag">Email</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/dns/" rel="tag">DNS</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/spf/" rel="tag">SPF</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/dkim/" rel="tag">DKIM</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/dmarc/" rel="tag">DMARC</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+<div class="share-buttons">
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1314%2fpost%2f63_spf_dkim_dmarc%2f&amp;title=SPF%2c%20DKIM%20y%20DMARC%3a%20gu%c3%ada%20pr%c3%a1ctica%20para%20administradores" rel="nofollow noopener noreferrer" class="share-btn linkedin">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="share-btn__text">LinkedIn</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://twitter.com/intent/tweet?text=SPF%2c%20DKIM%20y%20DMARC%3a%20gu%c3%ada%20pr%c3%a1ctica%20para%20administradores&amp;url=http%3a%2f%2flocalhost%3a1314%2fpost%2f63_spf_dkim_dmarc%2f" rel="nofollow noopener noreferrer" class="share-btn twitter">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+        <span class="share-btn__text">Twitter</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.facebook.com/sharer.php?u=http%3a%2f%2flocalhost%3a1314%2fpost%2f63_spf_dkim_dmarc%2f" rel="nofollow noopener noreferrer" class="share-btn facebook">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span class="share-btn__text">Facebook</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1314%2fpost%2f63_spf_dkim_dmarc%2f&amp;title=SPF%2c%20DKIM%20y%20DMARC%3a%20gu%c3%ada%20pr%c3%a1ctica%20para%20administradores" rel="nofollow noopener noreferrer" class="share-btn reddit">
+        <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-reddit"><path d="M12 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z"></path><path d="M15 14c-1.5 0-3-.5-4.5-1.5s-2.5-3-2.5-3v-2c0-1.5.5-3 1.5-3s2.5 0 2.5 1.5c0 1.5-.5 3-1.5 3s-2.5 0-2.5-1.5v-2h-2.5c-.5 0-1 .5-1.5 1s-.5 1.5 0 2.5c0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1.5 3 1.5s2-1 3-1.5c1 0 2.5.5 3.5 1.5s2.5 3 3 3.5c1 .5 1.5 1 1.5 1.5 0 .5-.5 1-1.5 1s-2.5-.5-3.5-1.5c-1-1-2.5-1.5-3.5-1.5s-2.5.5-3.5 1.5c-1 1-1.5 1.5-1.5 1.5s-1 0-1.5-.5c-.5-.5-.5-1.5 0-2.5s2.5-3 3.5-3.5c1-.5 2-1 3-1.5s2.5-2.5 3.5-3.5c1-1 1.5-1.5 1.5-2.5s-1.5-3-3-3z"></path></svg>
+        <span class="share-btn__text">Reddit</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://telegram.me/share/url?text=SPF%2c%20DKIM%20y%20DMARC%3a%20gu%c3%ada%20pr%c3%a1ctica%20para%20administradores&amp;url=http%3a%2f%2flocalhost%3a1314%2fpost%2f63_spf_dkim_dmarc%2f" rel="nofollow noopener noreferrer" class="share-btn telegram">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    <span class="share-btn__text">Telegram</span>
+    </a>
+    <a target="_blank" onclick="window.open(this.href,'','width=600,height=400'); return false;" href="https://api.whatsapp.com/send?text=SPF%2c%20DKIM%20y%20DMARC%3a%20gu%c3%ada%20pr%c3%a1ctica%20para%20administradores%20http%3a%2f%2flocalhost%3a1314%2fpost%2f63_spf_dkim_dmarc%2f" rel="nofollow noopener noreferrer" class="share-btn whatsapp">
+    <svg class="share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 12.031c0 5.518-4.482 10-10 10-1.921 0-3.72-.54-5.275-1.468L3 21l1.492-4.525A9.957 9.957 0 0 1 11 2c5.518 0 10 4.482 10 10.031z"></path><path d="M16.5 13.923c-.227-.114-1.34-.668-1.547-.745-.207-.076-.356-.076-.505.076-.149.153-.578.745-.707.899-.129.152-.258.16-.485.076-.227-.08-.952-.357-1.808-1.112-1.34-1.185-1.92-2.664-2.146-3.05-.226-.395-.024-.613.13-.768.12-.128.26-.26.388-.415.129-.153.173-.258.258-.415.086-.153.043-.284-.025-.436-.068-.153-.61-.39-1.02-.916-.411-.527-.798-.654-1.025-.662-.227-.008-.492-.016-.75-.016-.258 0-.67.098-.913.435-.243.336-.92 1.055-.92 2.57 0 1.516.945 2.977 1.074 3.167.129.19.09.38-.04.532-.129.153-.88.948-.99 1.139-.109.191-.219.344-.11 53.3 0 0 0 0 0 0-4.004 0-7.25-3.246-7.25-7.25 0-2.316 1.096-4.385 2.802-5.71L1.031 2.054 2.88 4.708l2.915 2.143 1.947 1.433 1.155.848a6.974 6.974 0 0 0 3.107 1.17 6.974 6.974 0 0 0 3.107-1.17z"></path></svg>
+    <span class="share-btn__text">WhatsApp</span>
+    </a>
+</div>
+</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
