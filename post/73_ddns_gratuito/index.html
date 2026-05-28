@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Cómo apuntar un nombre de dominio a tu servidor aunque tu IP cambie. Dos opciones gratuitas: DuckDNS para empezar rápido y un subdominio propio con qzz.io gestionado en Cloudflare.">
+	<link rel="canonical" href="http://localhost:1314/post/73_ddns_gratuito/">
+		<meta property="og:url" content="http://localhost:1314/post/73_ddns_gratuito/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste">
+  <meta property="og:description" content="Cómo apuntar un nombre de dominio a tu servidor aunque tu IP cambie. Dos opciones gratuitas: DuckDNS para empezar rápido y un subdominio propio con qzz.io gestionado en Cloudflare.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-06-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-01T00:00:00+00:00">
+    <meta property="article:tag" content="DNS">
+    <meta property="article:tag" content="DDNS">
+    <meta property="article:tag" content="DuckDNS">
+    <meta property="article:tag" content="Cloudflare">
+    <meta property="article:tag" content="Privacidad">
+    <meta property="article:tag" content="Homelab">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste",
+  "description": "Cómo apuntar un nombre de dominio a tu servidor aunque tu IP cambie. Dos opciones gratuitas: DuckDNS para empezar rápido y un subdominio propio con qzz.io gestionado en Cloudflare.",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "url": "http:\/\/localhost:1314\/post\/73_ddns_gratuito\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1314\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-01T00:00:00Z">01-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Índice</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#opción-1--duckdns-el-más-sencillo">Opción 1 — DuckDNS: el más sencillo</a>
+      <ul>
+        <li><a href="#registro-y-creación-del-subdominio">Registro y creación del subdominio</a></li>
+        <li><a href="#cliente-en-linux--actualización-automática">Cliente en Linux — actualización automática</a></li>
+        <li><a href="#verificar-que-funciona">Verificar que funciona</a></li>
+        <li><a href="#cuándo-usar-duckdns">Cuándo usar DuckDNS</a></li>
+      </ul>
+    </li>
+    <li><a href="#opción-2--qzzio-con-cloudflare-un-dominio-propio-sin-coste">Opción 2 — qzz.io con Cloudflare: un dominio propio sin coste</a>
+      <ul>
+        <li><a href="#paso-1--cuenta-gratuita-en-cloudflare">Paso 1 — Cuenta gratuita en Cloudflare</a></li>
+        <li><a href="#paso-2--registrar-el-dominio-en-digitalplat">Paso 2 — Registrar el dominio en DigitalPlat</a></li>
+        <li><a href="#paso-3--configurar-los-registros-dns-en-cloudflare">Paso 3 — Configurar los registros DNS en Cloudflare</a></li>
+        <li><a href="#paso-4--ddns-automático-desde-el-servidor">Paso 4 — DDNS automático desde el servidor</a></li>
+      </ul>
+    </li>
+    <li><a href="#comparativa-rápida">Comparativa rápida</a></li>
+    <li><a href="#mi-configuración">Mi configuración</a></li>
+    <li><a href="#recursos">Recursos</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/ddns_gratuito.jpg" alt="DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste">
+</figure>
+
+<p>Si sigues los artículos anteriores (<a href="/post/72_oracle_cloud_free_vps/">VPS en Oracle Cloud</a>, <a href="/post/71_alerta_negra/">relay WireGuard</a>) ya tienes un servidor en la nube con una IP pública. El problema es que esa IP puede cambiar — Oracle asigna IPs &ldquo;ephemeral&rdquo; que raramente rotan, pero no hay garantía. Y si tienes un servidor en casa, tu ISP cambia la IP cada vez que se reinicia el router.</p>
+<p>La solución es un servicio de DNS dinámico (DDNS): un nombre de dominio que siempre apunta a tu IP actual, actualizado automáticamente cuando cambia.</p>
+<p>Este artículo cubre dos opciones completamente gratuitas, con distinto nivel de sofisticación.</p>
+<hr>
+<blockquote>
+<p><strong>Nota:</strong> Este artículo describe configuraciones para proyectos personales, homelab y aprendizaje. Los servicios gratuitos mencionados tienen sus propios Términos de Servicio — respétalos. No uses estos dominios para actividades ilegales, spam ni suplantación de identidad.</p>
+</blockquote>
+<hr>
+<h2 id="opción-1--duckdns-el-más-sencillo">Opción 1 — DuckDNS: el más sencillo</h2>
+<p><a href="https://www.duckdns.org">DuckDNS</a> es el punto de entrada ideal. Sin instalaciones, sin configuración de nameservers, sin cuenta de pago. En cinco minutos tienes un subdominio <code>tudominio.duckdns.org</code> apuntando a tu servidor.</p>
+<h3 id="registro-y-creación-del-subdominio">Registro y creación del subdominio</h3>
+<ol>
+<li>Ve a <a href="https://www.duckdns.org">duckdns.org</a> e inicia sesión con GitHub, Google, Twitter o Reddit — no crea cuenta nueva, usa tu cuenta existente.</li>
+<li>En el campo &ldquo;sub domain&rdquo;, escribe el nombre que quieras. Por ejemplo: <code>miservidor</code> → obtienes <code>miservidor.duckdns.org</code>.</li>
+<li>Haz clic en &ldquo;add domain&rdquo;. Aparece en tu lista con la IP actual.</li>
+<li>Anota el <strong>token</strong> que aparece en la parte superior de la página — lo necesitarás para el script.</li>
+</ol>
+<h3 id="cliente-en-linux--actualización-automática">Cliente en Linux — actualización automática</h3>
+<p>DuckDNS no instala nada en el sistema. El cliente es un script de una línea que se ejecuta periódicamente con cron.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crea el directorio y el script</span>
+</span></span><span style="display:flex;"><span>mkdir -p ~/duckdns
+</span></span><span style="display:flex;"><span>cat &gt; ~/duckdns/duck.sh <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">echo url=&#34;https://www.duckdns.org/update?domains=TUDOMINIO&amp;token=TU_TOKEN&amp;ip=&#34; | curl -k -o ~/duckdns/duck.log -K -
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>chmod +x ~/duckdns/duck.sh
+</span></span></code></pre></div><p>Sustituye <code>TUDOMINIO</code> por tu subdominio (sin <code>.duckdns.org</code>) y <code>TU_TOKEN</code> por el token de tu cuenta.</p>
+<p>Prueba que funciona:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~/duckdns/duck.sh
+</span></span><span style="display:flex;"><span>cat ~/duckdns/duck.log
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># debe mostrar: OK</span>
+</span></span></code></pre></div><p>Automatiza con cron para que se ejecute cada 5 minutos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>crontab -e
+</span></span></code></pre></div><p>Añade esta línea:</p>
+<pre tabindex="0"><code>*/5 * * * * ~/duckdns/duck.sh &gt;/dev/null 2&gt;&amp;1
+</code></pre><p>A partir de ese momento, cada vez que tu IP cambie, DuckDNS lo detectará en los siguientes 5 minutos y actualizará el registro.</p>
+<h3 id="verificar-que-funciona">Verificar que funciona</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dig +short tudominio.duckdns.org
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># debe devolver tu IP pública actual</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl ifconfig.me
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># compara con el resultado anterior — deben coincidir</span>
+</span></span></code></pre></div><h3 id="cuándo-usar-duckdns">Cuándo usar DuckDNS</h3>
+<p>DuckDNS es perfecto para:</p>
+<ul>
+<li>Acceso remoto a un servidor doméstico o de laboratorio</li>
+<li>Relay VPN propio (como el que describimos en el <a href="/post/71_alerta_negra/">artículo anterior</a>)</li>
+<li>Cualquier servicio que necesite un nombre fijo pero no requiera un dominio &ldquo;presentable&rdquo;</li>
+</ul>
+<p>La limitación es el aspecto: <code>tudominio.duckdns.org</code> es funcional pero identifica inmediatamente el servicio como algo casero. Si quieres algo más neutro o con tu nombre propio, la opción 2 es mejor.</p>
+<hr>
+<h2 id="opción-2--qzzio-con-cloudflare-un-dominio-propio-sin-coste">Opción 2 — qzz.io con Cloudflare: un dominio propio sin coste</h2>
+<p><a href="https://domain.digitalplat.org">DigitalPlat FreeDomain</a> es un proyecto sin ánimo de lucro respaldado por The Hack Foundation (organización 501(c)(3) de EEUU). Ofrece subdominios gratuitos en varios dominios propios — el más usado es <code>.qzz.io</code>, aunque también hay <code>.us.kg</code>, <code>.dpdns.org</code> y <code>.xx.kg</code>.</p>
+<p>La diferencia con DuckDNS: aquí tú gestionas el DNS con tu propio proveedor (Cloudflare, en este caso). Tienes control total sobre los registros — A, CNAME, MX, TXT, lo que necesites.</p>
+<h3 id="paso-1--cuenta-gratuita-en-cloudflare">Paso 1 — Cuenta gratuita en Cloudflare</h3>
+<p>Antes de registrar el dominio necesitas tener Cloudflare configurado para poder darle los nameservers.</p>
+<ol>
+<li>Crea una cuenta en <a href="https://www.cloudflare.com">cloudflare.com</a> — el plan gratuito es suficiente para todo lo que vamos a hacer.</li>
+<li>Una vez dentro, ve a <strong>Add a Site</strong> (o &ldquo;Añadir un sitio&rdquo;).</li>
+<li>Escribe el dominio que vas a registrar en DigitalPlat — por ejemplo <code>tunombre.qzz.io</code>.</li>
+<li>Selecciona el <strong>plan Free</strong>.</li>
+<li>Cloudflare te mostrará dos <strong>nameservers</strong> con nombres del tipo:
+<pre tabindex="0"><code>xxx.ns.cloudflare.com
+yyy.ns.cloudflare.com
+</code></pre>Anótalos — los necesitarás en el paso siguiente.</li>
+</ol>
+<p>No te preocupes si Cloudflare dice que no puede verificar el dominio todavía — es normal, porque aún no hemos asignado los nameservers en DigitalPlat.</p>
+<h3 id="paso-2--registrar-el-dominio-en-digitalplat">Paso 2 — Registrar el dominio en DigitalPlat</h3>
+<ol>
+<li>Ve a <a href="https://domain.digitalplat.org">domain.digitalplat.org</a> e inicia sesión con tu cuenta de <strong>GitHub</strong> — es el único método de autenticación (sirve como verificación de identidad).</li>
+<li>Haz clic en <strong>Register Domain</strong>.</li>
+<li>Elige el sufijo que quieres (<code>.qzz.io</code>, <code>.us.kg</code>, etc.) y escribe el subdominio: por ejemplo <code>tunombre</code> → obtienes <code>tunombre.qzz.io</code>.</li>
+<li>En la configuración del dominio, selecciona <strong>Custom Nameservers</strong> y pon los dos nameservers que te dio Cloudflare en el paso anterior.</li>
+<li>Confirma el registro.</li>
+</ol>
+<p>La propagación de nameservers puede tardar entre unos minutos y 24 horas, aunque normalmente es cuestión de minutos.</p>
+<h3 id="paso-3--configurar-los-registros-dns-en-cloudflare">Paso 3 — Configurar los registros DNS en Cloudflare</h3>
+<p>Una vez que Cloudflare verifica que controla el dominio (te llega un email de confirmación), puedes añadir registros DNS desde el panel:</p>
+<p><strong>DNS → Records → Add record</strong></p>
+<p>Para apuntar el dominio a tu servidor:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tipo</th>
+          <th>Nombre</th>
+          <th>Contenido</th>
+          <th>Proxy</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>A</td>
+          <td><code>tunombre.qzz.io</code></td>
+          <td>IP de tu servidor</td>
+          <td>☁️ sí (opcional) o DNS only</td>
+      </tr>
+  </tbody>
+</table>
+<p>Si activas el proxy de Cloudflare (la nube naranja), el tráfico HTTP/HTTPS pasa por los servidores de Cloudflare — añade protección contra DDoS y oculta tu IP real. Para SSH o WireGuard, desactívalo (DNS only, nube gris) — Cloudflare no proxifica UDP ni SSH.</p>
+<h3 id="paso-4--ddns-automático-desde-el-servidor">Paso 4 — DDNS automático desde el servidor</h3>
+<p>A diferencia de DuckDNS, qzz.io no tiene un cliente propio. Para actualizar automáticamente la IP cuando cambia, usas la API de Cloudflare.</p>
+<p>Primero necesitas dos datos del panel de Cloudflare:</p>
+<ul>
+<li><strong>Zone ID</strong>: en la página principal del dominio, columna derecha</li>
+<li><strong>API Token</strong>: My Profile → API Tokens → Create Token → usar la plantilla &ldquo;Edit zone DNS&rdquo;</li>
+</ul>
+<p>Script de actualización DDNS via API de Cloudflare:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># ddns-cloudflare.sh — actualiza el registro A de un dominio en Cloudflare</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ZONE_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_ZONE_ID&#34;</span>
+</span></span><span style="display:flex;"><span>RECORD_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_RECORD_ID&#34;</span>   <span style="color:#75715e"># ver más abajo cómo obtenerlo</span>
+</span></span><span style="display:flex;"><span>API_TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_API_TOKEN&#34;</span>
+</span></span><span style="display:flex;"><span>DOMAIN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tunombre.qzz.io&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IP_ACTUAL<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s https://ifconfig.me<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl -s -X PATCH <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/</span><span style="color:#e6db74">${</span>ZONE_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">/dns_records/</span><span style="color:#e6db74">${</span>RECORD_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span><span style="color:#e6db74">${</span>API_TOKEN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#34;{\&#34;type\&#34;:\&#34;A\&#34;,\&#34;name\&#34;:\&#34;</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;content\&#34;:\&#34;</span><span style="color:#e6db74">${</span>IP_ACTUAL<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;ttl\&#34;:60}&#34;</span>
+</span></span></code></pre></div><p>Para obtener el <code>RECORD_ID</code> de tu registro A:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -s -X GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/TU_ZONE_ID/dns_records?type=A&amp;name=tunombre.qzz.io&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer TU_API_TOKEN&#34;</span> | python3 -m json.tool | grep <span style="color:#e6db74">&#39;&#34;id&#34;&#39;</span>
+</span></span></code></pre></div><p>Automatiza con cron cada 5 minutos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x ~/ddns-cloudflare.sh
+</span></span><span style="display:flex;"><span>crontab -e
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># añade:</span>
+</span></span><span style="display:flex;"><span>*/5 * * * * ~/ddns-cloudflare.sh &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><hr>
+<h2 id="comparativa-rápida">Comparativa rápida</h2>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>DuckDNS</th>
+          <th>qzz.io + Cloudflare</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Tiempo de setup</strong></td>
+          <td>5 minutos</td>
+          <td>15-30 minutos</td>
+      </tr>
+      <tr>
+          <td><strong>Aspecto del dominio</strong></td>
+          <td><code>nombre.duckdns.org</code></td>
+          <td><code>nombre.qzz.io</code></td>
+      </tr>
+      <tr>
+          <td><strong>Control DNS</strong></td>
+          <td>Solo el registro A</td>
+          <td>Total (A, CNAME, MX, TXT&hellip;)</td>
+      </tr>
+      <tr>
+          <td><strong>Proxy/CDN</strong></td>
+          <td>No</td>
+          <td>Sí (Cloudflare)</td>
+      </tr>
+      <tr>
+          <td><strong>DDNS automático</strong></td>
+          <td>Script oficial simple</td>
+          <td>Script con API Cloudflare</td>
+      </tr>
+      <tr>
+          <td><strong>Coste</strong></td>
+          <td>Gratuito</td>
+          <td>Gratuito</td>
+      </tr>
+      <tr>
+          <td><strong>Cuenta necesaria</strong></td>
+          <td>GitHub/Google/Twitter</td>
+          <td>GitHub + Cloudflare</td>
+      </tr>
+      <tr>
+          <td><strong>Ideal para</strong></td>
+          <td>Acceso rápido, laboratorio</td>
+          <td>Dominio más profesional, múltiples servicios</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="mi-configuración">Mi configuración</h2>
+<p>En mi caso uso ambas. DuckDNS en el servidor de Oracle Cloud para el cliente DDNS nativo — es el más sencillo de mantener cuando el servidor es un relay y no quiero añadir dependencias. Para el dominio de investigación uso qzz.io gestionado en Cloudflare, que me permite tener varios subdominios bajo el mismo dominio y gestionar todo desde un panel centralizado.</p>
+<hr>
+<h2 id="recursos">Recursos</h2>
+<ul>
+<li><a href="https://www.duckdns.org">DuckDNS — web oficial</a></li>
+<li><a href="https://domain.digitalplat.org">DigitalPlat FreeDomain — registro qzz.io</a></li>
+<li><a href="https://github.com/DigitalPlatDev/FreeDomain">GitHub del proyecto FreeDomain</a></li>
+<li><a href="https://www.cloudflare.com">Cloudflare — plan gratuito</a></li>
+<li><a href="https://developers.cloudflare.com/api/">API de Cloudflare — documentación</a></li>
+<li><a href="https://www.redeszone.net/tutoriales/redes-cable/duck-dns-servicio-dns-dinamico-gratuito/">Duck DNS, el mejor servicio DNS dinámico gratuito</a> — RedesZone</li>
+</ul>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/dns/" rel="tag">DNS</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ddns/" rel="tag">DDNS</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/duckdns/" rel="tag">DuckDNS</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/cloudflare/" rel="tag">Cloudflare</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/privacidad/" rel="tag">Privacidad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/homelab/" rel="tag">Homelab</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/oracle-cloud/" rel="tag">Oracle Cloud</a>
+		</li>
+	</ul>
+</div>
+		</footer></article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

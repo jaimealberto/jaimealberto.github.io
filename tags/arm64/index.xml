@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ARM64 on JaimeAlberto.io</title>
+    <link>http://localhost:1314/tags/arm64/</link>
+    <description>Recent content in ARM64 on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/arm64/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)</title>
+      <link>http://localhost:1314/post/72_oracle_cloud_free_vps/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/post/72_oracle_cloud_free_vps/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1314/img/oracle_cloud_free_vps.jpg&#34; alt=&#34;Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Oracle Cloud tiene un nivel gratuito que no caduca. No son los 30 días de prueba de AWS ni los créditos iniciales de GCP — es una VM ARM64 de hasta 4 núcleos y 24 GB de RAM disponible de forma permanente mientras la mantengas en uso. Este artículo explica cómo conseguirla con Debian como sistema operativo.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

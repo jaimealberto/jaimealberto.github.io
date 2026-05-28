@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hardware on JaimeAlberto.io</title>
-    <link>http://localhost:1313/categories/hardware/</link>
+    <link>http://localhost:1314/categories/hardware/</link>
     <description>Recent content in Hardware on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Fri, 22 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1314/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Compaq: de un boceto en un mantel a vender más PCs que IBM</title>
-      <link>http://localhost:1313/post/66_compaq/</link>
+      <link>http://localhost:1314/post/66_compaq/</link>
       <pubDate>Fri, 22 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/66_compaq/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/compaq.jpg&#34; alt=&#34;Compaq: de un boceto en un mantel a vender más PCs que IBM&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Si llegaste aquí desde el artículo sobre &lt;em&gt;Halt and Catch Fire&lt;/em&gt;, ya tienes el contexto. Si no, te recomiendo empezar por allí — la ficción ayuda a entender lo que vino después.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;En enero de 1982, tres ingenieros de Texas Instruments se sentaron a cenar en el &lt;strong&gt;House of Pies&lt;/strong&gt;, un restaurante de Houston conocido por sus tartas. Llevaban semanas dándole vueltas a montar un negocio juntos. Barajaron muchas ideas, entre ellas abrir un restaurante de comida mexicana.&lt;/p&gt;&#xA;&lt;p&gt;Al final de la noche, uno de ellos cogió el mantel de papel y dibujó un ordenador.&lt;/p&gt;&#xA;&lt;p&gt;Eso fue Compaq.&lt;/p&gt;</description>
+      <guid>http://localhost:1314/post/66_compaq/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1314/img/compaq.jpg&#34; alt=&#34;Compaq: de un boceto en un mantel a vender más PCs que IBM&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Si llegaste aquí desde el artículo sobre &lt;em&gt;Halt and Catch Fire&lt;/em&gt;, ya tienes el contexto. Si no, te recomiendo empezar por allí — la ficción ayuda a entender lo que vino después.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;En enero de 1982, tres ingenieros de Texas Instruments se sentaron a cenar en el &lt;strong&gt;House of Pies&lt;/strong&gt;, un restaurante de Houston conocido por sus tartas. Llevaban semanas dándole vueltas a montar un negocio juntos. Barajaron muchas ideas, entre ellas abrir un restaurante de comida mexicana.&lt;/p&gt;&#xA;&lt;p&gt;Al final de la noche, uno de ellos cogió el mantel de papel y dibujó un ordenador.&lt;/p&gt;&#xA;&lt;p&gt;Eso fue Compaq.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
