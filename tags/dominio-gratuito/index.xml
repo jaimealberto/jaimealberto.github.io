@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dominio Gratuito on JaimeAlberto.io</title>
+    <link>http://localhost:1314/tags/dominio-gratuito/</link>
+    <description>Recent content in Dominio Gratuito on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/dominio-gratuito/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica</title>
+      <link>http://localhost:1314/post/73_ddns_gratuito/</link>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/post/73_ddns_gratuito/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1314/img/ddns_gratuito.jpg&#34; alt=&#34;DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;Índice&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#opci%C3%B3n-1--duckdns-el-m%C3%A1s-sencillo&#34;&gt;Opción 1 — DuckDNS: el más sencillo&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#opci%C3%B3n-2--qzzio-con-cloudflare-un-dominio-propio-sin-coste&#34;&gt;Opción 2 — qzz.io con Cloudflare: un dominio propio sin coste&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#opci%C3%B3n-3--ddclient-el-cliente-est%C3%A1ndar-de-linux&#34;&gt;Opción 3 — ddclient: el cliente estándar de Linux&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#opci%C3%B3n-4--mi-configuraci%C3%B3n-en-producci%C3%B3n-script-propio-con-logging&#34;&gt;Opción 4 — Mi configuración en producción&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#comparativa-r%C3%A1pida&#34;&gt;Comparativa rápida&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#recursos&#34;&gt;Recursos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;En el universo Star Wars, la HoloRed permite contactar con cualquier nave o planeta independientemente de su posición en la galaxia. El equivalente en tu homelab e Internet se llama DDNS: un nombre de dominio que siempre apunta a tu servidor, aunque tu IP cambie cada vez que el router se reinicia.&lt;/p&gt;&#xA;&lt;p&gt;En próximos artículos (VPS en Oracle Cloud y relay WireGuard) será importante no perder de vista nuestros nuevos servicios para la rebelión. Pero en tu cuartel general la IP es dinámica — tu ISP la cambia sin avisar, y de repente tu dominio apunta a un agujero negro que no lleva a ningún sitio. La solución es un cliente DDNS que detecta el cambio y actualiza el registro DNS automáticamente.&lt;/p&gt;&#xA;&lt;p&gt;Este artículo cubre tres opciones completamente gratuitas, de menor a mayor sofisticación. Desde el script de cron más simple que puedas imaginar hasta control total del DNS con tu propio dominio. Elige el nivel de armamento que necesita tu base.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

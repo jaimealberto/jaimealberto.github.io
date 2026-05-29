@@ -1,269 +1,28 @@
-<!DOCTYPE html>
-<html class="no-js" lang="es">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Configuración sudo: más allá del modo básico - JaimeAlberto.io</title>
-	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Cómo configurar sudo correctamente en Debian, Ubuntu, RedHat y Rocky. Grupos, sudoers.d, acceso a comandos específicos por usuario, NOPASSWD para automatización y errores que no deberías cometer.">
-	<link rel="canonical" href="http://localhost:1314/post/74_sudo_experto/">
-		<meta property="og:url" content="http://localhost:1314/post/74_sudo_experto/">
-  <meta property="og:site_name" content="JaimeAlberto.io">
-  <meta property="og:title" content="Configuración sudo: más allá del modo básico">
-  <meta property="og:description" content="Cómo configurar sudo correctamente en Debian, Ubuntu, RedHat y Rocky. Grupos, sudoers.d, acceso a comandos específicos por usuario, NOPASSWD para automatización y errores que no deberías cometer.">
-  <meta property="og:locale" content="es">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-06-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-06-01T00:00:00+00:00">
-    <meta property="article:tag" content="Sudo">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Seguridad">
-    <meta property="article:tag" content="Debian">
-    <meta property="article:tag" content="Ubuntu">
-    <meta property="article:tag" content="RedHat">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "Configuración sudo: más allá del modo básico",
-  "description": "Cómo configurar sudo correctamente en Debian, Ubuntu, RedHat y Rocky. Grupos, sudoers.d, acceso a comandos específicos por usuario, NOPASSWD para automatización y errores que no deberías cometer.",
-  "datePublished": "2026-06-01",
-  "dateModified": "2026-06-01",
-  "url": "http:\/\/localhost:1314\/post\/74_sudo_experto\/",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "https://www.linkedin.com/in/jaimealbertoio/",
-    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "http:\/\/localhost:1314\/"
-  }
-}
-</script>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
-
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/custom.css">
-
-	<link rel="shortcut icon" href="/favicon.ico">
-</head>
-<body class="body">
-	<div class="container container--outer">
-		<header class="header">
-	<div class="container header__container">
-		
-	<div class="logo">
-		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
-			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
-				</div>
-		</a>
-	</div>
-		
-<nav class="menu">
-	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-		<span class="menu__btn-title" tabindex="-1">Menú</span>
-	</button>
-	<ul class="menu__list">
-		<li class="menu__item">
-			<a class="menu__link" href="/yo/">
-				
-				<span class="menu__text">Sobre mí</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/post/">
-				
-				<span class="menu__text">Artículos</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/hardware/">
-				
-				<span class="menu__text">Hardware</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recetas/">
-				
-				<span class="menu__text">Recetas</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/raspberrypi/">
-				
-				<span class="menu__text">Raspberry Pi</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recursos/">
-				
-				<span class="menu__text">Recursos</span>
-				
-			</a>
-		</li>
-	</ul>
-</nav>
-
-	</div>
-</header>
-		<div class="wrapper flex">
-			<div class="primary">
-			
-<main class="main" role="main">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">Configuración sudo: más allá del modo básico</h1>
-			<div class="post__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-01T00:00:00Z">01-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
-	</span>
-</div></div>
-		</header>
-<div class="post__toc toc">
-	<div class="toc__title">Índice</div>
-	<div class="toc__menu">
-		<nav id="TableOfContents">
-  <ul>
-    <li><a href="#la-diferencia-entre-distribuciones">La diferencia entre distribuciones</a>
-      <ul>
-        <li><a href="#debian-y-ubuntu--grupo-sudo">Debian y Ubuntu — grupo <code>sudo</code></a></li>
-        <li><a href="#redhat-rocky-y-centos--grupo-wheel">RedHat, Rocky y CentOS — grupo <code>wheel</code></a></li>
-        <li><a href="#resumen-rápido">Resumen rápido</a></li>
-      </ul>
-    </li>
-    <li><a href="#editar-sudoers-correctamente--visudo">Editar sudoers correctamente — visudo</a></li>
-    <li><a href="#la-sintaxis-de-sudoers--entenderla-de-verdad">La sintaxis de sudoers — entenderla de verdad</a></li>
-    <li><a href="#sudoersd--el-modo-correcto-de-gestionar-reglas">sudoers.d — el modo correcto de gestionar reglas</a></li>
-    <li><a href="#casos-de-uso-reales">Casos de uso reales</a>
-      <ul>
-        <li><a href="#un-usuario-con-acceso-total-el-básico-para-completar">Un usuario con acceso total (el básico, para completar)</a></li>
-        <li><a href="#un-usuario-que-solo-puede-reiniciar-un-servicio-concreto">Un usuario que solo puede reiniciar un servicio concreto</a></li>
-        <li><a href="#un-usuario-que-puede-gestionar-un-servicio-completo">Un usuario que puede gestionar un servicio completo</a></li>
-        <li><a href="#un-script-de-automatización--solo-el-comando-exacto">Un script de automatización — solo el comando exacto</a></li>
-        <li><a href="#un-grupo-con-acceso-a-comandos-de-red">Un grupo con acceso a comandos de red</a></li>
-        <li><a href="#ejecutar-como-otro-usuario-no-como-root">Ejecutar como otro usuario (no como root)</a></li>
-        <li><a href="#alias-para-simplificar-reglas-complejas">Alias para simplificar reglas complejas</a></li>
-      </ul>
-    </li>
-    <li><a href="#verificar-que-las-reglas-funcionan">Verificar que las reglas funcionan</a></li>
-    <li><a href="#errores-habituales">Errores habituales</a></li>
-    <li><a href="#auditar-quién-usa-sudo">Auditar quién usa sudo</a></li>
-    <li><a href="#referencia-rápida">Referencia rápida</a></li>
-  </ul>
-</nav>
-	</div>
-</div><div class="content post__content clearfix">
-			<figure>
-  <img src="/img/sudo_experto.jpg" alt="Configuración sudo: más allá del modo básico">
-</figure>
-
-<p>La mayoría de guías de sudo se quedan en <code>usuario ALL=(ALL) ALL</code> y listo. Útil para empezar, pero en la práctica real necesitas más matices: que un usuario pueda reiniciar un servicio concreto sin contraseña, que un script de automatización ejecute un comando como root sin intervención humana, o simplemente entender por qué en Debian el grupo se llama <code>sudo</code> y en RedHat <code>wheel</code>.</p>
-<p>Este artículo va un paso más allá del básico.</p>
-<hr>
-<h2 id="la-diferencia-entre-distribuciones">La diferencia entre distribuciones</h2>
-<p>Lo primero que hay que entender es que el comportamiento por defecto de sudo varía según la distribución, y no porque el binario sea diferente — sino por cómo está configurado el fichero <code>/etc/sudoers</code> de fábrica.</p>
-<h3 id="debian-y-ubuntu--grupo-sudo">Debian y Ubuntu — grupo <code>sudo</code></h3>
-<p>En Debian y Ubuntu, el grupo privilegiado se llama <strong><code>sudo</code></strong>. Cualquier usuario en ese grupo puede ejecutar cualquier comando como root, pidiendo su propia contraseña:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Ver si un usuario está en el grupo sudo</span>
-</span></span><span style="display:flex;"><span>groups usuario
-</span></span><span style="display:flex;"><span>id usuario
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Añadir un usuario al grupo sudo (como root)</span>
-</span></span><span style="display:flex;"><span>usermod -aG sudo usuario
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># El usuario necesita cerrar sesión y volver a abrir para que el grupo sea efectivo</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># O cargar los grupos sin salir:</span>
-</span></span><span style="display:flex;"><span>newgrp sudo
-</span></span></code></pre></div><p>La configuración base en <code>/etc/sudoers</code> que lo permite:</p>
-<pre tabindex="0"><code>%sudo   ALL=(ALL:ALL) ALL
-</code></pre><h3 id="redhat-rocky-y-centos--grupo-wheel">RedHat, Rocky y CentOS — grupo <code>wheel</code></h3>
-<p>En la familia RedHat el grupo privilegiado se llama <strong><code>wheel</code></strong>. Mismo concepto, distinto nombre:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Añadir usuario al grupo wheel</span>
-</span></span><span style="display:flex;"><span>usermod -aG wheel usuario
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verificar</span>
-</span></span><span style="display:flex;"><span>id usuario
-</span></span></code></pre></div><p>La línea en <code>/etc/sudoers</code> que lo habilita:</p>
-<pre tabindex="0"><code>%wheel  ALL=(ALL) ALL
-</code></pre><p>En algunas versiones de RedHat/Rocky viene comentada una variante con <code>NOPASSWD</code> — no la actives a nivel global si no sabes lo que haces.</p>
-<h3 id="resumen-rápido">Resumen rápido</h3>
-<table>
-  <thead>
-      <tr>
-          <th>Distribución</th>
-          <th>Grupo sudo</th>
-          <th>Activado por defecto</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Debian 11/12</td>
-          <td><code>sudo</code></td>
-          <td>Sí</td>
-      </tr>
-      <tr>
-          <td>Ubuntu</td>
-          <td><code>sudo</code></td>
-          <td>Sí</td>
-      </tr>
-      <tr>
-          <td>RedHat 8/9</td>
-          <td><code>wheel</code></td>
-          <td>Sí</td>
-      </tr>
-      <tr>
-          <td>Rocky Linux</td>
-          <td><code>wheel</code></td>
-          <td>Sí</td>
-      </tr>
-      <tr>
-          <td>CentOS Stream</td>
-          <td><code>wheel</code></td>
-          <td>Sí</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="editar-sudoers-correctamente--visudo">Editar sudoers correctamente — visudo</h2>
-<p>Nunca edites <code>/etc/sudoers</code> directamente con un editor normal. Si introduces un error de sintaxis, puedes quedarte sin acceso root en el sistema.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Siempre así:</span>
-</span></span><span style="display:flex;"><span>sudo visudo
-</span></span></code></pre></div><p><code>visudo</code> valida la sintaxis antes de guardar. Si hay un error, te avisa y no cierra el fichero hasta que esté correcto.</p>
-<p>Para editar con un editor específico:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo EDITOR<span style="color:#f92672">=</span>nano visudo
-</span></span><span style="display:flex;"><span>sudo EDITOR<span style="color:#f92672">=</span>vim visudo
-</span></span></code></pre></div><hr>
-<h2 id="la-sintaxis-de-sudoers--entenderla-de-verdad">La sintaxis de sudoers — entenderla de verdad</h2>
-<p>La línea más habitual que ves en todos los tutoriales:</p>
-<pre tabindex="0"><code>usuario ALL=(ALL:ALL) ALL
-</code></pre><p>Significa:</p>
-<ul>
-<li><code>usuario</code> — el usuario al que se aplica la regla</li>
-<li><code>ALL</code> (primer campo) — desde cualquier host</li>
-<li><code>(ALL:ALL)</code> — puede ejecutar comandos como cualquier usuario y cualquier grupo</li>
-<li><code>ALL</code> (último campo) — cualquier comando</li>
-</ul>
-<p>Desglosado con todos los campos:</p>
-<pre tabindex="0"><code>QUIEN  DÓNDE=(COMO_QUIÉN:COMO_QUÉ_GRUPO)  QUÉ_COMANDO
-</code></pre><p>En la práctica, para un servidor que administras tú:</p>
-<pre tabindex="0"><code># Acceso completo — pide contraseña
+<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>sudo en Linux: sudoers, visudo, NOPASSWD y Defaults paso a paso - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Guía completa de sudo en Linux: sudoers.d, visudo, NOPASSWD, Defaults y auditoría. Diferencias entre Debian/Ubuntu y RedHat/Rocky con ejemplos reales."><link rel=canonical href=https://jaimealberto.io/post/74_sudo_experto/><meta property="og:url" content="https://jaimealberto.io/post/74_sudo_experto/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="sudo en Linux: sudoers, visudo, NOPASSWD y Defaults paso a paso"><meta property="og:description" content="Guía completa de sudo en Linux: sudoers.d, visudo, NOPASSWD, Defaults y auditoría. Diferencias entre Debian/Ubuntu y RedHat/Rocky con ejemplos reales."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-05-29T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-29T00:00:00+00:00"><meta property="article:tag" content="Sudo"><meta property="article:tag" content="Sudoers"><meta property="article:tag" content="Sudoers.d"><meta property="article:tag" content="Visudo"><meta property="article:tag" content="NOPASSWD"><meta property="article:tag" content="Linux"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"sudo en Linux: sudoers, visudo, NOPASSWD y Defaults paso a paso","description":"Guía completa de sudo en Linux: sudoers.d, visudo, NOPASSWD, Defaults y auditoría. Diferencias entre Debian\/Ubuntu y RedHat\/Rocky con ejemplos reales.","datePublished":"2026-05-29","dateModified":"2026-05-29","url":"https:\/\/jaimealberto.io\/post\/74_sudo_experto\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>sudo en Linux: sudoers, visudo, NOPASSWD y Defaults paso a paso</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-05-29T00:00:00Z>29-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a>, <a class=meta__link href=/categories/linux/ rel=category>Linux</a></span></div></div></header><div class="post__toc toc"><div class=toc__title>Índice</div><div class=toc__menu><nav id=TableOfContents><ul><li><a href=#la-diferencia-entre-distribuciones>La diferencia entre distribuciones</a><ul><li><a href=#debian-y-ubuntu--grupo-sudo>Debian y Ubuntu — grupo <code>sudo</code></a></li><li><a href=#redhat-rocky-y-centos--grupo-wheel>RedHat, Rocky y CentOS — grupo <code>wheel</code></a></li><li><a href=#resumen-rápido>Resumen rápido</a></li></ul></li><li><a href=#sudo--i-sudo--s-y-sudo-su----no-son-lo-mismo><code>sudo -i</code>, <code>sudo -s</code> y <code>sudo su -</code> — no son lo mismo</a></li><li><a href=#editar-sudoers-correctamente--visudo>Editar sudoers correctamente — visudo</a></li><li><a href=#la-sintaxis-de-sudoers--entenderla-de-verdad>La sintaxis de sudoers — entenderla de verdad</a></li><li><a href=#defaults--el-comportamiento-fino-de-sudo>Defaults — el comportamiento fino de sudo</a><ul><li><a href=#tiempo-de-caché-de-contraseña>Tiempo de caché de contraseña</a></li><li><a href=#registro-propio-de-sudo-fuera-de-syslog>Registro propio de sudo (fuera de syslog)</a></li><li><a href=#secure_path--el-path-de-sudo>secure_path — el PATH de sudo</a></li><li><a href=#preservar-variables-de-entorno>Preservar variables de entorno</a></li><li><a href=#avisos-y-notificaciones>Avisos y notificaciones</a></li></ul></li><li><a href=#sudoersd--el-modo-correcto-de-gestionar-reglas>sudoers.d — el modo correcto de gestionar reglas</a></li><li><a href=#casos-de-uso-reales>Casos de uso reales</a><ul><li><a href=#un-usuario-con-acceso-total-el-básico-para-completar>Un usuario con acceso total (el básico, para completar)</a></li><li><a href=#un-usuario-que-solo-puede-reiniciar-un-servicio-concreto>Un usuario que solo puede reiniciar un servicio concreto</a></li><li><a href=#un-usuario-que-puede-gestionar-un-servicio-completo>Un usuario que puede gestionar un servicio completo</a></li><li><a href=#un-script-de-automatización--solo-el-comando-exacto>Un script de automatización — solo el comando exacto</a></li><li><a href=#un-grupo-con-acceso-a-comandos-de-red>Un grupo con acceso a comandos de red</a></li><li><a href=#ejecutar-como-otro-usuario-no-como-root>Ejecutar como otro usuario (no como root)</a></li><li><a href=#alias-para-simplificar-reglas-complejas>Alias para simplificar reglas complejas</a></li></ul></li><li><a href=#verificar-que-las-reglas-funcionan>Verificar que las reglas funcionan</a></li><li><a href=#errores-habituales>Errores habituales</a></li><li><a href=#auditar-quién-usa-sudo>Auditar quién usa sudo</a><ul><li><a href=#con-journald-sistemas-modernos-con-systemd>Con journald (sistemas modernos con systemd)</a></li><li><a href=#con-los-ficheros-de-log-clásicos>Con los ficheros de log clásicos</a></li><li><a href=#formato-de-un-evento-de-sudo-en-el-log>Formato de un evento de sudo en el log</a></li></ul></li><li><a href=#referencia-rápida>Referencia rápida</a></li></ul></nav></div></div><div class="content post__content clearfix"><figure><img src=/img/sudo_experto.jpg alt="sudo en Linux: sudoers, visudo, NOPASSWD y Defaults paso a paso"></figure><p>En el Imperio , Darth Vader tenía acceso a todo. Ninguna puerta cerrada, ningún sistema restringido, ninguna contraseña que conociera, &mldr;.. <code>usuario ALL=(ALL:ALL) ALL</code> y listo — el equivalente en sudoers para darle la llave de la Estrella de la Muerte a alguien sin más explicación.</p><p>El problema es que no todos los usuarios de tu sistema son Darth Vader. Algunos son técnicos de mantenimiento que solo necesitan reiniciar un servicio. Otros son scripts de automatización que ejecutan un rsync a las 3 de la mañana. Y algunos, simplemente, no deberían tener acceso a un <code>sudo bash</code> de distancia.</p><p>La mayoría de guías de sudo se quedan en esa primera línea y punto. Útil para empezar, pero en la práctica real necesitas más matices: permisos granulares por comando, comportamiento fino con <code>Defaults</code>, diferencias entre distribuciones y saber auditar quién ha estado haciendo qué en tu infraestructura.</p><p>Este artículo va un paso más allá del básico. Vamos a pasar de aprendiz a caballero Jedi.</p><hr><h2 id=la-diferencia-entre-distribuciones>La diferencia entre distribuciones</h2><p>Lo primero que hay que entender es que el comportamiento por defecto de sudo varía según la distribución, y no porque el binario sea diferente — sino por cómo está configurado el fichero <code>/etc/sudoers</code> de fábrica.</p><h3 id=debian-y-ubuntu--grupo-sudo>Debian y Ubuntu — grupo <code>sudo</code></h3><p>En Debian y Ubuntu, el grupo privilegiado se llama <strong><code>sudo</code></strong>. Cualquier usuario en ese grupo puede ejecutar cualquier comando como root, pidiendo su propia contraseña:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ver si un usuario está en el grupo sudo</span>
+</span></span><span style=display:flex><span>groups usuario
+</span></span><span style=display:flex><span>id usuario
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Añadir un usuario al grupo sudo (como root)</span>
+</span></span><span style=display:flex><span>usermod -aG sudo usuario
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># El usuario necesita cerrar sesión y volver a abrir para que el grupo sea efectivo</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># O cargar los grupos sin salir:</span>
+</span></span><span style=display:flex><span>newgrp sudo
+</span></span></code></pre></div><p>La configuración base en <code>/etc/sudoers</code> que lo permite:</p><pre tabindex=0><code>%sudo   ALL=(ALL:ALL) ALL
+</code></pre><h3 id=redhat-rocky-y-centos--grupo-wheel>RedHat, Rocky y CentOS — grupo <code>wheel</code></h3><p>En la familia RedHat el grupo privilegiado se llama <strong><code>wheel</code></strong>. Mismo concepto, distinto nombre:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Añadir usuario al grupo wheel</span>
+</span></span><span style=display:flex><span>usermod -aG wheel usuario
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Verificar</span>
+</span></span><span style=display:flex><span>id usuario
+</span></span></code></pre></div><p>La línea en <code>/etc/sudoers</code> que lo habilita:</p><pre tabindex=0><code>%wheel  ALL=(ALL) ALL
+</code></pre><p>En algunas versiones de RedHat/Rocky viene comentada una variante con <code>NOPASSWD</code> — no la actives a nivel global si no sabes lo que haces.</p><h3 id=resumen-rápido>Resumen rápido</h3><table><thead><tr><th>Distribución</th><th>Grupo sudo</th><th>Activado por defecto</th></tr></thead><tbody><tr><td>Debian 11/12</td><td><code>sudo</code></td><td>Sí</td></tr><tr><td>Ubuntu</td><td><code>sudo</code></td><td>Sí</td></tr><tr><td>RedHat 8/9</td><td><code>wheel</code></td><td>Sí</td></tr><tr><td>Rocky Linux</td><td><code>wheel</code></td><td>Sí</td></tr><tr><td>CentOS Stream</td><td><code>wheel</code></td><td>Sí</td></tr></tbody></table><hr><h2 id=sudo--i-sudo--s-y-sudo-su----no-son-lo-mismo><code>sudo -i</code>, <code>sudo -s</code> y <code>sudo su -</code> — no son lo mismo</h2><p>Es una de las confusiones más frecuentes, incluso entre administradores con experiencia:</p><table><thead><tr><th>Comando</th><th>Qué hace</th><th>Entorno</th></tr></thead><tbody><tr><td><code>sudo -i</code></td><td>Shell de login como root</td><td>Entorno limpio de root (lee <code>.profile</code>, <code>.bashrc</code> de root)</td></tr><tr><td><code>sudo -s</code></td><td>Shell de root sin login</td><td>Hereda el entorno del usuario actual</td></tr><tr><td><code>sudo su -</code></td><td>Su como root con login</td><td>Entorno limpio de root (equivalente práctico a <code>sudo -i</code>)</td></tr><tr><td><code>sudo bash</code></td><td>Ejecuta bash como root</td><td>Hereda el entorno del usuario actual</td></tr></tbody></table><p>La diferencia importa cuando tienes variables de entorno, <code>PATH</code> personalizado o configuraciones en <code>.bashrc</code> de root. Para la mayoría de tareas de administración, <code>sudo -i</code> es la opción más predecible.</p><hr><h2 id=editar-sudoers-correctamente--visudo>Editar sudoers correctamente — visudo</h2><p>Nunca edites <code>/etc/sudoers</code> directamente con un editor normal. Si introduces un error de sintaxis, puedes quedarte sin acceso root en el sistema.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Siempre así:</span>
+</span></span><span style=display:flex><span>sudo visudo
+</span></span></code></pre></div><p><code>visudo</code> valida la sintaxis antes de guardar. Si hay un error, te avisa y no cierra el fichero hasta que esté correcto.</p><p>Para editar con un editor específico:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo EDITOR<span style=color:#f92672>=</span>nano visudo
+</span></span><span style=display:flex><span>sudo EDITOR<span style=color:#f92672>=</span>vim visudo
+</span></span></code></pre></div><hr><h2 id=la-sintaxis-de-sudoers--entenderla-de-verdad>La sintaxis de sudoers — entenderla de verdad</h2><p>La línea más habitual que ves en todos los tutoriales:</p><pre tabindex=0><code>usuario ALL=(ALL:ALL) ALL
+</code></pre><p>Significa:</p><ul><li><code>usuario</code> — el usuario al que se aplica la regla</li><li><code>ALL</code> (primer campo) — desde cualquier host</li><li><code>(ALL:ALL)</code> — puede ejecutar comandos como cualquier usuario y cualquier grupo</li><li><code>ALL</code> (último campo) — cualquier comando</li></ul><p>Desglosado con todos los campos:</p><pre tabindex=0><code>QUIEN  DÓNDE=(COMO_QUIÉN:COMO_QUÉ_GRUPO)  QUÉ_COMANDO
+</code></pre><p>En la práctica, para un servidor que administras tú:</p><pre tabindex=0><code># Acceso completo — pide contraseña
 jaime ALL=(ALL:ALL) ALL
 
 # Acceso completo — sin contraseña (ojo con esto)
@@ -271,65 +30,67 @@ jaime ALL=(ALL:ALL) NOPASSWD: ALL
 
 # Solo como root, no como otros usuarios
 jaime ALL=(root) ALL
-</code></pre><hr>
-<h2 id="sudoersd--el-modo-correcto-de-gestionar-reglas">sudoers.d — el modo correcto de gestionar reglas</h2>
-<p>En lugar de añadir todo en <code>/etc/sudoers</code>, usa el directorio <code>/etc/sudoers.d/</code>. Cada fichero es una regla o conjunto de reglas para un usuario, grupo o servicio. Ventajas:</p>
-<ul>
-<li>Más fácil de mantener y auditar</li>
-<li>Puedes borrar una regla eliminando un fichero, sin tocar el fichero principal</li>
-<li>Los paquetes y herramientas de automatización (Ansible, por ejemplo) pueden añadir sus propias reglas sin conflictos</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crear un fichero de regla para un usuario</span>
-</span></span><span style="display:flex;"><span>sudo visudo -f /etc/sudoers.d/jaime
-</span></span></code></pre></div><p>El nombre del fichero no puede contener <code>.</code> ni <code>~</code> — si lo hace, sudo lo ignora. Usa guiones o guiones bajos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Correcto</span>
-</span></span><span style="display:flex;"><span>/etc/sudoers.d/jaime
-</span></span><span style="display:flex;"><span>/etc/sudoers.d/deploy-scripts
-</span></span><span style="display:flex;"><span>/etc/sudoers.d/99-automatizacion
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ignorado por sudo (no uses estos nombres)</span>
-</span></span><span style="display:flex;"><span>/etc/sudoers.d/jaime.conf     ← el punto lo invalida
-</span></span><span style="display:flex;"><span>/etc/sudoers.d/jaime~         ← la tilde lo invalida
-</span></span></code></pre></div><p>Permisos correctos (sudo se queja si no son exactamente estos):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chmod <span style="color:#ae81ff">440</span> /etc/sudoers.d/jaime
-</span></span><span style="display:flex;"><span>sudo chown root:root /etc/sudoers.d/jaime
-</span></span></code></pre></div><hr>
-<h2 id="casos-de-uso-reales">Casos de uso reales</h2>
-<h3 id="un-usuario-con-acceso-total-el-básico-para-completar">Un usuario con acceso total (el básico, para completar)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo visudo -f /etc/sudoers.d/jaime
-</span></span></code></pre></div><pre tabindex="0"><code>jaime ALL=(ALL:ALL) ALL
-</code></pre><h3 id="un-usuario-que-solo-puede-reiniciar-un-servicio-concreto">Un usuario que solo puede reiniciar un servicio concreto</h3>
-<p>Escenario: el usuario <code>deploy</code> necesita reiniciar nginx después de un despliegue, pero no necesita acceso a nada más.</p>
-<pre tabindex="0"><code>deploy ALL=(root) NOPASSWD: /usr/bin/systemctl restart nginx
+</code></pre><hr><h2 id=defaults--el-comportamiento-fino-de-sudo>Defaults — el comportamiento fino de sudo</h2><p>La directiva <code>Defaults</code> controla cómo se comporta sudo más allá de qué puede ejecutar quién. Es lo que más se ignora en guías básicas y lo que más diferencia una configuración cuidada de una instalada por defecto.</p><h3 id=tiempo-de-caché-de-contraseña>Tiempo de caché de contraseña</h3><p>Por defecto sudo recuerda la contraseña durante 15 minutos. Puedes cambiarlo:</p><pre tabindex=0><code># En /etc/sudoers o en un fichero de sudoers.d
+
+# Sin caché — pide contraseña en cada ejecución
+Defaults timestamp_timeout=0
+
+# Caché de 5 minutos
+Defaults timestamp_timeout=5
+
+# Caché por terminal (no comparte entre terminales distintas)
+Defaults timestamp_type=tty
+
+# Solo para un usuario concreto
+Defaults:jaime timestamp_timeout=30
+</code></pre><h3 id=registro-propio-de-sudo-fuera-de-syslog>Registro propio de sudo (fuera de syslog)</h3><p>sudo puede escribir su propio log independientemente de syslog:</p><pre tabindex=0><code>Defaults logfile=/var/log/sudo.log
+Defaults log_input, log_output
+</code></pre><p>Con <code>log_input</code> y <code>log_output</code> sudo registra también lo que escribe el usuario y lo que devuelve el comando — útil para auditorías. Los logs de I/O van a <code>/var/log/sudo-io/</code> por defecto.</p><h3 id=secure_path--el-path-de-sudo>secure_path — el PATH de sudo</h3><p>Cuando ejecutas algo con sudo, el PATH que usa no es el tuyo — es el que define <code>secure_path</code> en sudoers:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo visudo -c <span style=color:#f92672>&amp;&amp;</span> sudo -V | grep <span style=color:#e6db74>&#34;Secure path&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Secure path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span>
+</span></span></code></pre></div><p>Si instalas herramientas en rutas no estándar (como <code>/home/usuario/.local/bin</code>), sudo no las encuentra aunque tú sí puedas ejecutarlas. La solución: usar rutas absolutas en las reglas de sudoers, o añadir la ruta a <code>secure_path</code>:</p><pre tabindex=0><code>Defaults secure_path=&#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/gonzo/.local/bin&#34;
+</code></pre><h3 id=preservar-variables-de-entorno>Preservar variables de entorno</h3><p>Por defecto sudo limpia casi todas las variables de entorno. Si necesitas que alguna llegue al comando:</p><pre tabindex=0><code># Preservar variables concretas
+Defaults env_keep += &#34;HTTP_PROXY HTTPS_PROXY NO_PROXY&#34;
+Defaults env_keep += &#34;EDITOR VISUAL&#34;
+
+# Permitir que el usuario pase variables con sudo -E
+Defaults env_reset
+</code></pre><p>Con <code>sudo -E comando</code> el usuario puede pasar su entorno completo (si la regla lo permite).</p><h3 id=avisos-y-notificaciones>Avisos y notificaciones</h3><pre tabindex=0><code># Enviar email al root si alguien introduce la contraseña mal
+Defaults mail_badpass
+
+# Mensaje de advertencia legal la primera vez que un usuario usa sudo
+Defaults lecture=always
+Defaults lecture_file=/etc/sudo_lecture.txt
+</code></pre><hr><h2 id=sudoersd--el-modo-correcto-de-gestionar-reglas>sudoers.d — el modo correcto de gestionar reglas</h2><p>En lugar de añadir todo en <code>/etc/sudoers</code>, usa el directorio <code>/etc/sudoers.d/</code>. Cada fichero es una regla o conjunto de reglas para un usuario, grupo o servicio. Ventajas:</p><ul><li>Más fácil de mantener y auditar</li><li>Puedes borrar una regla eliminando un fichero, sin tocar el fichero principal</li><li>Los paquetes y herramientas de automatización (Ansible, por ejemplo) pueden añadir sus propias reglas sin conflictos</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Crear un fichero de regla para un usuario</span>
+</span></span><span style=display:flex><span>sudo visudo -f /etc/sudoers.d/jaime
+</span></span></code></pre></div><p>El nombre del fichero no puede contener <code>.</code> ni <code>~</code> — si lo hace, sudo lo ignora. Usa guiones o guiones bajos.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Correcto</span>
+</span></span><span style=display:flex><span>/etc/sudoers.d/jaime
+</span></span><span style=display:flex><span>/etc/sudoers.d/deploy-scripts
+</span></span><span style=display:flex><span>/etc/sudoers.d/99-automatizacion
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Ignorado por sudo (no uses estos nombres)</span>
+</span></span><span style=display:flex><span>/etc/sudoers.d/jaime.conf     ← el punto lo invalida
+</span></span><span style=display:flex><span>/etc/sudoers.d/jaime~         ← la tilde lo invalida
+</span></span></code></pre></div><p>Permisos correctos (sudo se queja si no son exactamente estos):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo chmod <span style=color:#ae81ff>440</span> /etc/sudoers.d/jaime
+</span></span><span style=display:flex><span>sudo chown root:root /etc/sudoers.d/jaime
+</span></span></code></pre></div><hr><h2 id=casos-de-uso-reales>Casos de uso reales</h2><h3 id=un-usuario-con-acceso-total-el-básico-para-completar>Un usuario con acceso total (el básico, para completar)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo visudo -f /etc/sudoers.d/jaime
+</span></span></code></pre></div><pre tabindex=0><code>jaime ALL=(ALL:ALL) ALL
+</code></pre><h3 id=un-usuario-que-solo-puede-reiniciar-un-servicio-concreto>Un usuario que solo puede reiniciar un servicio concreto</h3><p>Escenario: el usuario <code>deploy</code> necesita reiniciar nginx después de un despliegue, pero no necesita acceso a nada más.</p><pre tabindex=0><code>deploy ALL=(root) NOPASSWD: /usr/bin/systemctl restart nginx
 deploy ALL=(root) NOPASSWD: /usr/bin/systemctl reload nginx
-</code></pre><p>El path del binario tiene que ser el absoluto y exacto. Si no sabes cuál es:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>which systemctl
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># /usr/bin/systemctl</span>
-</span></span></code></pre></div><h3 id="un-usuario-que-puede-gestionar-un-servicio-completo">Un usuario que puede gestionar un servicio completo</h3>
-<pre tabindex="0"><code>monitor ALL=(root) NOPASSWD: /usr/bin/systemctl start prometheus, \
+</code></pre><p>El path del binario tiene que ser el absoluto y exacto. Si no sabes cuál es:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>which systemctl
+</span></span><span style=display:flex><span><span style=color:#75715e># /usr/bin/systemctl</span>
+</span></span></code></pre></div><h3 id=un-usuario-que-puede-gestionar-un-servicio-completo>Un usuario que puede gestionar un servicio completo</h3><pre tabindex=0><code>monitor ALL=(root) NOPASSWD: /usr/bin/systemctl start prometheus, \
                               /usr/bin/systemctl stop prometheus, \
                               /usr/bin/systemctl restart prometheus, \
                               /usr/bin/systemctl status prometheus
-</code></pre><h3 id="un-script-de-automatización--solo-el-comando-exacto">Un script de automatización — solo el comando exacto</h3>
-<p>Escenario: un script de backup necesita ejecutar <code>rsync</code> como root para acceder a ficheros del sistema.</p>
-<pre tabindex="0"><code>backup ALL=(root) NOPASSWD: /usr/bin/rsync
-</code></pre><p>Con argumentos fijos (más seguro — solo permite exactamente esa llamada):</p>
-<pre tabindex="0"><code>backup ALL=(root) NOPASSWD: /usr/bin/rsync -az /datos/ /backup/
-</code></pre><h3 id="un-grupo-con-acceso-a-comandos-de-red">Un grupo con acceso a comandos de red</h3>
-<p>Escenario: el equipo de redes puede ejecutar herramientas de diagnóstico pero no puede modificar el sistema.</p>
-<pre tabindex="0"><code>%redes ALL=(root) NOPASSWD: /usr/sbin/ip, \
+</code></pre><h3 id=un-script-de-automatización--solo-el-comando-exacto>Un script de automatización — solo el comando exacto</h3><p>Escenario: un script de backup necesita ejecutar <code>rsync</code> como root para acceder a ficheros del sistema.</p><pre tabindex=0><code>backup ALL=(root) NOPASSWD: /usr/bin/rsync
+</code></pre><p>Con argumentos fijos (más seguro — solo permite exactamente esa llamada):</p><pre tabindex=0><code>backup ALL=(root) NOPASSWD: /usr/bin/rsync -az /datos/ /backup/
+</code></pre><h3 id=un-grupo-con-acceso-a-comandos-de-red>Un grupo con acceso a comandos de red</h3><p>Escenario: el equipo de redes puede ejecutar herramientas de diagnóstico pero no puede modificar el sistema.</p><pre tabindex=0><code>%redes ALL=(root) NOPASSWD: /usr/sbin/ip, \
                              /usr/sbin/ss, \
                              /usr/bin/tcpdump, \
                              /usr/sbin/iptables -L
-</code></pre><p>Nota el <code>%</code> antes del nombre — indica que es un grupo, no un usuario.</p>
-<h3 id="ejecutar-como-otro-usuario-no-como-root">Ejecutar como otro usuario (no como root)</h3>
-<p>Escenario: el usuario <code>jaime</code> necesita ejecutar comandos como el usuario <code>app</code> (que corre el servicio web), no como root.</p>
-<pre tabindex="0"><code>jaime ALL=(app) NOPASSWD: ALL
-</code></pre><p>Se ejecuta con:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u app comando
-</span></span></code></pre></div><h3 id="alias-para-simplificar-reglas-complejas">Alias para simplificar reglas complejas</h3>
-<p>Si tienes muchos comandos repetidos, puedes definir alias:</p>
-<pre tabindex="0"><code># En /etc/sudoers o en un fichero de sudoers.d
+</code></pre><p>Nota el <code>%</code> antes del nombre — indica que es un grupo, no un usuario.</p><h3 id=ejecutar-como-otro-usuario-no-como-root>Ejecutar como otro usuario (no como root)</h3><p>Escenario: el usuario <code>jaime</code> necesita ejecutar comandos como el usuario <code>app</code> (que corre el servicio web), no como root.</p><pre tabindex=0><code>jaime ALL=(app) NOPASSWD: ALL
+</code></pre><p>Se ejecuta con:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo -u app comando
+</span></span></code></pre></div><h3 id=alias-para-simplificar-reglas-complejas>Alias para simplificar reglas complejas</h3><p>Si tienes muchos comandos repetidos, puedes definir alias:</p><pre tabindex=0><code># En /etc/sudoers o en un fichero de sudoers.d
 
 Cmnd_Alias SERVICIOS_WEB = /usr/bin/systemctl restart nginx, \
                             /usr/bin/systemctl reload nginx, \
@@ -342,22 +103,16 @@ Cmnd_Alias DIAGNOSTICO = /usr/sbin/ss, \
 
 deploy  ALL=(root) NOPASSWD: SERVICIOS_WEB
 monitor ALL=(root) NOPASSWD: DIAGNOSTICO
-</code></pre><hr>
-<h2 id="verificar-que-las-reglas-funcionan">Verificar que las reglas funcionan</h2>
-<p>Antes de asumir que una regla está bien, compruébala:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Ver qué puede hacer un usuario con sudo</span>
-</span></span><span style="display:flex;"><span>sudo -l
-</span></span><span style="display:flex;"><span>sudo -l -U usuario   <span style="color:#75715e"># como root, ver los permisos de otro usuario</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Simular una ejecución sin ejecutarla realmente</span>
-</span></span><span style="display:flex;"><span>sudo -l | grep comando
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Comprobar si sudo acepta la configuración actual</span>
-</span></span><span style="display:flex;"><span>sudo visudo -c
-</span></span></code></pre></div><hr>
-<h2 id="errores-habituales">Errores habituales</h2>
-<p><strong>El comando tiene argumentos y la regla no los contempla:</strong></p>
-<pre tabindex="0"><code># Regla que solo permite systemctl sin argumentos
+</code></pre><hr><h2 id=verificar-que-las-reglas-funcionan>Verificar que las reglas funcionan</h2><p>Antes de asumir que una regla está bien, compruébala:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ver qué puede hacer un usuario con sudo</span>
+</span></span><span style=display:flex><span>sudo -l
+</span></span><span style=display:flex><span>sudo -l -U usuario   <span style=color:#75715e># como root, ver los permisos de otro usuario</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Simular una ejecución sin ejecutarla realmente</span>
+</span></span><span style=display:flex><span>sudo -l | grep comando
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Comprobar si sudo acepta la configuración actual</span>
+</span></span><span style=display:flex><span>sudo visudo -c
+</span></span></code></pre></div><hr><h2 id=errores-habituales>Errores habituales</h2><p><strong>El comando tiene argumentos y la regla no los contempla:</strong></p><pre tabindex=0><code># Regla que solo permite systemctl sin argumentos
 deploy ALL=(root) NOPASSWD: /usr/bin/systemctl
 
 # Esto falla:
@@ -365,132 +120,35 @@ sudo systemctl restart nginx   ← los argumentos no están en la regla
 
 # Regla correcta para cualquier argumento de systemctl:
 deploy ALL=(root) NOPASSWD: /usr/bin/systemctl *
-</code></pre><p><strong>Usar rutas relativas en lugar de absolutas:</strong></p>
-<pre tabindex="0"><code># Incorrecto — sudo lo rechaza
+</code></pre><p><strong>Usar rutas relativas en lugar de absolutas:</strong></p><pre tabindex=0><code># Incorrecto — sudo lo rechaza
 deploy ALL=(root) NOPASSWD: systemctl restart nginx
 
 # Correcto
 deploy ALL=(root) NOPASSWD: /usr/bin/systemctl restart nginx
-</code></pre><p><strong>El fichero en sudoers.d tiene extensión <code>.conf</code> o similar:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># sudo ignora ficheros con punto en el nombre</span>
-</span></span><span style="display:flex;"><span>ls /etc/sudoers.d/
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># jaime.conf   ← ignorado</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># jaime        ← correcto</span>
-</span></span></code></pre></div><p><strong>El usuario no ha cargado el nuevo grupo:</strong></p>
-<p>Si añades un usuario a <code>sudo</code> o <code>wheel</code> y el usuario ya tiene sesión abierta, el grupo nuevo no está activo hasta que cierre sesión y vuelva a entrar. Alternativa sin cerrar sesión:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>newgrp sudo    <span style="color:#75715e"># Debian/Ubuntu</span>
-</span></span><span style="display:flex;"><span>newgrp wheel   <span style="color:#75715e"># RedHat/Rocky</span>
-</span></span></code></pre></div><hr>
-<h2 id="auditar-quién-usa-sudo">Auditar quién usa sudo</h2>
-<p>En Debian/Ubuntu los intentos de sudo quedan en <code>/var/log/auth.log</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep sudo /var/log/auth.log | tail -20
-</span></span></code></pre></div><p>En RedHat/Rocky en <code>/var/log/secure</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep sudo /var/log/secure | tail -20
-</span></span></code></pre></div><p>Para ver solo los comandos ejecutados con éxito:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep <span style="color:#e6db74">&#34;sudo:.*COMMAND&#34;</span> /var/log/auth.log
-</span></span></code></pre></div><hr>
-<h2 id="referencia-rápida">Referencia rápida</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Añadir usuario al grupo sudo (Debian/Ubuntu)</span>
-</span></span><span style="display:flex;"><span>usermod -aG sudo usuario
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Añadir usuario al grupo wheel (RedHat/Rocky)</span>
-</span></span><span style="display:flex;"><span>usermod -aG wheel usuario
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Editar sudoers de forma segura</span>
-</span></span><span style="display:flex;"><span>sudo visudo
-</span></span><span style="display:flex;"><span>sudo visudo -f /etc/sudoers.d/nombre
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verificar permisos de un usuario</span>
-</span></span><span style="display:flex;"><span>sudo -l -U usuario
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Validar sintaxis de sudoers</span>
-</span></span><span style="display:flex;"><span>sudo visudo -c
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ver log de uso de sudo (Debian/Ubuntu)</span>
-</span></span><span style="display:flex;"><span>grep sudo /var/log/auth.log | tail -20
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ver log de uso de sudo (RedHat/Rocky)</span>
-</span></span><span style="display:flex;"><span>grep sudo /var/log/secure | tail -20
-</span></span></code></pre></div>
-		</div>
-		<footer class="post__footer">
-			
-<div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/sudo/" rel="tag">sudo</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/debian/" rel="tag">Debian</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/ubuntu/" rel="tag">Ubuntu</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/redhat/" rel="tag">RedHat</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/rocky/" rel="tag">Rocky</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/sysadmin/" rel="tag">Sysadmin</a>
-		</li>
-	</ul>
-</div>
-		</footer></article>
-</main>
-
-<div class="authorbox clearfix">
-	<figure class="authorbox__avatar">
-		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
-	</figure>
-	<div class="authorbox__header">
-		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
-	</div>
-	<div class="authorbox__description">
-		The BOFH of this Site
-	</div>
-</div>
-<div class="cta">
-	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
-	<div class="cta__links">
-		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
-			LinkedIn
-		</a>
-		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
-			GitHub
-		</a>
-	</div>
-</div>
-
-
-
-
-			</div>
-			
-		</div>
-		<footer class="footer">
-	<div class="container footer__container flex">
-		
-<div class="footer__links">
-	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
-</div>
-		<div class="footer__copyright">
-			&copy; 2026 JaimeAlberto.
-			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
-		</div>
-	</div>
-</footer>
-	</div>
-<script async defer src="/js/menu.js"></script>
-<script src="/js/custom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
-</body>
-</html>
+</code></pre><p><strong>El fichero en sudoers.d tiene extensión <code>.conf</code> o similar:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># sudo ignora ficheros con punto en el nombre</span>
+</span></span><span style=display:flex><span>ls /etc/sudoers.d/
+</span></span><span style=display:flex><span><span style=color:#75715e># jaime.conf   ← ignorado</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># jaime        ← correcto</span>
+</span></span></code></pre></div><p><strong>El usuario no ha cargado el nuevo grupo:</strong></p><p>Si añades un usuario a <code>sudo</code> o <code>wheel</code> y el usuario ya tiene sesión abierta, el grupo nuevo no está activo hasta que cierre sesión y vuelva a entrar. Alternativa sin cerrar sesión:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>newgrp sudo    <span style=color:#75715e># Debian/Ubuntu</span>
+</span></span><span style=display:flex><span>newgrp wheel   <span style=color:#75715e># RedHat/Rocky</span>
+</span></span></code></pre></div><hr><h2 id=auditar-quién-usa-sudo>Auditar quién usa sudo</h2><h3 id=con-journald-sistemas-modernos-con-systemd>Con journald (sistemas modernos con systemd)</h3><p>En cualquier sistema con systemd puedes consultar los logs de sudo directamente con <code>journalctl</code>, sin buscar en ficheros:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Todos los eventos de sudo</span>
+</span></span><span style=display:flex><span>journalctl -t sudo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Solo los comandos ejecutados (sin los intentos fallidos)</span>
+</span></span><span style=display:flex><span>journalctl -t sudo | grep COMMAND
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># En tiempo real</span>
+</span></span><span style=display:flex><span>journalctl -t sudo -f
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Los últimos 50 eventos</span>
+</span></span><span style=display:flex><span>journalctl -t sudo -n <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Filtrar por usuario</span>
+</span></span><span style=display:flex><span>journalctl -t sudo | grep <span style=color:#e6db74>&#34;jaime : &#34;</span>
+</span></span></code></pre></div><h3 id=con-los-ficheros-de-log-clásicos>Con los ficheros de log clásicos</h3><p>En Debian/Ubuntu los intentos de sudo quedan en <code>/var/log/auth.log</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>grep sudo /var/log/auth.log | tail -20
+</span></span></code></pre></div><p>En RedHat/Rocky en <code>/var/log/secure</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>grep sudo /var/log/secure | tail -20
+</span></span></code></pre></div><p>Para ver solo los comandos ejecutados con éxito:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>grep <span style=color:#e6db74>&#34;sudo:.*COMMAND&#34;</span> /var/log/auth.log
+</span></span></code></pre></div><h3 id=formato-de-un-evento-de-sudo-en-el-log>Formato de un evento de sudo en el log</h3><p>Saber leer una línea de log evita confusiones:</p><pre tabindex=0><code>May 28 17:43:12 lola sudo: jaime : TTY=pts/1 ; PWD=/home/jaime ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+</code></pre><ul><li><code>jaime</code> — quién ejecutó sudo</li><li><code>TTY=pts/1</code> — desde qué terminal</li><li><code>PWD=</code> — directorio de trabajo en el momento</li><li><code>USER=root</code> — como quién se ejecutó</li><li><code>COMMAND=</code> — el comando exacto</li></ul><hr><h2 id=referencia-rápida>Referencia rápida</h2><figure><img src=/img/sudo_referencia_gal%c3%a1ctica.jpg alt="Referencia rápida de sudo — IMPERIAL SYSTEMS"></figure></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/sudo/ rel=tag>sudo</a></li><li class=tags__item><a class="tags__link btn" href=/tags/sudoers/ rel=tag>sudoers</a></li><li class=tags__item><a class="tags__link btn" href=/tags/sudoers.d/ rel=tag>sudoers.d</a></li><li class=tags__item><a class="tags__link btn" href=/tags/visudo/ rel=tag>visudo</a></li><li class=tags__item><a class="tags__link btn" href=/tags/nopasswd/ rel=tag>NOPASSWD</a></li><li class=tags__item><a class="tags__link btn" href=/tags/linux/ rel=tag>Linux</a></li><li class=tags__item><a class="tags__link btn" href=/tags/seguridad/ rel=tag>Seguridad</a></li><li class=tags__item><a class="tags__link btn" href=/tags/permisos-linux/ rel=tag>permisos Linux</a></li><li class=tags__item><a class="tags__link btn" href=/tags/debian/ rel=tag>Debian</a></li><li class=tags__item><a class="tags__link btn" href=/tags/ubuntu/ rel=tag>Ubuntu</a></li><li class=tags__item><a class="tags__link btn" href=/tags/redhat/ rel=tag>RedHat</a></li><li class=tags__item><a class="tags__link btn" href=/tags/rocky/ rel=tag>Rocky</a></li><li class=tags__item><a class="tags__link btn" href=/tags/sysadmin/ rel=tag>Sysadmin</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
+</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
+<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>

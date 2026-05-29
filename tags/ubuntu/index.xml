@@ -1,19 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Ubuntu on JaimeAlberto.io</title>
-    <link>http://localhost:1314/tags/ubuntu/</link>
-    <description>Recent content in Ubuntu on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1314/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Configuración sudo: más allá del modo básico</title>
-      <link>http://localhost:1314/post/74_sudo_experto/</link>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/post/74_sudo_experto/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1314/img/sudo_experto.jpg&#34; alt=&#34;Configuración sudo: más allá del modo básico&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;La mayoría de guías de sudo se quedan en &lt;code&gt;usuario ALL=(ALL) ALL&lt;/code&gt; y listo. Útil para empezar, pero en la práctica real necesitas más matices: que un usuario pueda reiniciar un servicio concreto sin contraseña, que un script de automatización ejecute un comando como root sin intervención humana, o simplemente entender por qué en Debian el grupo se llama &lt;code&gt;sudo&lt;/code&gt; y en RedHat &lt;code&gt;wheel&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Este artículo va un paso más allá del básico.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ubuntu on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/ubuntu/</link><description>Recent content in Ubuntu on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Fri, 29 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml"/><item><title>sudo en Linux: sudoers, visudo, NOPASSWD y Defaults paso a paso</title><link>https://jaimealberto.io/post/74_sudo_experto/</link><pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/74_sudo_experto/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/sudo_experto.jpg" alt="sudo en Linux: sudoers, visudo, NOPASSWD y Defaults paso a paso"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;En el Imperio , Darth Vader tenía acceso a todo. Ninguna puerta cerrada, ningún sistema restringido, ninguna contraseña que conociera, &amp;hellip;.. &lt;code&gt;usuario ALL=(ALL:ALL) ALL&lt;/code&gt; y listo — el equivalente en sudoers para darle la llave de la Estrella de la Muerte a alguien sin más explicación.&lt;/p&gt;
+&lt;p&gt;El problema es que no todos los usuarios de tu sistema son Darth Vader. Algunos son técnicos de mantenimiento que solo necesitan reiniciar un servicio. Otros son scripts de automatización que ejecutan un rsync a las 3 de la mañana. Y algunos, simplemente, no deberían tener acceso a un &lt;code&gt;sudo bash&lt;/code&gt; de distancia.&lt;/p&gt;
+&lt;p&gt;La mayoría de guías de sudo se quedan en esa primera línea y punto. Útil para empezar, pero en la práctica real necesitas más matices: permisos granulares por comando, comportamiento fino con &lt;code&gt;Defaults&lt;/code&gt;, diferencias entre distribuciones y saber auditar quién ha estado haciendo qué en tu infraestructura.&lt;/p&gt;
+&lt;p&gt;Este artículo va un paso más allá del básico. Vamos a pasar de aprendiz a caballero Jedi.&lt;/p&gt;</description></item></channel></rss>

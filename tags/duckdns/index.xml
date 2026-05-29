@@ -6,14 +6,14 @@
     <description>Recent content in DuckDNS on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1314/tags/duckdns/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste</title>
+      <title>DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica</title>
       <link>http://localhost:1314/post/73_ddns_gratuito/</link>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1314/post/73_ddns_gratuito/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1314/img/ddns_gratuito.jpg&#34; alt=&#34;DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Si sigues los artículos anteriores (&lt;a href=&#34;http://localhost:1314/post/72_oracle_cloud_free_vps/&#34;&gt;VPS en Oracle Cloud&lt;/a&gt;, &lt;a href=&#34;http://localhost:1314/post/71_alerta_negra/&#34;&gt;relay WireGuard&lt;/a&gt;) ya tienes un servidor en la nube con una IP pública. El problema es que esa IP puede cambiar — Oracle asigna IPs &amp;ldquo;ephemeral&amp;rdquo; que raramente rotan, pero no hay garantía. Y si tienes un servidor en casa, tu ISP cambia la IP cada vez que se reinicia el router.&lt;/p&gt;&#xA;&lt;p&gt;La solución es un servicio de DNS dinámico (DDNS): un nombre de dominio que siempre apunta a tu IP actual, actualizado automáticamente cuando cambia.&lt;/p&gt;&#xA;&lt;p&gt;Este artículo cubre dos opciones completamente gratuitas, con distinto nivel de sofisticación.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1314/img/ddns_gratuito.jpg&#34; alt=&#34;DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;En el universo Star Wars, la HoloRed permite contactar con cualquier nave o planeta independientemente de su posición en la galaxia. El equivalente en tu homelab e Internet se llama DDNS: un nombre de dominio que siempre apunta a tu servidor, aunque tu IP cambie cada vez que el router se reinicia.&lt;/p&gt;&#xA;&lt;p&gt;En próximos artículos (VPS en Oracle Cloud y relay WireGuard) será importante no perder de vista nuestros nuevos servicios para la rebelión. Pero en tu cuartel general la IP es dinámica — tu ISP la cambia sin avisar, y de repente tu dominio apunta a un agujero negro que no lleva a ningún sitio. La solución es un cliente DDNS que detecta el cambio y actualiza el registro DNS automáticamente.&lt;/p&gt;&#xA;&lt;p&gt;Este artículo cubre tres opciones completamente gratuitas, de menor a mayor sofisticación. Desde el script de cron más simple que puedas imaginar hasta control total del DNS con tu propio dominio. Elige el nivel de armamento que necesita tu base.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

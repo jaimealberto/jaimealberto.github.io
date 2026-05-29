@@ -4,33 +4,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste - JaimeAlberto.io</title>
+	<title>DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica - JaimeAlberto.io</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Cómo apuntar un nombre de dominio a tu servidor aunque tu IP cambie. Dos opciones gratuitas: DuckDNS para empezar rápido y un subdominio propio con qzz.io gestionado en Cloudflare.">
+	<meta name="description" content="DNS dinámico gratuito en Linux: DuckDNS, qzz.io con Cloudflare y ddclient. Dominio propio sin coste para homelab, Raspberry Pi y servidores con IP dinámica.">
 	<link rel="canonical" href="http://localhost:1314/post/73_ddns_gratuito/">
 		<meta property="og:url" content="http://localhost:1314/post/73_ddns_gratuito/">
   <meta property="og:site_name" content="JaimeAlberto.io">
-  <meta property="og:title" content="DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste">
-  <meta property="og:description" content="Cómo apuntar un nombre de dominio a tu servidor aunque tu IP cambie. Dos opciones gratuitas: DuckDNS para empezar rápido y un subdominio propio con qzz.io gestionado en Cloudflare.">
+  <meta property="og:title" content="DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica">
+  <meta property="og:description" content="DNS dinámico gratuito en Linux: DuckDNS, qzz.io con Cloudflare y ddclient. Dominio propio sin coste para homelab, Raspberry Pi y servidores con IP dinámica.">
   <meta property="og:locale" content="es">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-06-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-06-01T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-05-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-30T00:00:00+00:00">
     <meta property="article:tag" content="DNS">
     <meta property="article:tag" content="DDNS">
+    <meta property="article:tag" content="DNS Dinámico">
     <meta property="article:tag" content="DuckDNS">
     <meta property="article:tag" content="Cloudflare">
-    <meta property="article:tag" content="Privacidad">
-    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="Ddclient">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste",
-  "description": "Cómo apuntar un nombre de dominio a tu servidor aunque tu IP cambie. Dos opciones gratuitas: DuckDNS para empezar rápido y un subdominio propio con qzz.io gestionado en Cloudflare.",
-  "datePublished": "2026-06-01",
-  "dateModified": "2026-06-01",
+  "headline": "DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica",
+  "description": "DNS dinámico gratuito en Linux: DuckDNS, qzz.io con Cloudflare y ddclient. Dominio propio sin coste para homelab, Raspberry Pi y servidores con IP dinámica.",
+  "datePublished": "2026-05-30",
+  "dateModified": "2026-05-30",
   "url": "http:\/\/localhost:1314\/post\/73_ddns_gratuito\/",
   "inLanguage": "es",
   "author": {
@@ -127,50 +127,31 @@
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste</h1>
+			<h1 class="post__title">DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica</h1>
 			<div class="post__meta meta"><div class="meta__item-author meta__item">
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-01T00:00:00Z">01-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-05-30T00:00:00Z">30-05-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
 	</span>
 </div></div>
-		</header>
-<div class="post__toc toc">
-	<div class="toc__title">Índice</div>
-	<div class="toc__menu">
-		<nav id="TableOfContents">
-  <ul>
-    <li><a href="#opción-1--duckdns-el-más-sencillo">Opción 1 — DuckDNS: el más sencillo</a>
-      <ul>
-        <li><a href="#registro-y-creación-del-subdominio">Registro y creación del subdominio</a></li>
-        <li><a href="#cliente-en-linux--actualización-automática">Cliente en Linux — actualización automática</a></li>
-        <li><a href="#verificar-que-funciona">Verificar que funciona</a></li>
-        <li><a href="#cuándo-usar-duckdns">Cuándo usar DuckDNS</a></li>
-      </ul>
-    </li>
-    <li><a href="#opción-2--qzzio-con-cloudflare-un-dominio-propio-sin-coste">Opción 2 — qzz.io con Cloudflare: un dominio propio sin coste</a>
-      <ul>
-        <li><a href="#paso-1--cuenta-gratuita-en-cloudflare">Paso 1 — Cuenta gratuita en Cloudflare</a></li>
-        <li><a href="#paso-2--registrar-el-dominio-en-digitalplat">Paso 2 — Registrar el dominio en DigitalPlat</a></li>
-        <li><a href="#paso-3--configurar-los-registros-dns-en-cloudflare">Paso 3 — Configurar los registros DNS en Cloudflare</a></li>
-        <li><a href="#paso-4--ddns-automático-desde-el-servidor">Paso 4 — DDNS automático desde el servidor</a></li>
-      </ul>
-    </li>
-    <li><a href="#comparativa-rápida">Comparativa rápida</a></li>
-    <li><a href="#mi-configuración">Mi configuración</a></li>
-    <li><a href="#recursos">Recursos</a></li>
-  </ul>
-</nav>
-	</div>
-</div><div class="content post__content clearfix">
+		</header><div class="content post__content clearfix">
 			<figure>
-  <img src="/img/ddns_gratuito.jpg" alt="DNS dinámico gratuito: DuckDNS, un dominio propio con qzz.io y Cloudflare sin coste">
+  <img src="/img/ddns_gratuito.jpg" alt="DDNS gratuito en Linux: DuckDNS, Cloudflare y ddclient para IP dinámica">
 </figure>
 
-<p>Si sigues los artículos anteriores (<a href="/post/72_oracle_cloud_free_vps/">VPS en Oracle Cloud</a>, <a href="/post/71_alerta_negra/">relay WireGuard</a>) ya tienes un servidor en la nube con una IP pública. El problema es que esa IP puede cambiar — Oracle asigna IPs &ldquo;ephemeral&rdquo; que raramente rotan, pero no hay garantía. Y si tienes un servidor en casa, tu ISP cambia la IP cada vez que se reinicia el router.</p>
-<p>La solución es un servicio de DNS dinámico (DDNS): un nombre de dominio que siempre apunta a tu IP actual, actualizado automáticamente cuando cambia.</p>
-<p>Este artículo cubre dos opciones completamente gratuitas, con distinto nivel de sofisticación.</p>
+<p><strong>Índice</strong></p>
+<ul>
+<li><a href="#opci%C3%B3n-1--duckdns-el-m%C3%A1s-sencillo">Opción 1 — DuckDNS: el más sencillo</a></li>
+<li><a href="#opci%C3%B3n-2--qzzio-con-cloudflare-un-dominio-propio-sin-coste">Opción 2 — qzz.io con Cloudflare: un dominio propio sin coste</a></li>
+<li><a href="#opci%C3%B3n-3--ddclient-el-cliente-est%C3%A1ndar-de-linux">Opción 3 — ddclient: el cliente estándar de Linux</a></li>
+<li><a href="#opci%C3%B3n-4--mi-configuraci%C3%B3n-en-producci%C3%B3n-script-propio-con-logging">Opción 4 — Mi configuración en producción</a></li>
+<li><a href="#comparativa-r%C3%A1pida">Comparativa rápida</a></li>
+<li><a href="#recursos">Recursos</a></li>
+</ul>
+<p>En el universo Star Wars, la HoloRed permite contactar con cualquier nave o planeta independientemente de su posición en la galaxia. El equivalente en tu homelab e Internet se llama DDNS: un nombre de dominio que siempre apunta a tu servidor, aunque tu IP cambie cada vez que el router se reinicia.</p>
+<p>En próximos artículos (VPS en Oracle Cloud y relay WireGuard) será importante no perder de vista nuestros nuevos servicios para la rebelión. Pero en tu cuartel general la IP es dinámica — tu ISP la cambia sin avisar, y de repente tu dominio apunta a un agujero negro que no lleva a ningún sitio. La solución es un cliente DDNS que detecta el cambio y actualiza el registro DNS automáticamente.</p>
+<p>Este artículo cubre tres opciones completamente gratuitas, de menor a mayor sofisticación. Desde el script de cron más simple que puedas imaginar hasta control total del DNS con tu propio dominio. Elige el nivel de armamento que necesita tu base.</p>
 <hr>
 <blockquote>
 <p><strong>Nota:</strong> Este artículo describe configuraciones para proyectos personales, homelab y aprendizaje. Los servicios gratuitos mencionados tienen sus propios Términos de Servicio — respétalos. No uses estos dominios para actividades ilegales, spam ni suplantación de identidad.</p>
@@ -186,23 +167,33 @@
 <li>Anota el <strong>token</strong> que aparece en la parte superior de la página — lo necesitarás para el script.</li>
 </ol>
 <h3 id="cliente-en-linux--actualización-automática">Cliente en Linux — actualización automática</h3>
-<p>DuckDNS no instala nada en el sistema. El cliente es un script de una línea que se ejecuta periódicamente con cron.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Crea el directorio y el script</span>
-</span></span><span style="display:flex;"><span>mkdir -p ~/duckdns
+<p>DuckDNS no instala nada en el sistema. El cliente es un script que se ejecuta periódicamente con cron. Antes de crearlo, protege el token igual que harías con cualquier credencial — en un fichero solo legible por tu usuario:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;TU_TOKEN_DUCKDNS&#34;</span> &gt; ~/.duckdns_token
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/.duckdns_token
+</span></span><span style="display:flex;"><span>chown $USER:$USER ~/.duckdns_token
+</span></span></code></pre></div><p>Ahora crea el script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/duckdns
 </span></span><span style="display:flex;"><span>cat &gt; ~/duckdns/duck.sh <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">echo url=&#34;https://www.duckdns.org/update?domains=TUDOMINIO&amp;token=TU_TOKEN&amp;ip=&#34; | curl -k -o ~/duckdns/duck.log -K -
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">DOMINIO=&#34;TUDOMINIO&#34;   # sin .duckdns.org
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">TOKEN=$(cat ~/.duckdns_token)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">echo url=&#34;https://www.duckdns.org/update?domains=${DOMINIO}&amp;token=${TOKEN}&amp;ip=&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  | curl -k -o ~/duckdns/duck.log -K -
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
 </span></span><span style="display:flex;"><span>chmod +x ~/duckdns/duck.sh
-</span></span></code></pre></div><p>Sustituye <code>TUDOMINIO</code> por tu subdominio (sin <code>.duckdns.org</code>) y <code>TU_TOKEN</code> por el token de tu cuenta.</p>
+</span></span></code></pre></div><p>Fíjate en el <code>| curl -K -</code>: le pasa la URL a curl por stdin en lugar de como argumento. Esto evita que el token aparezca en <code>ps aux</code> mientras el proceso está corriendo — cualquiera que ejecute <code>ps aux</code> en ese momento solo verá <code>curl -k -o duck.log -K -</code>, sin el token.</p>
+<p><strong>Limitación que no puedes evitar con DuckDNS:</strong> el token viaja en la URL (<code>?token=...</code>), no en un header HTTP. Es la API que DuckDNS ofrece y no admite alternativa. Eso significa que el token queda registrado en los logs de acceso del servidor de DuckDNS, y que <code>duck.log</code> puede contenerlo si hay un error de red. Protege ese log:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/duckdns/duck.log
+</span></span></code></pre></div><p>Si este nivel de exposición no te convence, la Opción 2 (Cloudflare) permite tokens en header con permisos mínimos y filtro por IP — control que DuckDNS no da.</p>
 <p>Prueba que funciona:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~/duckdns/duck.sh
 </span></span><span style="display:flex;"><span>cat ~/duckdns/duck.log
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># debe mostrar: OK</span>
 </span></span></code></pre></div><p>Automatiza con cron para que se ejecute cada 5 minutos:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>crontab -e
-</span></span></code></pre></div><p>Añade esta línea:</p>
-<pre tabindex="0"><code>*/5 * * * * ~/duckdns/duck.sh &gt;/dev/null 2&gt;&amp;1
-</code></pre><p>A partir de ese momento, cada vez que tu IP cambie, DuckDNS lo detectará en los siguientes 5 minutos y actualizará el registro.</p>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># añade:</span>
+</span></span><span style="display:flex;"><span>*/5 * * * * ~/duckdns/duck.sh &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>A partir de ese momento, cada vez que tu IP cambie, DuckDNS lo detectará en los siguientes 5 minutos y actualizará el registro.</p>
 <h3 id="verificar-que-funciona">Verificar que funciona</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dig +short tudominio.duckdns.org
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># debe devolver tu IP pública actual</span>
@@ -212,7 +203,7 @@
 <p>DuckDNS es perfecto para:</p>
 <ul>
 <li>Acceso remoto a un servidor doméstico o de laboratorio</li>
-<li>Relay VPN propio (como el que describimos en el <a href="/post/71_alerta_negra/">artículo anterior</a>)</li>
+<li>Relay VPN propio (como el relay WireGuard que veremos próximamente)</li>
 <li>Cualquier servicio que necesite un nombre fijo pero no requiera un dominio &ldquo;presentable&rdquo;</li>
 </ul>
 <p>La limitación es el aspecto: <code>tudominio.duckdns.org</code> es funcional pero identifica inmediatamente el servicio como algo casero. Si quieres algo más neutro o con tu nombre propio, la opción 2 es mejor.</p>
@@ -220,32 +211,80 @@
 <h2 id="opción-2--qzzio-con-cloudflare-un-dominio-propio-sin-coste">Opción 2 — qzz.io con Cloudflare: un dominio propio sin coste</h2>
 <p><a href="https://domain.digitalplat.org">DigitalPlat FreeDomain</a> es un proyecto sin ánimo de lucro respaldado por The Hack Foundation (organización 501(c)(3) de EEUU). Ofrece subdominios gratuitos en varios dominios propios — el más usado es <code>.qzz.io</code>, aunque también hay <code>.us.kg</code>, <code>.dpdns.org</code> y <code>.xx.kg</code>.</p>
 <p>La diferencia con DuckDNS: aquí tú gestionas el DNS con tu propio proveedor (Cloudflare, en este caso). Tienes control total sobre los registros — A, CNAME, MX, TXT, lo que necesites.</p>
-<h3 id="paso-1--cuenta-gratuita-en-cloudflare">Paso 1 — Cuenta gratuita en Cloudflare</h3>
-<p>Antes de registrar el dominio necesitas tener Cloudflare configurado para poder darle los nameservers.</p>
-<ol>
-<li>Crea una cuenta en <a href="https://www.cloudflare.com">cloudflare.com</a> — el plan gratuito es suficiente para todo lo que vamos a hacer.</li>
-<li>Una vez dentro, ve a <strong>Add a Site</strong> (o &ldquo;Añadir un sitio&rdquo;).</li>
-<li>Escribe el dominio que vas a registrar en DigitalPlat — por ejemplo <code>tunombre.qzz.io</code>.</li>
-<li>Selecciona el <strong>plan Free</strong>.</li>
-<li>Cloudflare te mostrará dos <strong>nameservers</strong> con nombres del tipo:
-<pre tabindex="0"><code>xxx.ns.cloudflare.com
-yyy.ns.cloudflare.com
-</code></pre>Anótalos — los necesitarás en el paso siguiente.</li>
-</ol>
-<p>No te preocupes si Cloudflare dice que no puede verificar el dominio todavía — es normal, porque aún no hemos asignado los nameservers en DigitalPlat.</p>
-<h3 id="paso-2--registrar-el-dominio-en-digitalplat">Paso 2 — Registrar el dominio en DigitalPlat</h3>
+<h3 id="paso-1--registrar-el-dominio-en-digitalplat">Paso 1 — Registrar el dominio en DigitalPlat</h3>
 <ol>
 <li>Ve a <a href="https://domain.digitalplat.org">domain.digitalplat.org</a> e inicia sesión con tu cuenta de <strong>GitHub</strong> — es el único método de autenticación (sirve como verificación de identidad).</li>
 <li>Haz clic en <strong>Register Domain</strong>.</li>
 <li>Elige el sufijo que quieres (<code>.qzz.io</code>, <code>.us.kg</code>, etc.) y escribe el subdominio: por ejemplo <code>tunombre</code> → obtienes <code>tunombre.qzz.io</code>.</li>
-<li>En la configuración del dominio, selecciona <strong>Custom Nameservers</strong> y pon los dos nameservers que te dio Cloudflare en el paso anterior.</li>
+<li>Por ahora deja la configuración de nameservers en blanco — los necesitarás del paso siguiente.</li>
 <li>Confirma el registro.</li>
 </ol>
-<p>La propagación de nameservers puede tardar entre unos minutos y 24 horas, aunque normalmente es cuestión de minutos.</p>
+<p>El dominio queda reservado a tu nombre. En el siguiente paso lo apuntaremos a Cloudflare.</p>
+<h3 id="paso-2--cuenta-gratuita-en-cloudflare">Paso 2 — Cuenta gratuita en Cloudflare</h3>
+<p>Cloudflare gestionará el DNS de tu nuevo dominio. El plan gratuito es suficiente para todo lo que vamos a hacer.</p>
+<ol>
+<li>Crea una cuenta en <a href="https://www.cloudflare.com">cloudflare.com</a>.</li>
+<li>Ve a <strong>Add a Site</strong> (o &ldquo;Añadir un sitio&rdquo;) y escribe <code>tunombre.qzz.io</code>.</li>
+<li>Selecciona el <strong>plan Free</strong>.</li>
+<li>Cloudflare te mostrará dos <strong>nameservers</strong>:
+<pre tabindex="0"><code>xxx.ns.cloudflare.com
+yyy.ns.cloudflare.com
+</code></pre>Anótalos y vuelve a DigitalPlat → configura esos nameservers en tu dominio → confirma.</li>
+</ol>
+<p>La propagación puede tardar desde unos minutos hasta 24 horas. Cuando Cloudflare verifique el dominio te llegará un email de confirmación.</p>
+<blockquote>
+<p><strong>Bonus — qué más incluye la cuenta gratuita de Cloudflare:</strong></p>
+</blockquote>
+<table>
+  <thead>
+      <tr>
+          <th>Servicio</th>
+          <th>Qué hace</th>
+          <th>Límite gratuito</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Tunnel</strong></td>
+          <td>Expone servicios locales sin abrir puertos en el router</td>
+          <td>Gratuito, sin límite de ancho de banda</td>
+      </tr>
+      <tr>
+          <td><strong>Zero Trust / Access</strong></td>
+          <td>Controla quién accede a tus apps con SSO e identidad</td>
+          <td>Hasta 50 usuarios</td>
+      </tr>
+      <tr>
+          <td><strong>Pages</strong></td>
+          <td>Hosting de sitios estáticos con CI/CD integrado</td>
+          <td>Ancho de banda ilimitado, 500 builds/mes</td>
+      </tr>
+      <tr>
+          <td><strong>Workers</strong></td>
+          <td>Código serverless ejecutado en el edge de Cloudflare</td>
+          <td>100.000 peticiones/día</td>
+      </tr>
+      <tr>
+          <td><strong>R2</strong></td>
+          <td>Almacenamiento de objetos compatible con S3</td>
+          <td>10 GB, sin coste de salida</td>
+      </tr>
+      <tr>
+          <td><strong>Email Routing</strong></td>
+          <td>Reenvía emails recibidos en tu dominio a cualquier cuenta</td>
+          <td>Gratuito</td>
+      </tr>
+      <tr>
+          <td><strong>WAF básico</strong></td>
+          <td>Protección contra ataques comunes (SQLi, XSS&hellip;)</td>
+          <td>Incluido en el plan Free</td>
+      </tr>
+  </tbody>
+</table>
+<p>El más interesante para homelab es <strong>Tunnel</strong>: accede a servicios corriendo en tu red local desde Internet sin tocar el firewall ni abrir un solo puerto. El <strong>WAF</strong> tiene más chicha de lo que parece — lo vimos en detalle en <a href="/post/61_waf_cloudflare/">WAF en Cloudflare para una web estática</a>.</p>
 <h3 id="paso-3--configurar-los-registros-dns-en-cloudflare">Paso 3 — Configurar los registros DNS en Cloudflare</h3>
-<p>Una vez que Cloudflare verifica que controla el dominio (te llega un email de confirmación), puedes añadir registros DNS desde el panel:</p>
+<p>Una vez confirmado el dominio, añade el registro A desde el panel:</p>
 <p><strong>DNS → Records → Add record</strong></p>
-<p>Para apuntar el dominio a tu servidor:</p>
 <table>
   <thead>
       <tr>
@@ -264,40 +303,159 @@ yyy.ns.cloudflare.com
       </tr>
   </tbody>
 </table>
-<p>Si activas el proxy de Cloudflare (la nube naranja), el tráfico HTTP/HTTPS pasa por los servidores de Cloudflare — añade protección contra DDoS y oculta tu IP real. Para SSH o WireGuard, desactívalo (DNS only, nube gris) — Cloudflare no proxifica UDP ni SSH.</p>
-<h3 id="paso-4--ddns-automático-desde-el-servidor">Paso 4 — DDNS automático desde el servidor</h3>
-<p>A diferencia de DuckDNS, qzz.io no tiene un cliente propio. Para actualizar automáticamente la IP cuando cambia, usas la API de Cloudflare.</p>
-<p>Primero necesitas dos datos del panel de Cloudflare:</p>
-<ul>
-<li><strong>Zone ID</strong>: en la página principal del dominio, columna derecha</li>
-<li><strong>API Token</strong>: My Profile → API Tokens → Create Token → usar la plantilla &ldquo;Edit zone DNS&rdquo;</li>
-</ul>
-<p>Script de actualización DDNS via API de Cloudflare:</p>
+<p>Si activas el proxy de Cloudflare (la nube naranja), el tráfico HTTP/HTTPS pasa por sus servidores — protección DDoS y ocultación de tu IP real. Para SSH o WireGuard, desactívalo (nube gris) — Cloudflare no proxifica UDP ni SSH.</p>
+<h3 id="paso-4--crear-un-api-token-seguro-en-cloudflare">Paso 4 — Crear un API Token seguro en Cloudflare</h3>
+<p>Aquí es donde la mayoría de guías lo hacen mal. Antes de escribir una sola línea de script, hay que tener claras dos premisas:</p>
+<blockquote>
+<p><strong>Premisa 1 — permisos mínimos:</strong> el token solo debe poder hacer exactamente lo que necesita. Nada más.
+<strong>Premisa 2 — protección en el sistema:</strong> la credencial nunca aparece como argumento de proceso ni viaja en claro en logs o repos.</p>
+</blockquote>
+<p><strong>Por qué importa:</strong> un token Cloudflare con permisos de &ldquo;toda la cuenta&rdquo; es la llave maestra de todo lo que tienes — dominios, WAF, Workers, DNS&hellip; Si ese token se filtra (en un repo público, en <code>.bash_history</code>, en un log de cron), el atacante controla tu infraestructura. Un token limitado a &ldquo;actualizar un registro DNS de una zona concreta&rdquo; no sirve para nada más aunque caiga en malas manos.</p>
+<h4 id="crear-el-token-con-permisos-mínimos">Crear el token con permisos mínimos</h4>
+<ol>
+<li>En el panel de Cloudflare: <strong>My Profile → API Tokens → Create Token</strong></li>
+<li>Selecciona la plantilla <strong>&ldquo;Edit zone DNS&rdquo;</strong> — permisos exactos para lo que necesitamos</li>
+<li>En <strong>Zone Resources</strong>, cambia &ldquo;All zones&rdquo; por <strong>&ldquo;Specific zone&rdquo;</strong> → selecciona solo <code>tunombre.qzz.io</code></li>
+<li>En <strong>IP Address Filtering</strong>, añade la IP pública de tu servidor — el token solo funcionará desde esa dirección aunque alguien lo robe</li>
+<li>Copia el token cuando aparezca — <strong>Cloudflare solo lo muestra una vez</strong></li>
+</ol>
+<h4 id="proteger-el-token-en-el-sistema">Proteger el token en el sistema</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;TU_TOKEN_AQUI&#34;</span> &gt; ~/.cloudflare_token
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/.cloudflare_token
+</span></span><span style="display:flex;"><span>chown $USER:$USER ~/.cloudflare_token
+</span></span></code></pre></div><p>El token vive en ese fichero. El script nunca lo expone como argumento — usaremos un fichero de configuración temporal de curl para que no aparezca en <code>ps aux</code> mientras el proceso corre (ver Paso 5).</p>
+<p>Si necesitas rotar el token, solo actualizas el fichero — el script no cambia.</p>
+<h3 id="paso-5--ddns-automático-desde-el-servidor">Paso 5 — DDNS automático desde el servidor</h3>
+<p>qzz.io no tiene cliente propio. Usas la API de Cloudflare directamente. Necesitas el <strong>Zone ID</strong> (en la página principal de tu dominio en Cloudflare, columna derecha) y el <strong>Record ID</strong> del registro A:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>TMPCONF<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>mktemp<span style="color:#66d9ef">)</span>; chmod <span style="color:#ae81ff">600</span> <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;header = &#34;Authorization: Bearer %s&#34;\n&#39;</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>cat ~/.cloudflare_token<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> &gt; <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>curl -s -X GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/TU_ZONE_ID/dns_records?type=A&amp;name=tunombre.qzz.io&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --config <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span> | python3 -m json.tool | grep <span style="color:#e6db74">&#39;&#34;id&#34;&#39;</span>
+</span></span><span style="display:flex;"><span>rm -f <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Script de actualización. Comprueba si la IP cambió antes de llamar a la API — evita peticiones innecesarias. El token nunca aparece como argumento de proceso: va en un fichero temporal de configuración de curl que se borra justo después:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># ddns-cloudflare.sh — actualiza el registro A de un dominio en Cloudflare</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># ddns-cloudflare.sh — actualiza el registro A solo si la IP cambió</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>ZONE_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_ZONE_ID&#34;</span>
-</span></span><span style="display:flex;"><span>RECORD_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_RECORD_ID&#34;</span>   <span style="color:#75715e"># ver más abajo cómo obtenerlo</span>
-</span></span><span style="display:flex;"><span>API_TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_API_TOKEN&#34;</span>
+</span></span><span style="display:flex;"><span>RECORD_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_RECORD_ID&#34;</span>
 </span></span><span style="display:flex;"><span>DOMAIN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tunombre.qzz.io&#34;</span>
+</span></span><span style="display:flex;"><span>CACHE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/ddns_last_ip&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>IP_ACTUAL<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s https://ifconfig.me<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>IP_ANTERIOR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat <span style="color:#e6db74">&#34;</span>$CACHE<span style="color:#e6db74">&#34;</span> 2&gt;/dev/null<span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>curl -s -X PATCH <span style="color:#ae81ff">\
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$IP_ACTUAL<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$IP_ANTERIOR<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fichero temporal de configuración curl — el token nunca aparece en ps aux</span>
+</span></span><span style="display:flex;"><span>TMPCONF<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>mktemp<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#39;header = &#34;Authorization: Bearer %s&#34;\n&#39;</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>cat ~/.cloudflare_token<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> &gt; <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>RESULTADO<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s -X PATCH <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/</span><span style="color:#e6db74">${</span>ZONE_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">/dns_records/</span><span style="color:#e6db74">${</span>RECORD_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span><span style="color:#e6db74">${</span>API_TOKEN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --config <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#34;{\&#34;type\&#34;:\&#34;A\&#34;,\&#34;name\&#34;:\&#34;</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;content\&#34;:\&#34;</span><span style="color:#e6db74">${</span>IP_ACTUAL<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;ttl\&#34;:60}&#34;</span>
-</span></span></code></pre></div><p>Para obtener el <code>RECORD_ID</code> de tu registro A:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -s -X GET <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/TU_ZONE_ID/dns_records?type=A&amp;name=tunombre.qzz.io&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer TU_API_TOKEN&#34;</span> | python3 -m json.tool | grep <span style="color:#e6db74">&#39;&#34;id&#34;&#39;</span>
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#34;{\&#34;type\&#34;:\&#34;A\&#34;,\&#34;name\&#34;:\&#34;</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;content\&#34;:\&#34;</span><span style="color:#e6db74">${</span>IP_ACTUAL<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;ttl\&#34;:60}&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rm -f <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> echo <span style="color:#e6db74">&#34;</span>$RESULTADO<span style="color:#e6db74">&#34;</span> | grep -q <span style="color:#e6db74">&#39;&#34;success&#34;:true&#39;</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span>$IP_ACTUAL<span style="color:#e6db74">&#34;</span> &gt; <span style="color:#e6db74">&#34;</span>$CACHE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  logger <span style="color:#e6db74">&#34;ddns-cloudflare: actualizado </span>$DOMAIN<span style="color:#e6db74"> → </span>$IP_ACTUAL<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>  logger <span style="color:#e6db74">&#34;ddns-cloudflare: ERROR — </span>$RESULTADO<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
 </span></span></code></pre></div><p>Automatiza con cron cada 5 minutos:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x ~/ddns-cloudflare.sh
 </span></span><span style="display:flex;"><span>crontab -e
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># añade:</span>
-</span></span><span style="display:flex;"><span>*/5 * * * * ~/ddns-cloudflare.sh &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>*/5 * * * * ~/ddns-cloudflare.sh
 </span></span></code></pre></div><hr>
+<h2 id="opción-3--ddclient-el-cliente-estándar-de-linux">Opción 3 — ddclient: el cliente estándar de Linux</h2>
+<p>Si prefieres no gestionar scripts propios, <code>ddclient</code> es el cliente DDNS más extendido en Linux. Está en los repositorios oficiales de Debian, Ubuntu y Rocky, soporta más de 50 proveedores (DuckDNS, Cloudflare, No-IP, Google Domains&hellip;) y se integra como servicio de systemd.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install ddclient   <span style="color:#75715e"># Debian/Ubuntu</span>
+</span></span><span style="display:flex;"><span>sudo dnf install ddclient   <span style="color:#75715e"># RedHat/Rocky</span>
+</span></span></code></pre></div><p>Durante la instalación aparece un asistente. Si prefieres configurarlo a mano, el fichero es <code>/etc/ddclient.conf</code>.</p>
+<h3 id="ddclient-con-duckdns">ddclient con DuckDNS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># /etc/ddclient.conf</span>
+</span></span><span style="display:flex;"><span>daemon<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>                      <span style="color:#75715e"># comprobar cada 5 minutos</span>
+</span></span><span style="display:flex;"><span>syslog<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>pid<span style="color:#f92672">=</span>/run/ddclient/ddclient.pid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>protocol<span style="color:#f92672">=</span>duckdns
+</span></span><span style="display:flex;"><span>login<span style="color:#f92672">=</span>nouser
+</span></span><span style="display:flex;"><span>password<span style="color:#f92672">=</span>TU_TOKEN_DUCKDNS
+</span></span><span style="display:flex;"><span>tudominio                       <span style="color:#75715e"># sin .duckdns.org</span>
+</span></span></code></pre></div><h3 id="ddclient-con-cloudflare">ddclient con Cloudflare</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># /etc/ddclient.conf</span>
+</span></span><span style="display:flex;"><span>daemon<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>syslog<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>pid<span style="color:#f92672">=</span>/run/ddclient/ddclient.pid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>protocol<span style="color:#f92672">=</span>cloudflare
+</span></span><span style="display:flex;"><span>zone<span style="color:#f92672">=</span>tunombre.qzz.io
+</span></span><span style="display:flex;"><span>login<span style="color:#f92672">=</span>TU_EMAIL_CLOUDFLARE
+</span></span><span style="display:flex;"><span>password<span style="color:#f92672">=</span>TU_API_TOKEN
+</span></span><span style="display:flex;"><span>ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>tunombre.qzz.io
+</span></span></code></pre></div><p>Activa y arranca el servicio:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now ddclient
+</span></span><span style="display:flex;"><span>sudo systemctl status ddclient
+</span></span></code></pre></div><p>Comprueba que funciona:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ddclient -daemon<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> -debug -verbose -noquiet
+</span></span></code></pre></div><p>Fíjate en que el token/contraseña va en claro en <code>/etc/ddclient.conf</code>. ddclient lo crea con permisos 600 (solo root puede leerlo), así que el riesgo es menor que en un script manual. Verifica que los permisos son correctos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -la /etc/ddclient.conf
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -rw------- 1 root root ... /etc/ddclient.conf</span>
+</span></span></code></pre></div><p>Si no es así, corrígelo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chmod <span style="color:#ae81ff">600</span> /etc/ddclient.conf
+</span></span></code></pre></div><p><strong>Limitación que no puedes evitar con ddclient:</strong> igual que en DuckDNS, el token viaja en la URL cuando el protocolo lo exige (DuckDNS). Con Cloudflare ddclient sí usa headers — mejor opción si la seguridad te preocupa.</p>
+<p>La ventaja de ddclient frente a los scripts manuales: ya gestiona el caché de IP (no llama a la API si no hay cambio), reintentos en caso de error y logging integrado con journald.</p>
+<hr>
+<h2 id="opción-4--mi-configuración-en-producción-script-propio-con-logging">Opción 4 — Mi configuración en producción: script propio con logging</h2>
+<p>Si las opciones anteriores te parecen demasiado simples o demasiado complejas, aquí está lo que uso en mis propias RPis de monitorización. Un script bash con logging estructurado, soporte para múltiples dominios y el token correctamente protegido.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># ddns-cloudflare-prod.sh — actualiza registros A en Cloudflare con logging</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CF_ZONE_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TU_ZONE_ID&#34;</span>
+</span></span><span style="display:flex;"><span>DOMAINS<span style="color:#f92672">=(</span><span style="color:#e6db74">&#34;tunombre.qzz.io&#34;</span><span style="color:#f92672">)</span>   <span style="color:#75715e"># añadir más dominios si es necesario</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>LOG_DIR<span style="color:#f92672">=</span>~/cloudflare/logs
+</span></span><span style="display:flex;"><span>LOG_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>LOG_DIR<span style="color:#e6db74">}</span><span style="color:#e6db74">/cloudflare-</span><span style="color:#66d9ef">$(</span>date +%Y-%m<span style="color:#66d9ef">)</span><span style="color:#e6db74">.log&#34;</span>
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#e6db74">&#34;</span>$LOG_DIR<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%b %d %H:%M:%S&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> </span><span style="color:#66d9ef">$(</span>hostname<span style="color:#66d9ef">)</span><span style="color:#e6db74"> ddns[</span>$$<span style="color:#e6db74">]: [</span>$1<span style="color:#e6db74">] </span>$2<span style="color:#e6db74">&#34;</span> | tee -a <span style="color:#e6db74">&#34;</span>$LOG_FILE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CURRENT_IP<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s https://ipv4.icanhazip.com<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>log <span style="color:#e6db74">&#34;NOTICE&#34;</span> <span style="color:#e6db74">&#34;Iniciando actualización — IP actual: </span>$CURRENT_IP<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> DOMAIN in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>DOMAINS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  TMPCONF<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>mktemp<span style="color:#66d9ef">)</span>; chmod <span style="color:#ae81ff">600</span> <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  printf <span style="color:#e6db74">&#39;header = &#34;Authorization: Bearer %s&#34;\n&#39;</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>cat ~/.cloudflare_token<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> &gt; <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  RECORD_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s -X GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/</span><span style="color:#e6db74">${</span>CF_ZONE_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">/dns_records?type=A&amp;name=</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --config <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span> -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> | jq -r <span style="color:#e6db74">&#39;.result[0].id&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  RESPONSE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s -X PUT <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/</span><span style="color:#e6db74">${</span>CF_ZONE_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">/dns_records/</span><span style="color:#e6db74">${</span>RECORD_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --config <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span> -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --data <span style="color:#e6db74">&#34;{\&#34;type\&#34;:\&#34;A\&#34;,\&#34;name\&#34;:\&#34;</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;content\&#34;:\&#34;</span><span style="color:#e6db74">${</span>CURRENT_IP<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;,\&#34;ttl\&#34;:120,\&#34;proxied\&#34;:false}&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rm -f <span style="color:#e6db74">&#34;</span>$TMPCONF<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span>$RESPONSE<span style="color:#e6db74">&#34;</span> | grep -q <span style="color:#e6db74">&#39;&#34;success&#34;:true&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">&amp;&amp;</span> log <span style="color:#e6db74">&#34;INFO&#34;</span> <span style="color:#e6db74">&#34;✓ </span>$DOMAIN<span style="color:#e6db74"> → </span>$CURRENT_IP<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">||</span> log <span style="color:#e6db74">&#34;ERROR&#34;</span> <span style="color:#e6db74">&#34;✗ </span>$DOMAIN<span style="color:#e6db74"> — </span>$RESPONSE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Cron cada 30 minutos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>*/30 * * * * ~/cloudflare/ddns-cloudflare-prod.sh &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Los logs se rotan automáticamente por mes en <code>~/cloudflare/logs/</code>.</p>
+<hr>
 <h2 id="comparativa-rápida">Comparativa rápida</h2>
 <table>
   <thead>
@@ -305,6 +463,8 @@ yyy.ns.cloudflare.com
           <th></th>
           <th>DuckDNS</th>
           <th>qzz.io + Cloudflare</th>
+          <th>ddclient</th>
+          <th>Script propio</th>
       </tr>
   </thead>
   <tbody>
@@ -312,47 +472,74 @@ yyy.ns.cloudflare.com
           <td><strong>Tiempo de setup</strong></td>
           <td>5 minutos</td>
           <td>15-30 minutos</td>
+          <td>5 minutos</td>
+          <td>15 minutos</td>
       </tr>
       <tr>
           <td><strong>Aspecto del dominio</strong></td>
           <td><code>nombre.duckdns.org</code></td>
           <td><code>nombre.qzz.io</code></td>
+          <td>cualquiera</td>
+          <td>cualquiera</td>
       </tr>
       <tr>
           <td><strong>Control DNS</strong></td>
           <td>Solo el registro A</td>
           <td>Total (A, CNAME, MX, TXT&hellip;)</td>
+          <td>según proveedor</td>
+          <td>Total (API Cloudflare)</td>
       </tr>
       <tr>
           <td><strong>Proxy/CDN</strong></td>
           <td>No</td>
           <td>Sí (Cloudflare)</td>
+          <td>No</td>
+          <td>No</td>
       </tr>
       <tr>
           <td><strong>DDNS automático</strong></td>
           <td>Script oficial simple</td>
           <td>Script con API Cloudflare</td>
+          <td>systemd nativo</td>
+          <td>Cron + logging por mes</td>
+      </tr>
+      <tr>
+          <td><strong>Token en URL</strong></td>
+          <td>⚠️ Sí (limitación API)</td>
+          <td>No — header cifrado</td>
+          <td>No</td>
+          <td>No — fichero temporal</td>
+      </tr>
+      <tr>
+          <td><strong>Logging</strong></td>
+          <td>Solo duck.log</td>
+          <td>Solo syslog</td>
+          <td>journald</td>
+          <td>Fichero mensual propio</td>
+      </tr>
+      <tr>
+          <td><strong>Múltiples dominios</strong></td>
+          <td>No</td>
+          <td>No (un registro A)</td>
+          <td>Sí</td>
+          <td>Sí (array configurable)</td>
       </tr>
       <tr>
           <td><strong>Coste</strong></td>
           <td>Gratuito</td>
           <td>Gratuito</td>
-      </tr>
-      <tr>
-          <td><strong>Cuenta necesaria</strong></td>
-          <td>GitHub/Google/Twitter</td>
-          <td>GitHub + Cloudflare</td>
+          <td>Gratuito</td>
+          <td>Gratuito</td>
       </tr>
       <tr>
           <td><strong>Ideal para</strong></td>
           <td>Acceso rápido, laboratorio</td>
-          <td>Dominio más profesional, múltiples servicios</td>
+          <td>Dominio profesional</td>
+          <td>Sin gestionar scripts</td>
+          <td>RPi, múltiples dominios, logs detallados</td>
       </tr>
   </tbody>
 </table>
-<hr>
-<h2 id="mi-configuración">Mi configuración</h2>
-<p>En mi caso uso ambas. DuckDNS en el servidor de Oracle Cloud para el cliente DDNS nativo — es el más sencillo de mantener cuando el servidor es un relay y no quiero añadir dependencias. Para el dominio de investigación uso qzz.io gestionado en Cloudflare, que me permite tener varios subdominios bajo el mismo dominio y gestionar todo desde un panel centralizado.</p>
 <hr>
 <h2 id="recursos">Recursos</h2>
 <ul>
@@ -361,6 +548,8 @@ yyy.ns.cloudflare.com
 <li><a href="https://github.com/DigitalPlatDev/FreeDomain">GitHub del proyecto FreeDomain</a></li>
 <li><a href="https://www.cloudflare.com">Cloudflare — plan gratuito</a></li>
 <li><a href="https://developers.cloudflare.com/api/">API de Cloudflare — documentación</a></li>
+<li><a href="https://github.com/ddclient/ddclient">ddclient — repositorio oficial</a></li>
+<li><a href="https://ddclient.net">ddclient — documentación</a></li>
 <li><a href="https://www.redeszone.net/tutoriales/redes-cable/duck-dns-servicio-dns-dinamico-gratuito/">Duck DNS, el mejor servicio DNS dinámico gratuito</a> — RedesZone</li>
 </ul>
 		</div>
@@ -376,19 +565,34 @@ yyy.ns.cloudflare.com
 			<a class="tags__link btn" href="/tags/ddns/" rel="tag">DDNS</a>
 		</li>
 		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/dns-din%C3%A1mico/" rel="tag">DNS dinámico</a>
+		</li>
+		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/duckdns/" rel="tag">DuckDNS</a>
 		</li>
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/cloudflare/" rel="tag">Cloudflare</a>
 		</li>
 		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/privacidad/" rel="tag">Privacidad</a>
+			<a class="tags__link btn" href="/tags/ddclient/" rel="tag">ddclient</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/qzz.io/" rel="tag">qzz.io</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/dominio-gratuito/" rel="tag">dominio gratuito</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ip-din%C3%A1mica/" rel="tag">IP dinámica</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ip-din%C3%A1mica-linux/" rel="tag">IP dinámica Linux</a>
 		</li>
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/homelab/" rel="tag">Homelab</a>
 		</li>
 		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/oracle-cloud/" rel="tag">Oracle Cloud</a>
+			<a class="tags__link btn" href="/tags/raspberry-pi/" rel="tag">Raspberry Pi</a>
 		</li>
 	</ul>
 </div>
