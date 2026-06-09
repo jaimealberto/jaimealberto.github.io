@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html class="no-js" lang="es">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Cloud - JaimeAlberto.io</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<link rel="canonical" href="http://localhost:1314/categories/cloud/">
-		<meta property="og:url" content="http://localhost:1314/categories/cloud/">
+	<link rel="canonical" href="http://localhost:1313/categories/cloud/">
+		<meta property="og:url" content="http://localhost:1313/categories/cloud/">
   <meta property="og:site_name" content="JaimeAlberto.io">
   <meta property="og:title" content="Cloud">
   <meta property="og:description" content="Post, Notas y varios personales del dìa a dìa de un habitante de la red de redes">
@@ -105,16 +105,32 @@
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-01T00:00:00Z">01-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/cloud/" rel="category">Cloud</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-10T08:00:00&#43;02:00">10-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/cloud/" rel="category">Cloud</a>
 	</span>
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		<figure>
-  <img src="/img/oracle_cloud_free_vps.jpg" alt="Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)">
+  <img src="/img/oracle_cloud.jpg" alt="Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)">
 </figure>
 
-<p>Oracle Cloud tiene un nivel gratuito que no caduca. No son los 30 días de prueba de AWS ni los créditos iniciales de GCP — es una VM ARM64 de hasta 4 núcleos y 24 GB de RAM disponible de forma permanente mientras la mantengas en uso. Este artículo explica cómo conseguirla con Debian como sistema operativo.</p>
+<p><strong>Índice</strong></p>
+<ul>
+<li><a href="#por-qu%C3%A9-oracle-cloud-y-no-otra-alternativa">Por qué Oracle Cloud y no otra alternativa</a></li>
+<li><a href="#crear-la-cuenta">Crear la cuenta</a></li>
+<li><a href="#crear-la-instancia">Crear la instancia</a></li>
+<li><a href="#primera-conexi%C3%B3n">Primera conexión</a></li>
+<li><a href="#abrir-puertos-en-oracle-cloud">Abrir puertos en Oracle Cloud</a></li>
+<li><a href="#verificar-que-todo-funciona">Verificar que todo funciona</a></li>
+<li><a href="#mantener-la-instancia-activa">Mantener la instancia activa</a></li>
+<li><a href="#qu%C3%A9-hacer-con-esto">Qué hacer con esto</a></li>
+<li><a href="#recursos">Recursos</a></li>
+</ul>
+<p>La Alianza Rebelde no tenía presupuesto. Tenía ingenio.</p>
+<p>Hoth, Yavin IV, la base en el sistema Crait — ninguna fue comprada ni alquilada. Eran planetas olvidados, estaciones abandonadas, rincones del universo que el Imperio no consideraba lo suficientemente valiosos como para guardar.</p>
+<p>Oracle Cloud tiene algo similar: un nivel gratuito permanente que la mayoría de la gente no sabe que existe, o no se molesta en reclamar. No son los 30 días de prueba de AWS. No son los créditos de GCP que se evaporan sin avisar. Es una VM ARM64 de hasta 4 núcleos y 24 GB de RAM, disponible de forma permanente, sin coste, mientras la mantengas activa.</p>
+<p>El Imperio digital cobra por cada ciclo de CPU, cada gigabyte de transferencia, cada hora de disponibilidad. Oracle, en este punto concreto de su estrategia comercial, no lo hace.</p>
+<p>Vamos a reclamar esa base.</p>
 	</div>
 </article>
 </main>
@@ -145,16 +161,8 @@
 				<span class="widget__counter widget__counter--bubble">1</span>
 				</li>
 			<li class="widget__item">
-				<a class="widget__link" href="/categories/desarrollo/">Desarrollo</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">2</span>
-				</li>
-			<li class="widget__item">
 				<a class="widget__link" href="/categories/devops/">DevOps</a>&nbsp;
 				<span class="widget__counter widget__counter--bubble">7</span>
-				</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/categories/hardware/">Hardware</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">1</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/hardwarehacking/">HardwareHacking</a>&nbsp;
@@ -162,39 +170,23 @@
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/herramientas/">Herramientas</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">2</span>
+				<span class="widget__counter widget__counter--bubble">1</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/historia/">Historia</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">3</span>
-				</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/categories/homelab/">Homelab</a>&nbsp;
 				<span class="widget__counter widget__counter--bubble">1</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/ia/">IA</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">7</span>
+				<span class="widget__counter widget__counter--bubble">6</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/linux/">Linux</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">24</span>
+				<span class="widget__counter widget__counter--bubble">23</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/macos-/">MacOS </a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">13</span>
-				</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/categories/opini%C3%B3n/">Opinión</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">1</span>
-				</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/categories/osint/">OSINT</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">1</span>
-				</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/categories/privacidad/">Privacidad</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">1</span>
+				<span class="widget__counter widget__counter--bubble">12</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/productividad/">Productividad</a>&nbsp;
@@ -202,19 +194,15 @@
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/redes/">Redes</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">8</span>
+				<span class="widget__counter widget__counter--bubble">6</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/seguridad/">Seguridad</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">9</span>
+				<span class="widget__counter widget__counter--bubble">7</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/servicios/">Servicios</a>&nbsp;
 				<span class="widget__counter widget__counter--bubble">3</span>
-				</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/categories/sociedad/">Sociedad</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">1</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/ssh/">Ssh</a>&nbsp;
@@ -222,11 +210,7 @@
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/sysadmin/">Sysadmin</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">28</span>
-				</li>
-			<li class="widget__item">
-				<a class="widget__link" href="/categories/tecnolog%C3%ADa/">Tecnología</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">1</span>
+				<span class="widget__counter widget__counter--bubble">21</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/terminal/">Terminal</a>&nbsp;
@@ -259,118 +243,89 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/apuntes/" title="Apuntes">Apuntes (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arm64/" title="ARM64">ARM64 (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/autohotkey/" title="AutoHotkey">AutoHotkey (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/automatizaci%C3%B3n/" title="Automatización">Automatización (5)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/backup/" title="Backup">Backup (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/automatizaci%C3%B3n/" title="Automatización">Automatización (4)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/btrfs/" title="Btrfs">Btrfs (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/china/" title="China">China (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ci/cd/" title="CI/CD">CI/CD (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/claude/" title="Claude">Claude (5)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/claude-code/" title="Claude Code">Claude Code (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/claude-code/" title="Claude Code">Claude Code (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cliente/" title="Cliente">Cliente (4)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare/" title="Cloudflare">Cloudflare (8)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare-access/" title="Cloudflare Access">Cloudflare Access (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare-pages/" title="Cloudflare Pages">Cloudflare Pages (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare-r2/" title="Cloudflare R2">Cloudflare R2 (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare-tunnel/" title="Cloudflare Tunnel">Cloudflare Tunnel (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare-workers/" title="Cloudflare Workers">Cloudflare Workers (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflared/" title="Cloudflared">Cloudflared (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/compaq/" title="Compaq">Compaq (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/correo/" title="Correo">Correo (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cloudflare/" title="Cloudflare">Cloudflare (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/compaq/" title="Compaq">Compaq (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddclient/" title="Ddclient">Ddclient (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddns/" title="DDNS">DDNS (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/debian/" title="Debian">Debian (6)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/desinformaci%C3%B3n/" title="Desinformación">Desinformación (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/debian/" title="Debian">Debian (4)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/dkim/" title="DKIM">DKIM (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/dmarc/" title="DMARC">DMARC (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/dns/" title="DNS">DNS (3)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/dominio/" title="Dominio">Dominio (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dns/" title="DNS">DNS (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dns-din%C3%A1mico/" title="DNS Dinámico">DNS Dinámico (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dominio-gratuito/" title="Dominio Gratuito">Dominio Gratuito (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/duckdns/" title="DuckDNS">DuckDNS (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/edge-computing/" title="Edge Computing">Edge Computing (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/edr/" title="EDR">EDR (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/email/" title="Email">Email (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/email-routing/" title="Email Routing">Email Routing (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/formaci%C3%B3n/" title="Formación">Formación (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/free-tier/" title="Free Tier">Free Tier (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/github/" title="GitHub">GitHub (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/gpg/" title="GPG">GPG (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/gui/" title="GUI">GUI (5)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/halt-and-catch-fire/" title="Halt and Catch Fire">Halt and Catch Fire (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/hardware/" title="Hardware">Hardware (3)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/historia/" title="Historia">Historia (3)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/homelab/" title="Homelab">Homelab (12)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/hosting/" title="Hosting">Hosting (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/hugo/" title="Hugo">Hugo (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ia/" title="IA">IA (3)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ian-murdock/" title="Ian Murdock">Ian Murdock (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ibm/" title="IBM">IBM (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/influencers/" title="Influencers">Influencers (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hardware/" title="Hardware">Hardware (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/historia/" title="Historia">Historia (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homelab/" title="HomeLab">HomeLab (7)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ia/" title="IA">IA (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ibm/" title="IBM">IBM (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/internet/" title="Internet">Internet (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ip-din%C3%A1mica/" title="IP Dinámica">IP Dinámica (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/jamstack/" title="JAMstack">JAMstack (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/javascript/" title="JavaScript">JavaScript (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ip-din%C3%A1mica-linux/" title="IP Dinámica Linux">IP Dinámica Linux (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kde/" title="KDE">KDE (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/libertad-de-expresi%C3%B3n/" title="Libertad De Expresión">Libertad De Expresión (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux (5)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux (4)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/luks/" title="LUKS">LUKS (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mcp/" title="MCP">MCP (6)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mfa/" title="MFA">MFA (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/notebooklm/" title="NotebookLM">NotebookLM (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/object-storage/" title="Object Storage">Object Storage (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nopasswd/" title="NOPASSWD">NOPASSWD (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/obsidian/" title="Obsidian">Obsidian (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/open-source/" title="Open Source">Open Source (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/oracle-cloud/" title="Oracle Cloud">Oracle Cloud (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/osint/" title="OSINT">OSINT (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pc/" title="PC">PC (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/oracle-cloud/" title="Oracle Cloud">Oracle Cloud (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/osint/" title="OSINT">OSINT (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pc/" title="PC">PC (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/permisos-linux/" title="Permisos Linux">Permisos Linux (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/port%C3%A1til/" title="Portátil">Portátil (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/powershell/" title="PowerShell">PowerShell (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/privacidad/" title="Privacidad">Privacidad (3)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/productividad/" title="Productividad">Productividad (3)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/privacidad/" title="Privacidad">Privacidad (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/productividad/" title="Productividad">Productividad (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/rag/" title="RAG">RAG (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/qzz.io/" title="Qzz.io">Qzz.io (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/raspberry-pi/" title="Raspberry Pi">Raspberry Pi (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/rclone/" title="Rclone">Rclone (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/redes/" title="Redes">Redes (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/redes-sociales/" title="Redes Sociales">Redes Sociales (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/redes/" title="Redes">Redes (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/redhat/" title="RedHat">RedHat (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/regulaci%C3%B3n/" title="Regulación">Regulación (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rocky/" title="Rocky">Rocky (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3 (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (15)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (13)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/selfhosted/" title="Selfhosted">Selfhosted (8)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/series/" title="Series">Series (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/servidor/" title="Servidor">Servidor (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/shell/" title="Shell">Shell (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/siem/" title="SIEM">SIEM (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/so/" title="SO">SO (18)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/so/" title="SO">SO (17)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spf/" title="SPF">SPF (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="SSH">SSH (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sso/" title="SSO">SSO (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sudo/" title="Sudo">Sudo (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sudoers/" title="Sudoers">Sudoers (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sysadmin/" title="Sysadmin">Sysadmin (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sudoers.d/" title="Sudoers.d">Sudoers.d (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sysadmin/" title="SysAdmin">SysAdmin (4)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/teclas-r%C3%A1pidas/" title="Teclas Rápidas">Teclas Rápidas (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/terminal/" title="Terminal">Terminal (21)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/terminal/" title="Terminal">Terminal (20)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform (2)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/texas/" title="Texas">Texas (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/timeshift/" title="Timeshift">Timeshift (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/tlp/" title="TLP">TLP (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/tmux/" title="Tmux">Tmux (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntu/" title="Ubuntu">Ubuntu (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/usuarios/" title="Usuarios">Usuarios (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/utilidades/" title="Utilidades">Utilidades (21)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/utilidades/" title="Utilidades">Utilidades (20)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visudo/" title="Visudo">Visudo (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vpn/" title="VPN">VPN (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpn/" title="VPN">VPN (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vps/" title="VPS">VPS (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vs-code/" title="VS Code">VS Code (3)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/waf/" title="WAF">WAF (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/wazuh/" title="Wazuh">Wazuh (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/wifi/" title="Wifi">Wifi (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/winrm/" title="WinRM">WinRM (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/wireguard/" title="WireGuard">WireGuard (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wireguard/" title="WireGuard">WireGuard (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/xdr/" title="XDR">XDR (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/zero-trust/" title="Zero Trust">Zero Trust (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh (1)</a>
 	</div>
 </div>
