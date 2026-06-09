@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Oracle Cloud on JaimeAlberto.io</title>
-    <link>http://localhost:1313/tags/oracle-cloud/</link>
-    <description>Recent content in Oracle Cloud on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Wed, 10 Jun 2026 08:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/oracle-cloud/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)</title>
-      <link>http://localhost:1313/post/72_oracle_cloud_free_vps/</link>
-      <pubDate>Wed, 10 Jun 2026 08:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/post/72_oracle_cloud_free_vps/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/oracle_cloud.jpg&#34; alt=&#34;Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;Índice&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#por-qu%C3%A9-oracle-cloud-y-no-otra-alternativa&#34;&gt;Por qué Oracle Cloud y no otra alternativa&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#crear-la-cuenta&#34;&gt;Crear la cuenta&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#crear-la-instancia&#34;&gt;Crear la instancia&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#primera-conexi%C3%B3n&#34;&gt;Primera conexión&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#abrir-puertos-en-oracle-cloud&#34;&gt;Abrir puertos en Oracle Cloud&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#verificar-que-todo-funciona&#34;&gt;Verificar que todo funciona&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mantener-la-instancia-activa&#34;&gt;Mantener la instancia activa&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#qu%C3%A9-hacer-con-esto&#34;&gt;Qué hacer con esto&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#recursos&#34;&gt;Recursos&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;La Alianza Rebelde no tenía presupuesto. Tenía ingenio.&lt;/p&gt;&#xA;&lt;p&gt;Hoth, Yavin IV, la base en el sistema Crait — ninguna fue comprada ni alquilada. Eran planetas olvidados, estaciones abandonadas, rincones del universo que el Imperio no consideraba lo suficientemente valiosos como para guardar.&lt;/p&gt;&#xA;&lt;p&gt;Oracle Cloud tiene algo similar: un nivel gratuito permanente que la mayoría de la gente no sabe que existe, o no se molesta en reclamar. No son los 30 días de prueba de AWS. No son los créditos de GCP que se evaporan sin avisar. Es una VM ARM64 de hasta 4 núcleos y 24 GB de RAM, disponible de forma permanente, sin coste, mientras la mantengas activa.&lt;/p&gt;&#xA;&lt;p&gt;El Imperio digital cobra por cada ciclo de CPU, cada gigabyte de transferencia, cada hora de disponibilidad. Oracle, en este punto concreto de su estrategia comercial, no lo hace.&lt;/p&gt;&#xA;&lt;p&gt;Vamos a reclamar esa base.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Oracle Cloud on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/oracle-cloud/</link><description>Recent content in Oracle Cloud on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Wed, 10 Jun 2026 08:00:00 +0200</lastBuildDate><atom:link href="https://jaimealberto.io/tags/oracle-cloud/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)</title><link>https://jaimealberto.io/post/72_oracle_cloud_free_vps/</link><pubDate>Wed, 10 Jun 2026 08:00:00 +0200</pubDate><guid>https://jaimealberto.io/post/72_oracle_cloud_free_vps/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/oracle_cloud.jpg" alt="Cómo conseguir un VPS gratuito para siempre en Oracle Cloud (con Debian ARM64)"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Índice&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#por-qu%C3%A9-oracle-cloud-y-no-otra-alternativa"&gt;Por qué Oracle Cloud y no otra alternativa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#crear-la-cuenta"&gt;Crear la cuenta&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#crear-la-instancia"&gt;Crear la instancia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#primera-conexi%C3%B3n"&gt;Primera conexión&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#abrir-puertos-en-oracle-cloud"&gt;Abrir puertos en Oracle Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#verificar-que-todo-funciona"&gt;Verificar que todo funciona&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mantener-la-instancia-activa"&gt;Mantener la instancia activa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#qu%C3%A9-hacer-con-esto"&gt;Qué hacer con esto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#recursos"&gt;Recursos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La Alianza Rebelde no tenía presupuesto. Tenía ingenio.&lt;/p&gt;
+&lt;p&gt;Hoth, Yavin IV, la base en el sistema Crait — ninguna fue comprada ni alquilada. Eran planetas olvidados, estaciones abandonadas, rincones del universo que el Imperio no consideraba lo suficientemente valiosos como para guardar.&lt;/p&gt;
+&lt;p&gt;Oracle Cloud tiene algo similar: un nivel gratuito permanente que la mayoría de la gente no sabe que existe, o no se molesta en reclamar. No son los 30 días de prueba de AWS. No son los créditos de GCP que se evaporan sin avisar. Es una VM ARM64 de hasta 4 núcleos y 24 GB de RAM, disponible de forma permanente, sin coste, mientras la mantengas activa.&lt;/p&gt;
+&lt;p&gt;El Imperio digital cobra por cada ciclo de CPU, cada gigabyte de transferencia, cada hora de disponibilidad. Oracle, en este punto concreto de su estrategia comercial, no lo hace.&lt;/p&gt;
+&lt;p&gt;Vamos a reclamar esa base.&lt;/p&gt;</description></item></channel></rss>
