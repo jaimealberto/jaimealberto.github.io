@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WireGuard on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/wireguard/</link><description>Recent content in WireGuard on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jaimealberto.io/tags/wireguard/index.xml" rel="self" type="application/rss+xml"/><item><title>WireGuard</title><link>https://jaimealberto.io/post/35_wireguard/</link><pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/35_wireguard/</guid><description>&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WireGuard on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/wireguard/</link><description>Recent content in WireGuard on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Thu, 11 Jun 2026 08:00:00 +0200</lastBuildDate><atom:link href="https://jaimealberto.io/tags/wireguard/index.xml" rel="self" type="application/rss+xml"/><item><title>Relay WireGuard en Oracle Cloud: full tunnel, kill switch y privacidad frente a tu ISP</title><link>https://jaimealberto.io/post/71_alerta_negra/</link><pubDate>Thu, 11 Jun 2026 08:00:00 +0200</pubDate><guid>https://jaimealberto.io/post/71_alerta_negra/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/alerta_negra.jpg" alt="Relay WireGuard en Oracle Cloud: full tunnel, kill switch y privacidad frente a tu ISP"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Índice&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#la-idea"&gt;La idea&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#lo-que-vamos-a-configurar"&gt;Lo que vamos a configurar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#configurar-el-servidor"&gt;Configurar el servidor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#configurar-el-cliente-debian"&gt;Configurar el cliente&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#script-de-activaci%C3%B3n"&gt;Script de activación&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#verificaci%C3%B3n-completa"&gt;Verificación completa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#c%C3%B3mo-lo-uso-en-la-pr%C3%A1ctica"&gt;Ejemplo en la práctica&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#limitaciones-que-debes-conocer"&gt;Limitaciones&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#flujo-completo-de-trabajo"&gt;Flujo completo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El Imperio no necesita interceptar tus mensajes. Le basta con controlar los nodos por donde pasan.&lt;/p&gt;
+&lt;p&gt;Cada comunicación en la galaxia pasa por infraestructura imperial. Cada salto hiperspacial queda registrado. No es vigilancia activa — es vigilancia pasiva, automatizada, permanente. El Imperio simplemente controla la infraestructura.&lt;/p&gt;
+&lt;p&gt;Tu ISP hace lo mismo. Cada petición DNS, cada conexión TCP, cada byte de tráfico pasa por sus routers antes de llegar a internet. No necesita leer el contenido para saber lo que haces — con los metadatos tiene suficiente.&lt;/p&gt;
+&lt;p&gt;Un relay WireGuard en Oracle Cloud corta esa cadena. Todo tu tráfico sale cifrado hacia un servidor en Frankfurt. Tu ISP ve bytes cifrados con destino a una IP de Oracle. Nada más. Lo que hagas a partir de ahí no pasa por sus registros.&lt;/p&gt;
+&lt;p&gt;El Halcón Milenario llevaba transpondedor falsificado. Tú tienes un túnel cifrado.&lt;/p&gt;
+&lt;p&gt;Activamos el modo alerta.&lt;/p&gt;</description></item><item><title>WireGuard</title><link>https://jaimealberto.io/post/35_wireguard/</link><pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/35_wireguard/</guid><description>&lt;figure&gt;
  &lt;img src="https://jaimealberto.io/img/wireguard.png" alt="WireGuard"&gt;
 &lt;/figure&gt;
 
