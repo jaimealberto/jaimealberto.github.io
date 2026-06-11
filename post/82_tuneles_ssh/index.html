@@ -22,7 +22,7 @@
     <meta property="article:tag" content="Port Forwarding">
     <meta property="article:tag" content="Linux">
     <meta property="article:tag" content="Redes">
-    <meta property="article:tag" content="Sysadmin">
+    <meta property="article:tag" content="SysAdmin">
     <meta property="og:image" content="http://localhost:1313/img/tuneles_ssh.jpg">
 <script type="application/ld+json">
 {
@@ -145,7 +145,6 @@
 <p>La Alianza aprendió pronto que la única forma de comunicarse con seguridad era no usar esos canales. Había otra red — más discreta, construida con nodos de confianza conectados por rutas encubiertas. Un paquete que parecía ir de Tatooine a Mos Eisley llevaba en realidad las coordenadas de Echo Base cifradas en su interior. El firewall imperial solo veía una conexión SSH normal. Lo que viajaba dentro era otra cosa.</p>
 <p>SSH funciona así. No mueve solo sesiones de terminal — mueve cualquier tráfico TCP dentro de un canal cifrado. Un servicio bloqueado por el firewall puede aparecer en tu localhost. Un servidor interno puede exponerse al exterior con un solo comando. La red privada de otro sistema se convierte en tu red.</p>
 <p>Ocho escenarios. Tres flags (<code>-L</code>, <code>-R</code>, <code>-D</code>). Un solo canal SSH. Esta es la guía completa de port forwarding actualizada a 2026: los comandos de hoy, ProxyJump, Sshuttle y lo que los libros no cuentan.</p>
-<!--more-->
 <p><strong>Índice</strong></p>
 <ul>
 <li><a href="#qu%C3%A9-es-un-t%C3%BAnel-ssh">Qué es un túnel SSH</a></li>
@@ -155,7 +154,7 @@
 <li><a href="#gatewayports-el-gotcha-que-nadie-te-cuenta">GatewayPorts: el gotcha que nadie te cuenta</a></li>
 <li><a href="#sshuttle-la-vpn-del-sysadmin">Sshuttle: la VPN del sysadmin</a></li>
 <li><a href="#integraci%C3%B3n-con-sshconfig">Integración con ~/.ssh/config</a></li>
-<li>[Cheat sheet](#c</li>
+<li><a href="#cheat-sheet">Cheat sheet</a></li>
 </ul>
 <hr>
 <blockquote>

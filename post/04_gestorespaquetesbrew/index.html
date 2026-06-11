@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Gestores paquetes MacOS - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Brew, gestor de paqutes para ">
+	<link rel="canonical" href="http://localhost:1313/post/04_gestorespaquetesbrew/">
+		<meta property="og:url" content="http://localhost:1313/post/04_gestorespaquetesbrew/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Gestores paquetes MacOS">
+  <meta property="og:description" content="Brew, gestor de paqutes para ">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-08-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-08-04T00:00:00+00:00">
+    <meta property="article:tag" content="SO">
+    <meta property="article:tag" content="Terminal">
+    <meta property="article:tag" content="Utilidades">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Gestores paquetes MacOS",
+  "description": "Brew, gestor de paqutes para ",
+  "datePublished": "2021-08-04",
+  "dateModified": "2021-08-04",
+  "url": "http:\/\/localhost:1313\/post\/04_gestorespaquetesbrew\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1313\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Gestores paquetes MacOS</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-04T00:00:00Z">04-08-2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text">
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<p>En el sistema operativo de nuestro Mac no tenemos un gestor de paquetes oficial como tal proporcionado por Apple, pero si tenemos alternativas para potenciar nuestra productividad en la terminal. Los mas conocidos son:</p>
+<ul>
+<li>Homebrew</li>
+<li>MacPorts</li>
+<li>Fink</li>
+</ul>
+<h2 id="homebrew">Homebrew</h2>
+<p>Homebrew es una herramienta que todo usuario avanzado de Mac tendría que tener instalado como parte de su arsenal. Su nombre proviene del Homebrew Computer Club, el club mas famoso de computación del cual fueron miembros: Steve Jobs y Steve Wozniak. El club fue fundado en 1975 y reunía a los mas grandes aficionados y profesionales de la computación. Su nacimiento fue promovido por la necesidad de compartir conocimientos sobre ordenadores y electrónica. Dado que en la época cada uno tenia que construirse su propio ordenador, no como ahora que lo compras, lo enchufas, le das al botón y a funcionar. Las historias y anécdotas que rodean este club son legendarias. Creo que la destacada es la relacionada con Bill Gates. Presento su software BASIC, después de realizar la presentación escribió una carta llamando ladrones a muchos de los miembros del club por compartir dicho software, el cual el vendía.</p>
+<p>Su eslogan es bastante claro, “Gestor de paquetes la MacOS”. Es un gestor de paquetes que se utiliza desde el terminal como en cualquier sistema Unix o derivados. Con lo cual esto nos permite desde nuestro terminal la instalación de herramientas o complementos que no vienen de serie en nuestro Mac. Brew como es comúnmente conocido esta pensado para usuarios con conocimientos de uso de la terminal, esto no debe asustar a nadie pues es sencillo y claro en su uso. El uso del terminal puede aumentar altamente nuestra productividad.</p>
+<p>Instalación:</p>
+<p>La instalación es bastante sencilla, desde un terminal escribimos lo siguiente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>/bin/bash -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>/bin/bash -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span></span></span></code></pre></div>
+<p>El programa de instalación te va guiando por el proceso paso a paso, te explica que va a hacer y toma una pausa pidiéndote confirmación antes de comenzar cada uno de los pasos. Puede que en el proceso instale componentes externos. Los mas típicos son Xcode y Cask. Puede que durante la instalación solicite permisos de root mediante sudo.En la pagina oficial se pueden encontrar todas las opciones de instalación y descripción detallada del mismo.</p>
+<p>Uso:</p>
+<p>Homebrew tiene muchas opciones, a parte de lo típico buscar, instalar, actualizar, desinstalar, etc. La forma de usarlo desde nuestra terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>brew &lt;modificador&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>search	  buscar
+</span></span><span style="display:flex;"><span>list	  lista
+</span></span><span style="display:flex;"><span>install	  instalar
+</span></span><span style="display:flex;"><span>uninstall desinstalar
+</span></span><span style="display:flex;"><span>update	  actualizar listado disponibles repositorio
+</span></span><span style="display:flex;"><span>upgrade	  actualizar compara el listado actualizado con lo instalado y actualiza si es necesario
+</span></span><span style="display:flex;"><span>doctor	  da información sobre el estado de lo instalado e indica recomendaciones si existen problemas
+</span></span><span style="display:flex;"><span>cleanup	  borrado de versiones antiguas de paquetes
+</span></span><span style="display:flex;"><span>outdated  ver que paquetes necesitan actualización</span></span></code></pre></div>
+<p>Links:
+<a href="https://brew.sh">https://brew.sh</a></p>
+<p><a href="https://lamanzanamordida.net/homebrew/">https://lamanzanamordida.net/homebrew/</a></p>
+<h2 id="macports">MacPorts</h2>
+<h2 id="fink">Fink</h2>
+<p>Notas para revisar antes de publicar:</p>
+<h2 id="y-cuál-usar-en-cada-caso">¿Y cuál usar en cada caso?</h2>
+<p>Pues la verdad es que yo no soy el mejor ejemplo. Yo suelo tirar más por Brew.</p>
+<p>A pesar de ello, por norma general suelo instalar con MacPorts todo aquello más serio y que más vaya usar, y por HomeBrew aquello menos importante y que menos vaya a usar. Aún así, siempre suelo tender a usar MacPorts, porque es más antiguo y es más probable que el paquete que esté buscando esté allí …</p>
+<p>Además, también cabe recordar que estos dos no son las únicas opciones. También hay otro llamado Fink, aunque nunca lo he usado y por ello no puedo comentarlo (se agradece cualquier comentario u opinión acerca de él). Además, por lo que he podido informarme, ésta ya está en desuso.
+Conclusión</p>
+<p>Un artículo bastante completito: primero un como de historia con el club de computadores, y después una parte más técnica para aquellos más amantes de la informática.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/so/" rel="tag">SO</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/terminal/" rel="tag">Terminal</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/utilidades/" rel="tag">Utilidades</a>
+		</li>
+	</ul>
+</div>
+		</footer></article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

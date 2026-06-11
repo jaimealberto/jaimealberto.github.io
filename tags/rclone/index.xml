@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rclone on JaimeAlberto.io</title>
+    <link>http://localhost:1313/tags/rclone/</link>
+    <description>Recent content in Rclone on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 29 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rclone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare R2: almacenamiento compatible con S3, 10 GB gratis y sin coste de salida</title>
+      <link>http://localhost:1313/post/79_cloudflare_r2/</link>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/79_cloudflare_r2/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_r2.jpg&#34; alt=&#34;Cloudflare R2: almacenamiento compatible con S3, 10 GB gratis y sin coste de salida&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Amazon S3 cobra por almacenar y, sobre todo, por sacar los datos — el coste de egress es lo que más duele en producción. R2 elimina ese coste de salida completamente. Con 10 GB gratis y compatibilidad total con la API de S3, es una opción seria para backups y assets en un homelab.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

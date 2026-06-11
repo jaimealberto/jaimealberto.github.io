@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JAMstack on JaimeAlberto.io</title>
+    <link>http://localhost:1313/tags/jamstack/</link>
+    <description>Recent content in JAMstack on JaimeAlberto.io</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jamstack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Pages: hosting estático gratuito con CI/CD, dominio propio y ancho de banda ilimitado</title>
+      <link>http://localhost:1313/post/77_cloudflare_pages/</link>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/77_cloudflare_pages/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_pages.jpg&#34; alt=&#34;Cloudflare Pages: hosting estático gratuito con CI/CD, dominio propio y ancho de banda ilimitado&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;GitHub Pages es la opción más conocida para alojar sitios estáticos gratis. Cloudflare Pages hace lo mismo pero con ancho de banda ilimitado, deploy previews por cada rama, integración directa con el WAF y la red de Cloudflare detrás.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

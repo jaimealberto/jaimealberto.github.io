@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acceso Remoto on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/acceso-remoto/</link><description>Recent content in Acceso Remoto on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Thu, 11 Jun 2026 08:00:00 +0200</lastBuildDate><atom:link href="https://jaimealberto.io/tags/acceso-remoto/index.xml" rel="self" type="application/rss+xml"/><item><title>Zero Trust en mi homelab: cómo lo implementé sin gastar un euro</title><link>https://jaimealberto.io/post/83_zero_trust_homelab/</link><pubDate>Thu, 11 Jun 2026 08:00:00 +0200</pubDate><guid>https://jaimealberto.io/post/83_zero_trust_homelab/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/zero_trust_homelab.jpg" alt="Zero Trust en mi homelab: cómo lo implementé sin gastar un euro"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Sun Tzu escribió que la victoria real no es ganar la batalla — es no tener que librarla.&lt;/p&gt;
+&lt;p&gt;En seguridad de red, eso se llama Zero Trust. No esperar a que el atacante entre para pararlo. Diseñar la red para que, si entra, no encuentre nada que merezca la pena atacar.&lt;/p&gt;
+&lt;p&gt;Y no necesitas un presupuesto de Fortinet para aplicarlo.&lt;/p&gt;</description></item></channel></rss>

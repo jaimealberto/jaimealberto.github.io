@@ -7,7 +7,13 @@
 &lt;p&gt;Tu ISP hace lo mismo. Cada petición DNS, cada conexión TCP, cada byte de tráfico pasa por sus routers antes de llegar a internet. No necesita leer el contenido para saber lo que haces — con los metadatos tiene suficiente.&lt;/p&gt;
 &lt;p&gt;Un relay WireGuard en Oracle Cloud corta esa cadena. Todo tu tráfico sale cifrado hacia un servidor en Frankfurt. Tu ISP ve bytes cifrados con destino a una IP de Oracle. Nada más. Lo que hagas a partir de ahí no pasa por sus registros.&lt;/p&gt;
 &lt;p&gt;El Halcón Milenario llevaba transpondedor falsificado. Tú tienes un túnel cifrado.&lt;/p&gt;
-&lt;p&gt;Activamos el modo alerta.&lt;/p&gt;</description></item><item><title>WireGuard</title><link>https://jaimealberto.io/post/35_wireguard/</link><pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/35_wireguard/</guid><description>&lt;figure&gt;
+&lt;p&gt;Activamos el modo alerta.&lt;/p&gt;</description></item><item><title>Zero Trust en mi homelab: cómo lo implementé sin gastar un euro</title><link>https://jaimealberto.io/post/83_zero_trust_homelab/</link><pubDate>Thu, 11 Jun 2026 08:00:00 +0200</pubDate><guid>https://jaimealberto.io/post/83_zero_trust_homelab/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/zero_trust_homelab.jpg" alt="Zero Trust en mi homelab: cómo lo implementé sin gastar un euro"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Sun Tzu escribió que la victoria real no es ganar la batalla — es no tener que librarla.&lt;/p&gt;
+&lt;p&gt;En seguridad de red, eso se llama Zero Trust. No esperar a que el atacante entre para pararlo. Diseñar la red para que, si entra, no encuentre nada que merezca la pena atacar.&lt;/p&gt;
+&lt;p&gt;Y no necesitas un presupuesto de Fortinet para aplicarlo.&lt;/p&gt;</description></item><item><title>WireGuard</title><link>https://jaimealberto.io/post/35_wireguard/</link><pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate><guid>https://jaimealberto.io/post/35_wireguard/</guid><description>&lt;figure&gt;
  &lt;img src="https://jaimealberto.io/img/wireguard.png" alt="WireGuard"&gt;
 &lt;/figure&gt;
 
