@@ -1,255 +1,41 @@
-<!DOCTYPE html>
-<html class="no-js" lang="es">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall - JaimeAlberto.io</title>
-	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Cómo usar Cloudflare Tunnel (cloudflared) para acceder a servicios de tu homelab desde Internet sin abrir puertos, sin IP fija y sin exponer tu red. Gratuito y sin límite de ancho de banda.">
-	<link rel="canonical" href="http://localhost:1313/post/75_cloudflare_tunnel/">
-		<meta property="og:url" content="http://localhost:1313/post/75_cloudflare_tunnel/">
-  <meta property="og:site_name" content="JaimeAlberto.io">
-  <meta property="og:title" content="Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall">
-  <meta property="og:description" content="Cómo usar Cloudflare Tunnel (cloudflared) para acceder a servicios de tu homelab desde Internet sin abrir puertos, sin IP fija y sin exponer tu red. Gratuito y sin límite de ancho de banda.">
-  <meta property="og:locale" content="es">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-07-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-07-01T00:00:00+00:00">
-    <meta property="article:tag" content="Cloudflare">
-    <meta property="article:tag" content="Cloudflare Tunnel">
-    <meta property="article:tag" content="Cloudflared">
-    <meta property="article:tag" content="HomeLab">
-    <meta property="article:tag" content="Redes">
-    <meta property="article:tag" content="Seguridad">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall",
-  "description": "Cómo usar Cloudflare Tunnel (cloudflared) para acceder a servicios de tu homelab desde Internet sin abrir puertos, sin IP fija y sin exponer tu red. Gratuito y sin límite de ancho de banda.",
-  "datePublished": "2026-07-01",
-  "dateModified": "2026-07-01",
-  "url": "http:\/\/localhost:1313\/post\/75_cloudflare_tunnel\/",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "https://www.linkedin.com/in/jaimealbertoio/",
-    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "http:\/\/localhost:1313\/"
-  }
-}
-</script>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
-
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/custom.css">
-
-	<link rel="shortcut icon" href="/favicon.ico">
-</head>
-<body class="body">
-	<div class="container container--outer">
-		<header class="header">
-	<div class="container header__container">
-		
-	<div class="logo">
-		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
-			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
-				</div>
-		</a>
-	</div>
-		
-<nav class="menu">
-	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-		<span class="menu__btn-title" tabindex="-1">Menú</span>
-	</button>
-	<ul class="menu__list">
-		<li class="menu__item">
-			<a class="menu__link" href="/yo/">
-				
-				<span class="menu__text">Sobre mí</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/post/">
-				
-				<span class="menu__text">Artículos</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/hardware/">
-				
-				<span class="menu__text">Hardware</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recetas/">
-				
-				<span class="menu__text">Recetas</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/raspberrypi/">
-				
-				<span class="menu__text">Raspberry Pi</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recursos/">
-				
-				<span class="menu__text">Recursos</span>
-				
-			</a>
-		</li>
-	</ul>
-</nav>
-
-	</div>
-</header>
-		<div class="wrapper flex">
-			<div class="primary">
-			
-<main class="main" role="main">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall</h1>
-			<div class="post__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-07-01T00:00:00Z">01-07-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>, <a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>
-	</span>
-</div></div>
-		</header>
-<div class="post__toc toc">
-	<div class="toc__title">Índice</div>
-	<div class="toc__menu">
-		<nav id="TableOfContents">
-  <ul>
-    <li><a href="#cómo-funciona-tunnel">Cómo funciona Tunnel</a></li>
-    <li><a href="#instalación-de-cloudflared">Instalación de cloudflared</a></li>
-    <li><a href="#crear-el-túnel">Crear el túnel</a></li>
-    <li><a href="#exponer-un-servicio">Exponer un servicio</a>
-      <ul>
-        <li><a href="#ejemplo-jellyfin">Ejemplo: Jellyfin</a></li>
-        <li><a href="#ejemplo-grafana">Ejemplo: Grafana</a></li>
-        <li><a href="#ejemplo-un-panel-web-cualquiera">Ejemplo: un panel web cualquiera</a></li>
-      </ul>
-    </li>
-    <li><a href="#proteger-el-acceso-con-zero-trust-access">Proteger el acceso con Zero Trust Access</a></li>
-    <li><a href="#token-seguro-y-arranque-automático-con-systemd">Token seguro y arranque automático con systemd</a></li>
-    <li><a href="#cuándo-usar-tunnel-y-cuándo-no">Cuándo usar Tunnel y cuándo no</a></li>
-  </ul>
-</nav>
-	</div>
-</div><div class="content post__content clearfix">
-			<figure>
-  <img src="/img/cloudflare_tunnel.jpg" alt="Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall">
-</figure>
-
-<p>Sin abrir un solo puerto en el router, sin IP fija, sin configurar NAT. Cloudflare Tunnel crea una conexión saliente desde tu servidor hacia la red de Cloudflare — y es Cloudflare quien recibe el tráfico y lo reenvía a tu servicio. El atacante nunca ve tu IP real.</p>
-<hr>
-<h2 id="cómo-funciona-tunnel">Cómo funciona Tunnel</h2>
-<h2 id="instalación-de-cloudflared">Instalación de cloudflared</h2>
-<h2 id="crear-el-túnel">Crear el túnel</h2>
-<h2 id="exponer-un-servicio">Exponer un servicio</h2>
-<h3 id="ejemplo-jellyfin">Ejemplo: Jellyfin</h3>
-<h3 id="ejemplo-grafana">Ejemplo: Grafana</h3>
-<h3 id="ejemplo-un-panel-web-cualquiera">Ejemplo: un panel web cualquiera</h3>
-<h2 id="proteger-el-acceso-con-zero-trust-access">Proteger el acceso con Zero Trust Access</h2>
-<h2 id="token-seguro-y-arranque-automático-con-systemd">Token seguro y arranque automático con systemd</h2>
-<h2 id="cuándo-usar-tunnel-y-cuándo-no">Cuándo usar Tunnel y cuándo no</h2>
-		</div>
-		<footer class="post__footer">
-			
-<div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/cloudflare/" rel="tag">Cloudflare</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/cloudflare-tunnel/" rel="tag">Cloudflare Tunnel</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/cloudflared/" rel="tag">cloudflared</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/homelab/" rel="tag">Homelab</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/redes/" rel="tag">Redes</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/zero-trust/" rel="tag">Zero Trust</a>
-		</li>
-	</ul>
-</div>
-		</footer></article>
-</main>
-
-<div class="authorbox clearfix">
-	<figure class="authorbox__avatar">
-		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
-	</figure>
-	<div class="authorbox__header">
-		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
-	</div>
-	<div class="authorbox__description">
-		The BOFH of this Site
-	</div>
-</div>
-<div class="cta">
-	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
-	<div class="cta__links">
-		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
-			LinkedIn
-		</a>
-		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
-			GitHub
-		</a>
-	</div>
-</div>
-
-
-
-
-			</div>
-			
-		</div>
-		<footer class="footer">
-	<div class="container footer__container flex">
-		
-<div class="footer__links">
-	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
-</div>
-		<div class="footer__copyright">
-			&copy; 2026 JaimeAlberto.
-			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
-		</div>
-	</div>
-</footer>
-	</div>
-<script async defer src="/js/menu.js"></script>
-<script src="/js/custom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
-</body>
-</html>
+<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Cloudflare Tunnel en Linux: accede a Jellyfin y Proxmox sin abrir puertos ni IP fija. cloudflared con systemd, HTTPS automático y acceso remoto gratuito."><link rel=canonical href=https://jaimealberto.io/post/75_cloudflare_tunnel/><meta property="og:url" content="https://jaimealberto.io/post/75_cloudflare_tunnel/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall"><meta property="og:description" content="Cloudflare Tunnel en Linux: accede a Jellyfin y Proxmox sin abrir puertos ni IP fija. cloudflared con systemd, HTTPS automático y acceso remoto gratuito."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-06-14T08:00:00+02:00"><meta property="article:modified_time" content="2026-06-14T08:00:00+02:00"><meta property="article:tag" content="Cloudflare"><meta property="article:tag" content="Cloudflare Tunnel"><meta property="article:tag" content="Homelab"><meta property="article:tag" content="Redes"><meta property="article:tag" content="Seguridad"><meta property="article:tag" content="Zero Trust"><meta property="og:image" content="https://jaimealberto.io/img/cloudflare_tunnel.jpg"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall","description":"Cloudflare Tunnel en Linux: accede a Jellyfin y Proxmox sin abrir puertos ni IP fija. cloudflared con systemd, HTTPS automático y acceso remoto gratuito.","datePublished":"2026-06-14","dateModified":"2026-06-14","url":"https:\/\/jaimealberto.io\/post\/75_cloudflare_tunnel\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-06-14T08:00:00+02:00>14-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a>, <a class=meta__link href=/categories/redes/ rel=category>Redes</a>, <a class=meta__link href=/categories/seguridad/ rel=category>Seguridad</a></span></div></div></header><div class="content post__content clearfix"><figure><img src=/img/cloudflare_tunnel.jpg alt="Cloudflare Tunnel: expón servicios locales sin abrir puertos ni tocar el firewall"></figure><p>Un Jedi no muestra su sable hasta que es necesario. Un sysadmin no abre puertos hasta que no queda otra opción.</p><p>El acceso remoto clásico hace lo contrario: abre puertos en el router y publica tu posición. El 8443 de tu Proxmox, el 8096 de tu Jellyfin, el 22 de tu SSH — visibles para cualquier bot que escanee internet, esperando a que alguien encuentre el exploit del mes.</p><p>Cloudflare Tunnel gira esa lógica. Tu servidor establece una conexión saliente hacia Cloudflare — son ellos quienes reciben el tráfico exterior y lo reenvían hacia ti. El router no abre nada. Tu IP real no aparece en ningún sitio. El atacante no puede atacar lo que no ve.</p><p>Sin un solo puerto abierto. Sin IP fija. Sin NAT. Y tu Jellyfin accesible desde cualquier lugar del mundo con HTTPS y con tu propio dominio.</p><p><strong>Índice</strong></p><ul><li><a href=#el-problema-que-tunnel-resuelve>El problema que Tunnel resuelve</a></li><li><a href=#c%C3%B3mo-funciona-cloudflare-tunnel>Cómo funciona Cloudflare Tunnel</a></li><li><a href=#opnsense-o-linux>OPNsense o Linux</a></li><li><a href=#instalaci%C3%B3n-en-linux>Instalación en Linux</a></li><li><a href=#crear-el-t%C3%BAnel-desde-cloudflare>Crear el túnel desde Cloudflare</a></li><li><a href=#exponer-servicios-jellyfin-proxmox-y-m%C3%A1s>Exponer servicios: Jellyfin, Proxmox y más</a></li><li><a href=#token-seguro-y-arranque-con-systemd>Token seguro y arranque con systemd</a></li><li><a href=#varios-servicios-desde-el-mismo-t%C3%BAnel>Varios servicios desde el mismo túnel</a></li><li><a href=#proteger-el-acceso-con-cloudflare-access>Proteger el acceso con Cloudflare Access</a></li><li><a href=#cu%C3%A1ndo-usar-tunnel-y-cu%C3%A1ndo-no>Cuándo usar Tunnel y cuándo no</a></li></ul><hr><h2 id=el-problema-que-tunnel-resuelve>El problema que Tunnel resuelve</h2><p>Tienes un servidor en casa con Jellyfin, un panel de monitorización, quizás un Proxmox. Quieres acceder desde fuera.</p><p>La solución clásica: abrir puertos en el router, configurar NAT, apuntar un DDNS a tu IP dinámica y esperar a que tu ISP no te cambie la IP en el momento más inoportuno. Si además quieres HTTPS, toca gestionar certificados. Si la IP cambia, el certificado deja de funcionar hasta que lo renuevas.</p><p>Cada puerto abierto es superficie de ataque. Bots escaneando el 22, el 8443, el 1194. Tu IP real expuesta en los logs de cualquier servicio que consulte el cliente. Un solo exploit en el software expuesto puede comprometer toda la red interna.</p><p>Cloudflare Tunnel invierte la lógica. En lugar de abrir un puerto para que entre el tráfico, es tu servidor el que establece una conexión saliente hacia la red de Cloudflare. Cloudflare recibe las peticiones externas y las reenvía por ese canal hacia tu servicio. El router no expone nada. Tu IP real no aparece en ningún sitio.</p><hr><h2 id=cómo-funciona-cloudflare-tunnel>Cómo funciona Cloudflare Tunnel</h2><figure><img src=/img/zt_cloudflare_tunnel.jpg alt="Cloudflare Tunnel: flujo de datos entre el servidor y Cloudflare"></figure><p><code>cloudflared</code> es el daemon que corre en tu servidor. Al arrancar, establece conexiones persistentes hacia los edge nodes de Cloudflare usando el protocolo QUIC — rápido, con baja latencia y resistente a cambios de red.</p><p>Cuando alguien accede a <code>jellyfin.tudominio.com</code>:</p><ol><li>La petición llega a Cloudflare (el DNS del dominio apunta a sus servidores)</li><li>Cloudflare la enruta por el túnel establecido hacia tu servidor</li><li><code>cloudflared</code> la reenvía al servicio interno en <code>localhost:8096</code></li><li>La respuesta vuelve por el mismo camino</li></ol><p>Tu router no tiene ningún puerto abierto. Cloudflare gestiona el TLS — el cliente ve un certificado válido sin que tú tengas que hacer nada. Y si tu IP dinámica cambia, el túnel se reconecta automáticamente.</p><hr><h2 id=opnsense-o-linux>OPNsense o Linux</h2><p>Hay dos formas de desplegar Cloudflare Tunnel:</p><p><strong>Plugin os-cloudflared en OPNsense</strong> — el tunnel corre en el firewall y puede acceder a cualquier servicio de la red interna. Una sola instancia para toda la infraestructura, gestionada desde la GUI de OPNsense.</p><p><strong>Linux directo</strong> — instalas <code>cloudflared</code> en el servidor que quieres exponer. Útil cuando el servicio corre en una máquina específica: un NAS, un servidor multimedia, un LXC en Proxmox.</p><p>Si usas OPNsense, el plugin es la opción más limpia y está documentada en detalle en <a href=/post/83_zero_trust_homelab/>Zero Trust en mi homelab sin gastar un euro</a>. Las secciones siguientes cubren la instalación directa en Linux.</p><hr><h2 id=instalación-en-linux>Instalación en Linux</h2><p>Cloudflare mantiene repositorio oficial para Debian y Ubuntu. La forma más limpia:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  | sudo tee /usr/share/keyrings/cloudflare-main.gpg &gt; /dev/null
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] \
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  https://pkg.cloudflare.com/cloudflared bookworm main&#39;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  | sudo tee /etc/apt/sources.list.d/cloudflared.list
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo apt update <span style=color:#f92672>&amp;&amp;</span> sudo apt install cloudflared
+</span></span></code></pre></div><p>Para otras distribuciones o arquitecturas (ARM, Alpine), los paquetes están en la <a href=https://github.com/cloudflare/cloudflared/releases>página de releases de cloudflared</a>.</p><p>Verifica que quedó bien:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>cloudflared --version
+</span></span></code></pre></div><pre tabindex=0><code>cloudflared version 2025.x.x (built ...)
+</code></pre><hr><h2 id=crear-el-túnel-desde-cloudflare>Crear el túnel desde Cloudflare</h2><p>Toda la configuración vive en el panel de Cloudflare Zero Trust — <code>cloudflared</code> solo necesita el token para conectarse.</p><p><strong>Paso 1 — Cuenta y panel Zero Trust</strong></p><p>Necesitas una cuenta en Cloudflare con el dominio dado de alta. Si aún no tienes dominio propio, en el artículo <a href=/post/73_ddns_gratuito/>DDNS gratuito en Linux</a> explico cómo conseguir uno sin coste y añadirlo a Cloudflare. El plan gratuito cubre todo lo que vas a necesitar.</p><p>Ve a <a href=https://one.dash.cloudflare.com/>one.dash.cloudflare.com</a>, acepta los términos del plan gratuito y entra en el panel Zero Trust.</p><p><strong>Paso 2 — Crear el túnel</strong></p><p>En el menú lateral: <code>Networks → Tunnels → Create a tunnel</code></p><ul><li>Tipo de conector: <strong>Cloudflared</strong></li><li>Nombre: algo descriptivo (ej: <code>homelab</code>, <code>servidor-casa</code>)</li></ul><p>En la pantalla siguiente aparece el <strong>token del túnel</strong> — una cadena larga que empieza por <code>eyJ...</code>. Cópiala, la necesitas en el siguiente paso.</p><p><strong>Paso 3 — Conectar el servidor</strong></p><p>Con el token en mano, conecta <code>cloudflared</code> al túnel e instálalo como servicio systemd en un solo comando:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo cloudflared service install TU_TOKEN_AQUI
+</span></span><span style=display:flex><span>sudo systemctl enable --now cloudflared
+</span></span></code></pre></div><p>En el panel de Cloudflare el túnel pasará a estado <strong>Healthy</strong> en unos segundos. Si ves <strong>Inactive</strong> pasado un minuto, revisa los logs:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo journalctl -u cloudflared -f
+</span></span></code></pre></div><hr><h2 id=exponer-servicios-jellyfin-proxmox-y-más>Exponer servicios: Jellyfin, Proxmox y más</h2><p>El siguiente paso es decirle a Cloudflare qué peticiones redirigir hacia qué servicio. Se configura en <code>Networks → Tunnels → tu túnel → Public Hostname</code>.</p><p>Cada regla tiene dos campos principales:</p><ul><li><strong>Subdomain + Domain</strong>: el nombre público (ej: <code>jellyfin.tudominio.com</code>)</li><li><strong>Service</strong>: la URL interna (ej: <code>http://localhost:8096</code>)</li></ul><p>Cloudflare crea automáticamente el registro DNS en tu zona. No hace falta tocarlo a mano.</p><h3 id=ejemplo-jellyfin>Ejemplo: Jellyfin</h3><p>Jellyfin escucha por defecto en el puerto 8096 sin TLS. La regla en Cloudflare:</p><table><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td>Subdomain</td><td><code>jellyfin</code></td></tr><tr><td>Domain</td><td><code>tudominio.com</code></td></tr><tr><td>Type</td><td>HTTP</td></tr><tr><td>URL</td><td><code>localhost:8096</code></td></tr></tbody></table><p>Una vez guardada, <code>jellyfin.tudominio.com</code> es accesible con HTTPS desde cualquier sitio, con certificado válido gestionado por Cloudflare.</p><h3 id=servicios-con-certificado-autofirmado>Servicios con certificado autofirmado</h3><p>Proxmox, TrueNAS y muchos paneles de administración usan HTTPS con certificado autofirmado. La configuración es igual, pero hay que activar <strong>No TLS Verify</strong> en la regla:</p><table><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td>Type</td><td>HTTPS</td></tr><tr><td>URL</td><td><code>localhost:8006</code></td></tr><tr><td>No TLS Verify</td><td>✓ activado</td></tr></tbody></table><p>Sin esa opción, <code>cloudflared</code> rechaza la conexión porque el certificado autofirmado no es de confianza.</p><hr><h2 id=token-seguro-y-arranque-con-systemd>Token seguro y arranque con systemd</h2><p><code>cloudflared service install TOKEN</code> crea el servicio systemd y escribe el token directamente en el fichero de unidad. Funciona, pero el token queda visible en texto plano en <code>/etc/systemd/system/cloudflared.service</code>.</p><p>Si quieres más control, guárdalo en un fichero con permisos restringidos:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo mkdir -p /etc/cloudflare
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;TUNNEL_TOKEN=TU_TOKEN_AQUI&#34;</span> | sudo tee /etc/cloudflare/tunnel.env
+</span></span><span style=display:flex><span>sudo chmod <span style=color:#ae81ff>600</span> /etc/cloudflare/tunnel.env
+</span></span><span style=display:flex><span>sudo chown root:root /etc/cloudflare/tunnel.env
+</span></span></code></pre></div><p>Luego crea el fichero de unidad:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>sudo tee /etc/systemd/system/cloudflared.service &gt; /dev/null <span style=color:#e6db74>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>[Unit]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Description=Cloudflare Tunnel
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>After=network-online.target
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Wants=network-online.target
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>[Service]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EnvironmentFile=/etc/cloudflare/tunnel.env
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>ExecStart=/usr/bin/cloudflared tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Restart=on-failure
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>RestartSec=5s
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>User=root
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>[Install]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>WantedBy=multi-user.target
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo systemctl daemon-reload
+</span></span><span style=display:flex><span>sudo systemctl enable --now cloudflared
+</span></span><span style=display:flex><span>sudo systemctl status cloudflared
+</span></span></code></pre></div><p>El token solo es legible por root. El servicio se reinicia automáticamente si <code>cloudflared</code> cae.</p><hr><h2 id=varios-servicios-desde-el-mismo-túnel>Varios servicios desde el mismo túnel</h2><p>Un solo túnel puede exponer todos los servicios que quieras — añades reglas en el panel de Cloudflare y no hace falta instalar <code>cloudflared</code> en cada máquina.</p><p>Si el servicio no corre en el mismo servidor donde está <code>cloudflared</code>, usa la IP interna como destino:</p><table><thead><tr><th>Subdomain</th><th>Service</th></tr></thead><tbody><tr><td><code>jellyfin.tudominio.com</code></td><td><code>http://192.168.1.10:8096</code></td></tr><tr><td><code>proxmox.tudominio.com</code></td><td><code>https://192.168.1.1:8006</code></td></tr><tr><td><code>grafana.tudominio.com</code></td><td><code>http://192.168.1.20:3000</code></td></tr><tr><td><code>nas.tudominio.com</code></td><td><code>http://192.168.1.4:80</code></td></tr></tbody></table><p><code>cloudflared</code> enruta cada petición al destino correspondiente según el hostname. Una instancia en el firewall gestiona toda la infraestructura desde un solo punto.</p><hr><h2 id=proteger-el-acceso-con-cloudflare-access>Proteger el acceso con Cloudflare Access</h2><p>Tunnel expone el servicio. Pero por defecto cualquiera que conozca el subdominio puede llegar a él.</p><p>Cloudflare Access añade autenticación delante: antes de que la petición llegue a tu servidor, el usuario tiene que identificarse — con Google, GitHub, correo con OTP, o cualquier proveedor compatible. Sin autenticación, la petición no pasa.</p><p>Access está incluido en el plan gratuito hasta 50 usuarios y se configura en el mismo panel de Cloudflare Zero Trust.</p><p>El siguiente artículo de esta serie cubre Access en detalle: cómo crear políticas, qué proveedores de identidad soporta y cómo combinar Tunnel + Access para un acceso remoto realmente seguro → <a href=/post/76_cloudflare_zero_trust/>Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN</a>.</p><hr><h2 id=cuándo-usar-tunnel-y-cuándo-no>Cuándo usar Tunnel y cuándo no</h2><p>Tunnel resuelve bien un caso concreto: exponer un servicio HTTP/HTTPS a internet sin abrir puertos. Para ese caso, es difícil encontrar algo comparable en sencillez y coste.</p><p>Hay situaciones donde no es la opción adecuada:</p><p><strong>Protocolos que no sean HTTP/HTTPS.</strong> Tunnel es un proxy HTTP. Si necesitas exponer SSH, una base de datos, o cualquier cosa que use un protocolo binario sobre TCP directamente, Tunnel no te sirve. Cloudflare tiene Spectrum para TCP/UDP arbitrario, pero es de pago.</p><p><strong>Acceso a toda la red interna.</strong> Tunnel expone servicios concretos. Si lo que quieres es conectar un dispositivo remoto como si estuviera en tu LAN — acceder a cualquier servicio interno sin configurar cada uno por separado — la alternativa es ZeroTier o Tailscale. Los dos tienen plugins para OPNsense y son igualmente gratuitos.</p><p><strong>Privacidad total.</strong> El tráfico pasa por los servidores de Cloudflare. Cloudflare gestiona el TLS — técnicamente puede ver el contenido no cifrado antes de reenviarlo. En la mayoría de casos esto no es relevante, pero si no quieres que los datos pasen por una tercera parte, un túnel directo WireGuard es más adecuado.</p><p><strong>Latencia baja.</strong> El salto extra por los servidores de Cloudflare añade algunos milisegundos. Para streaming de baja latencia o gaming puede notarse.</p><p>Si te encaja en el caso de uso — y para la mayoría de servicios de homelab lo hace — es gratuito, no requiere mantenimiento y añade HTTPS automático. Difícil de mejorar.</p><hr><p>Si quieres ver Tunnel integrado en un stack completo — con VLANs en OPNsense, ZeroTier y Tailscale — lo tienes documentado en <a href=/post/83_zero_trust_homelab/>Zero Trust en mi homelab sin gastar un euro</a>.</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/cloudflare/ rel=tag>Cloudflare</a></li><li class=tags__item><a class="tags__link btn" href=/tags/cloudflare-tunnel/ rel=tag>Cloudflare Tunnel</a></li><li class=tags__item><a class="tags__link btn" href=/tags/homelab/ rel=tag>Homelab</a></li><li class=tags__item><a class="tags__link btn" href=/tags/redes/ rel=tag>Redes</a></li><li class=tags__item><a class="tags__link btn" href=/tags/seguridad/ rel=tag>Seguridad</a></li><li class=tags__item><a class="tags__link btn" href=/tags/zero-trust/ rel=tag>Zero Trust</a></li><li class=tags__item><a class="tags__link btn" href=/tags/acceso-remoto/ rel=tag>acceso remoto</a></li><li class=tags__item><a class="tags__link btn" href=/tags/linux/ rel=tag>Linux</a></li><li class=tags__item><a class="tags__link btn" href=/tags/selfhosted/ rel=tag>Selfhosted</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
+</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
+<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MFA on JaimeAlberto.io</title>
-    <link>http://localhost:1313/tags/mfa/</link>
+    <link>http://localhost:33693/tags/mfa/</link>
     <description>Recent content in MFA on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 08 Jul 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/mfa/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jun 2026 08:00:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:33693/tags/mfa/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN</title>
-      <link>http://localhost:1313/post/76_cloudflare_zero_trust/</link>
-      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/76_cloudflare_zero_trust/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_zero_trust.jpg&#34; alt=&#34;Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El modelo clásico de seguridad perimetral asume que todo lo que está dentro de tu red es de confianza. Zero Trust invierte esa premisa: nadie es de confianza por defecto, ni siquiera dentro de la red. Cada acceso se verifica con identidad, dispositivo y contexto.&lt;/p&gt;</description>
+      <title>Cloudflare Access: autenticación delante de cualquier servicio, sin VPN</title>
+      <link>http://localhost:33693/post/76_cloudflare_zero_trust/</link>
+      <pubDate>Wed, 17 Jun 2026 08:00:00 +0200</pubDate>
+      <guid>http://localhost:33693/post/76_cloudflare_zero_trust/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:33693/img/cloudflare_zero_trust.jpg&#34; alt=&#34;Cloudflare Access: autenticación delante de cualquier servicio, sin VPN&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:33693/post/75_cloudflare_tunnel/&#34;&gt;Cloudflare Tunnel&lt;/a&gt; hace tu servidor invisible desde internet: sin puertos abiertos, sin IP expuesta. Pero invisible no significa inaccesible. La URL sigue existiendo. Cloudflare la atiende. Y cualquiera que tenga el subdominio puede llamar a esa puerta.&lt;/p&gt;&#xA;&lt;p&gt;Cloudflare Access es el portero. Antes de que una sola petición llegue a tu servicio, el usuario tiene que identificarse. No hay contraseña compartida, no hay VPN que instalar, no hay clave que gestionar. Solo: demuestra quién eres, y si tu identidad cumple la política, entras.&lt;/p&gt;&#xA;&lt;p&gt;El modelo VPN confía en la red: si estás dentro, tienes acceso. El modelo Zero Trust confía en la identidad: no importa desde dónde conectes. Importa quién eres.&lt;/p&gt;&#xA;&lt;p&gt;Cloudflare Access convierte un subdominio en una puerta con identificación obligatoria. Con el plan gratuito, hasta 50 usuarios.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

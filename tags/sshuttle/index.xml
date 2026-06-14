@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sshuttle on JaimeAlberto.io</title>
-    <link>http://localhost:1313/tags/sshuttle/</link>
+    <link>http://localhost:33693/tags/sshuttle/</link>
     <description>Recent content in Sshuttle on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 15 Jun 2026 08:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/sshuttle/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:33693/tags/sshuttle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSH port forwarding: los 8 escenarios con -L, -R y -D</title>
-      <link>http://localhost:1313/post/82_tuneles_ssh/</link>
+      <link>http://localhost:33693/post/82_tuneles_ssh/</link>
       <pubDate>Mon, 15 Jun 2026 08:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/post/82_tuneles_ssh/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/tuneles_ssh.jpg&#34; alt=&#34;SSH port forwarding: los 8 escenarios con -L, -R y -D&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El Imperio controla la Holonet. Cada mensaje que viaja por los canales oficiales pasa por sus filtros, sus inspectores, sus reglas de firewall.&lt;/p&gt;&#xA;&lt;p&gt;La Alianza aprendió pronto que la única forma de comunicarse con seguridad era no usar esos canales. Había otra red — más discreta, construida con nodos de confianza conectados por rutas encubiertas. Un paquete que parecía ir de Tatooine a Mos Eisley llevaba en realidad las coordenadas de Echo Base cifradas en su interior. El firewall imperial solo veía una conexión SSH normal. Lo que viajaba dentro era otra cosa.&lt;/p&gt;&#xA;&lt;p&gt;SSH funciona así. No mueve solo sesiones de terminal — mueve cualquier tráfico TCP dentro de un canal cifrado. Un servicio bloqueado por el firewall puede aparecer en tu localhost. Un servidor interno puede exponerse al exterior con un solo comando. La red privada de otro sistema se convierte en tu red.&lt;/p&gt;&#xA;&lt;p&gt;Ocho escenarios. Tres flags (&lt;code&gt;-L&lt;/code&gt;, &lt;code&gt;-R&lt;/code&gt;, &lt;code&gt;-D&lt;/code&gt;). Un solo canal SSH. Esta es la guía completa de port forwarding actualizada a 2026: los comandos de hoy, ProxyJump, Sshuttle y lo que los libros no cuentan.&lt;/p&gt;</description>
+      <guid>http://localhost:33693/post/82_tuneles_ssh/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:33693/img/tuneles_ssh.jpg&#34; alt=&#34;SSH port forwarding: los 8 escenarios con -L, -R y -D&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El Imperio controla la Holonet. Cada mensaje que viaja por los canales oficiales pasa por sus filtros, sus inspectores, sus reglas de firewall.&lt;/p&gt;&#xA;&lt;p&gt;La Alianza aprendió pronto que la única forma de comunicarse con seguridad era no usar esos canales. Había otra red — más discreta, construida con nodos de confianza conectados por rutas encubiertas. Un paquete que parecía ir de Tatooine a Mos Eisley llevaba en realidad las coordenadas de Echo Base cifradas en su interior. El firewall imperial solo veía una conexión SSH normal. Lo que viajaba dentro era otra cosa.&lt;/p&gt;&#xA;&lt;p&gt;SSH funciona así. No mueve solo sesiones de terminal — mueve cualquier tráfico TCP dentro de un canal cifrado. Un servicio bloqueado por el firewall puede aparecer en tu localhost. Un servidor interno puede exponerse al exterior con un solo comando. La red privada de otro sistema se convierte en tu red.&lt;/p&gt;&#xA;&lt;p&gt;Ocho escenarios. Tres flags (&lt;code&gt;-L&lt;/code&gt;, &lt;code&gt;-R&lt;/code&gt;, &lt;code&gt;-D&lt;/code&gt;). Un solo canal SSH. Esta es la guía completa de port forwarding actualizada a 2026: los comandos de hoy, ProxyJump, Sshuttle y lo que los libros no cuentan.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

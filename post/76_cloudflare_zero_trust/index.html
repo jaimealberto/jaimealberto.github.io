@@ -4,33 +4,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN - JaimeAlberto.io</title>
+	<title>Cloudflare Access: autenticación delante de cualquier servicio, sin VPN - JaimeAlberto.io</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Cómo usar Cloudflare Zero Trust Access para proteger servicios internos con SSO, MFA y políticas de identidad. Gratuito hasta 50 usuarios. Sin VPN, sin abrir puertos.">
+	<meta name="description" content="Cloudflare Access pone autenticación delante de tus servicios: Google, GitHub u OTP. Sin VPN, sin contraseña compartida. Políticas, MFA y 50 usuarios gratis.">
 	<link rel="canonical" href="http://localhost:1313/post/76_cloudflare_zero_trust/">
 		<meta property="og:url" content="http://localhost:1313/post/76_cloudflare_zero_trust/">
   <meta property="og:site_name" content="JaimeAlberto.io">
-  <meta property="og:title" content="Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN">
-  <meta property="og:description" content="Cómo usar Cloudflare Zero Trust Access para proteger servicios internos con SSO, MFA y políticas de identidad. Gratuito hasta 50 usuarios. Sin VPN, sin abrir puertos.">
+  <meta property="og:title" content="Cloudflare Access: autenticación delante de cualquier servicio, sin VPN">
+  <meta property="og:description" content="Cloudflare Access pone autenticación delante de tus servicios: Google, GitHub u OTP. Sin VPN, sin contraseña compartida. Políticas, MFA y 50 usuarios gratis.">
   <meta property="og:locale" content="es">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-07-08T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-07-08T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-06-17T08:00:00+02:00">
+    <meta property="article:modified_time" content="2026-06-17T08:00:00+02:00">
     <meta property="article:tag" content="Cloudflare">
-    <meta property="article:tag" content="Zero Trust">
     <meta property="article:tag" content="Cloudflare Access">
+    <meta property="article:tag" content="Zero Trust">
+    <meta property="article:tag" content="Autenticación">
     <meta property="article:tag" content="SSO">
     <meta property="article:tag" content="MFA">
-    <meta property="article:tag" content="HomeLab">
+    <meta property="og:image" content="http://localhost:1313/img/cloudflare_zero_trust.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN",
-  "description": "Cómo usar Cloudflare Zero Trust Access para proteger servicios internos con SSO, MFA y políticas de identidad. Gratuito hasta 50 usuarios. Sin VPN, sin abrir puertos.",
-  "datePublished": "2026-07-08",
-  "dateModified": "2026-07-08",
+  "headline": "Cloudflare Access: autenticación delante de cualquier servicio, sin VPN",
+  "description": "Cloudflare Access pone autenticación delante de tus servicios: Google, GitHub u OTP. Sin VPN, sin contraseña compartida. Políticas, MFA y 50 usuarios gratis.",
+  "datePublished": "2026-06-17",
+  "dateModified": "2026-06-17",
   "url": "http:\/\/localhost:1313\/post\/76_cloudflare_zero_trust\/",
   "inLanguage": "es",
   "author": {
@@ -127,44 +128,308 @@
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN</h1>
+			<h1 class="post__title">Cloudflare Access: autenticación delante de cualquier servicio, sin VPN</h1>
 			<div class="post__meta meta"><div class="meta__item-author meta__item">
 	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
 </div>
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-07-08T00:00:00Z">08-07-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-17T08:00:00&#43;02:00">17-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>
 	</span>
 </div></div>
-		</header>
-<div class="post__toc toc">
-	<div class="toc__title">Índice</div>
-	<div class="toc__menu">
-		<nav id="TableOfContents">
-  <ul>
-    <li><a href="#qué-es-zero-trust-y-por-qué-importa">Qué es Zero Trust y por qué importa</a></li>
-    <li><a href="#cloudflare-access--el-componente-clave">Cloudflare Access — el componente clave</a></li>
-    <li><a href="#configurar-el-primer-proveedor-de-identidad-google-github-email-otp">Configurar el primer proveedor de identidad (Google, GitHub, email OTP)</a></li>
-    <li><a href="#crear-una-política-de-acceso-para-un-servicio">Crear una política de acceso para un servicio</a></li>
-    <li><a href="#combinar-con-cloudflare-tunnel">Combinar con Cloudflare Tunnel</a></li>
-    <li><a href="#mfa-y-requisitos-de-dispositivo">MFA y requisitos de dispositivo</a></li>
-    <li><a href="#límites-del-plan-gratuito-50-usuarios-logs-24h">Límites del plan gratuito (50 usuarios, logs 24h)</a></li>
-  </ul>
-</nav>
-	</div>
-</div><div class="content post__content clearfix">
+		</header><div class="content post__content clearfix">
 			<figure>
-  <img src="/img/cloudflare_zero_trust.jpg" alt="Cloudflare Zero Trust: protege el acceso a tus servicios con identidad, no con VPN">
+  <img src="/img/cloudflare_zero_trust.jpg" alt="Cloudflare Access: autenticación delante de cualquier servicio, sin VPN">
 </figure>
 
-<p>El modelo clásico de seguridad perimetral asume que todo lo que está dentro de tu red es de confianza. Zero Trust invierte esa premisa: nadie es de confianza por defecto, ni siquiera dentro de la red. Cada acceso se verifica con identidad, dispositivo y contexto.</p>
+<p>Un Jedi no muestra su posición. Ya lo vimos con <a href="/post/75_cloudflare_tunnel/">Cloudflare Tunnel</a>: sin puertos abiertos, sin IP expuesta, invisible desde internet.</p>
+<p>Pero invisible no es sinónimo de inaccesible. La URL existe. Cloudflare la atiende. Y cualquiera que la conozca puede llamar a esa puerta.</p>
+<p>Sun Tzu lo escribió hace dos mil quinientos años: defender la posición no es suficiente. Hay que controlar quién entra.</p>
+<p>Cloudflare Access es esa capa de control. Antes de que una sola petición llegue a tu servicio, el usuario tiene que identificarse — con Google, GitHub o un código de un solo uso enviado al email. Sin contraseña compartida. Sin VPN. Sin cuenta local que gestionar.</p>
+<p>Solo: demuestra quién eres. Y si tu identidad cumple la política, entras. Con el plan gratuito, hasta 50 usuarios.</p>
+<p><strong>Índice</strong></p>
+<ul>
+<li><a href="#qu%C3%A9-resuelve-access-y-qu%C3%A9-no-resuelve-tunnel">Qué resuelve Access y qué no resuelve Tunnel</a></li>
+<li><a href="#c%C3%B3mo-funciona-access-por-dentro">Cómo funciona Access por dentro</a></li>
+<li><a href="#configurar-el-primer-proveedor-de-identidad">Configurar el primer proveedor de identidad</a></li>
+<li><a href="#crear-la-primera-aplicaci%C3%B3n-y-pol%C3%ADtica">Crear la primera aplicación y política</a></li>
+<li><a href="#ejemplo-completo-jellyfin-protegido-con-access">Ejemplo completo: Jellyfin protegido con Access</a></li>
+<li><a href="#combinar-access-con-cloudflare-tunnel">Combinar Access con Cloudflare Tunnel</a></li>
+<li><a href="#mfa-y-service-tokens-para-automatizaci%C3%B3n">MFA y service tokens para automatización</a></li>
+<li><a href="#l%C3%ADmites-del-plan-gratuito">Límites del plan gratuito</a></li>
+<li><a href="#cu%C3%A1ndo-usar-access-y-cu%C3%A1ndo-no">Cuándo usar Access y cuándo no</a></li>
+</ul>
 <hr>
-<h2 id="qué-es-zero-trust-y-por-qué-importa">Qué es Zero Trust y por qué importa</h2>
-<h2 id="cloudflare-access--el-componente-clave">Cloudflare Access — el componente clave</h2>
-<h2 id="configurar-el-primer-proveedor-de-identidad-google-github-email-otp">Configurar el primer proveedor de identidad (Google, GitHub, email OTP)</h2>
-<h2 id="crear-una-política-de-acceso-para-un-servicio">Crear una política de acceso para un servicio</h2>
-<h2 id="combinar-con-cloudflare-tunnel">Combinar con Cloudflare Tunnel</h2>
-<h2 id="mfa-y-requisitos-de-dispositivo">MFA y requisitos de dispositivo</h2>
-<h2 id="límites-del-plan-gratuito-50-usuarios-logs-24h">Límites del plan gratuito (50 usuarios, logs 24h)</h2>
+<h2 id="qué-resuelve-access-y-qué-no-resuelve-tunnel">Qué resuelve Access y qué no resuelve Tunnel</h2>
+<p>Tunnel resuelve el problema de la exposición: el servicio no es alcanzable directamente desde internet, el router no abre ningún puerto, tu IP real no aparece en ningún sitio. El vector de ataque de red desaparece.</p>
+<p>Pero Tunnel no tiene opinión sobre quién se conecta. Si expones <code>proxmox.tudominio.com</code> sin nada más, cualquiera que conozca esa URL puede intentar autenticarse en Proxmox directamente. La autenticación que protege el servicio en ese caso es la del propio Proxmox — contraseña root, o lo que tengas configurado.</p>
+<p>Access añade una capa de autenticación delante del servicio, antes de que la petición llegue a él. El flujo pasa a ser:</p>
+<pre tabindex="0"><code>Usuario → Cloudflare Access (¿quién eres?) → ✓ identidad válida → Tunnel → servicio
+</code></pre><p>Si el usuario no supera el check de identidad, la petición no llega al servicio. No hay contraseña de Proxmox que forzar. No hay interfaz de login que atacar. La superficie de ataque se reduce a cero para cualquier usuario no autorizado.</p>
+<hr>
+<h2 id="cómo-funciona-access-por-dentro">Cómo funciona Access por dentro</h2>
+<p>El mecanismo es sencillo. Cuando un usuario accede a un subdominio protegido por Access:</p>
+<ol>
+<li>Cloudflare detecta que hay una política de Access asociada a ese hostname</li>
+<li>Redirige al usuario a la pantalla de login de Cloudflare (<code>cloudflareaccess.com</code>)</li>
+<li>El usuario se autentica con el proveedor configurado (Google, GitHub, email OTP…)</li>
+<li>Cloudflare valida la identidad contra las reglas de la política</li>
+<li>Si la identidad cumple las condiciones: Cloudflare emite una <strong>cookie JWT</strong> (<code>CF_Authorization</code>) y redirige al servicio</li>
+<li>En peticiones posteriores, Cloudflare verifica la cookie. Si sigue siendo válida, pasa directo al servicio sin pedir login de nuevo</li>
+</ol>
+<p>La cookie tiene una duración configurable (por defecto 24 horas). Cuando expira, el usuario tiene que volver a autenticarse — pero si ya está autenticado en el proveedor (Google, GitHub), el flujo es transparente: un redirect y ya está.</p>
+<p>El servicio no sabe nada de todo esto. Solo recibe peticiones HTTP que ya han superado el check de identidad.</p>
+<hr>
+<h2 id="configurar-el-primer-proveedor-de-identidad">Configurar el primer proveedor de identidad</h2>
+<p>Antes de crear aplicaciones hay que configurar al menos un proveedor de identidad (IdP). Access soporta Google, GitHub, Microsoft, Okta, SAML genérico y varias opciones más. El más simple para empezar sin cuentas de empresa es <strong>Email OTP</strong> o <strong>Google OAuth</strong>.</p>
+<p>Ve a <a href="https://one.dash.cloudflare.com/">one.dash.cloudflare.com</a> → <code>Settings → Authentication → Add new</code>.</p>
+<h3 id="email-otp-sin-configuración-externa">Email OTP (sin configuración externa)</h3>
+<p>El proveedor más simple: el usuario introduce su email, Cloudflare envía un código de un solo uso, el usuario lo introduce y entra. No requiere cuenta en ningún servicio externo.</p>
+<p>Selecciona <strong>One-time PIN</strong> y guarda. No hay credenciales que configurar — Cloudflare gestiona el envío del PIN.</p>
+<p>Ideal para dar acceso puntual a alguien sin cuenta de Google ni GitHub.</p>
+<h3 id="google-oauth">Google OAuth</h3>
+<p>Selecciona <strong>Google</strong> e introduce:</p>
+<ul>
+<li><strong>App ID</strong> (Client ID) y <strong>Client Secret</strong> — se obtienen en <a href="https://console.cloud.google.com/">Google Cloud Console</a> creando un proyecto OAuth 2.0</li>
+<li><strong>Authorized redirect URI</strong>: <code>https://[TU_TEAM].cloudflareaccess.com/cdn-cgi/access/callback</code></li>
+</ul>
+<p>El team name es el nombre que elegiste al configurar Cloudflare Zero Trust (aparece en la URL del panel).</p>
+<p>Con Google configurado puedes crear políticas que restrinjan por dominio de correo (<code>@tuempresa.com</code>), lo que es útil si tienes G Suite.</p>
+<h3 id="github-oauth">GitHub OAuth</h3>
+<p>Selecciona <strong>GitHub</strong> e introduce el Client ID y Client Secret de una <a href="https://github.com/settings/developers">OAuth App en GitHub</a>. Útil para dar acceso a colaboradores por su cuenta de GitHub sin gestionar usuarios manualmente.</p>
+<p>Puedes tener varios proveedores activos a la vez — cada política decide cuáles acepta.</p>
+<hr>
+<h2 id="crear-la-primera-aplicación-y-política">Crear la primera aplicación y política</h2>
+<p>Una <strong>aplicación</strong> en Access es la combinación de hostname + política. Por cada servicio que quieras proteger creas una aplicación.</p>
+<p>Ve a <code>Access → Applications → Add an application → Self-hosted</code>.</p>
+<p><strong>Paso 1 — Nombre y dominio</strong></p>
+<ul>
+<li><strong>Application name</strong>: nombre descriptivo (ej: <code>Proxmox</code>)</li>
+<li><strong>Session Duration</strong>: cuánto tiempo dura la sesión tras autenticarse (por defecto 24h, configurable hasta 1 mes)</li>
+<li><strong>Application domain</strong>: el subdominio público (ej: <code>proxmox.tudominio.com</code>)</li>
+</ul>
+<p>El dominio tiene que estar ya en Cloudflare y tener un túnel o CNAME apuntando a él. Si aún no tienes dominio propio, en <a href="/post/73_ddns_gratuito/">DDNS gratuito en Linux</a> explico cómo conseguir uno sin coste y añadirlo a Cloudflare.</p>
+<p><strong>Paso 2 — Proveedores de identidad</strong></p>
+<p>Selecciona qué IdPs acepta esta aplicación. Si solo tienes Email OTP configurado, es la única opción. Si tienes Google y GitHub, puedes activar ambos y el usuario elige.</p>
+<p><strong>Paso 3 — Crear la política</strong></p>
+<p>Cada aplicación tiene al menos una política. Una política tiene:</p>
+<ul>
+<li><strong>Nombre</strong>: identificador de la regla</li>
+<li><strong>Decisión</strong>: <code>Allow</code> (dejar pasar), <code>Block</code> (bloquear siempre), <code>Bypass</code> (saltarse Access para ese grupo)</li>
+<li><strong>Reglas de inclusión</strong>: condiciones que el usuario tiene que cumplir para que la política aplique</li>
+</ul>
+<p>Las condiciones más útiles:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Condición</th>
+          <th>Ejemplo</th>
+          <th>Para qué</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Emails</strong></td>
+          <td><code>jaime@ejemplo.com</code></td>
+          <td>Lista blanca de emails exactos</td>
+      </tr>
+      <tr>
+          <td><strong>Email domain</strong></td>
+          <td><code>@tuempresa.com</code></td>
+          <td>Cualquiera con ese dominio de correo</td>
+      </tr>
+      <tr>
+          <td><strong>GitHub organization</strong></td>
+          <td><code>mi-org</code></td>
+          <td>Miembros de una org de GitHub</td>
+      </tr>
+      <tr>
+          <td><strong>Country</strong></td>
+          <td><code>ES</code></td>
+          <td>Solo desde España</td>
+      </tr>
+      <tr>
+          <td><strong>Everyone</strong></td>
+          <td>—</td>
+          <td>Cualquier usuario autenticado</td>
+      </tr>
+  </tbody>
+</table>
+<p>Para un homelab personal, la configuración más común es una política con tu email exacto en <strong>Emails</strong>:</p>
+<pre tabindex="0"><code>Policy name: Solo Jaime
+Decision: Allow
+Include: Emails → jaime@ejemplo.com
+</code></pre><p>Así solo tu cuenta puede acceder, independientemente de qué proveedor uses para autenticarte.</p>
+<p><strong>Paso 4 — Guardar</strong></p>
+<p>Con la aplicación guardada, accede a <code>proxmox.tudominio.com</code> desde una ventana privada. Deberías ver la pantalla de login de Cloudflare antes de llegar a Proxmox. Si la identidad no está en la lista, Cloudflare devuelve un error 403 — el servicio no llega a ver la petición.</p>
+<hr>
+<h2 id="ejemplo-completo-jellyfin-protegido-con-access">Ejemplo completo: Jellyfin protegido con Access</h2>
+<p>Escenario de partida: Jellyfin corriendo en un LXC de Proxmox, expuesto en <code>jellyfin.tudominio.com</code> vía Cloudflare Tunnel. Accesible desde internet, pero sin Access — cualquiera que conozca la URL llega directamente a la pantalla de login de Jellyfin.</p>
+<p>El objetivo: añadir Access delante para que solo entren las cuentas que yo autorice. Sin tocar Jellyfin, sin instalar nada en el servidor.</p>
+<p><strong>Paso 1 — Email OTP como proveedor</strong></p>
+<p>El más rápido, no requiere cuentas externas. En <code>Settings → Authentication → Add new → One-time PIN</code>. Sin credenciales, sin OAuth app, guardar.</p>
+<p><strong>Paso 2 — Crear la aplicación</strong></p>
+<p><code>Access → Applications → Add an application → Self-hosted</code></p>
+<table>
+  <thead>
+      <tr>
+          <th>Campo</th>
+          <th>Valor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Application name</td>
+          <td>Jellyfin</td>
+      </tr>
+      <tr>
+          <td>Session Duration</td>
+          <td>7 days</td>
+      </tr>
+      <tr>
+          <td>Application domain</td>
+          <td><code>jellyfin.tudominio.com</code></td>
+      </tr>
+      <tr>
+          <td>Identity providers</td>
+          <td>One-time PIN</td>
+      </tr>
+  </tbody>
+</table>
+<p>Con <code>Session Duration: 7 days</code> no hace falta volver a autenticarse durante una semana — útil para un servicio de uso diario.</p>
+<p><strong>Paso 3 — Política: solo mi email</strong></p>
+<p>En la sección de políticas → <code>Add a policy</code>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Campo</th>
+          <th>Valor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Policy name</td>
+          <td>Acceso personal</td>
+      </tr>
+      <tr>
+          <td>Action</td>
+          <td>Allow</td>
+      </tr>
+      <tr>
+          <td>Include</td>
+          <td>Emails: <code>tu@email.com</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>Guardar la aplicación.</p>
+<p><strong>Paso 4 — Verificar</strong></p>
+<p>Abrir una ventana de incógnito y navegar a <code>jellyfin.tudominio.com</code>. En lugar de la pantalla de Jellyfin, aparece la pantalla de Cloudflare Access:</p>
+<ol>
+<li>Introducir el email autorizado</li>
+<li>Cloudflare envía un PIN de 6 dígitos al correo</li>
+<li>Introducir el PIN → autenticado</li>
+<li>Cloudflare redirige a Jellyfin, que carga directamente</li>
+</ol>
+<p>Cualquier otra dirección recibe un 403. Los bots que intenten forzar el login de Jellyfin ni siquiera llegan a verlo — Cloudflare los corta antes de que la petición entre al túnel.</p>
+<hr>
+<h2 id="combinar-access-con-cloudflare-tunnel">Combinar Access con Cloudflare Tunnel</h2>
+<p>Access y Tunnel son independientes pero se complementan. Tunnel gestiona el canal de transporte (cómo llega el tráfico a tu servidor). Access gestiona la autenticación (quién puede usar ese canal).</p>
+<p>La integración es automática cuando los dos apuntan al mismo hostname. Si tienes en Tunnel una regla:</p>
+<pre tabindex="0"><code>proxmox.tudominio.com → https://localhost:8006
+</code></pre><p>Y en Access una aplicación para <code>proxmox.tudominio.com</code>, Cloudflare aplica Access primero. La petición no llega al túnel hasta que el usuario ha superado el check de identidad.</p>
+<figure>
+  <img src="/img/zt_cloudflare_tunnel.jpg" alt="Cloudflare Tunnel y Access: flujo completo con autenticación">
+</figure>
+
+<p>El flujo completo:</p>
+<pre tabindex="0"><code>Usuario
+  → Cloudflare Access (¿quién eres?)
+    → login con Google / GitHub / OTP
+      → identidad válida
+        → Tunnel
+          → cloudflared en tu servidor
+            → servicio en localhost
+</code></pre><p>Ningún paso requiere abrir un puerto ni gestionar un certificado. Cloudflare gestiona el TLS externo. El túnel es la conexión saliente de tu servidor. Access es la verificación de identidad antes del túnel.</p>
+<p>Si aún no tienes Tunnel configurado, el artículo anterior de esta serie cubre la instalación completa en Linux: <a href="/post/75_cloudflare_tunnel/">Cloudflare Tunnel: expón servicios locales sin abrir puertos</a>.</p>
+<hr>
+<h2 id="mfa-y-service-tokens-para-automatización">MFA y service tokens para automatización</h2>
+<h3 id="mfa">MFA</h3>
+<p>Si el proveedor de identidad que usas (Google, GitHub) ya tiene MFA activado en esa cuenta, Access hereda esa protección automáticamente — no hay configuración adicional. El usuario se autentica en Google con su segundo factor, y Cloudflare acepta esa sesión.</p>
+<p>Access también puede requerir explícitamente que el usuario use WARP (el cliente de red de Cloudflare) con postura de dispositivo verificada — pero eso requiere el plan Teams, que es de pago. Para un homelab con el plan gratuito, confiar en el MFA del IdP es suficiente.</p>
+<h3 id="service-tokens-autenticación-para-scripts-y-apis">Service Tokens: autenticación para scripts y APIs</h3>
+<p>La autenticación OAuth está pensada para humanos: hay una pantalla de login, un proveedor, una cookie. Pero si tienes un script, un cron job o una integración que necesita acceder a un servicio protegido por Access, no puede hacer click en &ldquo;Iniciar sesión con Google&rdquo;.</p>
+<p>Para eso existen los <strong>Service Tokens</strong>: credenciales de máquina que Access acepta directamente en la cabecera HTTP.</p>
+<p>En el panel: <code>Access → Service Auth → Service Tokens → Create Service Token</code>.</p>
+<p>Introduce un nombre (ej: <code>backup-script</code>) y Cloudflare genera:</p>
+<ul>
+<li><strong>Client ID</strong>: <code>xxxxxxxx.access</code></li>
+<li><strong>Client Secret</strong>: una cadena larga — cópiala ahora, no se vuelve a mostrar</li>
+</ul>
+<p>En tu script o herramienta, añade estas cabeceras a cada petición:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://proxmox.tudominio.com/api2/json/version <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;CF-Access-Client-Id: xxxxxxxx.access&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;CF-Access-Client-Secret: tu-secret-aqui&#34;</span>
+</span></span></code></pre></div><p>Cloudflare reconoce el service token y deja pasar la petición sin redirigir al login.</p>
+<p>En la política de la aplicación, añade una regla que permita el token:</p>
+<pre tabindex="0"><code>Include: Service Token → backup-script
+</code></pre><p>Puedes combinar: la regla principal permite tu email, la regla adicional permite el service token. Así tanto tú (navegador) como el script tienen acceso.</p>
+<hr>
+<h2 id="límites-del-plan-gratuito">Límites del plan gratuito</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Límite</th>
+          <th>Valor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Usuarios (asientos)</td>
+          <td>50</td>
+      </tr>
+      <tr>
+          <td>Aplicaciones</td>
+          <td>Sin límite</td>
+      </tr>
+      <tr>
+          <td>Proveedores de identidad</td>
+          <td>Sin límite</td>
+      </tr>
+      <tr>
+          <td>Service tokens</td>
+          <td>Sin límite</td>
+      </tr>
+      <tr>
+          <td>Retención de logs de acceso</td>
+          <td><strong>24 horas</strong></td>
+      </tr>
+      <tr>
+          <td>Postura de dispositivo (WARP)</td>
+          <td>No disponible (requiere Teams de pago)</td>
+      </tr>
+  </tbody>
+</table>
+<p>El límite de 50 usuarios es el más relevante. Cada dirección de email única que se autentica consume un asiento — independientemente de cuántas aplicaciones use. Si alguien se autentica y luego borras su entrada, el asiento se libera.</p>
+<p>Para un homelab personal o una PYME pequeña, 50 usuarios es más que suficiente.</p>
+<p>La retención de logs de 24 horas es el límite que más duele en la práctica. Si quieres auditar quién accedió hace tres días, no está disponible en el plan gratuito. Para un homelab es aceptable; para un entorno de empresa puede ser un bloqueante.</p>
+<hr>
+<h2 id="cuándo-usar-access-y-cuándo-no">Cuándo usar Access y cuándo no</h2>
+<p><strong>Tiene sentido cuando:</strong></p>
+<ul>
+<li>Expones servicios con Tunnel y quieres que solo tú (o un grupo concreto) pueda acceder</li>
+<li>El servicio tiene autenticación débil (interfaz de admin con usuario/contraseña sencilla)</li>
+<li>Quieres centralizar la autenticación en lugar de gestionar usuarios en cada servicio por separado</li>
+<li>Necesitas un log de quién accede a qué, aunque sea solo 24 horas</li>
+<li>Quieres dar acceso puntual a alguien sin crearle una cuenta en el servicio</li>
+</ul>
+<p><strong>No tiene sentido cuando:</strong></p>
+<ul>
+<li>El servicio ya tiene autenticación fuerte con MFA (Proxmox con TOTP configurado, por ejemplo) y no quieres añadir otro step</li>
+<li>El servicio es de uso puramente interno, solo accesible desde la LAN — Access está pensado para lo que pasa por Cloudflare</li>
+<li>Necesitas acceso a protocolos que no sean HTTP/HTTPS (SSH directo, bases de datos) — para eso hay Service Auth SSH de Cloudflare, que ya es un caso más avanzado</li>
+</ul>
+<hr>
+<p>El stack completo — Tunnel para el canal, Access para la identidad — cubre el caso de uso de acceso remoto seguro para la mayoría de servicios de homelab sin coste y sin mantenimiento. Sin puertos abiertos, sin certificados que gestionar, sin contraseñas compartidas.</p>
+<p>Un Jedi no solo oculta su posición — también sabe exactamente quién llama antes de abrir.</p>
 		</div>
 		<footer class="post__footer">
 			
@@ -175,10 +440,13 @@
 			<a class="tags__link btn" href="/tags/cloudflare/" rel="tag">Cloudflare</a>
 		</li>
 		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/cloudflare-access/" rel="tag">Cloudflare Access</a>
+		</li>
+		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/zero-trust/" rel="tag">Zero Trust</a>
 		</li>
 		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/cloudflare-access/" rel="tag">Cloudflare Access</a>
+			<a class="tags__link btn" href="/tags/autenticaci%C3%B3n/" rel="tag">autenticación</a>
 		</li>
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/sso/" rel="tag">SSO</a>
@@ -191,6 +459,21 @@
 		</li>
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/acceso-remoto/" rel="tag">acceso remoto</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/selfhosted/" rel="tag">Selfhosted</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/proxmox/" rel="tag">Proxmox</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/jellyfin/" rel="tag">Jellyfin</a>
 		</li>
 	</ul>
 </div>

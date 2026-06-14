@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Borrado seguro en Linux: shred, nwipe y ATA Secure Erase para HDD, SSD y NVMe. RGPD, ENS y DoD/NIST. Datos eliminados de verdad, no solo el puntero.">
+	<link rel="canonical" href="http://localhost:1313/post/84_borrado_seguro_discos/">
+		<meta property="og:url" content="http://localhost:1313/post/84_borrado_seguro_discos/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien">
+  <meta property="og:description" content="Borrado seguro en Linux: shred, nwipe y ATA Secure Erase para HDD, SSD y NVMe. RGPD, ENS y DoD/NIST. Datos eliminados de verdad, no solo el puntero.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-06-19T08:00:00+02:00">
+    <meta property="article:modified_time" content="2026-06-19T08:00:00+02:00">
+    <meta property="article:tag" content="Seguridad">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="RGPD">
+    <meta property="article:tag" content="Borrado Seguro">
+    <meta property="article:tag" content="Shred">
+    <meta property="article:tag" content="Nwipe">
+    <meta property="og:image" content="http://localhost:1313/img/borrado_seguro_discos.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien",
+  "description": "Borrado seguro en Linux: shred, nwipe y ATA Secure Erase para HDD, SSD y NVMe. RGPD, ENS y DoD\/NIST. Datos eliminados de verdad, no solo el puntero.",
+  "datePublished": "2026-06-19",
+  "dateModified": "2026-06-19",
+  "url": "http:\/\/localhost:1313\/post\/84_borrado_seguro_discos\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1313\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-19T08:00:00&#43;02:00">19-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/borrado_seguro_discos.jpg" alt="Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien">
+</figure>
+
+<p>Un Jedi no deja su sable en manos del Imperio. Un sysadmin no debería dejar sus datos en un disco que ya no controla.</p>
+<p>Cuando pulsas Supr, el sistema operativo tacha el nombre del fichero de la lista. Los datos siguen ahí, exactamente donde estaban. Cualquier herramienta de recuperación puede leerlos.</p>
+<p>Eso incluye el portátil vendido en Wallapop, el disco al contenedor de electrónica y el servidor devuelto al proveedor al final del contrato de leasing.</p>
+<p>El RGPD tiene opinión sobre esto. El ENS también. La sanción no es por haber tenido los datos — es por no haberlos destruido cuando tocaba.</p>
+<p><code>shred</code>, <code>nwipe</code> y ATA Secure Erase existen para eso. Esta guía cubre HDDs, SSDs y NVMe, qué exige la ley y por qué formatear no es borrar.</p>
+<p><strong>Índice</strong></p>
+<ul>
+<li><a href="#el-mito-del-borrado-por-qu%C3%A9-supr-no-borra-nada">El mito del borrado: por qué Supr no borra nada</a></li>
+<li><a href="#lo-que-exige-la-ley-rgpd-ens-y-lopd">Lo que exige la ley: RGPD, ENS y LOPD</a></li>
+<li><a href="#est%C3%A1ndares-de-borrado-dod-nist-y-hmg">Estándares de borrado: DoD, NIST y HMG</a></li>
+<li><a href="#hdds-shred-y-nwipe">HDDs: shred y nwipe</a></li>
+<li><a href="#ssds-y-nvme-ata-secure-erase">SSDs y NVMe: ATA Secure Erase</a></li>
+<li><a href="#verificar-que-el-borrado-fue-efectivo">Verificar que el borrado fue efectivo</a></li>
+<li><a href="#cu%C3%A1ndo-la-destrucci%C3%B3n-f%C3%ADsica-es-la-%C3%BAnica-opci%C3%B3n">Cuándo la destrucción física es la única opción</a></li>
+</ul>
+<hr>
+<h2 id="el-mito-del-borrado-por-qué-supr-no-borra-nada">El mito del borrado: por qué Supr no borra nada</h2>
+<p>Los sistemas de ficheros no almacenan datos linealmente — los gestionan mediante una tabla de índices. Cuando borras un fichero, el sistema elimina la entrada del índice y marca ese espacio como disponible. Los bytes del fichero permanecen intactos hasta que otro fichero los sobreescriba.</p>
+<pre tabindex="0"><code>Antes de borrar:         Después de &#34;borrar&#34;:
+[índice] → sector 142   [índice] → (eliminado)
+[sector 142] = datos    [sector 142] = datos  ← siguen ahí
+</code></pre><p><code>testdisk</code>, <code>photorec</code>, <code>foremost</code> o cualquier herramienta forense básica puede recuperar esos datos en minutos. No hace falta ser perito — hay aplicaciones gráficas para Windows que lo hacen sin conocimientos técnicos.</p>
+<p>Formatear tiene el mismo problema. Un formato rápido recrea el sistema de ficheros pero no toca los sectores de datos. Un formato completo (escritura de ceros) sí sobreescribe — pero la mayoría de los asistentes de instalación y herramientas de gestión de discos hacen el formato rápido por defecto.</p>
+<p>El único borrado real es la sobreescritura deliberada de todos los sectores.</p>
+<hr>
+<h2 id="lo-que-exige-la-ley-rgpd-ens-y-lopd">Lo que exige la ley: RGPD, ENS y LOPD</h2>
+<h3 id="rgpd-reglamento-general-de-protección-de-datos">RGPD (Reglamento General de Protección de Datos)</h3>
+<p>El artículo 5 del RGPD establece el principio de <strong>limitación del plazo de conservación</strong>: los datos personales no deben mantenerse más tiempo del necesario. Cuando ese plazo expira o el tratamiento cesa, los datos deben suprimirse de forma que no sean recuperables.</p>
+<p>El artículo 32 exige medidas técnicas apropiadas para garantizar la seguridad — lo que incluye el borrado seguro cuando el soporte sale del control del responsable del tratamiento.</p>
+<p>Las multas por incumplimiento alcanzan los <strong>20 millones de euros o el 4% de la facturación global</strong> en el tramo máximo. En la práctica, la AEPD ha sancionado a empresas por ceder equipos con datos sin borrar por importes de decenas de miles de euros.</p>
+<h3 id="ens-esquema-nacional-de-seguridad">ENS (Esquema Nacional de Seguridad)</h3>
+<p>Para entidades del sector público y sus proveedores, el ENS (Real Decreto 311/2022) exige en su medida <strong>mp.si.5 — Borrado y destrucción</strong> que la eliminación de información se realice de forma que no sea posible su recuperación posterior. El nivel de exigencia varía según la categoría del sistema (básica, media, alta).</p>
+<h3 id="en-la-práctica">En la práctica</h3>
+<p>Lo que importa operativamente:</p>
+<ul>
+<li>Cualquier dispositivo que haya almacenado datos personales y vaya a salir de tu control requiere borrado certificado</li>
+<li>Esto incluye: portátiles de empleados, servidores dados de baja, discos de backup, memorias USB, móviles corporativos</li>
+<li>El borrado debe ser verificable y, en entornos regulados, documentado con un certificado</li>
+</ul>
+<hr>
+<h2 id="estándares-de-borrado-dod-nist-y-hmg">Estándares de borrado: DoD, NIST y HMG</h2>
+<p>Los estándares definen cuántas pasadas de sobreescritura son necesarias y con qué patrones.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Estándar</th>
+          <th>Pasadas</th>
+          <th>Patrón</th>
+          <th>Nivel</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>DoD 5220.22-M</strong></td>
+          <td>3</td>
+          <td>0x00, 0xFF, aleatorio + verificación</td>
+          <td>Gobierno EE.UU. (equipos no clasificados)</td>
+      </tr>
+      <tr>
+          <td><strong>NIST 800-88 Clear</strong></td>
+          <td>1</td>
+          <td>Sobreescritura con patrón fijo</td>
+          <td>Datos no clasificados, bajo riesgo</td>
+      </tr>
+      <tr>
+          <td><strong>NIST 800-88 Purge</strong></td>
+          <td>1+</td>
+          <td>ATA Secure Erase o criptográfico</td>
+          <td>Datos sensibles, mayor riesgo</td>
+      </tr>
+      <tr>
+          <td><strong>HMG IS5 Enhanced</strong></td>
+          <td>3</td>
+          <td>0x00, 0xFF, aleatorio + verificación</td>
+          <td>Gobierno UK</td>
+      </tr>
+      <tr>
+          <td><strong>Gutmann</strong></td>
+          <td>35</td>
+          <td>35 patrones distintos</td>
+          <td>Excesivo para discos modernos — diseñado para tecnología de los 90</td>
+      </tr>
+  </tbody>
+</table>
+<p>Para discos modernos (fabricados después de 2001), una sola pasada de sobreescritura con datos aleatorios es suficiente según NIST. Los métodos de 35 pasadas como Gutmann son un vestigio de tecnología magnética antigua y no añaden seguridad real en hardware actual.</p>
+<hr>
+<h2 id="hdds-shred-y-nwipe">HDDs: shred y nwipe</h2>
+<p>Para discos duros mecánicos, la sobreescritura es el método estándar.</p>
+<h3 id="shred">shred</h3>
+<p><code>shred</code> es parte de GNU coreutils — disponible en cualquier Linux sin instalar nada.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Borrado básico: 3 pasadas aleatorias + pasada final de ceros</span>
+</span></span><span style="display:flex;"><span>shred -vfz -n <span style="color:#ae81ff">3</span> /dev/sdX
+</span></span></code></pre></div><p>Opciones relevantes:</p>
+<ul>
+<li><code>-v</code> — verbose: muestra el progreso</li>
+<li><code>-f</code> — fuerza cambio de permisos si es necesario</li>
+<li><code>-z</code> — añade pasada final con ceros para ocultar el borrado</li>
+<li><code>-n 3</code> — número de pasadas (3 = equivalente DoD)</li>
+</ul>
+<p>Para un disco de 1TB espera entre 3 y 6 horas dependiendo de la velocidad del disco.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Verificar que el dispositivo es el correcto ANTES de ejecutar</span>
+</span></span><span style="display:flex;"><span>lsblk
+</span></span><span style="display:flex;"><span>fdisk -l /dev/sdX
+</span></span></code></pre></div><p><strong>Nunca ejecutes shred sobre el disco del sistema en uso.</strong> Arranca desde un live USB (Debian, Ubuntu, Kali) y opera sobre el disco como dispositivo externo.</p>
+<h3 id="nwipe">nwipe</h3>
+<p><code>nwipe</code> es más cómodo para entornos donde hay que documentar el proceso o borrar varios discos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apt install nwipe
+</span></span><span style="display:flex;"><span>nwipe --method<span style="color:#f92672">=</span>dodshort --verify<span style="color:#f92672">=</span>last /dev/sdX
+</span></span></code></pre></div><p>Métodos disponibles en nwipe:</p>
+<ul>
+<li><code>dodshort</code> — DoD 5220.22-M corto (3 pasadas)</li>
+<li><code>dod522022m</code> — DoD completo (7 pasadas)</li>
+<li><code>gutmann</code> — 35 pasadas (innecesario para hardware moderno)</li>
+<li><code>random</code> — pasada única con datos aleatorios (suficiente según NIST para la mayoría de casos)</li>
+<li><code>zero</code> — pasada única con ceros (rápido, menos seguro)</li>
+</ul>
+<p>La opción <code>--verify=last</code> hace una verificación de lectura al terminar y genera un informe. Útil cuando necesitas documentar el borrado.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Interfaz interactiva con selección de discos</span>
+</span></span><span style="display:flex;"><span>nwipe
+</span></span></code></pre></div><p>nwipe tiene modo interactivo (tipo ncurses) donde seleccionas el disco, el método y lanzas el proceso. Práctico cuando hay varios discos.</p>
+<hr>
+<h2 id="ssds-y-nvme-ata-secure-erase">SSDs y NVMe: ATA Secure Erase</h2>
+<p>Los SSDs no funcionan como los HDDs. La sobreescritura directa de sectores tiene dos problemas:</p>
+<ol>
+<li><strong>Over-provisioning</strong>: los SSDs reservan capacidad oculta que el sistema operativo no ve y que <code>shred</code> no puede alcanzar</li>
+<li><strong>Wear leveling</strong>: el controlador redistribuye las escrituras para prolongar la vida del disco — una &ldquo;sobreescritura&rdquo; puede no tocar los datos originales si el controlador los mueve a otro sector</li>
+</ol>
+<p>La solución es <strong>ATA Secure Erase</strong>: una instrucción a nivel de firmware que ordena al controlador borrar internamente todas las celdas, incluido el espacio reservado. El controlador sabe cómo hacerlo bien porque es quien gestiona el hardware.</p>
+<h3 id="ata-secure-erase-para-ssd-sata">ATA Secure Erase para SSD SATA</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Instalar hdparm</span>
+</span></span><span style="display:flex;"><span>apt install hdparm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verificar que el disco soporta Secure Erase</span>
+</span></span><span style="display:flex;"><span>hdparm -I /dev/sdX | grep -i <span style="color:#e6db74">&#34;security&#34;</span>
+</span></span></code></pre></div><p>La salida debe mostrar <code>supported: enhanced erase</code> y que el estado es <code>not frozen</code>. Si aparece <code>frozen</code>, intenta suspender y reanudar el sistema (el BIOS suele quitar el freeze tras la reanudación).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Paso 1: establecer contraseña temporal (puede ser cualquier cosa)</span>
+</span></span><span style="display:flex;"><span>hdparm --security-set-pass borrame /dev/sdX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Paso 2: ejecutar Secure Erase</span>
+</span></span><span style="display:flex;"><span>hdparm --security-erase borrame /dev/sdX
+</span></span></code></pre></div><p>El proceso tarda entre 2 y 30 minutos según el disco. Al terminar, la contraseña se elimina automáticamente y el disco queda en estado de fábrica.</p>
+<h3 id="nvme-nvme-format">NVMe: nvme format</h3>
+<p>Para discos NVMe el comando es distinto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Instalar nvme-cli</span>
+</span></span><span style="display:flex;"><span>apt install nvme-cli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ver información del disco</span>
+</span></span><span style="display:flex;"><span>nvme id-ctrl /dev/nvme0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Secure Erase (ses=1 = user data erase, ses=2 = cryptographic erase)</span>
+</span></span><span style="display:flex;"><span>nvme format /dev/nvme0n1 --ses<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p><code>--ses=1</code> ordena al controlador sobreescribir todos los datos de usuario. <code>--ses=2</code> realiza un borrado criptográfico — si el disco usa cifrado interno (la mayoría de NVMe modernos lo hacen), simplemente destruye la clave de cifrado, haciendo los datos irrecuperables en milisegundos.</p>
+<hr>
+<h2 id="verificar-que-el-borrado-fue-efectivo">Verificar que el borrado fue efectivo</h2>
+<p>Tras el borrado, conviene verificar que no hay datos recuperables:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Leer los primeros sectores y verificar que son ceros o aleatorio</span>
+</span></span><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sdX bs<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> | xxd | head -20
+</span></span></code></pre></div><p>Si el borrado fue correcto verás solo <code>00 00 00 00...</code> (borrado con ceros) o datos aparentemente aleatorios (borrado con random).</p>
+<p>Para una verificación más completa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Instalar sleuthkit (herramientas forenses)</span>
+</span></span><span style="display:flex;"><span>apt install sleuthkit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Intentar listar sistema de ficheros — debe fallar si el borrado fue correcto</span>
+</span></span><span style="display:flex;"><span>fsstat /dev/sdX
+</span></span></code></pre></div><p>Si <code>fsstat</code> devuelve error o no encuentra estructura de sistema de ficheros, el borrado fue efectivo.</p>
+<p>Para entornos que requieren certificación, <code>nwipe --verify=last</code> genera un informe con hash del disco antes y después que puede adjuntarse como evidencia documental.</p>
+<hr>
+<h2 id="cuándo-la-destrucción-física-es-la-única-opción">Cuándo la destrucción física es la única opción</h2>
+<p>La sobreescritura tiene sus límites. Hay casos donde la destrucción física del soporte es la única garantía:</p>
+<p><strong>Discos con sectores defectuosos.</strong> Un sector reasignado por el firmware no puede ser sobreescrito por software — el controlador lo oculta del sistema operativo pero los datos siguen en el sector físico. Si el disco tiene muchos sectores reasignados (visible en <code>smartctl -a /dev/sdX</code>), la sobreescritura no es completa.</p>
+<p><strong>SSDs con cifrado desconocido.</strong> Si no puedes confirmar que el SSD usa ATA Secure Erase correctamente (algunos fabricadores lo implementan mal), la destrucción física elimina la duda.</p>
+<p><strong>Datos clasificados o de alto riesgo.</strong> Para información sujeta a secreto industrial, datos de salud o información clasificada, los estándares habituales exigen destrucción física certificada — trituradora de discos o incineración.</p>
+<p><strong>Discos que no arrancan.</strong> Si el disco está dañado y no se puede montar, no es posible hacer sobreescritura por software. Destrucción física.</p>
+<p>La destrucción física no tiene que ser compleja: un taladro a través del plato magnético (HDDs) o a través de los chips de memoria (SSDs) hace los datos irrecuperables para cualquier laboratorio forense sin equipamiento extremadamente especializado.</p>
+<hr>
+<p>Entregar un disco sin borrar bien es como dejar las llaves de casa dentro del sobre cuando vendes el piso. El siguiente propietario no tiene que hacer nada especial — los datos están ahí, esperando.</p>
+<p>Sun Tzu lo tenía claro: no dejes al enemigo lo que puedas destruir.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">Seguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/rgpd/" rel="tag">RGPD</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/borrado-seguro/" rel="tag">borrado seguro</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/shred/" rel="tag">shred</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/nwipe/" rel="tag">nwipe</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ssd/" rel="tag">SSD</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/nvme/" rel="tag">NVMe</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ens/" rel="tag">ENS</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/sysadmin/" rel="tag">Sysadmin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/homelab/" rel="tag">Homelab</a>
+		</li>
+	</ul>
+</div>
+		</footer></article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

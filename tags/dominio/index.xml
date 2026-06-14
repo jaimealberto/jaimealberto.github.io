@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dominio on JaimeAlberto.io</title>
-    <link>http://localhost:1313/tags/dominio/</link>
+    <link>http://localhost:33693/tags/dominio/</link>
     <description>Recent content in Dominio on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dominio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:33693/tags/dominio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloudflare Email Routing: recibe correos en tu dominio y redirígelos gratis</title>
-      <link>http://localhost:1313/post/80_cloudflare_email_routing/</link>
+      <link>http://localhost:33693/post/80_cloudflare_email_routing/</link>
       <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/80_cloudflare_email_routing/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_email_routing.jpg&#34; alt=&#34;Cloudflare Email Routing: recibe correos en tu dominio y redirígelos gratis&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Tener un email con tu propio dominio normalmente implica pagar por Google Workspace, Zoho o montar un servidor de correo propio. Con Cloudflare Email Routing puedes recibir correo en &lt;code&gt;tunombre@tudominio.com&lt;/code&gt; y que llegue a tu Gmail o cualquier cuenta — sin servidor, sin pagar, en cinco minutos.&lt;/p&gt;</description>
+      <guid>http://localhost:33693/post/80_cloudflare_email_routing/</guid>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:33693/img/cloudflare_email_routing.jpg&#34; alt=&#34;Cloudflare Email Routing: recibe correos en tu dominio y redirígelos gratis&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Tener un email con tu propio dominio normalmente implica pagar por Google Workspace, Zoho o montar un servidor de correo propio. Con Cloudflare Email Routing puedes recibir correo en &lt;code&gt;tunombre@tudominio.com&lt;/code&gt; y que llegue a tu Gmail o cualquier cuenta — sin servidor, sin pagar, en cinco minutos.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
