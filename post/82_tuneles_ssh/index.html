@@ -1,319 +1,47 @@
-<!DOCTYPE html>
-<html class="no-js" lang="es">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SSH port forwarding: los 8 escenarios con -L, -R y -D - JaimeAlberto.io</title>
-	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Los 8 escenarios de port forwarding SSH: -L local, -R remoto, -D dinámico. ProxyJump, GatewayPorts, Sshuttle y cheat sheet. Guía completa 2026.">
-	<link rel="canonical" href="http://localhost:1313/post/82_tuneles_ssh/">
-		<meta property="og:url" content="http://localhost:1313/post/82_tuneles_ssh/">
-  <meta property="og:site_name" content="JaimeAlberto.io">
-  <meta property="og:title" content="SSH port forwarding: los 8 escenarios con -L, -R y -D">
-  <meta property="og:description" content="Los 8 escenarios de port forwarding SSH: -L local, -R remoto, -D dinámico. ProxyJump, GatewayPorts, Sshuttle y cheat sheet. Guía completa 2026.">
-  <meta property="og:locale" content="es">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-06-15T08:00:00+02:00">
-    <meta property="article:modified_time" content="2026-06-15T08:00:00+02:00">
-    <meta property="article:tag" content="SSH">
-    <meta property="article:tag" content="Tunneling">
-    <meta property="article:tag" content="Port Forwarding">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Redes">
-    <meta property="article:tag" content="SysAdmin">
-    <meta property="og:image" content="http://localhost:1313/img/tuneles_ssh.jpg">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "SSH port forwarding: los 8 escenarios con -L, -R y -D",
-  "description": "Los 8 escenarios de port forwarding SSH: -L local, -R remoto, -D dinámico. ProxyJump, GatewayPorts, Sshuttle y cheat sheet. Guía completa 2026.",
-  "datePublished": "2026-06-15",
-  "dateModified": "2026-06-15",
-  "url": "http:\/\/localhost:1313\/post\/82_tuneles_ssh\/",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "https://www.linkedin.com/in/jaimealbertoio/",
-    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "http:\/\/localhost:1313\/"
-  }
-}
-</script>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
-
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/custom.css">
-
-	<link rel="shortcut icon" href="/favicon.ico">
-</head>
-<body class="body">
-	<div class="container container--outer">
-		<header class="header">
-	<div class="container header__container">
-		
-	<div class="logo">
-		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
-			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
-				</div>
-		</a>
-	</div>
-		
-<nav class="menu">
-	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-		<span class="menu__btn-title" tabindex="-1">Menú</span>
-	</button>
-	<ul class="menu__list">
-		<li class="menu__item">
-			<a class="menu__link" href="/yo/">
-				
-				<span class="menu__text">Sobre mí</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/post/">
-				
-				<span class="menu__text">Artículos</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/hardware/">
-				
-				<span class="menu__text">Hardware</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recetas/">
-				
-				<span class="menu__text">Recetas</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/raspberrypi/">
-				
-				<span class="menu__text">Raspberry Pi</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recursos/">
-				
-				<span class="menu__text">Recursos</span>
-				
-			</a>
-		</li>
-	</ul>
-</nav>
-
-	</div>
-</header>
-		<div class="wrapper flex">
-			<div class="primary">
-			
-<main class="main" role="main">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">SSH port forwarding: los 8 escenarios con -L, -R y -D</h1>
-			<div class="post__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-15T08:00:00&#43;02:00">15-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/redes/" rel="category">Redes</a>
-	</span>
-</div></div>
-		</header><div class="content post__content clearfix">
-			<figure>
-  <img src="/img/tuneles_ssh.jpg" alt="SSH port forwarding: los 8 escenarios con -L, -R y -D">
-</figure>
-
-<p>El Imperio controla la Holonet. Cada mensaje que viaja por los canales oficiales pasa por sus filtros, sus inspectores, sus reglas de firewall.</p>
-<p>La Alianza aprendió pronto que la única forma de comunicarse con seguridad era no usar esos canales. Había otra red — más discreta, construida con nodos de confianza conectados por rutas encubiertas. Un paquete que parecía ir de Tatooine a Mos Eisley llevaba en realidad las coordenadas de Echo Base cifradas en su interior. El firewall imperial solo veía una conexión SSH normal. Lo que viajaba dentro era otra cosa.</p>
-<p>SSH funciona así. No mueve solo sesiones de terminal — mueve cualquier tráfico TCP dentro de un canal cifrado. Un servicio bloqueado por el firewall puede aparecer en tu localhost. Un servidor interno puede exponerse al exterior con un solo comando. La red privada de otro sistema se convierte en tu red.</p>
-<p>Ocho escenarios. Tres flags (<code>-L</code>, <code>-R</code>, <code>-D</code>). Un solo canal SSH. Esta es la guía completa de port forwarding actualizada a 2026: los comandos de hoy, ProxyJump, Sshuttle y lo que los libros no cuentan.</p>
-<p><strong>Índice</strong></p>
-<ul>
-<li><a href="#qu%C3%A9-es-un-t%C3%BAnel-ssh">Qué es un túnel SSH</a></li>
-<li><a href="#los-8-escenarios">Los 8 escenarios</a></li>
-<li><a href="#t%C3%BAneles-en-background--f--n">Túneles en background</a></li>
-<li><a href="#proxyjump-el-salto-de-2016-que-lo-cambi%C3%B3-todo">ProxyJump: el salto de 2016 que lo cambió todo</a></li>
-<li><a href="#gatewayports-el-gotcha-que-nadie-te-cuenta">GatewayPorts: el gotcha que nadie te cuenta</a></li>
-<li><a href="#sshuttle-la-vpn-del-sysadmin">Sshuttle: la VPN del sysadmin</a></li>
-<li><a href="#integraci%C3%B3n-con-sshconfig">Integración con ~/.ssh/config</a></li>
-<li><a href="#cheat-sheet">Cheat sheet</a></li>
-</ul>
-<hr>
-<blockquote>
-<p><strong>Aviso de uso responsable</strong></p>
-<p>Los túneles SSH son una herramienta legítima de administración de sistemas: acceso a servicios internos, administración remota segura, bypass de restricciones de red propias.</p>
-<p>Usar estas técnicas para acceder sin autorización a sistemas ajenos o para evadir controles de seguridad corporativos sin permiso es ilegal. Úsalas en sistemas propios o con autorización escrita del propietario.</p>
-</blockquote>
-<hr>
-<h2 id="qué-es-un-túnel-ssh">Qué es un túnel SSH</h2>
-<p>SSH cifra la conexión entre dos máquinas. Pero además de ejecutar comandos, puede hacer otra cosa: <strong>encapsular tráfico TCP dentro de esa conexión cifrada</strong>. Eso es un túnel.</p>
-<p>Hay tres tipos:</p>
-<table>
-  <thead>
-      <tr>
-          <th>Tipo</th>
-          <th>Flag</th>
-          <th>Quién inicia</th>
-          <th>Para qué</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Local</td>
-          <td><code>-L</code></td>
-          <td>El cliente</td>
-          <td>Acceder a servicios del lado remoto</td>
-      </tr>
-      <tr>
-          <td>Remoto</td>
-          <td><code>-R</code></td>
-          <td>El cliente</td>
-          <td>Exponer servicios del lado local al remoto</td>
-      </tr>
-      <tr>
-          <td>Dinámico</td>
-          <td><code>-D</code></td>
-          <td>El cliente</td>
-          <td>Proxy SOCKS para cualquier destino</td>
-      </tr>
-  </tbody>
-</table>
-<p>En los ejemplos siguientes usamos esta topología:</p>
-<pre tabindex="0"><code>Red externa          Frontera SSH              Red interna
+<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>SSH port forwarding: los 8 escenarios con -L, -R y -D - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Los 8 escenarios de port forwarding SSH: -L local, -R remoto, -D dinámico. ProxyJump, GatewayPorts, Sshuttle y cheat sheet. Guía completa 2026."><link rel=canonical href=https://jaimealberto.io/post/82_tuneles_ssh/><meta property="og:url" content="https://jaimealberto.io/post/82_tuneles_ssh/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="SSH port forwarding: los 8 escenarios con -L, -R y -D"><meta property="og:description" content="Los 8 escenarios de port forwarding SSH: -L local, -R remoto, -D dinámico. ProxyJump, GatewayPorts, Sshuttle y cheat sheet. Guía completa 2026."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-06-15T08:00:00+02:00"><meta property="article:modified_time" content="2026-06-15T08:00:00+02:00"><meta property="article:tag" content="SSH"><meta property="article:tag" content="Tunneling"><meta property="article:tag" content="Port Forwarding"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Redes"><meta property="article:tag" content="Sysadmin"><meta property="og:image" content="https://jaimealberto.io/img/tuneles_ssh.jpg"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"SSH port forwarding: los 8 escenarios con -L, -R y -D","description":"Los 8 escenarios de port forwarding SSH: -L local, -R remoto, -D dinámico. ProxyJump, GatewayPorts, Sshuttle y cheat sheet. Guía completa 2026.","datePublished":"2026-06-15","dateModified":"2026-06-15","url":"https:\/\/jaimealberto.io\/post\/82_tuneles_ssh\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>SSH port forwarding: los 8 escenarios con -L, -R y -D</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-06-15T08:00:00+02:00>15-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a>, <a class=meta__link href=/categories/redes/ rel=category>Redes</a></span></div></div></header><div class="content post__content clearfix"><figure><img src=/img/tuneles_ssh.jpg alt="SSH port forwarding: los 8 escenarios con -L, -R y -D"></figure><p>El Imperio controla la Holonet. Cada mensaje que viaja por los canales oficiales pasa por sus filtros, sus inspectores, sus reglas de firewall.</p><p>La Alianza aprendió pronto que la única forma de comunicarse con seguridad era no usar esos canales. Había otra red — más discreta, construida con nodos de confianza conectados por rutas encubiertas. Un paquete que parecía ir de Tatooine a Mos Eisley llevaba en realidad las coordenadas de Echo Base cifradas en su interior. El firewall imperial solo veía una conexión SSH normal. Lo que viajaba dentro era otra cosa.</p><p>SSH funciona así. No mueve solo sesiones de terminal — mueve cualquier tráfico TCP dentro de un canal cifrado. Un servicio bloqueado por el firewall puede aparecer en tu localhost. Un servidor interno puede exponerse al exterior con un solo comando. La red privada de otro sistema se convierte en tu red.</p><p>Ocho escenarios. Tres flags (<code>-L</code>, <code>-R</code>, <code>-D</code>). Un solo canal SSH. Esta es la guía completa de port forwarding actualizada a 2026: los comandos de hoy, ProxyJump, Sshuttle y lo que los libros no cuentan.</p><p><strong>Índice</strong></p><ul><li><a href=#qu%C3%A9-es-un-t%C3%BAnel-ssh>Qué es un túnel SSH</a></li><li><a href=#los-8-escenarios>Los 8 escenarios</a></li><li><a href=#t%C3%BAneles-en-background--f--n>Túneles en background</a></li><li><a href=#proxyjump-el-salto-de-2016-que-lo-cambi%C3%B3-todo>ProxyJump: el salto de 2016 que lo cambió todo</a></li><li><a href=#gatewayports-el-gotcha-que-nadie-te-cuenta>GatewayPorts: el gotcha que nadie te cuenta</a></li><li><a href=#sshuttle-la-vpn-del-sysadmin>Sshuttle: la VPN del sysadmin</a></li><li><a href=#integraci%C3%B3n-con-sshconfig>Integración con ~/.ssh/config</a></li><li><a href=#cheat-sheet>Cheat sheet</a></li></ul><hr><blockquote><p><strong>Aviso de uso responsable</strong></p><p>Los túneles SSH son una herramienta legítima de administración de sistemas: acceso a servicios internos, administración remota segura, bypass de restricciones de red propias.</p><p>Usar estas técnicas para acceder sin autorización a sistemas ajenos o para evadir controles de seguridad corporativos sin permiso es ilegal. Úsalas en sistemas propios o con autorización escrita del propietario.</p></blockquote><hr><h2 id=qué-es-un-túnel-ssh>Qué es un túnel SSH</h2><p>SSH cifra la conexión entre dos máquinas. Pero además de ejecutar comandos, puede hacer otra cosa: <strong>encapsular tráfico TCP dentro de esa conexión cifrada</strong>. Eso es un túnel.</p><p>Hay tres tipos:</p><table><thead><tr><th>Tipo</th><th>Flag</th><th>Quién inicia</th><th>Para qué</th></tr></thead><tbody><tr><td>Local</td><td><code>-L</code></td><td>El cliente</td><td>Acceder a servicios del lado remoto</td></tr><tr><td>Remoto</td><td><code>-R</code></td><td>El cliente</td><td>Exponer servicios del lado local al remoto</td></tr><tr><td>Dinámico</td><td><code>-D</code></td><td>El cliente</td><td>Proxy SOCKS para cualquier destino</td></tr></tbody></table><p>En los ejemplos siguientes usamos esta topología:</p><pre tabindex=0><code>Red externa          Frontera SSH              Red interna
 ──────────────       ──────────────────        ──────────────
 Tatooine             Tatooine  Coruscant       Coruscant
 Mos Eisley       ←── único canal SSH ───────→  Mandalore
-</code></pre><p><code>Tatooine</code> puede conectar con <code>Coruscant</code> por SSH. No hay otra ruta entre las dos redes.</p>
-<hr>
-<h2 id="los-8-escenarios">Los 8 escenarios</h2>
-<h3 id="escenario-1--local-tatooine-usa-un-servicio-de-coruscant-localhost">Escenario 1 — Local: Tatooine usa un servicio de Coruscant (localhost)</h3>
-<figure>
-  <img src="/img/ssh_esc1.jpg" alt="Escenario 1 — SSH local port forwarding a localhost">
-</figure>
-
-<p>Tatooine quiere conectarse al servicio VNC (puerto 5900) de Coruscant, que solo escucha en localhost:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -L 7900:localhost:5900 usuario@coruscant
-</span></span></code></pre></div><p>El puerto 7900 de Tatooine ahora apunta al puerto 5900 de Coruscant. Solo es accesible desde el propio Tatooine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ vncviewer localhost::7900
-</span></span></code></pre></div><hr>
-<h3 id="escenario-2--local-mos-eisley-usa-un-servicio-de-coruscant-vía-tatooine">Escenario 2 — Local: Mos Eisley usa un servicio de Coruscant vía Tatooine</h3>
-<figure>
-  <img src="/img/ssh_esc2.jpg" alt="Escenario 2 — SSH local port forwarding 0.0.0.0">
-</figure>
-
-<p>Igual que el anterior, pero queremos que sea Mos Eisley quien acceda. Necesitamos que el puerto local se abra en 0.0.0.0 en lugar de en localhost:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -L 0.0.0.0:7900:localhost:5900 usuario@coruscant
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># equivalente:</span>
-</span></span><span style="display:flex;"><span>tatooine $ ssh -g -L 7900:localhost:5900 usuario@coruscant
-</span></span></code></pre></div><p>Ahora desde Mos Eisley:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>moseisley $ vncviewer tatooine::7900
-</span></span></code></pre></div><hr>
-<h3 id="escenario-3--remoto-coruscant-usa-un-servicio-de-tatooine-localhost">Escenario 3 — Remoto: Coruscant usa un servicio de Tatooine (localhost)</h3>
-<figure>
-  <img src="/img/ssh_esc3.jpg" alt="Escenario 3 — SSH remote port forwarding a localhost">
-</figure>
-
-<p>Ahora el flujo es al revés. Tatooine tiene un servicio que Coruscant quiere usar. El túnel se establece desde Tatooine con <code>-R</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -R 7900:localhost:5900 usuario@coruscant
-</span></span></code></pre></div><p>En Coruscant aparece el puerto 7900 apuntando al VNC de Tatooine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>coruscant $ vncviewer localhost::7900
-</span></span></code></pre></div><hr>
-<h3 id="escenario-4--remoto-mandalore-usa-un-servicio-de-tatooine-vía-coruscant">Escenario 4 — Remoto: Mandalore usa un servicio de Tatooine vía Coruscant</h3>
-<figure>
-  <img src="/img/ssh_esc4.jpg" alt="Escenario 4 — SSH remote port forwarding GatewayPorts">
-</figure>
-
-<p>Como en el escenario 2 pero en dirección contraria. Por defecto, <code>-R</code> solo escucha en localhost de Coruscant. Para que Mandalore también pueda acceder, necesitamos <strong>GatewayPorts</strong> (ver sección más abajo):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -R 0.0.0.0:7900:localhost:5900 usuario@coruscant
-</span></span></code></pre></div><p>Esto solo funciona si Coruscant tiene <code>GatewayPorts yes</code> en su <code>sshd_config</code>.</p>
-<hr>
-<h3 id="escenario-5--local-tatooine-accede-a-un-servicio-de-mandalore-vía-coruscant">Escenario 5 — Local: Tatooine accede a un servicio de Mandalore vía Coruscant</h3>
-<figure>
-  <img src="/img/ssh_esc5.jpg" alt="Escenario 5 — SSH local port forwarding multi-hop">
-</figure>
-
-<p>Tatooine quiere acceder a un servicio en Mandalore, que solo tiene conectividad con Coruscant. El túnel salta a través de Coruscant:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -L 7902:mandalore:5900 usuario@coruscant
-</span></span><span style="display:flex;"><span>tatooine $ vncviewer localhost::7902
-</span></span></code></pre></div><p>El tráfico viaja: <code>Tatooine:7902</code> → SSH → <code>Coruscant</code> → TCP → <code>Mandalore:5900</code>.</p>
-<hr>
-<h3 id="escenario-6--local-0000-mos-eisley-también-llega-a-mandalore">Escenario 6 — Local 0.0.0.0: Mos Eisley también llega a Mandalore</h3>
-<figure>
-  <img src="/img/ssh_esc6.jpg" alt="Escenario 6 — SSH local port forwarding 0.0.0.0 multi-hop">
-</figure>
-
-<p>Como el escenario 5, pero exponiendo el puerto a Mos Eisley:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -L 0.0.0.0:7902:mandalore:5900 usuario@coruscant
-</span></span><span style="display:flex;"><span>moseisley $ vncviewer tatooine::7902
-</span></span></code></pre></div><hr>
-<h3 id="escenario-7--remoto-coruscant-accede-a-un-servicio-de-mos-eisley">Escenario 7 — Remoto: Coruscant accede a un servicio de Mos Eisley</h3>
-<figure>
-  <img src="/img/ssh_esc7.jpg" alt="Escenario 7 — SSH remote port forwarding a red externa">
-</figure>
-
-<p>Coruscant quiere acceder a un servicio en Mos Eisley, que solo tiene conectividad con Tatooine. De nuevo, <code>-R</code> al rescate:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -R 7902:moseisley:5900 usuario@coruscant
-</span></span><span style="display:flex;"><span>coruscant $ vncviewer localhost::7902
-</span></span></code></pre></div><hr>
-<h3 id="escenario-8--dinámico-proxy-socks-hacia-cualquier-destino">Escenario 8 — Dinámico: proxy SOCKS hacia cualquier destino</h3>
-<figure>
-  <img src="/img/ssh_esc8.jpg" alt="Escenario 8 — SSH dynamic port forwarding SOCKS5">
-</figure>
-
-<p>El más potente. En lugar de reenviar a un destino fijo, crea un proxy SOCKS en el cliente que puede dirigir tráfico a cualquier destino a través del servidor SSH:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tatooine $ ssh -D <span style="color:#ae81ff">1080</span> usuario@coruscant
-</span></span></code></pre></div><p>Ahora <code>localhost:1080</code> es un proxy SOCKS5. Cualquier aplicación que soporte SOCKS puede usarlo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Navegar a través del proxy</span>
-</span></span><span style="display:flex;"><span>curl --socks5 localhost:1080 https://example.com
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Abrir Firefox con el proxy SOCKS5</span>
-</span></span><span style="display:flex;"><span>firefox --proxy-server<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;socks5://localhost:1080&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Redirigir cualquier herramienta con proxychains</span>
-</span></span><span style="display:flex;"><span>proxychains nmap -sT mandalore
-</span></span></code></pre></div><hr>
-<h2 id="túneles-en-background--f--n">Túneles en background: <code>-f -N</code></h2>
-<p>En los escenarios anteriores, el túnel ocupa la terminal. Para uso en producción, lánzalo en background:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># -f: va al background tras autenticarse</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># -N: no ejecuta ningún comando remoto (solo el túnel)</span>
-</span></span><span style="display:flex;"><span>ssh -f -N -L 7900:localhost:5900 usuario@coruscant
-</span></span></code></pre></div><p>Verificar que el túnel está activo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ss -ltn | grep <span style="color:#ae81ff">7900</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># o</span>
-</span></span><span style="display:flex;"><span>nmap -p <span style="color:#ae81ff">7900</span> 127.0.0.1
-</span></span></code></pre></div><p>Para cerrarlo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pkill -f <span style="color:#e6db74">&#34;ssh -f -N -L 7900&#34;</span>
-</span></span></code></pre></div><hr>
-<h2 id="proxyjump-el-salto-de-2016-que-lo-cambió-todo">ProxyJump: el salto de 2016 que lo cambió todo</h2>
-<p>Antes de OpenSSH 7.3 (2016), hacer SSH a través de un bastion host requería <code>ProxyCommand</code> con <code>netcat</code> o <code>-W</code>. Desde entonces existe <code>-J</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Conectar a Coruscant pasando por Tatooine</span>
-</span></span><span style="display:flex;"><span>ssh -J tatooine usuario@coruscant
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Múltiples saltos</span>
-</span></span><span style="display:flex;"><span>ssh -J tatooine,coruscant usuario@mandalore
-</span></span></code></pre></div><p>Combinado con port forwarding:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Túnel local a Mandalore pasando por Tatooine → Coruscant</span>
-</span></span><span style="display:flex;"><span>ssh -J tatooine,coruscant -L 7900:localhost:5900 usuario@mandalore
-</span></span></code></pre></div><p>En <code>~/.ssh/config</code>, la forma canónica:</p>
-<pre tabindex="0"><code>Host coruscant
+</code></pre><p><code>Tatooine</code> puede conectar con <code>Coruscant</code> por SSH. No hay otra ruta entre las dos redes.</p><hr><h2 id=los-8-escenarios>Los 8 escenarios</h2><h3 id=escenario-1--local-tatooine-usa-un-servicio-de-coruscant-localhost>Escenario 1 — Local: Tatooine usa un servicio de Coruscant (localhost)</h3><figure><img src=/img/ssh_esc1.jpg alt="Escenario 1 — SSH local port forwarding a localhost"></figure><p>Tatooine quiere conectarse al servicio VNC (puerto 5900) de Coruscant, que solo escucha en localhost:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -L 7900:localhost:5900 usuario@coruscant
+</span></span></code></pre></div><p>El puerto 7900 de Tatooine ahora apunta al puerto 5900 de Coruscant. Solo es accesible desde el propio Tatooine:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ vncviewer localhost::7900
+</span></span></code></pre></div><hr><h3 id=escenario-2--local-mos-eisley-usa-un-servicio-de-coruscant-vía-tatooine>Escenario 2 — Local: Mos Eisley usa un servicio de Coruscant vía Tatooine</h3><figure><img src=/img/ssh_esc2.jpg alt="Escenario 2 — SSH local port forwarding 0.0.0.0"></figure><p>Igual que el anterior, pero queremos que sea Mos Eisley quien acceda. Necesitamos que el puerto local se abra en 0.0.0.0 en lugar de en localhost:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -L 0.0.0.0:7900:localhost:5900 usuario@coruscant
+</span></span><span style=display:flex><span><span style=color:#75715e># equivalente:</span>
+</span></span><span style=display:flex><span>tatooine $ ssh -g -L 7900:localhost:5900 usuario@coruscant
+</span></span></code></pre></div><p>Ahora desde Mos Eisley:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>moseisley $ vncviewer tatooine::7900
+</span></span></code></pre></div><hr><h3 id=escenario-3--remoto-coruscant-usa-un-servicio-de-tatooine-localhost>Escenario 3 — Remoto: Coruscant usa un servicio de Tatooine (localhost)</h3><figure><img src=/img/ssh_esc3.jpg alt="Escenario 3 — SSH remote port forwarding a localhost"></figure><p>Ahora el flujo es al revés. Tatooine tiene un servicio que Coruscant quiere usar. El túnel se establece desde Tatooine con <code>-R</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -R 7900:localhost:5900 usuario@coruscant
+</span></span></code></pre></div><p>En Coruscant aparece el puerto 7900 apuntando al VNC de Tatooine:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>coruscant $ vncviewer localhost::7900
+</span></span></code></pre></div><hr><h3 id=escenario-4--remoto-mandalore-usa-un-servicio-de-tatooine-vía-coruscant>Escenario 4 — Remoto: Mandalore usa un servicio de Tatooine vía Coruscant</h3><figure><img src=/img/ssh_esc4.jpg alt="Escenario 4 — SSH remote port forwarding GatewayPorts"></figure><p>Como en el escenario 2 pero en dirección contraria. Por defecto, <code>-R</code> solo escucha en localhost de Coruscant. Para que Mandalore también pueda acceder, necesitamos <strong>GatewayPorts</strong> (ver sección más abajo):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -R 0.0.0.0:7900:localhost:5900 usuario@coruscant
+</span></span></code></pre></div><p>Esto solo funciona si Coruscant tiene <code>GatewayPorts yes</code> en su <code>sshd_config</code>.</p><hr><h3 id=escenario-5--local-tatooine-accede-a-un-servicio-de-mandalore-vía-coruscant>Escenario 5 — Local: Tatooine accede a un servicio de Mandalore vía Coruscant</h3><figure><img src=/img/ssh_esc5.jpg alt="Escenario 5 — SSH local port forwarding multi-hop"></figure><p>Tatooine quiere acceder a un servicio en Mandalore, que solo tiene conectividad con Coruscant. El túnel salta a través de Coruscant:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -L 7902:mandalore:5900 usuario@coruscant
+</span></span><span style=display:flex><span>tatooine $ vncviewer localhost::7902
+</span></span></code></pre></div><p>El tráfico viaja: <code>Tatooine:7902</code> → SSH → <code>Coruscant</code> → TCP → <code>Mandalore:5900</code>.</p><hr><h3 id=escenario-6--local-0000-mos-eisley-también-llega-a-mandalore>Escenario 6 — Local 0.0.0.0: Mos Eisley también llega a Mandalore</h3><figure><img src=/img/ssh_esc6.jpg alt="Escenario 6 — SSH local port forwarding 0.0.0.0 multi-hop"></figure><p>Como el escenario 5, pero exponiendo el puerto a Mos Eisley:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -L 0.0.0.0:7902:mandalore:5900 usuario@coruscant
+</span></span><span style=display:flex><span>moseisley $ vncviewer tatooine::7902
+</span></span></code></pre></div><hr><h3 id=escenario-7--remoto-coruscant-accede-a-un-servicio-de-mos-eisley>Escenario 7 — Remoto: Coruscant accede a un servicio de Mos Eisley</h3><figure><img src=/img/ssh_esc7.jpg alt="Escenario 7 — SSH remote port forwarding a red externa"></figure><p>Coruscant quiere acceder a un servicio en Mos Eisley, que solo tiene conectividad con Tatooine. De nuevo, <code>-R</code> al rescate:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -R 7902:moseisley:5900 usuario@coruscant
+</span></span><span style=display:flex><span>coruscant $ vncviewer localhost::7902
+</span></span></code></pre></div><hr><h3 id=escenario-8--dinámico-proxy-socks-hacia-cualquier-destino>Escenario 8 — Dinámico: proxy SOCKS hacia cualquier destino</h3><figure><img src=/img/ssh_esc8.jpg alt="Escenario 8 — SSH dynamic port forwarding SOCKS5"></figure><p>El más potente. En lugar de reenviar a un destino fijo, crea un proxy SOCKS en el cliente que puede dirigir tráfico a cualquier destino a través del servidor SSH:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>tatooine $ ssh -D <span style=color:#ae81ff>1080</span> usuario@coruscant
+</span></span></code></pre></div><p>Ahora <code>localhost:1080</code> es un proxy SOCKS5. Cualquier aplicación que soporte SOCKS puede usarlo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Navegar a través del proxy</span>
+</span></span><span style=display:flex><span>curl --socks5 localhost:1080 https://example.com
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Abrir Firefox con el proxy SOCKS5</span>
+</span></span><span style=display:flex><span>firefox --proxy-server<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;socks5://localhost:1080&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Redirigir cualquier herramienta con proxychains</span>
+</span></span><span style=display:flex><span>proxychains nmap -sT mandalore
+</span></span></code></pre></div><hr><h2 id=túneles-en-background--f--n>Túneles en background: <code>-f -N</code></h2><p>En los escenarios anteriores, el túnel ocupa la terminal. Para uso en producción, lánzalo en background:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># -f: va al background tras autenticarse</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -N: no ejecuta ningún comando remoto (solo el túnel)</span>
+</span></span><span style=display:flex><span>ssh -f -N -L 7900:localhost:5900 usuario@coruscant
+</span></span></code></pre></div><p>Verificar que el túnel está activo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>ss -ltn | grep <span style=color:#ae81ff>7900</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># o</span>
+</span></span><span style=display:flex><span>nmap -p <span style=color:#ae81ff>7900</span> 127.0.0.1
+</span></span></code></pre></div><p>Para cerrarlo:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>pkill -f <span style=color:#e6db74>&#34;ssh -f -N -L 7900&#34;</span>
+</span></span></code></pre></div><hr><h2 id=proxyjump-el-salto-de-2016-que-lo-cambió-todo>ProxyJump: el salto de 2016 que lo cambió todo</h2><p>Antes de OpenSSH 7.3 (2016), hacer SSH a través de un bastion host requería <code>ProxyCommand</code> con <code>netcat</code> o <code>-W</code>. Desde entonces existe <code>-J</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Conectar a Coruscant pasando por Tatooine</span>
+</span></span><span style=display:flex><span>ssh -J tatooine usuario@coruscant
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Múltiples saltos</span>
+</span></span><span style=display:flex><span>ssh -J tatooine,coruscant usuario@mandalore
+</span></span></code></pre></div><p>Combinado con port forwarding:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Túnel local a Mandalore pasando por Tatooine → Coruscant</span>
+</span></span><span style=display:flex><span>ssh -J tatooine,coruscant -L 7900:localhost:5900 usuario@mandalore
+</span></span></code></pre></div><p>En <code>~/.ssh/config</code>, la forma canónica:</p><pre tabindex=0><code>Host coruscant
     HostName coruscant
     User usuario
     ProxyJump tatooine
@@ -322,37 +50,21 @@ Host mandalore
     HostName mandalore
     User usuario
     ProxyJump coruscant
-</code></pre><p>Con esto, <code>ssh mandalore</code> ya hace los saltos automáticamente.</p>
-<hr>
-<h2 id="gatewayports-el-gotcha-que-nadie-te-cuenta">GatewayPorts: el gotcha que nadie te cuenta</h2>
-<p>Por defecto, cuando haces <code>-R 7900:localhost:5900</code>, el puerto 7900 se abre <strong>solo en localhost de Coruscant</strong>. Aunque pongas <code>0.0.0.0</code>, por defecto el servidor SSH lo ignora.</p>
-<p>Para que funcione el escenario 4 — o cualquier remote forward accesible desde la red interna — necesitas en <code>sshd_config</code> de Coruscant:</p>
-<pre tabindex="0"><code>GatewayPorts yes
-</code></pre><p>O una opción intermedia:</p>
-<pre tabindex="0"><code>GatewayPorts clientspecified
-</code></pre><p>Con <code>clientspecified</code>, el cliente controla si el puerto se expone a 0.0.0.0 o no. Con <code>yes</code>, todos los forwards remotos se exponen siempre.</p>
-<p>Tras el cambio, reiniciar SSH:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart ssh
-</span></span></code></pre></div><hr>
-<h2 id="sshuttle-la-vpn-del-sysadmin">Sshuttle: la VPN del sysadmin</h2>
-<p>Los túneles SSH manuales sirven para puertos concretos. Cuando quieres acceder a <strong>toda la red remota</strong> sin configurar cada puerto a mano, existe <a href="https://github.com/sshuttle/sshuttle">sshuttle</a>.</p>
-<p>Sshuttle redirige transparentemente todo el tráfico TCP hacia una red remota a través de SSH. No necesita root en el servidor remoto — solo Python.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Instalar en Debian/Ubuntu</span>
-</span></span><span style="display:flex;"><span>apt install sshuttle
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enrutar todo el tráfico de 192.168.10.0/24 a través de Coruscant</span>
-</span></span><span style="display:flex;"><span>sshuttle -r usuario@coruscant 192.168.10.0/24
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Con salto intermedio (ProxyJump)</span>
-</span></span><span style="display:flex;"><span>sshuttle -r usuario@coruscant 192.168.10.0/24 --ssh-cmd <span style="color:#e6db74">&#34;ssh -J tatooine&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Todo el tráfico (VPN completa)</span>
-</span></span><span style="display:flex;"><span>sshuttle -r usuario@coruscant 0/0
-</span></span></code></pre></div><p>Mientras sshuttle está activo, accedes a <code>192.168.10.x</code> directamente desde tu máquina, sin configurar proxychains ni puertos individuales.</p>
-<hr>
-<h2 id="integración-con-sshconfig">Integración con ~/.ssh/config</h2>
-<p>Las opciones de tunnel también van en <code>~/.ssh/config</code>. Así evitas escribir el comando completo cada vez:</p>
-<pre tabindex="0"><code>Host mi-tunel-vnc
+</code></pre><p>Con esto, <code>ssh mandalore</code> ya hace los saltos automáticamente.</p><hr><h2 id=gatewayports-el-gotcha-que-nadie-te-cuenta>GatewayPorts: el gotcha que nadie te cuenta</h2><p>Por defecto, cuando haces <code>-R 7900:localhost:5900</code>, el puerto 7900 se abre <strong>solo en localhost de Coruscant</strong>. Aunque pongas <code>0.0.0.0</code>, por defecto el servidor SSH lo ignora.</p><p>Para que funcione el escenario 4 — o cualquier remote forward accesible desde la red interna — necesitas en <code>sshd_config</code> de Coruscant:</p><pre tabindex=0><code>GatewayPorts yes
+</code></pre><p>O una opción intermedia:</p><pre tabindex=0><code>GatewayPorts clientspecified
+</code></pre><p>Con <code>clientspecified</code>, el cliente controla si el puerto se expone a 0.0.0.0 o no. Con <code>yes</code>, todos los forwards remotos se exponen siempre.</p><p>Tras el cambio, reiniciar SSH:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl restart ssh
+</span></span></code></pre></div><hr><h2 id=sshuttle-la-vpn-del-sysadmin>Sshuttle: la VPN del sysadmin</h2><p>Los túneles SSH manuales sirven para puertos concretos. Cuando quieres acceder a <strong>toda la red remota</strong> sin configurar cada puerto a mano, existe <a href=https://github.com/sshuttle/sshuttle>sshuttle</a>.</p><p>Sshuttle redirige transparentemente todo el tráfico TCP hacia una red remota a través de SSH. No necesita root en el servidor remoto — solo Python.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Instalar en Debian/Ubuntu</span>
+</span></span><span style=display:flex><span>apt install sshuttle
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Enrutar todo el tráfico de 192.168.10.0/24 a través de Coruscant</span>
+</span></span><span style=display:flex><span>sshuttle -r usuario@coruscant 192.168.10.0/24
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Con salto intermedio (ProxyJump)</span>
+</span></span><span style=display:flex><span>sshuttle -r usuario@coruscant 192.168.10.0/24 --ssh-cmd <span style=color:#e6db74>&#34;ssh -J tatooine&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Todo el tráfico (VPN completa)</span>
+</span></span><span style=display:flex><span>sshuttle -r usuario@coruscant 0/0
+</span></span></code></pre></div><p>Mientras sshuttle está activo, accedes a <code>192.168.10.x</code> directamente desde tu máquina, sin configurar proxychains ni puertos individuales.</p><hr><h2 id=integración-con-sshconfig>Integración con ~/.ssh/config</h2><p>Las opciones de tunnel también van en <code>~/.ssh/config</code>. Así evitas escribir el comando completo cada vez:</p><pre tabindex=0><code>Host mi-tunel-vnc
     HostName coruscant
     User usuario
     LocalForward 7900 localhost:5900
@@ -364,158 +76,6 @@ Host mi-socks
     User usuario
     DynamicForward 1080
     ServerAliveInterval 60
-</code></pre><p>Con esto, <code>ssh mi-tunel-vnc -N</code> activa el túnel. Añade <code>-f</code> para enviarlo al background.</p>
-<p><code>ServerAliveInterval 60</code> envía un keep-alive cada 60 segundos para que el túnel no caiga si no hay tráfico. <code>ExitOnForwardFailure yes</code> hace que SSH salga con error si el puerto local ya está en uso — útil en scripts.</p>
-<hr>
-<h2 id="cheat-sheet">Cheat sheet</h2>
-<table>
-  <thead>
-      <tr>
-          <th>Objetivo</th>
-          <th>Comando</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Acceder a puerto remoto desde localhost</td>
-          <td><code>ssh -L LPORT:localhost:RPORT user@host</code></td>
-      </tr>
-      <tr>
-          <td>Acceder a puerto remoto desde la red local</td>
-          <td><code>ssh -L 0.0.0.0:LPORT:localhost:RPORT user@host</code></td>
-      </tr>
-      <tr>
-          <td>Exponer tu servicio al servidor remoto</td>
-          <td><code>ssh -R RPORT:localhost:LPORT user@host</code></td>
-      </tr>
-      <tr>
-          <td>Acceder a tercera máquina de la red remota</td>
-          <td><code>ssh -L LPORT:host3:RPORT user@host</code></td>
-      </tr>
-      <tr>
-          <td>Proxy SOCKS dinámico</td>
-          <td><code>ssh -D 1080 user@host</code></td>
-      </tr>
-      <tr>
-          <td>Túnel en background</td>
-          <td><code>ssh -f -N -L LPORT:localhost:RPORT user@host</code></td>
-      </tr>
-      <tr>
-          <td>Salto por bastion</td>
-          <td><code>ssh -J bastion user@destino</code></td>
-      </tr>
-      <tr>
-          <td>VPN transparente a subred</td>
-          <td><code>sshuttle -r user@host 192.168.1.0/24</code></td>
-      </tr>
-      <tr>
-          <td>VPN total</td>
-          <td><code>sshuttle -r user@host 0/0</code></td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="recursos">Recursos</h2>
-<ul>
-<li><a href="https://crysol.org/recipe/2010-01-03/creando-tneles-tcp-ip-port-forwarding-con-ssh-los-8-escenarios-posibles-usando-openssh">Los 8 escenarios de port forwarding con SSH — artículo original (copia en CRySoL)</a></li>
-<li><a href="https://man.openbsd.org/ssh">man ssh</a> — documentación oficial de OpenSSH</li>
-<li><a href="https://github.com/sshuttle/sshuttle">Sshuttle</a> — VPN transparente sobre SSH</li>
-<li><a href="/post/72_oracle_cloud_free_vps/">VPS gratuito en Oracle Cloud</a> — para tener un nodo SSH siempre disponible</li>
-</ul>
-		</div>
-		<footer class="post__footer">
-			
-<div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/ssh/" rel="tag">SSH</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/tunneling/" rel="tag">tunneling</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/port-forwarding/" rel="tag">port forwarding</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/linux/" rel="tag">Linux</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/redes/" rel="tag">Redes</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/sysadmin/" rel="tag">Sysadmin</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/homelab/" rel="tag">Homelab</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/proxyjump/" rel="tag">ProxyJump</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/sshuttle/" rel="tag">Sshuttle</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">seguridad</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/bastion/" rel="tag">bastion</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/proxy/" rel="tag">proxy</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/socks5/" rel="tag">SOCKS5</a>
-		</li>
-	</ul>
-</div>
-		</footer></article>
-</main>
-
-<div class="authorbox clearfix">
-	<figure class="authorbox__avatar">
-		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
-	</figure>
-	<div class="authorbox__header">
-		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
-	</div>
-	<div class="authorbox__description">
-		The BOFH of this Site
-	</div>
-</div>
-<div class="cta">
-	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
-	<div class="cta__links">
-		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
-			LinkedIn
-		</a>
-		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
-			GitHub
-		</a>
-	</div>
-</div>
-
-
-
-
-			</div>
-			
-		</div>
-		<footer class="footer">
-	<div class="container footer__container flex">
-		
-<div class="footer__links">
-	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
-</div>
-		<div class="footer__copyright">
-			&copy; 2026 JaimeAlberto.
-			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
-		</div>
-	</div>
-</footer>
-	</div>
-<script async defer src="/js/menu.js"></script>
-<script src="/js/custom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
-</body>
-</html>
+</code></pre><p>Con esto, <code>ssh mi-tunel-vnc -N</code> activa el túnel. Añade <code>-f</code> para enviarlo al background.</p><p><code>ServerAliveInterval 60</code> envía un keep-alive cada 60 segundos para que el túnel no caiga si no hay tráfico. <code>ExitOnForwardFailure yes</code> hace que SSH salga con error si el puerto local ya está en uso — útil en scripts.</p><hr><h2 id=cheat-sheet>Cheat sheet</h2><table><thead><tr><th>Objetivo</th><th>Comando</th></tr></thead><tbody><tr><td>Acceder a puerto remoto desde localhost</td><td><code>ssh -L LPORT:localhost:RPORT user@host</code></td></tr><tr><td>Acceder a puerto remoto desde la red local</td><td><code>ssh -L 0.0.0.0:LPORT:localhost:RPORT user@host</code></td></tr><tr><td>Exponer tu servicio al servidor remoto</td><td><code>ssh -R RPORT:localhost:LPORT user@host</code></td></tr><tr><td>Acceder a tercera máquina de la red remota</td><td><code>ssh -L LPORT:host3:RPORT user@host</code></td></tr><tr><td>Proxy SOCKS dinámico</td><td><code>ssh -D 1080 user@host</code></td></tr><tr><td>Túnel en background</td><td><code>ssh -f -N -L LPORT:localhost:RPORT user@host</code></td></tr><tr><td>Salto por bastion</td><td><code>ssh -J bastion user@destino</code></td></tr><tr><td>VPN transparente a subred</td><td><code>sshuttle -r user@host 192.168.1.0/24</code></td></tr><tr><td>VPN total</td><td><code>sshuttle -r user@host 0/0</code></td></tr></tbody></table><hr><h2 id=recursos>Recursos</h2><ul><li><a href=https://crysol.org/recipe/2010-01-03/creando-tneles-tcp-ip-port-forwarding-con-ssh-los-8-escenarios-posibles-usando-openssh>Los 8 escenarios de port forwarding con SSH — artículo original (copia en CRySoL)</a></li><li><a href=https://man.openbsd.org/ssh>man ssh</a> — documentación oficial de OpenSSH</li><li><a href=https://github.com/sshuttle/sshuttle>Sshuttle</a> — VPN transparente sobre SSH</li><li><a href=/post/72_oracle_cloud_free_vps/>VPS gratuito en Oracle Cloud</a> — para tener un nodo SSH siempre disponible</li></ul></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/ssh/ rel=tag>SSH</a></li><li class=tags__item><a class="tags__link btn" href=/tags/tunneling/ rel=tag>tunneling</a></li><li class=tags__item><a class="tags__link btn" href=/tags/port-forwarding/ rel=tag>port forwarding</a></li><li class=tags__item><a class="tags__link btn" href=/tags/linux/ rel=tag>Linux</a></li><li class=tags__item><a class="tags__link btn" href=/tags/redes/ rel=tag>Redes</a></li><li class=tags__item><a class="tags__link btn" href=/tags/sysadmin/ rel=tag>Sysadmin</a></li><li class=tags__item><a class="tags__link btn" href=/tags/homelab/ rel=tag>Homelab</a></li><li class=tags__item><a class="tags__link btn" href=/tags/proxyjump/ rel=tag>ProxyJump</a></li><li class=tags__item><a class="tags__link btn" href=/tags/sshuttle/ rel=tag>Sshuttle</a></li><li class=tags__item><a class="tags__link btn" href=/tags/seguridad/ rel=tag>seguridad</a></li><li class=tags__item><a class="tags__link btn" href=/tags/bastion/ rel=tag>bastion</a></li><li class=tags__item><a class="tags__link btn" href=/tags/proxy/ rel=tag>proxy</a></li><li class=tags__item><a class="tags__link btn" href=/tags/socks5/ rel=tag>SOCKS5</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
+</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
+<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>
