@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Usa un Cloudflare Worker para recibir webhooks de GitHub y reenviarlos a Gotify. Validación HMAC-SHA256, secrets cifrados, sin puertos abiertos. Plan gratuito.">
+	<link rel="canonical" href="http://localhost:1313/post/86_cloudflare_workers_webhook/">
+		<meta property="og:url" content="http://localhost:1313/post/86_cloudflare_workers_webhook/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos">
+  <meta property="og:description" content="Usa un Cloudflare Worker para recibir webhooks de GitHub y reenviarlos a Gotify. Validación HMAC-SHA256, secrets cifrados, sin puertos abiertos. Plan gratuito.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-06-21T08:00:00+02:00">
+    <meta property="article:modified_time" content="2026-06-21T08:00:00+02:00">
+    <meta property="article:tag" content="Cloudflare">
+    <meta property="article:tag" content="Cloudflare Workers">
+    <meta property="article:tag" content="Webhook">
+    <meta property="article:tag" content="Github">
+    <meta property="article:tag" content="Gotify">
+    <meta property="article:tag" content="Hmac">
+    <meta property="og:image" content="https://www.jaimealberto.io/img/workers_webhook.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos",
+  "description": "Usa un Cloudflare Worker para recibir webhooks de GitHub y reenviarlos a Gotify. Validación HMAC-SHA256, secrets cifrados, sin puertos abiertos. Plan gratuito.",
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21",
+  "url": "http:\/\/localhost:1313\/post\/86_cloudflare_workers_webhook\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1313\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-21T08:00:00&#43;02:00">21-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/desarrollo/" rel="category">Desarrollo</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/workers_webhook.jpg" alt="Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos">
+</figure>
+
+<p>Sun Tzu no esperaba al enemigo en campo abierto. Elegía el terreno y obligaba al adversario a acudir a él.</p>
+<p>Un sysadmin no debería abrir puertos para que los servicios externos entren. Debería elegir dónde se recibe la llamada.</p>
+<p>GitHub quiere avisarte cuando alguien hace un push. Stripe quiere avisarte cuando llega un pago. Cualquier servicio externo quiere enviarte un webhook.</p>
+<p>El problema: para recibirlo necesitas una URL pública. Y una URL pública normalmente significa un puerto abierto en tu router, una IP fija o un servidor en la nube.</p>
+<p>El Worker actúa como ese punto de recepción elegido: vive en el edge de Cloudflare, verifica que quien llama es quien dice ser mediante firma HMAC, y solo entonces pasa el mensaje al interior de la red — sin que el router abra nada.</p>
+<p><strong>Índice</strong></p>
+<ul>
+<li><a href="#el-problema-de-los-webhooks-en-el-homelab">El problema de los webhooks en el homelab</a></li>
+<li><a href="#la-arquitectura-worker--tunnel">La arquitectura: Worker + Tunnel</a></li>
+<li><a href="#validaci%C3%B3n-hmac-verificar-que-github-es-github">Validación HMAC: verificar que GitHub es GitHub</a></li>
+<li><a href="#el-c%C3%B3digo-completo-del-worker">El código completo del Worker</a></li>
+<li><a href="#secrets-credenciales-sin-hardcodear">Secrets: credenciales sin hardcodear</a></li>
+<li><a href="#despliegue-y-pruebas-con-curl">Despliegue y pruebas con curl</a></li>
+</ul>
+<hr>
+<h2 id="el-problema-de-los-webhooks-en-el-homelab">El problema de los webhooks en el homelab</h2>
+<p>Un webhook es una petición HTTP POST que un servicio externo envía a tu endpoint cuando ocurre algo: un push en GitHub, un pago en Stripe, una alerta en Grafana. La URL a la que apunta tiene que ser accesible desde internet.</p>
+<p>En un homelab detrás de un router doméstico, eso significa una de estas opciones:</p>
+<ul>
+<li>Abrir un puerto en el router y apuntar a un servidor interno — expones IP y puerto</li>
+<li>Usar un VPS intermediario — infraestructura extra que mantener</li>
+<li>Usar ngrok o similar — dependencia de terceros, URL aleatoria en el plan gratuito</li>
+</ul>
+<p>O usar un Worker de Cloudflare como endpoint público. Sin puertos abiertos. Sin VPS. La URL es tuya (<code>webhook.tudominio.com</code>) y el código de validación también.</p>
+<hr>
+<h2 id="la-arquitectura-worker--tunnel">La arquitectura: Worker + Tunnel</h2>
+<figure>
+  <img src="/img/workers_webhook_flujo.jpg" alt="Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos">
+</figure>
+
+<p>El flujo completo:</p>
+<ol>
+<li>GitHub envía el webhook a <code>webhook.tudominio.com/github</code></li>
+<li>Cloudflare lo intercepta y ejecuta el Worker en el edge</li>
+<li>El Worker valida la firma HMAC del payload — si no es válida, 401</li>
+<li>El Worker reenvía el mensaje a Gotify via <a href="/post/75_cloudflare_tunnel/">Cloudflare Tunnel</a></li>
+<li>Gotify notifica al móvil — sin que el router haya abierto un solo puerto</li>
+</ol>
+<p>La clave es el paso 4: el Worker puede llamar a URLs externas, y si tu Gotify está expuesto con Cloudflare Tunnel, tiene una URL HTTPS pública. El tráfico va de Cloudflare a Cloudflare, sin salir a internet abierto.</p>
+<hr>
+<h2 id="validación-hmac-verificar-que-github-es-github">Validación HMAC: verificar que GitHub es GitHub</h2>
+<p>Sin validación de firma, cualquiera que conozca tu URL puede enviarte webhooks falsos. GitHub firma cada petición con HMAC-SHA256 usando un secreto compartido que tú defines al configurar el webhook.</p>
+<p>El proceso:</p>
+<ol>
+<li>GitHub concatena el payload con el secreto y calcula SHA-256</li>
+<li>Incluye el resultado en la cabecera <code>X-Hub-Signature-256: sha256=&lt;hex&gt;</code></li>
+<li>Tu Worker repite el cálculo con el mismo secreto y compara</li>
+</ol>
+<p>Si coinciden, la petición es auténtica. Si no, alguien está intentando inyectar datos falsos.</p>
+<p>La Web Crypto API de Workers permite hacer este cálculo sin dependencias externas:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">verifyHMAC</span>(<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">signature</span>, <span style="color:#a6e22e">secret</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encoder</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextEncoder</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">subtle</span>.<span style="color:#a6e22e">importKey</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;raw&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">encoder</span>.<span style="color:#a6e22e">encode</span>(<span style="color:#a6e22e">secret</span>),
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;HMAC&#39;</span>, <span style="color:#a6e22e">hash</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SHA-256&#39;</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#39;sign&#39;</span>]
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mac</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">subtle</span>.<span style="color:#a6e22e">sign</span>(<span style="color:#e6db74">&#39;HMAC&#39;</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">encoder</span>.<span style="color:#a6e22e">encode</span>(<span style="color:#a6e22e">body</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hex</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">from</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Uint8Array</span>(<span style="color:#a6e22e">mac</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">b</span> =&gt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">16</span>).<span style="color:#a6e22e">padStart</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;0&#39;</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`sha256=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">hex</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">signature</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>La comparación directa con <code>===</code> es suficiente aquí porque el Worker no tiene estado entre peticiones y no es vulnerable a timing attacks de la misma forma que un servidor persistente. Si quieres ser estricto, puedes usar <code>crypto.subtle.timingSafeEqual</code> cuando esté disponible en el runtime.</p>
+<hr>
+<h2 id="el-código-completo-del-worker">El código completo del Worker</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;fetch&#39;</span>, <span style="color:#a6e22e">event</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">respondWith</span>(<span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">request</span>))
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">request</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">method</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;POST&#39;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Response</span>(<span style="color:#e6db74">&#39;Method Not Allowed&#39;</span>, { <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">405</span> })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Leer el body antes de cualquier otro procesamiento
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">body</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">text</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">signature</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;X-Hub-Signature-256&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eventType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;X-GitHub-Event&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">signature</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">verifyHMAC</span>(<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">signature</span>, <span style="color:#a6e22e">WEBHOOK_SECRET</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Response</span>(<span style="color:#e6db74">&#39;Unauthorized&#39;</span>, { <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">401</span> })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Ignorar eventos que no nos interesan
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">eventType</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;push&#39;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Response</span>(<span style="color:#e6db74">&#39;OK&#39;</span>, { <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span> })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payload</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">body</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">repo</span>    <span style="color:#f92672">=</span> <span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">repository</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">full_name</span> <span style="color:#f92672">??</span> <span style="color:#e6db74">&#39;desconocido&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">author</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">pusher</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">name</span>          <span style="color:#f92672">??</span> <span style="color:#e6db74">&#39;desconocido&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">commits</span><span style="color:#f92672">?</span>.[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">?</span>.<span style="color:#a6e22e">message</span> <span style="color:#f92672">??</span> <span style="color:#e6db74">&#39;sin mensaje&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">GOTIFY_URL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/message`</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;X-Gotify-Key&#39;</span><span style="color:#f92672">:</span>  <span style="color:#a6e22e">GOTIFY_TOKEN</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span>  <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span>    <span style="color:#e6db74">`Push en </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">repo</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span>  <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">author</span><span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">priority</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Response</span>(<span style="color:#e6db74">&#39;OK&#39;</span>, { <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span> })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">verifyHMAC</span>(<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">signature</span>, <span style="color:#a6e22e">secret</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">encoder</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextEncoder</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">subtle</span>.<span style="color:#a6e22e">importKey</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;raw&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">encoder</span>.<span style="color:#a6e22e">encode</span>(<span style="color:#a6e22e">secret</span>),
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;HMAC&#39;</span>, <span style="color:#a6e22e">hash</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SHA-256&#39;</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#39;sign&#39;</span>]
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mac</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">crypto</span>.<span style="color:#a6e22e">subtle</span>.<span style="color:#a6e22e">sign</span>(<span style="color:#e6db74">&#39;HMAC&#39;</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">encoder</span>.<span style="color:#a6e22e">encode</span>(<span style="color:#a6e22e">body</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hex</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">from</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Uint8Array</span>(<span style="color:#a6e22e">mac</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">b</span> =&gt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">16</span>).<span style="color:#a6e22e">padStart</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;0&#39;</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`sha256=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">hex</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">signature</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>WEBHOOK_SECRET</code>, <code>GOTIFY_TOKEN</code> y <code>GOTIFY_URL</code> son variables de entorno que el Worker recibe en tiempo de ejecución — no están en el código.</p>
+<hr>
+<h2 id="secrets-credenciales-sin-hardcodear">Secrets: credenciales sin hardcodear</h2>
+<p>Los secrets se gestionan vía API y nunca aparecen en el script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.config/cloudflare/api_tokens.env
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Añadir el secreto del webhook de GitHub</span>
+</span></span><span style="display:flex;"><span>curl -X PUT <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style="color:#e6db74">/workers/scripts/webhook-receptor/secrets&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#39;{&#34;name&#34;:&#34;WEBHOOK_SECRET&#34;,&#34;text&#34;:&#34;tu-secreto-aqui&#34;,&#34;type&#34;:&#34;secret_text&#34;}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Token de Gotify</span>
+</span></span><span style="display:flex;"><span>curl -X PUT <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style="color:#e6db74">/workers/scripts/webhook-receptor/secrets&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#39;{&#34;name&#34;:&#34;GOTIFY_TOKEN&#34;,&#34;text&#34;:&#34;tu-token-gotify&#34;,&#34;type&#34;:&#34;secret_text&#34;}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># URL de Gotify (puede ser un plain_text si no es sensible)</span>
+</span></span><span style="display:flex;"><span>curl -X PUT <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style="color:#e6db74">/workers/scripts/webhook-receptor/secrets&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#39;{&#34;name&#34;:&#34;GOTIFY_URL&#34;,&#34;text&#34;:&#34;https://gotify.tudominio.com&#34;,&#34;type&#34;:&#34;secret_text&#34;}&#39;</span>
+</span></span></code></pre></div><p>Los secrets se almacenan cifrados en la infraestructura de Cloudflare y nunca son legibles tras escribirlos, ni desde la API ni desde el dashboard.</p>
+<hr>
+<h2 id="despliegue-y-pruebas-con-curl">Despliegue y pruebas con curl</h2>
+<p>El despliegue sigue el mismo patrón que en el <a href="/post/78_cloudflare_workers/">artículo anterior sobre Workers</a>: multipart con <code>metadata.json</code> y el script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># metadata.json — sin bindings KV esta vez, solo el script</span>
+</span></span><span style="display:flex;"><span>cat &gt; metadata.json <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;body_part&#34;: &#34;script&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;compatibility_date&#34;: &#34;2024-01-01&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl -X PUT <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style="color:#e6db74">/workers/scripts/webhook-receptor&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -F <span style="color:#e6db74">&#34;metadata=@metadata.json;type=application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -F <span style="color:#e6db74">&#34;script=@worker.js;type=application/javascript&#34;</span>
+</span></span></code></pre></div><p>Luego un DNS CNAME (o AAAA a <code>100::</code>) para <code>webhook.tudominio.com</code> y una ruta de zona:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/</span>$CF_ZONE_ID<span style="color:#e6db74">/workers/routes&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#39;{&#34;pattern&#34;:&#34;webhook.tudominio.com/*&#34;,&#34;script&#34;:&#34;webhook-receptor&#34;}&#39;</span>
+</span></span></code></pre></div><p>Para probar sin tocar GitHub, simula el webhook con curl. El secreto compartido para este ejemplo es <code>test-secret</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>BODY<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;repository&#34;:{&#34;full_name&#34;:&#34;jaime/mi-repo&#34;},&#34;pusher&#34;:{&#34;name&#34;:&#34;jaime&#34;},&#34;commits&#34;:[{&#34;message&#34;:&#34;fix: corregir bug en el dashboard&#34;}]}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Calcular la firma HMAC-SHA256</span>
+</span></span><span style="display:flex;"><span>SIG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha256=</span><span style="color:#66d9ef">$(</span>echo -n <span style="color:#e6db74">&#34;</span>$BODY<span style="color:#e6db74">&#34;</span> | openssl dgst -sha256 -hmac <span style="color:#e6db74">&#34;test-secret&#34;</span> | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl -X POST https://webhook.tudominio.com/github <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-GitHub-Event: push&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Hub-Signature-256: </span>$SIG<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#34;</span>$BODY<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># → OK</span>
+</span></span></code></pre></div><p>Si la firma no coincide:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST https://webhook.tudominio.com/github <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-GitHub-Event: push&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Hub-Signature-256: sha256=firmainvalida&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#34;</span>$BODY<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># → Unauthorized</span>
+</span></span></code></pre></div><p>Para conectar GitHub: en el repositorio, Settings → Webhooks → Add webhook. URL: <code>https://webhook.tudominio.com/github</code>. Secret: el mismo que pusiste en <code>WEBHOOK_SECRET</code>. Content type: <code>application/json</code>.</p>
+<hr>
+<p>El Worker como receptor no es solo un patrón elegante — es la única forma de recibir tráfico externo en una red privada sin ceder control del perímetro. No hay puerto abierto que cerrar, no hay IP que rotar, no hay superficie que reducir. El perímetro es Cloudflare, y el control es tuyo.</p>
+<p>Si quieres llevar este modelo más lejos — autenticación, micro-segmentación y acceso sin VPN — el artículo sobre <a href="/post/83_zero_trust_homelab/">Zero Trust en el homelab</a> cubre exactamente eso.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/cloudflare/" rel="tag">cloudflare</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/cloudflare-workers/" rel="tag">cloudflare workers</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/webhook/" rel="tag">webhook</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/github/" rel="tag">github</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/gotify/" rel="tag">gotify</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/hmac/" rel="tag">hmac</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">seguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/homelab/" rel="tag">homelab</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/sysadmin/" rel="tag">sysadmin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/javascript/" rel="tag">javascript</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/notificaciones/" rel="tag">notificaciones</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/notificaciones-push/" rel="tag">notificaciones push</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/webhook-receptor/" rel="tag">webhook receptor</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/api-rest/" rel="tag">api rest</a>
+		</li>
+	</ul>
+</div>
+		</footer></article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
