@@ -6,14 +6,14 @@
     <description>Recent content in Almacenamiento on JaimeAlberto.io</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 29 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/almacenamiento/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cloudflare R2: almacenamiento compatible con S3, 10 GB gratis y sin coste de salida</title>
+      <title>Cloudflare R2: alternativa a S3 sin egress y 10 GB gratis</title>
       <link>http://localhost:1313/post/79_cloudflare_r2/</link>
-      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/79_cloudflare_r2/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_r2.jpg&#34; alt=&#34;Cloudflare R2: almacenamiento compatible con S3, 10 GB gratis y sin coste de salida&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El que elige el terreno elige el resultado. Sun Tzu lo escribió pensando en batallas. Los proveedores de nube lo aplicaron a su modelo de precios.&lt;/p&gt;&#xA;&lt;p&gt;Almacenar en S3 es barato. Mover datos fuera de S3 — hacia internet, hacia otros servicios, hacia tus propios servidores — es donde Amazon recupera el margen.&lt;/p&gt;&#xA;&lt;p&gt;Se llama egress cost. Cada gigabyte que sale tiene un precio. Pones los datos dentro gratis. Sacarlos te cuesta.&lt;/p&gt;&#xA;&lt;p&gt;Cloudflare R2 nació para cambiar ese terreno. Sin egress. Sin asteriscos. Con compatibilidad total con la API de S3 — rclone, boto3 y aws-cli funcionan sin cambiar una línea.&lt;/p&gt;&#xA;&lt;p&gt;Y tiene un caso de uso que nadie documenta bien y que uso constantemente en el homelab: compartir un fichero desde la terminal y obtener una URL pública en dos segundos.&lt;/p&gt;</description>
+      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_r2.jpg&#34; alt=&#34;Cloudflare R2: object storage sin egress, compatible con S3 y 10 GB gratis&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;El que elige el terreno elige el resultado. Sun Tzu lo escribió pensando en batallas. Los proveedores de nube lo aplicaron a su modelo de precios.&lt;/p&gt;&#xA;&lt;p&gt;Almacenar en S3 es barato. Mover datos fuera de S3 — hacia internet, hacia otros servicios, hacia tus propios servidores — es donde Amazon recupera el margen.&lt;/p&gt;&#xA;&lt;p&gt;Se llama egress cost. Cada gigabyte que sale tiene un precio. Pones los datos dentro gratis. Sacarlos te cuesta.&lt;/p&gt;&#xA;&lt;p&gt;Cloudflare R2 nació para cambiar ese terreno. Sin egress. Sin asteriscos. Con compatibilidad total con la API de S3 — rclone, boto3 y aws-cli funcionan sin cambiar una línea.&lt;/p&gt;&#xA;&lt;p&gt;Y tiene un caso de uso que nadie documenta bien y que uso constantemente en el homelab: compartir un fichero desde la terminal y obtener una URL pública en dos segundos.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Configura Claude desde cero: el onboarding que nadie te explica - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Sin configuración, Claude repite lo mismo cada semana. Con CLAUDE.md, memoria persistente y MCP, se convierte en un agente que conoce tu entorno. Guía práctica.">
+	<link rel="canonical" href="http://localhost:1313/post/85_configura_claude_desde_cero/">
+		<meta property="og:url" content="http://localhost:1313/post/85_configura_claude_desde_cero/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="Configura Claude desde cero: el onboarding que nadie te explica">
+  <meta property="og:description" content="Sin configuración, Claude repite lo mismo cada semana. Con CLAUDE.md, memoria persistente y MCP, se convierte en un agente que conoce tu entorno. Guía práctica.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-12-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-12-31T00:00:00+00:00">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="Claude.ai">
+    <meta property="article:tag" content="IA">
+    <meta property="article:tag" content="Onboarding">
+    <meta property="article:tag" content="Configuración">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Configura Claude desde cero: el onboarding que nadie te explica",
+  "description": "Sin configuración, Claude repite lo mismo cada semana. Con CLAUDE.md, memoria persistente y MCP, se convierte en un agente que conoce tu entorno. Guía práctica.",
+  "datePublished": "2026-12-31",
+  "dateModified": "2026-12-31",
+  "url": "http:\/\/localhost:1313\/post\/85_configura_claude_desde_cero\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1313\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Configura Claude desde cero: el onboarding que nadie te explica</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-12-31T00:00:00Z">31-12-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/herramientas/" rel="category">Herramientas</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>, <a class="meta__link" href="/categories/ia/" rel="category">IA</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/configura_claude_desde_cero.jpg" alt="Configura Claude desde cero: el onboarding que nadie te explica">
+</figure>
+
+<p>La primera semana que usas Claude parece magia. La segunda semana empiezas a repetir las mismas instrucciones de siempre. La tercera semana te preguntas si el hype no era exagerado.</p>
+<p>No es que no funcione. Es que no está configurado.</p>
+<p>Claude sin configurar no sabe quién eres, qué administras, en qué idioma quieres que responda ni qué no debe tocar nunca. Cada conversación empieza desde cero. Cada vez tienes que reexplicar el contexto. Eso no es un asistente — es un formulario con respuestas inteligentes.</p>
+<p>Este artículo cubre cómo pasar de ese estado a tener un agente que conoce tu entorno. Desde los pasos básicos de Claude.ai hasta la configuración avanzada con Claude Code.</p>
+<hr>
+<h2 id="el-problema-con-claude-de-fábrica">El problema con Claude de fábrica</h2>
+<p>Cuando abres Claude sin ninguna configuración, el modelo no sabe nada sobre ti. Cada conversación hereda cero contexto de la anterior. Puedes pedirle que responda siempre en español, que no use emojis, que tenga en cuenta que administras Proxmox en casa — y en la siguiente sesión habrá olvidado todo.</p>
+<p>Esto no es un bug. Es el comportamiento por defecto. Para que Claude recuerde y actúe de forma consistente, hay que enseñarle quién eres y en qué contexto opera. Eso es el onboarding.</p>
+<hr>
+<h2 id="el-punto-de-partida-6-pasos-para-claudeai">El punto de partida: 6 pasos para Claude.ai</h2>
+<p>Para quien usa Claude.ai (la versión web o la app), Rafa Sansores publicó una infografía que resume bien el camino mínimo:</p>
+<p><strong>1. Empieza con el plan gratuito.</strong> Explora lo que ofrece antes de pagar. Sube a Pro o Max cuando veas que el límite te frena, no antes.</p>
+<p><strong>2. Importa tu memoria.</strong> Claude.ai permite importar contexto desde otras herramientas. Si ya tienes notas en Notion, conversaciones en ChatGPT o documentación en Google Drive, puedes traer esa base al sistema en lugar de empezar desde cero.</p>
+<p><strong>3. Elige el modelo correcto para cada tarea.</strong> Haiku es rápido y barato para tareas simples. Sonnet cubre el 90% de los casos del día a día. Opus es para análisis complejos que requieren más razonamiento.</p>
+<p><strong>4. Crea Proyectos separados por área.</strong> En Claude.ai, cada Proyecto tiene sus propias instrucciones y ficheros. Un Proyecto para trabajo, otro para clientes, otro para estudios. Menos repetición de contexto, más enfoque en la tarea.</p>
+<p><strong>5. Rellena quién eres.</strong> Configuración &gt; General. Qué haces, cuáles son tus objetivos, tu contexto habitual. Cuanto más específico, más alineadas serán las respuestas desde el primer mensaje.</p>
+<p><strong>6. Conecta tus herramientas.</strong> Personalizar &gt; Conectores. Google Drive, Notion, Gmail. En este punto Claude deja de responder sobre tus datos y empieza a trabajar con ellos.</p>
+<p><strong>Bono: crea tu primera Skill.</strong> Una Skill es una secuencia de instrucciones que conviertes en un comando reutilizable. Si siempre haces lo mismo para escribir un informe, generar una respuesta de correo o revisar un documento, encapsúlalo en una Skill y deja de escribirlo cada vez.</p>
+<p>Esto es suficiente para que Claude.ai deje de ser un chatbot y empiece a ser un asistente que te conoce.</p>
+<hr>
+<h2 id="el-siguiente-nivel-claudemd">El siguiente nivel: CLAUDE.md</h2>
+<p>Si usas Claude Code — el CLI para la terminal — el mecanismo central es el fichero <code>CLAUDE.md</code>. Claude lo lee al arrancar en cada directorio. Es tu contrato con el sistema: qué sabe, qué puede hacer, qué está prohibido.</p>
+<p>Un <code>CLAUDE.md</code> básico para un sysadmin incluye:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## Identidad
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Responder siempre en español de España, tuteando
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> El usuario administra infraestructura en Proxmox y OPNsense
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Reglas obligatorias
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Hacer backup antes de editar cualquier fichero en host remoto
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Verificar siempre tras un cambio: systemctl status, curl, ping
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> No persistir contraseñas en ningún fichero
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Rutas clave
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Vault de documentación: ~/Obsidian/
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Logs: ~/logs/
+</span></span></code></pre></div><p>No es documentación. Es instrucción activa. Claude la aplica en cada operación, no solo la &ldquo;recuerda&rdquo;.</p>
+<p>La regla más importante de Boris Cherny, creador de Claude Code: <strong>actualiza el CLAUDE.md en el momento en que descubres algo que funciona o algo que salió mal</strong>. No al final del día. En ese momento. Con el tiempo ese fichero acumula el conocimiento operativo real del entorno — errores incluidos.</p>
+<hr>
+<h2 id="memoria-persistente-entre-sesiones">Memoria persistente entre sesiones</h2>
+<p>Claude Code tiene un sistema de memoria en ficheros Markdown estructurados. Hay cuatro tipos:</p>
+<ul>
+<li><strong><code>user_*.md</code></strong> — quién es el usuario, cómo trabaja, qué nivel técnico tiene</li>
+<li><strong><code>feedback_*.md</code></strong> — qué enfoques funcionan y cuáles no; correcciones y confirmaciones</li>
+<li><strong><code>project_*.md</code></strong> — estado de proyectos en curso, fechas, decisiones, por qué se hizo algo</li>
+<li><strong><code>reference_*.md</code></strong> — dónde encontrar información en sistemas externos</li>
+</ul>
+<p>La clave es guardar lo que sería <strong>no obvio</strong> para alguien que llegara nuevo. Las cosas que se pueden derivar leyendo el código no necesitan estar en memoria. Las que solo existen porque hubo un incidente o se tomó una decisión específica, sí.</p>
+<p>Cada entrada de feedback lleva dos campos obligatorios: <code>**Why:**</code> (el motivo — normalmente un incidente pasado) y <code>**How to apply:**</code> (cuándo entra en juego esta regla). Así Claude puede razonar en casos límite en lugar de seguir la regla a ciegas.</p>
+<hr>
+<h2 id="skills-instrucciones-reutilizables">Skills: instrucciones reutilizables</h2>
+<p>En Claude Code, los Skills son ficheros Markdown en <code>.claude/skills/</code> que puedes invocar con <code>/nombre-skill</code>. Son el equivalente a los Proyectos de Claude.ai, pero con más control.</p>
+<p>Un Skill útil para sysadmin podría cubrir:</p>
+<ul>
+<li>El proceso completo de publicar un artículo en el blog</li>
+<li>El flujo de onboarding de un host nuevo en la infraestructura</li>
+<li>La metodología de una auditoría de seguridad</li>
+</ul>
+<p>En lugar de explicar el proceso cada vez, invocas el Skill y Claude sigue los pasos establecidos. Si el proceso cambia, actualizas el fichero una vez.</p>
+<hr>
+<h2 id="mcp-cuando-claude-deja-de-hablar-y-empieza-a-actuar">MCP: cuando Claude deja de hablar y empieza a actuar</h2>
+<p>Los MCP servers (Model Context Protocol) son el salto cualitativo. No son plugins que añaden información — son herramientas que permiten a Claude ejecutar operaciones reales en tu infraestructura.</p>
+<p>Con un MCP de SSH, Claude puede conectarse a un servidor remoto, leer su configuración, hacer un cambio y verificar que funcionó — sin que tú abras una terminal. Con un MCP de KeePass, puede leer credenciales del gestor de contraseñas directamente. Con un MCP de Obsidian, puede leer y escribir en tu base de conocimiento.</p>
+<p>La diferencia entre &ldquo;Claude te dice cómo hacer algo&rdquo; y &ldquo;Claude lo hace&rdquo; es exactamente esta. Y no requiere saber programar para montarlo.</p>
+<hr>
+<h2 id="el-resultado">El resultado</h2>
+<p>Lo que al principio parecía un chatbot sofisticado se convierte en algo diferente cuando está bien configurado: un agente que conoce tu entorno, recuerda tus decisiones y opera las herramientas que le has dado.</p>
+<p>La brecha entre Claude de fábrica y Claude configurado no es el modelo. Es el trabajo que hay detrás: el CLAUDE.md que tardaste una tarde en escribir, los ficheros de memoria que fueron creciendo con cada sesión, los MCP que conectan el sistema con tu infraestructura real.</p>
+<p>Ese trabajo no se repite. Se acumula.</p>
+<hr>
+<p><strong>Relacionado:</strong></p>
+<ul>
+<li><a href="/post/67_como_usa_claude_code_su_creador/">Cómo usa Claude Code su propio creador</a></li>
+<li><a href="/post/87_claude_code_no_terminal/">Claude Code para los que odian la terminal</a></li>
+</ul>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/claude/" rel="tag">claude</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/claude-code/" rel="tag">claude code</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/claude.ai/" rel="tag">claude.ai</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ia/" rel="tag">ia</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/onboarding/" rel="tag">onboarding</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/configuraci%C3%B3n/" rel="tag">configuración</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/productividad/" rel="tag">productividad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/automatizaci%C3%B3n/" rel="tag">automatización</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/mcp/" rel="tag">mcp</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/homelab/" rel="tag">homelab</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/sysadmin/" rel="tag">sysadmin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/asistente-ia/" rel="tag">asistente ia</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/claude.md/" rel="tag">claude.md</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/memoria-ia/" rel="tag">memoria ia</a>
+		</li>
+	</ul>
+</div>
+		</footer></article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
