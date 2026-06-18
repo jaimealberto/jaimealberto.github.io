@@ -1,19 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Nvme on JaimeAlberto.io</title>
-    <link>http://localhost:1313/tags/nvme/</link>
-    <description>Recent content in Nvme on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Fri, 19 Jun 2026 08:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nvme/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien</title>
-      <link>http://localhost:1313/post/84_borrado_seguro_discos/</link>
-      <pubDate>Fri, 19 Jun 2026 08:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/post/84_borrado_seguro_discos/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/borrado_seguro_discos.jpg&#34; alt=&#34;Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Un Jedi no deja su sable en manos del Imperio. Un sysadmin no debería dejar sus datos en un disco que ya no controla.&lt;/p&gt;&#xA;&lt;p&gt;Cuando pulsas Supr, el sistema operativo tacha el nombre del fichero de la lista. Los datos siguen ahí, exactamente donde estaban. Cualquier herramienta de recuperación puede leerlos.&lt;/p&gt;&#xA;&lt;p&gt;Eso incluye el portátil vendido en Wallapop, el disco al contenedor de electrónica y el servidor devuelto al proveedor al final del contrato de leasing.&lt;/p&gt;&#xA;&lt;p&gt;El RGPD tiene opinión sobre esto. El ENS también. La sanción no es por haber tenido los datos — es por no haberlos destruido cuando tocaba.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;shred&lt;/code&gt;, &lt;code&gt;nwipe&lt;/code&gt; y ATA Secure Erase existen para eso. Esta guía cubre HDDs, SSDs y NVMe, qué exige la ley y por qué formatear no es borrar.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nvme on JaimeAlberto.io</title><link>https://jaimealberto.io/tags/nvme/</link><description>Recent content in Nvme on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Thu, 18 Jun 2026 08:00:00 +0200</lastBuildDate><atom:link href="https://jaimealberto.io/tags/nvme/index.xml" rel="self" type="application/rss+xml"/><item><title>Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien</title><link>https://jaimealberto.io/post/84_borrado_seguro_discos/</link><pubDate>Thu, 18 Jun 2026 08:00:00 +0200</pubDate><guid>https://jaimealberto.io/post/84_borrado_seguro_discos/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/borrado_seguro_discos.jpg" alt="Borrado seguro de discos en Linux: lo que dice la ley y cómo hacerlo bien"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Un Jedi no deja su sable en manos del Imperio. Nadie debería dejar datos en un disco que ya no es suyo. Estás dando datos de tu vida al enemigo y es muy peligroso.&lt;/p&gt;
+&lt;p&gt;Cuando pulsas Supr, el sistema operativo tacha el nombre del fichero de la lista. Los datos siguen ahí, exactamente donde estaban. Cualquier herramienta de recuperación puede leerlos. Eso incluye el portátil vendido en Wallapop, el disco al contenedor de electrónica y el servidor devuelto al proveedor al final del contrato de leasing. Un día me encontré en un punto limpio un ordenador antiguo que funcionaba perfectamente, tenía el disco duro y fotos de una familia que se podían recuperar, esto es un peligro.&lt;/p&gt;
+&lt;p&gt;El RGPD tiene opinión sobre esto. El ENS también. La sanción no es por haber tenido los datos — es por no haberlos destruido cuando tocaba.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;shred&lt;/code&gt;, &lt;code&gt;nwipe&lt;/code&gt; y ATA Secure Erase existen para eso. Esta guía cubre HDDs, SSDs y NVMe, qué exige la ley y por qué formatear no es borrar.&lt;/p&gt;</description></item></channel></rss>
