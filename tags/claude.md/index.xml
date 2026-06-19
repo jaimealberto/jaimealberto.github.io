@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/claude.md/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configura Claude desde cero: el onboarding que nadie te explica</title>
-      <link>http://localhost:1313/post/85_configura_claude_desde_cero/</link>
+      <link>http://localhost:1313/post/88_configura_claude_desde_cero/</link>
       <pubDate>Thu, 31 Dec 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/85_configura_claude_desde_cero/</guid>
+      <guid>http://localhost:1313/post/88_configura_claude_desde_cero/</guid>
       <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/configura_claude_desde_cero.jpg&#34; alt=&#34;Configura Claude desde cero: el onboarding que nadie te explica&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;La primera semana que usas Claude parece magia. La segunda semana empiezas a repetir las mismas instrucciones de siempre. La tercera semana te preguntas si el hype no era exagerado.&lt;/p&gt;&#xA;&lt;p&gt;No es que no funcione. Es que no está configurado.&lt;/p&gt;&#xA;&lt;p&gt;Claude sin configurar no sabe quién eres, qué administras, en qué idioma quieres que responda ni qué no debe tocar nunca. Cada conversación empieza desde cero. Cada vez tienes que reexplicar el contexto. Eso no es un asistente — es un formulario con respuestas inteligentes.&lt;/p&gt;&#xA;&lt;p&gt;Este artículo cubre cómo pasar de ese estado a tener un agente que conoce tu entorno. Desde los pasos básicos de Claude.ai hasta la configuración avanzada con Claude Code.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -142,8 +142,7 @@
 </figure>
 
 <p>Un Jedi no deja que el Imperio controle sus rutas de comunicación.</p>
-<p>bit.ly no es gratis. Lo pagas con cada clic que pasa por él.</p>
-<p>Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.</p>
+<p>bit.ly no es gratis. Lo pagas con cada clic que pasa por él. Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.</p>
 <p>Necesitaba acortar URLs para los artículos del blog. La respuesta obvia era bit.ly. La respuesta que usé fue un Worker de Cloudflare.</p>
 <p><code>go.jaimealberto.io/blog</code>. Sin servidor. Sin base de datos. Sin que nadie registre los clics de mis lectores. Y el plan gratuito aguanta 100.000 peticiones al día.</p>
 <p><strong>Índice</strong></p>
@@ -161,7 +160,7 @@
   <img src="/img/workers_flujo.jpg" alt="Cloudflare Workers: serverless en el edge sin servidor que mantener">
 </figure>
 
-<p>No hay servidor que arrancar, ni contenedor que mantener, ni proceso que monitorizar. El Worker se ejecuta en respuesta a cada petición y muere al terminar. Sin estado, sin persistencia — salvo que uses Workers KV, que es exactamente lo que veremos.</p>
+<p>No hay servidor que arrancar. Sin contenedor que mantener, sin proceso que monitorizar, sin alerta de OOM que te despierte a las 3 de la mañana. El Worker se ejecuta en respuesta a cada petición y muere al terminar. Sin estado, sin persistencia — salvo que uses Workers KV, que es exactamente lo que veremos.</p>
 <p>El modelo de programación es el de un service worker del navegador: interceptas el evento <code>fetch</code>, procesas la petición y devuelves una respuesta.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;fetch&#39;</span>, <span style="color:#a6e22e">event</span> =&gt; {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">respondWith</span>(<span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">request</span>))
@@ -261,7 +260,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># ✓ go.jaimealberto.io/art78 → https://www.jaimealberto.io/post/78_cloudflare_workers/</span>
 </span></span></code></pre></div><hr>
 <h2 id="workers-kv-almacenamiento-clave-valor-en-el-edge">Workers KV: almacenamiento clave-valor en el edge</h2>
-<p>Workers KV es el sistema de almacenamiento persistente de Workers. Distribuido globalmente, eventualmente consistente, optimizado para lecturas frecuentes y escrituras ocasionales — exactamente el patrón de un acortador de URLs.</p>
+<p>Workers KV es el almacenamiento persistente de Workers. Distribuido globalmente, eventualmente consistente — y aquí viene lo que nadie explica bien — optimizado para lecturas frecuentes y escrituras ocasionales. Exactamente el patrón de un acortador de URLs: escribes el slug una vez, se lee miles de veces.</p>
 <p>La API es minimalista:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Leer
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">REDIRECTS</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;clave&#39;</span>)
@@ -272,7 +271,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Borrar (desde fuera, vía API REST)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// DELETE /accounts/{id}/storage/kv/namespaces/{ns}/values/{key}
 </span></span></span></code></pre></div><p>Los writes desde el Worker en sí son posibles pero el KV está diseñado para ser escrito desde fuera (API, Wrangler, scripts) y leído desde dentro. Para casos de escritura frecuente desde el propio Worker existe Durable Objects, que es otro producto diferente.</p>
-<p><strong>Cuándo no usar KV:</strong> si necesitas consistencia fuerte (leer siempre el último valor escrito al instante), KV no es la herramienta. La propagación global puede tardar hasta 60 segundos. Para un acortador de URLs esto no importa — un slug nuevo puede tardar un minuto en estar disponible en todos los edge nodes y no pasa nada.</p>
+<p><strong>Cuándo no usar KV:</strong> si necesitas consistencia fuerte, es decir, leer siempre el último valor escrito al instante, KV no es la herramienta. La propagación global puede tardar hasta 60 segundos. Para el acortador no importa. Un slug nuevo tarda un minuto en llegar a todos los edge nodes, y en la práctica ni me he dado cuenta del retraso desde que lo monté.</p>
 <hr>
 <h2 id="plan-gratuito-qué-cubre-y-cuándo-se-queda-corto">Plan gratuito: qué cubre y cuándo se queda corto</h2>
 <p>El plan gratuito de Workers es generoso para uso personal y homelab:</p>
@@ -318,8 +317,11 @@
 <li><strong>Subdominio propio:</strong> en el plan gratuito puedes usar Workers en tus dominios existentes via rutas (como hice aquí), pero el custom domain dedicado al Worker requiere el plan de pago. Con la técnica del DNS AAAA + ruta se evita esta limitación. Si gestionas tu DNS con la API de Cloudflare, el proceso es el mismo que en <a href="/post/73_ddns_gratuito/">DDNS gratuito con Cloudflare</a>.</li>
 </ul>
 <hr>
-<p>Hace unos años, &ldquo;serverless&rdquo; significaba Lambda de AWS y una factura impredecible. Cloudflare Workers cambió esa ecuación: la unidad de trabajo es la petición, el coste base es cero y la latencia es global.</p>
-<p>Para el homelab no es la herramienta de todos los días — para eso tenemos servidores. Es la herramienta para los casos donde el servidor es demasiado para lo que necesitas. Un acortador de URLs no necesita un contenedor Docker. Un webhook receptor no necesita un VPS.</p>
+<blockquote>
+<p>Las configuraciones y ejemplos de código descritos se han probado en infraestructura propia con el plan gratuito de Cloudflare vigente en la fecha de publicación. Los límites y condiciones del plan pueden cambiar — verifica siempre la documentación oficial antes de usar en producción. El autor no asume responsabilidad por costes inesperados ni por daños derivados de su aplicación sin las adaptaciones necesarias.</p>
+</blockquote>
+<p>Hace unos años, &ldquo;serverless&rdquo; significaba Lambda de AWS y una factura impredecible. Me quedé a cuadros la primera vez que revisé el detalle de costes de un proyecto en producción con Lambda: transferencia de datos, peticiones contadas al milisegundo, redondeos hacia arriba. Cloudflare Workers cambió esa ecuación. La unidad de trabajo es la petición. El coste base es cero. La latencia es global.</p>
+<p>Para el homelab no es la herramienta de todos los días — para eso tenemos Proxmox y los contenedores de siempre. Es la herramienta para los casos donde levantar un servidor sería matar moscas a cañonazos. Un acortador de URLs no necesita un contenedor Docker. Un webhook receptor no necesita un VPS.</p>
 <p>A veces la infraestructura correcta es la que no tienes que mantener.</p>
 		</div>
 		<footer class="post__footer">

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NIS2 para sysadmins: lo que la directiva europea te va a exigir - JaimeAlberto.io</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="NIS2 obliga a miles de empresas españolas a implantar medidas de ciberseguridad concretas. Qué entidades están afectadas, qué exige el artículo 21 y qué tiene que hacer un sysadmin.">
+	<link rel="canonical" href="http://localhost:1313/post/89_nis2_para_sysadmins/">
+		<meta property="og:url" content="http://localhost:1313/post/89_nis2_para_sysadmins/">
+  <meta property="og:site_name" content="JaimeAlberto.io">
+  <meta property="og:title" content="NIS2 para sysadmins: lo que la directiva europea te va a exigir">
+  <meta property="og:description" content="NIS2 obliga a miles de empresas españolas a implantar medidas de ciberseguridad concretas. Qué entidades están afectadas, qué exige el artículo 21 y qué tiene que hacer un sysadmin.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-06-24T08:00:00+02:00">
+    <meta property="article:modified_time" content="2026-06-24T08:00:00+02:00">
+    <meta property="article:tag" content="Nis2">
+    <meta property="article:tag" content="Ciberseguridad">
+    <meta property="article:tag" content="Normativa">
+    <meta property="article:tag" content="Seguridad">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Sysadmin">
+    <meta property="og:image" content="http://localhost:1313/img/nis2_para_sysadmins.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "NIS2 para sysadmins: lo que la directiva europea te va a exigir",
+  "description": "NIS2 obliga a miles de empresas españolas a implantar medidas de ciberseguridad concretas. Qué entidades están afectadas, qué exige el artículo 21 y qué tiene que hacer un sysadmin.",
+  "datePublished": "2026-06-24",
+  "dateModified": "2026-06-24",
+  "url": "http:\/\/localhost:1313\/post\/89_nis2_para_sysadmins\/",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "https://www.linkedin.com/in/jaimealbertoio/",
+    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "JaimeAlberto",
+    "url": "http:\/\/localhost:1313\/"
+  }
+}
+</script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menú</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/yo/">
+				
+				<span class="menu__text">Sobre mí</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Artículos</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hardware/">
+				
+				<span class="menu__text">Hardware</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recetas/">
+				
+				<span class="menu__text">Recetas</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/raspberrypi/">
+				
+				<span class="menu__text">Raspberry Pi</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/recursos/">
+				
+				<span class="menu__text">Recursos</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">NIS2 para sysadmins: lo que la directiva europea te va a exigir</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-24T08:00:00&#43;02:00">24-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/seguridad/" rel="category">Seguridad</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<figure>
+  <img src="/img/nis2_para_sysadmins.jpg" alt="NIS2 para sysadmins: lo que la directiva europea te va a exigir">
+</figure>
+
+<p>INTRO_PLACEHOLDER</p>
+<p><strong>Índice</strong></p>
+<ul>
+<li><a href="#qu%C3%A9-es-nis2-y-por-qu%C3%A9-importa-ahora">Qué es NIS2 y por qué importa ahora</a></li>
+<li><a href="#a-qui%C3%A9n-afecta-entidades-esenciales-e-importantes">A quién afecta: entidades esenciales e importantes</a></li>
+<li><a href="#las-10-medidas-que-exige-el-art%C3%ADculo-21">Las 10 medidas que exige el artículo 21</a></li>
+<li><a href="#plazos-y-sanciones-lo-que-se-juegan-las-empresas">Plazos y sanciones: lo que se juegan las empresas</a></li>
+<li><a href="#entornos-industriales-y-ot-donde-nis2-se-complica-de-verdad">Entornos industriales y OT: donde NIS2 se complica de verdad</a></li>
+<li><a href="#lo-que-tiene-que-hacer-un-sysadmin-ahora-mismo">Lo que tiene que hacer un sysadmin ahora mismo</a></li>
+</ul>
+<hr>
+<h2 id="qué-es-nis2-y-por-qué-importa-ahora">Qué es NIS2 y por qué importa ahora</h2>
+<p>NIS2 es la Directiva europea 2022/2555, publicada en diciembre de 2022. Sustituye a la NIS original de 2016 — que resultó insuficiente porque cada Estado miembro la implementó a su manera, con obligaciones distintas y sin coordinación real.</p>
+<p>NIS2 lo cambia. Amplía el ámbito de aplicación, endurece las obligaciones técnicas, unifica las sanciones y mete en el marco a sectores que antes quedaban fuera: administración pública, gestión de residuos, fabricación de productos críticos, servicios postales, plataformas digitales.</p>
+<p>El plazo de transposición era octubre de 2024. España, como la mayoría de países, no lo cumplió. La ley española que transpone NIS2 está en tramitación — pero eso no es un salvoconducto. Las obligaciones técnicas del artículo 21 son las que son, independientemente de cuándo llegue la ley nacional. Quien no esté preparado cuando llegue, pagará por todo lo que no hizo.</p>
+<hr>
+<h2 id="a-quién-afecta-entidades-esenciales-e-importantes">A quién afecta: entidades esenciales e importantes</h2>
+<p>NIS2 divide a las organizaciones afectadas en dos categorías según su tamaño y sector.</p>
+<p><strong>Entidades esenciales</strong> — mayor exigencia y multas más altas:</p>
+<ul>
+<li>Energía (electricidad, gas, petróleo, hidrógeno)</li>
+<li>Transporte (aéreo, ferroviario, marítimo, por carretera)</li>
+<li>Banca y mercados financieros</li>
+<li>Sanidad</li>
+<li>Agua potable y aguas residuales</li>
+<li>Infraestructura digital (IXPs, DNS, TLD, cloud, CDN, centros de datos)</li>
+<li>Administración pública (nivel central y regional)</li>
+<li>Espacio</li>
+</ul>
+<p><strong>Entidades importantes</strong> — mismas obligaciones técnicas, sanciones menores:</p>
+<ul>
+<li>Servicios postales y mensajería</li>
+<li>Gestión de residuos</li>
+<li>Fabricación de productos críticos (dispositivos médicos, vehículos, maquinaria)</li>
+<li>Proveedores de servicios digitales (marketplaces, motores de búsqueda, redes sociales)</li>
+<li>Alimentación</li>
+<li>Servicios de TI gestionados (MSPs) y seguridad gestionada (MSSPs)</li>
+</ul>
+<p>Este último punto es el que más se pasa por alto. Un MSP que gestiona infraestructura para clientes en sectores regulados queda dentro del ámbito de NIS2 como entidad importante. No es el cliente quien arrastra la obligación — es el proveedor quien tiene que cumplir por su propio peso.</p>
+<p>El umbral de tamaño: medianas empresas (50-249 empleados, facturación 10-50M€) y grandes empresas (&gt;250 empleados o &gt;50M€). Las microempresas y pequeñas empresas quedan fuera salvo que sean proveedores únicos en sectores críticos o la autoridad competente lo determine.</p>
+<hr>
+<h2 id="las-10-medidas-que-exige-el-artículo-21">Las 10 medidas que exige el artículo 21</h2>
+<p>El artículo 21 de NIS2 lista las medidas de gestión de riesgos que deben implementar todas las entidades afectadas. No son recomendaciones. Son obligaciones.</p>
+<p><strong>1. Políticas de seguridad de la información y análisis de riesgos</strong>
+Documentar qué activos tienes, qué riesgos existen y qué controles aplicas. No hace falta que sea un documento de 200 páginas — hace falta que exista, que esté actualizado y que alguien lo firme.</p>
+<p><strong>2. Gestión de incidentes</strong>
+Procedimiento escrito para detectar, clasificar, notificar y responder a incidentes. NIS2 exige notificación a la autoridad competente en 24 horas si el incidente tiene impacto significativo, con informe final en 72 horas.</p>
+<p><strong>3. Continuidad de negocio y gestión de crisis</strong>
+Backups, planes de recuperación ante desastres, redundancia. El regulador va a preguntar: si os atacan hoy, ¿en cuánto tiempo volvéis a operar y con qué datos?</p>
+<p><strong>4. Seguridad de la cadena de suministro</strong>
+Evaluar los riesgos de seguridad de tus proveedores y subcontratistas. Si un proveedor de software tiene una brecha que te afecta, el regulador mirará si habías evaluado ese riesgo.</p>
+<p><strong>5. Seguridad en el desarrollo y mantenimiento de sistemas</strong>
+Gestión de vulnerabilidades, parcheo sistemático, políticas de ciclo de vida de software. Lo que muchos equipos hacen ya — pero sin documentar.</p>
+<p><strong>6. Evaluación de la eficacia de las medidas</strong>
+Auditorías internas o externas periódicas. No basta con tener los controles — hay que verificar que funcionan.</p>
+<p><strong>7. Prácticas de higiene básica en ciberseguridad y formación</strong>
+MFA, contraseñas robustas, actualizaciones, concienciación del personal. El 90% de los incidentes entran por correo phishing a alguien que no estaba formado. El regulador lo sabe.</p>
+<p><strong>8. Criptografía y cifrado</strong>
+Uso de cifrado en datos sensibles en tránsito y en reposo. TLS en todo, cifrado de discos donde corresponda.</p>
+<p><strong>9. Seguridad de los recursos humanos, control de acceso y gestión de activos</strong>
+Inventario de activos, principio de mínimo privilegio, onboarding y offboarding seguros, gestión de accesos privilegiados.</p>
+<p><strong>10. Uso de autenticación multifactor y comunicaciones seguras</strong>
+MFA obligatorio para accesos a sistemas críticos. Canales cifrados para comunicaciones internas sensibles. No opcional.</p>
+<hr>
+<h2 id="plazos-y-sanciones-lo-que-se-juegan-las-empresas">Plazos y sanciones: lo que se juegan las empresas</h2>
+<p>La transposición española llegará. Cuando llegue, las entidades afectadas tendrán un plazo para registrarse ante la autoridad competente (en España, el INCIBE para entidades privadas y el CCN para el sector público).</p>
+<p>Las sanciones del artículo 34:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tipo de entidad</th>
+          <th>Sanción máxima</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Entidad esencial</td>
+          <td>10 millones de euros o el 2% de la facturación global anual</td>
+      </tr>
+      <tr>
+          <td>Entidad importante</td>
+          <td>7 millones de euros o el 1,4% de la facturación global anual</td>
+      </tr>
+  </tbody>
+</table>
+<p>Pero la parte más incómoda no son las multas — es la responsabilidad personal. NIS2 introduce la posibilidad de que los órganos de dirección sean responsables directos del incumplimiento. El consejero delegado puede ser inhabilitado temporalmente para ejercer funciones directivas. Eso concentra la atención de la dirección de una manera que las multas a la empresa a veces no consiguen.</p>
+<hr>
+<h2 id="entornos-industriales-y-ot-donde-nis2-se-complica-de-verdad">Entornos industriales y OT: donde NIS2 se complica de verdad</h2>
+<p>Si tu trabajo toca entornos de operaciones — plantas de producción, subestaciones eléctricas, sistemas de agua, infraestructura de transporte — NIS2 tiene implicaciones que van mucho más allá de parchear servidores. Y hay mucha gente en LinkedIn hablando de esto ahora mismo porque es donde la directiva genera más fricción.</p>
+<p>El problema es la convergencia IT/OT. Durante décadas los sistemas de control industrial (ICS, SCADA, PLCs, DCS) vivían en redes aisladas, air-gapped, sin conectividad con el exterior. No necesitaban seguridad porque nadie podía llegar a ellos. Industry 4.0, el mantenimiento remoto, los sistemas de monitorización en tiempo real y la integración con ERPs los han ido conectando. Y ahora NIS2 exige que esas redes cumplan los mismos requisitos que el resto.</p>
+<p>Lo que hace diferente a un entorno OT:</p>
+<p><strong>Los PLCs y controladores industriales no se parchean como un servidor.</strong> Un firmware en un PLC de una línea de producción no se actualiza un martes por la noche. Hay ventanas de mantenimiento programadas con semanas de antelación, pruebas en entornos replicados, validaciones del fabricante. En algunos casos el propio fabricante te dice que parchear anula la garantía. NIS2 obliga a tener una política de gestión de vulnerabilidades — pero aplicarla en OT requiere adaptar los plazos a la realidad del entorno.</p>
+<p><strong>Los protocolos industriales no tienen seguridad nativa.</strong> Modbus, DNP3, Profibus — diseñados en los 80 y los 90 para entornos aislados, sin autenticación, sin cifrado. OPC-UA tiene mejor soporte para seguridad, pero hay instalaciones con décadas de antigüedad que no van a migrar. La respuesta práctica no es cifrar esos protocolos (en muchos casos es inviable) — es segmentar, monitorizar y controlar quién puede hablar con qué.</p>
+<p><strong>La disponibilidad manda sobre la confidencialidad.</strong> En IT la tríada CIA (Confidencialidad, Integridad, Disponibilidad) se equilibra. En OT, la disponibilidad es sagrada. Parar una línea de producción, una subestación o un sistema de distribución de agua tiene consecuencias inmediatas en el mundo físico. Cualquier medida de seguridad que pueda interferir con la disponibilidad necesita una validación mucho más estricta antes de aplicarse.</p>
+<p>Lo que sí se puede hacer con NIS2 en mente en entornos OT:</p>
+<p><strong>Inventario y segmentación.</strong> El modelo Purdue sigue siendo la referencia: separar la red corporativa de la red OT con DMZ industrial, y dentro de la red OT segmentar por función y criticidad. Un Historian que agrega datos de proceso no debería tener acceso directo a los PLCs que controlan actuadores.</p>
+<p><strong>Monitorización pasiva.</strong> Herramientas como Claroty, Dragos o Nozomi Networks hacen inspección de tráfico OT sin inyectar paquetes en la red — aprovechan que los protocolos industriales son verbosos y predecibles. Si en tu red OT aparece un Modbus con un patrón de escritura que nunca habías visto, quieres enterarte antes de que sea un incidente NIS2.</p>
+<p><strong>Gestión de accesos remotos.</strong> El mantenimiento remoto de PLCs y SCADA es uno de los vectores de entrada más frecuentes en incidentes industriales. VPN dedicada para proveedores, acceso just-in-time con grabación de sesión, sin acceso permanente. Esto es directamente exigible bajo el artículo 21 de NIS2 y es uno de los controles más maduros que se pueden implantar sin tocar los sistemas de control.</p>
+<p><strong>Inventario de versiones de firmware.</strong> No para parchear inmediatamente — para saber qué exposición tienes. Si un PLC tiene un firmware con CVE crítico publicado, quieres saberlo aunque no puedas parchearlo esta semana. Parte de la gestión de riesgos que exige NIS2 es poder documentar qué sabes y qué decisiones has tomado.</p>
+<p>Los sectores de energía, agua y transporte llevan en el punto de mira de ciberseguridad industrial desde mucho antes de NIS2 — Stuxnet fue en 2010. La directiva no inventa nada nuevo; lo que hace es convertir en obligatorio lo que hasta ahora era recomendable y dejarlo sin excusa presupuestaria.</p>
+<hr>
+<h2 id="lo-que-tiene-que-hacer-un-sysadmin-ahora-mismo">Lo que tiene que hacer un sysadmin ahora mismo</h2>
+<p>La directiva no le habla directamente al sysadmin — le habla a la dirección. Pero quien implementa las medidas técnicas eres tú. Y eso tiene una traducción práctica muy concreta.</p>
+<p><strong>Inventario de activos primero.</strong> No puedes proteger lo que no sabes que tienes. Servidores, equipos de red, servicios en cloud, software con licencia, software sin licencia — todo. Si no tienes un CMDB, empieza con una hoja de cálculo. Algo es mejor que nada.</p>
+<p><strong>Parcheo sistemático.</strong> Política escrita de cuánto tiempo tienes para aplicar parches críticos desde que se publican. En la práctica: críticos en 24-72h, altos en una semana. Con un registro de cuándo se aplicó cada uno.</p>
+<p><strong>MFA en todo lo que tenga acceso remoto.</strong> VPN, RDP, SSH con clave (no contraseña), paneles de administración. Sin excepciones. Si hay cuentas de servicio que no pueden tener MFA, que estén documentadas y restringidas al mínimo necesario.</p>
+<p><strong>Backups verificados.</strong> No basta con tener backups — hay que verificar que se restauran. Yo lo tenía asumido en mi homelab hasta que tuve que restaurar uno y descubrí que llevaba semanas fallando silenciosamente. Un backup que no se ha probado no es un backup.</p>
+<p><strong>Gestión de incidentes escrita.</strong> Aunque sea un documento de dos páginas: qué es un incidente, cómo se detecta, quién lo gestiona, cómo se notifica internamente y externamente. Algo que alguien pueda seguir a las 3 de la madrugada sin llamarte.</p>
+<p><strong>Registro de todo.</strong> Logs centralizados, con retención suficiente (NIS2 no fija un mínimo explícito, pero 12 meses es el estándar razonable). Si tienes un SIEM, bien. Si no, rsyslog a un servidor dedicado es mejor que nada.</p>
+<p>La diferencia entre una empresa que cumple NIS2 y una que no suele ser menos técnica de lo que parece. La mayoría de los controles técnicos ya existen. Lo que falta es la documentación, la verificación periódica y el proceso formal. Que alguien lo escriba, lo firme y lo revise.</p>
+<hr>
+<blockquote>
+<p>⚠️ Este artículo es una guía de orientación técnica, no asesoramiento legal ni de cumplimiento normativo. La transposición de NIS2 en España está en tramitación y los detalles concretos pueden variar. Para determinar si tu organización está afectada y qué obligaciones aplican, consulta con un especialista en compliance o el texto oficial de la directiva (Directiva UE 2022/2555).</p>
+</blockquote>
+<p>CIERRE_PLACEHOLDER</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/nis2/" rel="tag">nis2</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ciberseguridad/" rel="tag">ciberseguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/normativa/" rel="tag">normativa</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/seguridad/" rel="tag">seguridad</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">linux</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/sysadmin/" rel="tag">sysadmin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/gdpr/" rel="tag">gdpr</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/rgpd/" rel="tag">rgpd</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/directiva-europea/" rel="tag">directiva-europea</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/cumplimiento/" rel="tag">cumplimiento</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/auditor%C3%ADa/" rel="tag">auditoría</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/homelab/" rel="tag">homelab</a>
+		</li>
+	</ul>
+</div>
+		</footer></article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
+	</div>
+	<div class="authorbox__description">
+		The BOFH of this Site
+	</div>
+</div>
+<div class="cta">
+	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
+	<div class="cta__links">
+		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+		</a>
+		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
+			GitHub
+		</a>
+	</div>
+</div>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2026 JaimeAlberto.
+			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

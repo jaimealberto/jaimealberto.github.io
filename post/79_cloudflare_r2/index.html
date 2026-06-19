@@ -142,10 +142,8 @@
 </figure>
 
 <p>El que elige el terreno elige el resultado. Sun Tzu lo escribió pensando en batallas. Los proveedores de nube lo aplicaron a su modelo de precios.</p>
-<p>Almacenar en S3 es barato. Mover datos fuera de S3 — hacia internet, hacia otros servicios, hacia tus propios servidores — es donde Amazon recupera el margen.</p>
-<p>Se llama egress cost. Cada gigabyte que sale tiene un precio. Pones los datos dentro gratis. Sacarlos te cuesta.</p>
-<p>Cloudflare R2 nació para cambiar ese terreno. Sin egress. Sin asteriscos. Con compatibilidad total con la API de S3 — rclone, boto3 y aws-cli funcionan sin cambiar una línea.</p>
-<p>Y tiene un caso de uso que nadie documenta bien y que uso constantemente en el homelab: compartir un fichero desde la terminal y obtener una URL pública en dos segundos.</p>
+<p>Almacenar en S3 es barato. Mover datos fuera de S3 — hacia internet, hacia otros servicios, hacia tus propios servidores — es donde Amazon recupera el margen. Se llama egress cost. Cada gigabyte que sale tiene un precio. Pones los datos dentro gratis. Sacarlos te cuesta.</p>
+<p>Cloudflare R2 nació para cambiar ese terreno. Sin egress. Sin asteriscos. Con compatibilidad total con la API de S3 — rclone, boto3 y aws-cli funcionan sin cambiar una línea. Y tiene un caso de uso que nadie documenta bien y que uso constantemente en el homelab: compartir un fichero desde la terminal y obtener una URL pública en dos segundos.</p>
 <p><strong>Índice</strong></p>
 <ul>
 <li><a href="#r2-vs-s3-el-coste-que-no-ves">R2 vs S3: el coste que no ves</a></li>
@@ -158,8 +156,8 @@
 </ul>
 <hr>
 <h2 id="r2-vs-s3-el-coste-que-no-ves">R2 vs S3: el coste que no ves</h2>
-<p>En almacenamiento en la nube hay dos precios que importan: lo que pagas por guardar datos y lo que pagas por sacarlos.</p>
-<p>AWS S3 cobra ambas cosas. El almacenamiento es barato — unos 0,023 $/GB/mes. El egress — transferir datos desde S3 hacia internet — puede llegar a 0,09 $/GB. Si tienes un bucket que sirve contenido, pagas más por el egress que por el almacenamiento.</p>
+<p>En almacenamiento en la nube hay dos precios que importan: lo que pagas por guardar datos y lo que pagas por sacarlos. El segundo es el que no aparece en el titular.</p>
+<p>AWS S3 cobra ambas cosas. El almacenamiento es barato — unos 0,023 $/GB/mes. Pero el egress — transferir datos desde S3 hacia internet — puede llegar a 0,09 $/GB. Si tienes un bucket que sirve contenido, pagas más por el egress que por el almacenamiento. Cuatro veces más, en el peor caso.</p>
 <p>R2 cobra por almacenar (0,015 $/GB/mes) y por operaciones (PUT, GET), pero el egress es cero. Los datos pueden salir libremente hacia internet, hacia Workers o hacia cualquier destino sin coste adicional.</p>
 <table>
   <thead>
@@ -195,7 +193,7 @@
 <p>Para uso personal y homelab, los precios de pago son irrelevantes — el plan gratuito cubre con creces el uso real.</p>
 <hr>
 <h2 id="plan-gratuito-de-r2">Plan gratuito de R2</h2>
-<p>R2 incluye una capa gratuita generosa. Cloudflare pide una tarjeta de crédito para verificar la cuenta antes de activar R2, pero no hay cargo mientras no superes los límites.</p>
+<p>R2 incluye una capa gratuita generosa. Cloudflare pide tarjeta de crédito para verificar la cuenta antes de activar R2 — lo cual me echó para atrás un momento la primera vez — pero no hay cargo mientras no superes los límites. Llevo meses usándola sin un solo cargo en la factura.</p>
 <table>
   <thead>
       <tr>
@@ -312,7 +310,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>r2share logs-junio.tar.gz logs-junio-compartido.tar.gz
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># https://files.jaimealberto.io/logs-junio-compartido.tar.gz</span>
-</span></span></code></pre></div><p>El segundo argumento es opcional — sirve para dar un nombre limpio al fichero público sin renombrar el original. Útil cuando el nombre local tiene rutas, timestamps internos o información que no quieres exponer en la URL.</p>
+</span></span></code></pre></div><p>El segundo argumento es opcional — sirve para dar un nombre limpio al fichero público sin renombrar el original. Útil cuando el nombre local tiene rutas, timestamps internos o información que no quieres exponer en la URL. En mi caso lo uso bastante para logs de diagnóstico que quiero compartir: el fichero en local se llama <code>opnsense-debug-20260611.log.gz</code> y lo subo como <code>diagnostico.log.gz</code>. Sin despeinarse.</p>
 <p>Para borrar un objeto cuando ya no lo necesitas:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws s3 rm <span style="color:#e6db74">&#34;s3://</span>$R2_BUCKET<span style="color:#e6db74">/config-backup-2026-07-29.tar.gz&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  --endpoint-url <span style="color:#e6db74">&#34;https://</span>$CF_ACCOUNT_ID<span style="color:#e6db74">.r2.cloudflarestorage.com&#34;</span>
@@ -358,7 +356,10 @@
 <p>El Worker actúa como intermediario: recibe la petición, verifica si el objeto ha superado el tiempo de vida que fijaste al subir, y decide si sirve el fichero o devuelve un 410 Gone. El patrón es el mismo que en <a href="/post/86_cloudflare_workers_webhook/">Workers como webhook receptor</a>: Worker como capa de control antes de que la petición llegue al recurso.</p>
 <p>Para el 90% de los casos del homelab, la expiración manual — borrar el objeto cuando ya no lo necesitas — es suficiente. La solución con Worker tiene sentido si compartes ficheros con personas externas y necesitas garantizar que los enlaces dejan de funcionar pasadas 24 o 48 horas sin tener que acordarte de borrarlos.</p>
 <hr>
-<p>Sun Tzu también escribió que el guerrero victorioso gana primero y lucha después. Tienes los datos. Tienes la red de Cloudflare. Tienes un script de veinte líneas.</p>
+<blockquote>
+<p>Las configuraciones y scripts descritos se han probado en infraestructura propia con el plan gratuito de Cloudflare R2 vigente en la fecha de publicación. Los límites y condiciones del plan pueden cambiar — verifica siempre la documentación oficial. El autor no asume responsabilidad por costes inesperados ni por daños derivados de su aplicación sin las adaptaciones necesarias.</p>
+</blockquote>
+<p>Sun Tzu también escribió que el guerrero victorioso gana primero y lucha después. Tienes los datos. La red de Cloudflare está ahí. Y el script tiene veinte líneas — las mismas que uso yo cada vez que necesito compartir algo rápido sin abrir el navegador ni depender de WeTransfer.</p>
 <p>No hay terreno del enemigo que cruzar.</p>
 		</div>
 		<footer class="post__footer">

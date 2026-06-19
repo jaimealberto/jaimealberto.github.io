@@ -114,10 +114,8 @@
   <img src="/img/workers_webhook.jpg" alt="Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos">
 </figure>
 
-<p>Sun Tzu no esperaba al enemigo en campo abierto. Elegía el terreno y obligaba al adversario a acudir a él.</p>
-<p>Un sysadmin no debería abrir puertos para que los servicios externos entren. Debería elegir dónde se recibe la llamada.</p>
-<p>GitHub quiere avisarte cuando alguien hace un push. Stripe quiere avisarte cuando llega un pago. Cualquier servicio externo quiere enviarte un webhook.</p>
-<p>El problema: para recibirlo necesitas una URL pública. Y una URL pública normalmente significa un puerto abierto en tu router, una IP fija o un servidor en la nube.</p>
+<p>Sun Tzu no esperaba al enemigo en campo abierto. Elegía el terreno y obligaba al adversario a acudir a él. Un sysadmin no debería abrir puertos para que los servicios externos entren. Debería elegir dónde se recibe la llamada.</p>
+<p>GitHub quiere avisarte cuando alguien hace un push. Stripe quiere avisarte cuando llega un pago. Cualquier servicio externo quiere enviarte un webhook. El problema: para recibirlo necesitas una URL pública. Y una URL pública normalmente significa un puerto abierto en tu router, una IP fija o un servidor en la nube.</p>
 <p>El Worker actúa como ese punto de recepción elegido: vive en el edge de Cloudflare, verifica que quien llama es quien dice ser mediante firma HMAC, y solo entonces pasa el mensaje al interior de la red — sin que el router abra nada.</p>
 	</div>
 </article><article class="list__item post">
@@ -141,8 +139,7 @@
 </figure>
 
 <p>Un Jedi no deja que el Imperio controle sus rutas de comunicación.</p>
-<p>bit.ly no es gratis. Lo pagas con cada clic que pasa por él.</p>
-<p>Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.</p>
+<p>bit.ly no es gratis. Lo pagas con cada clic que pasa por él. Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.</p>
 <p>Necesitaba acortar URLs para los artículos del blog. La respuesta obvia era bit.ly. La respuesta que usé fue un Worker de Cloudflare.</p>
 <p><code>go.jaimealberto.io/blog</code>. Sin servidor. Sin base de datos. Sin que nadie registre los clics de mis lectores. Y el plan gratuito aguanta 100.000 peticiones al día.</p>
 	</div>
@@ -192,7 +189,7 @@
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/herramientas/">Herramientas</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">2</span>
+				<span class="widget__counter widget__counter--bubble">3</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/historia/">Historia</a>&nbsp;
@@ -232,7 +229,7 @@
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/seguridad/">Seguridad</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">12</span>
+				<span class="widget__counter widget__counter--bubble">13</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/servicios/">Servicios</a>&nbsp;
@@ -243,12 +240,12 @@
 				<span class="widget__counter widget__counter--bubble">1</span>
 				</li>
 			<li class="widget__item">
-				<a class="widget__link" href="/categories/ssh/">SSH</a>&nbsp;
+				<a class="widget__link" href="/categories/ssh/">Ssh</a>&nbsp;
 				<span class="widget__counter widget__counter--bubble">5</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/sysadmin/">Sysadmin</a>&nbsp;
-				<span class="widget__counter widget__counter--bubble">34</span>
+				<span class="widget__counter widget__counter--bubble">36</span>
 				</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/tecnolog%C3%ADa/">Tecnología</a>&nbsp;
@@ -290,6 +287,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/apuntes/" title="Apuntes">Apuntes (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arm64/" title="ARM64">ARM64 (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/asistente-ia/" title="Asistente Ia">Asistente Ia (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/auditor%C3%ADa/" title="Auditoría">Auditoría (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/autenticaci%C3%B3n/" title="Autenticación">Autenticación (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/autohotkey/" title="AutoHotkey">AutoHotkey (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/automatizaci%C3%B3n/" title="Automatización">Automatización (7)</a>
@@ -300,8 +298,10 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/borrado-seguro/" title="Borrado Seguro">Borrado Seguro (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3 (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/btrfs/" title="Btrfs">Btrfs (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/chezmoi/" title="Chezmoi">Chezmoi (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/china/" title="China">China (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ci/cd/" title="CI/CD">CI/CD (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ciberseguridad/" title="Ciberseguridad">Ciberseguridad (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cisa-kev/" title="Cisa-Kev">Cisa-Kev (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/claude/" title="Claude">Claude (7)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/claude-code/" title="Claude Code">Claude Code (5)</a>
@@ -322,11 +322,14 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/compartir-ficheros/" title="Compartir Ficheros">Compartir Ficheros (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/configuraci%C3%B3n/" title="Configuración">Configuración (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/correo/" title="Correo">Correo (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cumplimiento/" title="Cumplimiento">Cumplimiento (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cve/" title="Cve">Cve (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddclient/" title="Ddclient">Ddclient (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddns/" title="DDNS">DDNS (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/debian/" title="Debian">Debian (6)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/debian/" title="Debian">Debian (7)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/desinformaci%C3%B3n/" title="Desinformación">Desinformación (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/destrucci%C3%B3n-de-datos/" title="Destrucción De Datos">Destrucción De Datos (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/directiva-europea/" title="Directiva-Europea">Directiva-Europea (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/dkim/" title="DKIM">DKIM (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/dmarc/" title="DMARC">DMARC (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/dns/" title="DNS">DNS (3)</a>
@@ -335,6 +338,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/dod/" title="Dod">Dod (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/dominio/" title="Dominio">Dominio (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/dominio-gratuito/" title="Dominio Gratuito">Dominio Gratuito (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dotfiles/" title="Dotfiles">Dotfiles (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/duckdns/" title="DuckDNS">DuckDNS (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/edge-computing/" title="Edge Computing">Edge Computing (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/edr/" title="EDR">EDR (1)</a>
@@ -347,6 +351,8 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/firewall/" title="Firewall">Firewall (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/formaci%C3%B3n/" title="Formación">Formación (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/free-tier/" title="Free Tier">Free Tier (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gdpr/" title="Gdpr">Gdpr (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/github/" title="Github">Github (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/gotify/" title="Gotify">Gotify (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/gpg/" title="GPG">GPG (1)</a>
@@ -357,12 +363,12 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/historia/" title="Historia">Historia (3)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/historia-tecnol%C3%B3gica/" title="Historia Tecnológica">Historia Tecnológica (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hmac/" title="Hmac">Hmac (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/homelab/" title="Homelab">Homelab (20)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/homelab/" title="HomeLab">HomeLab (22)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hosting/" title="Hosting">Hosting (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hugo/" title="Hugo">Hugo (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ia/" title="IA">IA (5)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ian-murdock/" title="Ian Murdock">Ian Murdock (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ibm/" title="IBM">IBM (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ibm/" title="Ibm">Ibm (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/influencers/" title="Influencers">Influencers (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/internet/" title="Internet">Internet (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ip-din%C3%A1mica/" title="IP Dinámica">IP Dinámica (1)</a>
@@ -373,15 +379,18 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/kde/" title="KDE">KDE (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kill-switch/" title="Kill Switch">Kill Switch (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/libertad-de-expresi%C3%B3n/" title="Libertad De Expresión">Libertad De Expresión (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux (9)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux (11)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/lopd/" title="Lopd">Lopd (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/luks/" title="LUKS">LUKS (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mcp/" title="MCP">MCP (9)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/memoria-ia/" title="Memoria Ia">Memoria Ia (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mfa/" title="MFA">MFA (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/micro-segmentaci%C3%B3n/" title="Micro-Segmentación">Micro-Segmentación (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mitre-attack/" title="Mitre-Attack">Mitre-Attack (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nis2/" title="Nis2">Nis2 (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/nist/" title="Nist">Nist (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/nopasswd/" title="NOPASSWD">NOPASSWD (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/normativa/" title="Normativa">Normativa (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/notificaciones/" title="Notificaciones">Notificaciones (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/notificaciones-push/" title="Notificaciones Push">Notificaciones Push (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/nvd/" title="Nvd">Nvd (1)</a>
@@ -395,7 +404,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/oracle-cloud/" title="Oracle Cloud">Oracle Cloud (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/oracle-cloud-free-tier/" title="Oracle Cloud Free Tier">Oracle Cloud Free Tier (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/osint/" title="OSINT">OSINT (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pc/" title="Pc">Pc (2)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pc/" title="PC">PC (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pentest/" title="Pentest">Pentest (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/permisos-linux/" title="Permisos Linux">Permisos Linux (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/port-forwarding/" title="Port Forwarding">Port Forwarding (1)</a>
@@ -403,7 +412,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/powershell/" title="PowerShell">PowerShell (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/privacidad/" title="Privacidad">Privacidad (4)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/privacidad-isp/" title="Privacidad ISP">Privacidad ISP (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/productividad/" title="Productividad">Productividad (4)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/productividad/" title="Productividad">Productividad (5)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/proxmox/" title="Proxmox">Proxmox (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/proxy/" title="Proxy">Proxy (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/proxyjump/" title="ProxyJump">ProxyJump (1)</a>
@@ -416,12 +425,12 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/redes-sociales/" title="Redes Sociales">Redes Sociales (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/redhat/" title="RedHat">RedHat (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/regulaci%C3%B3n/" title="Regulación">Regulación (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/rgpd/" title="Rgpd">Rgpd (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rgpd/" title="Rgpd">Rgpd (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rocky/" title="Rocky">Rocky (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3 (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3-alternativa/" title="S3 Alternativa">S3 Alternativa (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/scripts/" title="Scripts">Scripts (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (20)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seguridad/" title="Seguridad">Seguridad (21)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/selfhosted/" title="Selfhosted">Selfhosted (10)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/series/" title="Series">Series (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless (1)</a>
@@ -441,7 +450,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/sudo/" title="Sudo">Sudo (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sudoers/" title="Sudoers">Sudoers (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sudoers.d/" title="Sudoers.d">Sudoers.d (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sysadmin/" title="Sysadmin">Sysadmin (11)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sysadmin/" title="Sysadmin">Sysadmin (13)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/tailscale/" title="Tailscale">Tailscale (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/teclas-r%C3%A1pidas/" title="Teclas Rápidas">Teclas Rápidas (2)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/terminal/" title="Terminal">Terminal (21)</a>
@@ -473,7 +482,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/xdr/" title="XDR">XDR (1)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zero-trust/" title="Zero Trust">Zero Trust (3)</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zerotier/" title="ZeroTier">ZeroTier (1)</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh (1)</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh (2)</a>
 	</div>
 </div>
 <div class="widget-social widget">

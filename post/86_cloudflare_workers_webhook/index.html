@@ -141,10 +141,8 @@
   <img src="/img/workers_webhook.jpg" alt="Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos">
 </figure>
 
-<p>Sun Tzu no esperaba al enemigo en campo abierto. Elegía el terreno y obligaba al adversario a acudir a él.</p>
-<p>Un sysadmin no debería abrir puertos para que los servicios externos entren. Debería elegir dónde se recibe la llamada.</p>
-<p>GitHub quiere avisarte cuando alguien hace un push. Stripe quiere avisarte cuando llega un pago. Cualquier servicio externo quiere enviarte un webhook.</p>
-<p>El problema: para recibirlo necesitas una URL pública. Y una URL pública normalmente significa un puerto abierto en tu router, una IP fija o un servidor en la nube.</p>
+<p>Sun Tzu no esperaba al enemigo en campo abierto. Elegía el terreno y obligaba al adversario a acudir a él. Un sysadmin no debería abrir puertos para que los servicios externos entren. Debería elegir dónde se recibe la llamada.</p>
+<p>GitHub quiere avisarte cuando alguien hace un push. Stripe quiere avisarte cuando llega un pago. Cualquier servicio externo quiere enviarte un webhook. El problema: para recibirlo necesitas una URL pública. Y una URL pública normalmente significa un puerto abierto en tu router, una IP fija o un servidor en la nube.</p>
 <p>El Worker actúa como ese punto de recepción elegido: vive en el edge de Cloudflare, verifica que quien llama es quien dice ser mediante firma HMAC, y solo entonces pasa el mensaje al interior de la red — sin que el router abra nada.</p>
 <p><strong>Índice</strong></p>
 <ul>
@@ -164,7 +162,7 @@
 <li>Usar un VPS intermediario — infraestructura extra que mantener</li>
 <li>Usar ngrok o similar — dependencia de terceros, URL aleatoria en el plan gratuito</li>
 </ul>
-<p>O usar un Worker de Cloudflare como endpoint público. Sin puertos abiertos. Sin VPS. La URL es tuya (<code>webhook.tudominio.com</code>) y el código de validación también.</p>
+<p>O usar un Worker de Cloudflare como endpoint público. Sin puertos abiertos. Sin VPS. La URL es tuya (<code>webhook.tudominio.com</code>) y el código de validación también. Lo monté para recibir notificaciones de push de GitHub sin exponer nada de la red — funciona a tiro hecho desde el primer deploy.</p>
 <hr>
 <h2 id="la-arquitectura-worker--tunnel">La arquitectura: Worker + Tunnel</h2>
 <figure>
@@ -179,10 +177,10 @@
 <li>El Worker reenvía el mensaje a Gotify via <a href="/post/75_cloudflare_tunnel/">Cloudflare Tunnel</a></li>
 <li>Gotify notifica al móvil — sin que el router haya abierto un solo puerto</li>
 </ol>
-<p>La clave es el paso 4: el Worker puede llamar a URLs externas, y si tu Gotify está expuesto con Cloudflare Tunnel, tiene una URL HTTPS pública. El tráfico va de Cloudflare a Cloudflare, sin salir a internet abierto.</p>
+<p>La clave es el paso 4: el Worker puede llamar a URLs externas, y si tu Gotify está expuesto con Cloudflare Tunnel, tiene una URL HTTPS pública. El tráfico va de Cloudflare a Cloudflare, sin salir a internet abierto. —Y aquí viene lo que nadie documenta bien— el Worker no necesita saber dónde vive físicamente tu Gotify. Solo necesita la URL HTTPS del Tunnel. Da igual que esté en un LXC de Proxmox o en una Raspberry Pi dentro de un armario.</p>
 <hr>
 <h2 id="validación-hmac-verificar-que-github-es-github">Validación HMAC: verificar que GitHub es GitHub</h2>
-<p>Sin validación de firma, cualquiera que conozca tu URL puede enviarte webhooks falsos. GitHub firma cada petición con HMAC-SHA256 usando un secreto compartido que tú defines al configurar el webhook.</p>
+<p>Sin validación de firma, cualquiera que conozca tu URL puede enviarte webhooks falsos. Es el error más común que veo en tutoriales de Workers — montan el endpoint, comprueban que llegan los eventos y se olvidan de verificar que quien envía es quien dice ser. GitHub firma cada petición con HMAC-SHA256 usando un secreto compartido que tú defines al configurar el webhook.</p>
 <p>El proceso:</p>
 <ol>
 <li>GitHub concatena el payload con el secreto y calcula SHA-256</li>
@@ -343,7 +341,10 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># → Unauthorized</span>
 </span></span></code></pre></div><p>Para conectar GitHub: en el repositorio, Settings → Webhooks → Add webhook. URL: <code>https://webhook.tudominio.com/github</code>. Secret: el mismo que pusiste en <code>WEBHOOK_SECRET</code>. Content type: <code>application/json</code>.</p>
 <hr>
-<p>El Worker como receptor no es solo un patrón elegante — es la única forma de recibir tráfico externo en una red privada sin ceder control del perímetro. No hay puerto abierto que cerrar, no hay IP que rotar, no hay superficie que reducir. El perímetro es Cloudflare, y el control es tuyo.</p>
+<blockquote>
+<p>Las configuraciones y ejemplos de código descritos se han probado en infraestructura propia. Adáptalos siempre a tu entorno y verifica los límites del plan gratuito de Cloudflare antes de usar en producción. El autor no asume responsabilidad por cambios en la plataforma ni por daños derivados de su aplicación sin las adaptaciones necesarias.</p>
+</blockquote>
+<p>El Worker como receptor no es solo un patrón elegante. Es control. Sin puertos que gestionar, sin IP que rotar, sin superficie de ataque que reducir porque ya es cero desde el principio. Lo llevo usando desde que quise que GitHub me notificara los pushes sin abrir ningún agujero en el router — y la diferencia con la alternativa (ngrok, VPS, port forwarding) es tela marinera. El perímetro es Cloudflare, y el control sigue siendo tuyo.</p>
 <p>Si quieres llevar este modelo más lejos — autenticación, micro-segmentación y acceso sin VPN — el artículo sobre <a href="/post/83_zero_trust_homelab/">Zero Trust en el homelab</a> cubre exactamente eso.</p>
 		</div>
 		<footer class="post__footer">
