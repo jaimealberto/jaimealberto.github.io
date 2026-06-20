@@ -1,422 +1,79 @@
-<!DOCTYPE html>
-<html class="no-js" lang="es">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cloudflare Workers: serverless en el edge sin servidor que mantener - JaimeAlberto.io</title>
-	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Cloudflare Workers ejecuta JavaScript en el edge sin servidor. Construyo un acortador de URLs propio con Workers KV: sin bit.ly, sin registros de clics.">
-	<link rel="canonical" href="http://localhost:1313/post/78_cloudflare_workers/">
-		<meta property="og:url" content="http://localhost:1313/post/78_cloudflare_workers/">
-  <meta property="og:site_name" content="JaimeAlberto.io">
-  <meta property="og:title" content="Cloudflare Workers: serverless en el edge sin servidor que mantener">
-  <meta property="og:description" content="Cloudflare Workers ejecuta JavaScript en el edge sin servidor. Construyo un acortador de URLs propio con Workers KV: sin bit.ly, sin registros de clics.">
-  <meta property="og:locale" content="es">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-06-20T08:00:00+02:00">
-    <meta property="article:modified_time" content="2026-06-20T08:00:00+02:00">
-    <meta property="article:tag" content="Cloudflare">
-    <meta property="article:tag" content="Cloudflare Workers">
-    <meta property="article:tag" content="Serverless">
-    <meta property="article:tag" content="Edge Computing">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="Automatización">
-    <meta property="og:image" content="https://www.jaimealberto.io/img/cloudflare_workers.jpg">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "Cloudflare Workers: serverless en el edge sin servidor que mantener",
-  "description": "Cloudflare Workers ejecuta JavaScript en el edge sin servidor. Construyo un acortador de URLs propio con Workers KV: sin bit.ly, sin registros de clics.",
-  "datePublished": "2026-06-20",
-  "dateModified": "2026-06-20",
-  "url": "http:\/\/localhost:1313\/post\/78_cloudflare_workers\/",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "https://www.linkedin.com/in/jaimealbertoio/",
-    "sameAs": ["https://www.linkedin.com/in/jaimealbertoio/", "https://github.com/jaimealberto"]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "JaimeAlberto",
-    "url": "http:\/\/localhost:1313\/"
-  }
-}
-</script>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
-
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/custom.css">
-
-	<link rel="shortcut icon" href="/favicon.ico">
-</head>
-<body class="body">
-	<div class="container container--outer">
-		<header class="header">
-	<div class="container header__container">
-		
-	<div class="logo">
-		<a class="logo__link" href="/" title="JaimeAlberto.io" rel="home">
-			<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="/img/logo-hacker.svg" alt="JaimeAlberto.io">
-				</div>
-		</a>
-	</div>
-		
-<nav class="menu">
-	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-		<span class="menu__btn-title" tabindex="-1">Menú</span>
-	</button>
-	<ul class="menu__list">
-		<li class="menu__item">
-			<a class="menu__link" href="/yo/">
-				
-				<span class="menu__text">Sobre mí</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/post/">
-				
-				<span class="menu__text">Artículos</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/hardware/">
-				
-				<span class="menu__text">Hardware</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recetas/">
-				
-				<span class="menu__text">Recetas</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/raspberrypi/">
-				
-				<span class="menu__text">Raspberry Pi</span>
-				
-			</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/recursos/">
-				
-				<span class="menu__text">Recursos</span>
-				
-			</a>
-		</li>
-	</ul>
-</nav>
-
-	</div>
-</header>
-		<div class="wrapper flex">
-			<div class="primary">
-			
-<main class="main" role="main">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">Cloudflare Workers: serverless en el edge sin servidor que mantener</h1>
-			<div class="post__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JaimeAlberto</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2026-06-20T08:00:00&#43;02:00">20-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/desarrollo/" rel="category">Desarrollo</a>, <a class="meta__link" href="/categories/sysadmin/" rel="category">Sysadmin</a>
-	</span>
-</div></div>
-		</header><div class="content post__content clearfix">
-			<figure>
-  <img src="/img/cloudflare_workers.jpg" alt="Cloudflare Workers: serverless en el edge sin servidor que mantener">
-</figure>
-
-<p>Un Jedi no deja que el Imperio controle sus rutas de comunicación.</p>
-<p>bit.ly no es gratis. Lo pagas con cada clic que pasa por él. Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.</p>
-<p>Necesitaba acortar URLs para los artículos del blog. La respuesta obvia era bit.ly. La respuesta que usé fue un Worker de Cloudflare.</p>
-<p><code>go.jaimealberto.io/blog</code>. Sin servidor. Sin base de datos. Sin que nadie registre los clics de mis lectores. Y el plan gratuito aguanta 100.000 peticiones al día.</p>
-<p><strong>Índice</strong></p>
-<ul>
-<li><a href="#c%C3%B3mo-funciona-un-cloudflare-worker">Cómo funciona un Cloudflare Worker</a></li>
-<li><a href="#casos-de-uso-reales-para-homelab-y-sysadmin">Casos de uso reales para homelab y sysadmin</a></li>
-<li><a href="#el-acortador-que-constru%C3%AD-gojaimealbertio">El acortador que construí: go.jaimealberto.io</a></li>
-<li><a href="#workers-kv-almacenamiento-clave-valor-en-el-edge">Workers KV: almacenamiento clave-valor en el edge</a></li>
-<li><a href="#plan-gratuito-qu%C3%A9-cubre-y-cu%C3%A1ndo-se-queda-corto">Plan gratuito: qué cubre y cuándo se queda corto</a></li>
-</ul>
-<hr>
-<h2 id="cómo-funciona-un-cloudflare-worker">Cómo funciona un Cloudflare Worker</h2>
-<p>Un Worker es una función JavaScript que vive en la red de Cloudflare. Cuando llega una petición HTTP, Cloudflare la intercepta antes de que llegue a tu servidor y ejecuta el Worker en el punto de presencia más cercano al usuario — normalmente a menos de 20ms de cualquier lugar del mundo.</p>
-<figure>
-  <img src="/img/workers_flujo.jpg" alt="Cloudflare Workers: serverless en el edge sin servidor que mantener">
-</figure>
-
-<p>No hay servidor que arrancar. Sin contenedor que mantener, sin proceso que monitorizar, sin alerta de OOM que te despierte a las 3 de la mañana. El Worker se ejecuta en respuesta a cada petición y muere al terminar. Sin estado, sin persistencia — salvo que uses Workers KV, que es exactamente lo que veremos.</p>
-<p>El modelo de programación es el de un service worker del navegador: interceptas el evento <code>fetch</code>, procesas la petición y devuelves una respuesta.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;fetch&#39;</span>, <span style="color:#a6e22e">event</span> =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">respondWith</span>(<span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">request</span>))
-</span></span><span style="display:flex;"><span>})
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">request</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Response</span>(<span style="color:#e6db74">&#39;Hola desde el edge&#39;</span>, { <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span> })
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Eso es todo. Cualquier cosa más compleja es una variación de este patrón.</p>
-<hr>
-<h2 id="casos-de-uso-reales-para-homelab-y-sysadmin">Casos de uso reales para homelab y sysadmin</h2>
-<p>Un Worker encaja donde necesitas lógica HTTP sin levantar infraestructura. Tres casos concretos:</p>
-<h3 id="webhook-receptor">Webhook receptor</h3>
-<p>Tienes un servicio en tu red interna (Gotify, n8n, un script propio) que no está expuesto a internet. Cuando GitHub, Stripe o cualquier servicio externo necesita enviarte un webhook, el Worker lo recibe, valida la firma y lo reenvía a tu servicio interno vía <a href="/post/75_cloudflare_tunnel/">Cloudflare Tunnel</a>.</p>
-<p>Sin abrir puertos. Sin exponer tu IP. El Worker como capa de recepción.</p>
-<h3 id="redirect-inteligente-con-lógica">Redirect inteligente con lógica</h3>
-<p>Un redirect estático lo hace cualquier configuración de servidor. Un Worker puede hacer redirects con lógica: por user-agent, por geografía, por hora del día, por cualquier cabecera HTTP. Útil para A/B testing, para redirigir móviles a una versión diferente, o para lo que construí a continuación.</p>
-<h3 id="api-proxy-que-oculta-credenciales">API proxy que oculta credenciales</h3>
-<p>Tu frontend necesita llamar a una API externa con una clave de API. Si pones la clave en el frontend, queda expuesta. El Worker actúa como proxy: recibe la petición del frontend, añade la clave de API (almacenada como secreto en el Worker) y reenvía la llamada a la API externa. El frontend nunca ve la clave.</p>
-<hr>
-<h2 id="el-acortador-que-construí-gojaimealbertoio">El acortador que construí: go.jaimealberto.io</h2>
-<p>Quería algo útil de verdad, no un &ldquo;Hello World&rdquo;. Los artículos del blog tienen URLs largas — cuando los comparto en LinkedIn o en otros sitios, <code>https://www.jaimealberto.io/post/78_cloudflare_workers/</code> no es elegante. Un acortador propio, en mi dominio, sin depender de bit.ly ni similares, era el caso perfecto.</p>
-<p>El resultado: <code>go.jaimealberto.io/blog</code>, <code>go.jaimealberto.io/linkedin</code>, <code>go.jaimealberto.io/art78</code>. Todo gestionado desde la API de Cloudflare, sin panel de control, sin base de datos.</p>
-<h3 id="el-código-del-worker">El código del Worker</h3>
-<p>El Worker es deliberadamente simple. Recibe la petición, extrae el slug de la URL, lo busca en KV y redirige:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;fetch&#39;</span>, <span style="color:#a6e22e">event</span> =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">respondWith</span>(<span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">request</span>))
-</span></span><span style="display:flex;"><span>})
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">request</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">URL</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">url</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">slug</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">pathname</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">slug</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Response</span>.<span style="color:#a6e22e">redirect</span>(<span style="color:#e6db74">&#39;https://www.jaimealberto.io&#39;</span>, <span style="color:#ae81ff">301</span>)
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">REDIRECTS</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">slug</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">target</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Response</span>.<span style="color:#a6e22e">redirect</span>(<span style="color:#a6e22e">target</span>, <span style="color:#ae81ff">301</span>)
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Response</span>(<span style="color:#e6db74">&#39;Not found&#39;</span>, { <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">404</span> })
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>REDIRECTS</code> es el binding al KV namespace — Cloudflare lo inyecta automáticamente en el contexto del Worker. No hay imports, no hay dependencias, no hay configuración de conexión.</p>
-<h3 id="despliegue-vía-api">Despliegue vía API</h3>
-<p>Lo desplegué sin Wrangler (el CLI oficial de Cloudflare), usando directamente la API REST. Las credenciales viven en un fichero local con permisos 600 y nunca salen de ahí.</p>
-<p>Primero creé el KV namespace:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style="color:#e6db74">/storage/kv/namespaces&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#39;{&#34;title&#34;: &#34;go-redirects&#34;}&#39;</span>
-</span></span></code></pre></div><p>Luego desplegué el Worker con el binding al KV:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X PUT <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style="color:#e6db74">/workers/scripts/go-jaimealberto&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -F <span style="color:#e6db74">&#34;metadata=@metadata.json;type=application/json&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -F <span style="color:#e6db74">&#34;script=@worker.js;type=application/javascript&#34;</span>
-</span></span></code></pre></div><p>Donde <code>metadata.json</code> declara el binding:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;body_part&#34;</span>: <span style="color:#e6db74">&#34;script&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;bindings&#34;</span>: [
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;kv_namespace&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;REDIRECTS&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;namespace_id&#34;</span>: <span style="color:#e6db74">&#34;f2ef42c8...&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  ],
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;compatibility_date&#34;</span>: <span style="color:#e6db74">&#34;2024-01-01&#34;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Finalmente, un registro DNS AAAA apuntando a <code>100::</code> (la dirección anycast de Cloudflare Workers) con proxy activado, y una ruta de zona que asocia <code>go.jaimealberto.io/*</code> al Worker:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># DNS</span>
-</span></span><span style="display:flex;"><span>curl -X POST <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/</span>$CF_ZONE_ID<span style="color:#e6db74">/dns_records&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#39;{&#34;type&#34;:&#34;AAAA&#34;,&#34;name&#34;:&#34;go&#34;,&#34;content&#34;:&#34;100::&#34;,&#34;proxied&#34;:true}&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ruta</span>
-</span></span><span style="display:flex;"><span>curl -X POST <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones/</span>$CF_ZONE_ID<span style="color:#e6db74">/workers/routes&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#39;{&#34;pattern&#34;:&#34;go.jaimealberto.io/*&#34;,&#34;script&#34;:&#34;go-jaimealberto&#34;}&#39;</span>
-</span></span></code></pre></div><p>Resultado:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -I https://go.jaimealberto.io/blog
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># HTTP/2 301</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># location: https://www.jaimealberto.io/</span>
-</span></span></code></pre></div><h3 id="script-para-añadir-slugs">Script para añadir slugs</h3>
-<p>Para no tener que recordar los comandos curl, un script de una línea útil:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># go-add.sh &lt;slug&gt; &lt;url&gt;</span>
-</span></span><span style="display:flex;"><span>source ~/.config/cloudflare/api_tokens.env
-</span></span><span style="display:flex;"><span>curl -s -X PUT <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style="color:#e6db74">/storage/kv/namespaces/</span>$KV_ID<span style="color:#e6db74">/values/</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Email: </span>$CF_EMAIL<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: text/plain&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --data <span style="color:#e6db74">&#34;</span>$2<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;✓ go.jaimealberto.io/</span>$1<span style="color:#e6db74"> → </span>$2<span style="color:#e6db74">&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./go-add.sh art78 https://www.jaimealberto.io/post/78_cloudflare_workers/
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ✓ go.jaimealberto.io/art78 → https://www.jaimealberto.io/post/78_cloudflare_workers/</span>
-</span></span></code></pre></div><hr>
-<h2 id="workers-kv-almacenamiento-clave-valor-en-el-edge">Workers KV: almacenamiento clave-valor en el edge</h2>
-<p>Workers KV es el almacenamiento persistente de Workers. Distribuido globalmente, eventualmente consistente — y aquí viene lo que nadie explica bien — optimizado para lecturas frecuentes y escrituras ocasionales. Exactamente el patrón de un acortador de URLs: escribes el slug una vez, se lee miles de veces.</p>
-<p>La API es minimalista:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Leer
-</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">REDIRECTS</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;clave&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Escribir (desde fuera, vía API REST)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// PUT /accounts/{id}/storage/kv/namespaces/{ns}/values/{key}
-</span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Borrar (desde fuera, vía API REST)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// DELETE /accounts/{id}/storage/kv/namespaces/{ns}/values/{key}
-</span></span></span></code></pre></div><p>Los writes desde el Worker en sí son posibles pero el KV está diseñado para ser escrito desde fuera (API, Wrangler, scripts) y leído desde dentro. Para casos de escritura frecuente desde el propio Worker existe Durable Objects, que es otro producto diferente.</p>
-<p><strong>Cuándo no usar KV:</strong> si necesitas consistencia fuerte, es decir, leer siempre el último valor escrito al instante, KV no es la herramienta. La propagación global puede tardar hasta 60 segundos. Para el acortador no importa. Un slug nuevo tarda un minuto en llegar a todos los edge nodes, y en la práctica ni me he dado cuenta del retraso desde que lo monté.</p>
-<hr>
-<h2 id="plan-gratuito-qué-cubre-y-cuándo-se-queda-corto">Plan gratuito: qué cubre y cuándo se queda corto</h2>
-<p>El plan gratuito de Workers es generoso para uso personal y homelab:</p>
-<table>
-  <thead>
-      <tr>
-          <th>Recurso</th>
-          <th>Límite gratuito</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Peticiones</td>
-          <td>100.000/día</td>
-      </tr>
-      <tr>
-          <td>CPU por petición</td>
-          <td>10ms</td>
-      </tr>
-      <tr>
-          <td>Workers scripts</td>
-          <td>Hasta 100</td>
-      </tr>
-      <tr>
-          <td>KV lecturas</td>
-          <td>100.000/día</td>
-      </tr>
-      <tr>
-          <td>KV escrituras</td>
-          <td>1.000/día</td>
-      </tr>
-      <tr>
-          <td>KV almacenamiento</td>
-          <td>1 GB</td>
-      </tr>
-  </tbody>
-</table>
-<p>Para un acortador personal, un webhook receptor o un proxy de API, estos límites son prácticamente ilimitados. Con 100.000 peticiones diarias puedes servir más tráfico del que genera un blog personal en un mes.</p>
-<p>Donde se queda corto:</p>
-<ul>
-<li><strong>CPU intensiva:</strong> 10ms de CPU por petición es suficiente para lógica simple, pero no para procesamiento de imágenes, criptografía pesada o parsing de documentos grandes. Para eso existe el plan de pago con 30ms garantizados y opción de burst.</li>
-<li><strong>Escrituras KV frecuentes:</strong> 1.000 escrituras diarias limita los casos de uso donde el Worker escribe en cada petición (contadores, logs). Para eso, Durable Objects.</li>
-<li><strong>Subdominio propio:</strong> en el plan gratuito puedes usar Workers en tus dominios existentes via rutas (como hice aquí), pero el custom domain dedicado al Worker requiere el plan de pago. Con la técnica del DNS AAAA + ruta se evita esta limitación. Si gestionas tu DNS con la API de Cloudflare, el proceso es el mismo que en <a href="/post/73_ddns_gratuito/">DDNS gratuito con Cloudflare</a>.</li>
-</ul>
-<hr>
-<blockquote>
-<p>Las configuraciones y ejemplos de código descritos se han probado en infraestructura propia con el plan gratuito de Cloudflare vigente en la fecha de publicación. Los límites y condiciones del plan pueden cambiar — verifica siempre la documentación oficial antes de usar en producción. El autor no asume responsabilidad por costes inesperados ni por daños derivados de su aplicación sin las adaptaciones necesarias.</p>
-</blockquote>
-<p>Hace unos años, &ldquo;serverless&rdquo; significaba Lambda de AWS y una factura impredecible. Me quedé a cuadros la primera vez que revisé el detalle de costes de un proyecto en producción con Lambda: transferencia de datos, peticiones contadas al milisegundo, redondeos hacia arriba. Cloudflare Workers cambió esa ecuación. La unidad de trabajo es la petición. El coste base es cero. La latencia es global.</p>
-<p>Para el homelab no es la herramienta de todos los días — para eso tenemos Proxmox y los contenedores de siempre. Es la herramienta para los casos donde levantar un servidor sería matar moscas a cañonazos. Un acortador de URLs no necesita un contenedor Docker. Un webhook receptor no necesita un VPS.</p>
-<p>A veces la infraestructura correcta es la que no tienes que mantener.</p>
-		</div>
-		<footer class="post__footer">
-			
-<div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-	<ul class="tags__list">
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/cloudflare/" rel="tag">cloudflare</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/cloudflare-workers/" rel="tag">cloudflare workers</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/serverless/" rel="tag">serverless</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/edge-computing/" rel="tag">edge computing</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/javascript/" rel="tag">javascript</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/automatizaci%C3%B3n/" rel="tag">automatización</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/homelab/" rel="tag">homelab</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/sysadmin/" rel="tag">sysadmin</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/workers-kv/" rel="tag">workers kv</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/acortador-urls/" rel="tag">acortador urls</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/acortador-de-url/" rel="tag">acortador de url</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/privacidad/" rel="tag">privacidad</a>
-		</li>
-		<li class="tags__item">
-			<a class="tags__link btn" href="/tags/api-rest/" rel="tag">api rest</a>
-		</li>
-	</ul>
-</div>
-		</footer></article>
-</main>
-
-<div class="authorbox clearfix">
-	<figure class="authorbox__avatar">
-		<img alt="JaimeAlberto avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
-	</figure>
-	<div class="authorbox__header">
-		<span class="authorbox__name">Sobre el autor JaimeAlberto</span>
-	</div>
-	<div class="authorbox__description">
-		The BOFH of this Site
-	</div>
-</div>
-<div class="cta">
-	<p class="cta__text">¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p>
-	<div class="cta__links">
-		<a class="cta__btn" href="https://linkedin.com/in/jaimealbertoio" target="_blank" rel="noopener noreferrer">
-			LinkedIn
-		</a>
-		<a class="cta__btn" href="https://github.com/jaimealberto" target="_blank" rel="noopener noreferrer">
-			GitHub
-		</a>
-	</div>
-</div>
-
-
-
-
-			</div>
-			
-		</div>
-		<footer class="footer">
-	<div class="container footer__container flex">
-		
-<div class="footer__links">
-	<a class="footer__link" href="/licencia/">Licencia CC BY-NC-SA 4.0</a>
-</div>
-		<div class="footer__copyright">
-			&copy; 2026 JaimeAlberto.
-			<span class="footer__copyright-credits">Generado con <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> y <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a>.</span>
-		</div>
-	</div>
-</footer>
-	</div>
-<script async defer src="/js/menu.js"></script>
-<script src="/js/custom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
-</body>
-</html>
+<!doctype html><html class=no-js lang=es><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Cloudflare Workers: serverless en el edge sin servidor que mantener - JaimeAlberto.io</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Cloudflare Workers ejecuta código en el edge: 100.000 peticiones al día gratis. Construyo un acortador de URLs con Workers KV, sin bit.ly ni registros de clics."><link rel=canonical href=https://jaimealberto.io/post/78_cloudflare_workers/><meta property="og:url" content="https://jaimealberto.io/post/78_cloudflare_workers/"><meta property="og:site_name" content="JaimeAlberto.io"><meta property="og:title" content="Cloudflare Workers: serverless en el edge sin servidor que mantener"><meta property="og:description" content="Cloudflare Workers ejecuta código en el edge: 100.000 peticiones al día gratis. Construyo un acortador de URLs con Workers KV, sin bit.ly ni registros de clics."><meta property="og:locale" content="es"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-06-20T08:00:00+02:00"><meta property="article:modified_time" content="2026-06-20T08:00:00+02:00"><meta property="article:tag" content="Cloudflare"><meta property="article:tag" content="Cloudflare Workers"><meta property="article:tag" content="Serverless"><meta property="article:tag" content="Edge Computing"><meta property="article:tag" content="Javascript"><meta property="article:tag" content="Automatización"><meta property="og:image" content="https://www.jaimealberto.io/img/cloudflare_workers.jpg"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","headline":"Cloudflare Workers: serverless en el edge sin servidor que mantener","description":"Cloudflare Workers ejecuta código en el edge: 100.000 peticiones al día gratis. Construyo un acortador de URLs con Workers KV, sin bit.ly ni registros de clics.","datePublished":"2026-06-20","dateModified":"2026-06-20","url":"https:\/\/jaimealberto.io\/post\/78_cloudflare_workers\/","inLanguage":"es","author":{"@type":"Person","name":"JaimeAlberto","url":"https://www.linkedin.com/in/jaimealbertoio/","sameAs":["https://www.linkedin.com/in/jaimealbertoio/","https://github.com/jaimealberto"]},"publisher":{"@type":"Person","name":"JaimeAlberto","url":"https:\/\/jaimealberto.io\/"}}</script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=JaimeAlberto.io rel=home><div class="logo__item logo__imagebox"><img class=logo__img src=/img/logo-hacker.svg alt=JaimeAlberto.io></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menú</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/yo/><span class=menu__text>Sobre mí</span></a></li><li class=menu__item><a class=menu__link href=/post/><span class=menu__text>Artículos</span></a></li><li class=menu__item><a class=menu__link href=/hardware/><span class=menu__text>Hardware</span></a></li><li class=menu__item><a class=menu__link href=/recetas/><span class=menu__text>Recetas</span></a></li><li class=menu__item><a class=menu__link href=/raspberrypi/><span class=menu__text>Raspberry Pi</span></a></li><li class=menu__item><a class=menu__link href=/recursos/><span class=menu__text>Recursos</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Cloudflare Workers: serverless en el edge sin servidor que mantener</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>JaimeAlberto</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2026-06-20T08:00:00+02:00>20-06-2026</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/categories/desarrollo/ rel=category>Desarrollo</a>, <a class=meta__link href=/categories/sysadmin/ rel=category>Sysadmin</a></span></div></div></header><div class="content post__content clearfix"><figure><img src=/img/cloudflare_workers.jpg alt="Cloudflare Workers: serverless en el edge sin servidor que mantener"></figure><p>Un Jedi no deja que el Imperio controle sus rutas de comunicación.</p><p>bit.ly no es gratis, lo pagas con tus clics. Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.</p><p>Necesitaba acortar URLs para los artículos del blog. La respuesta obvia era bit.ly. La respuesta que usé fue un Worker de Cloudflare.</p><p><code>go.jaimealberto.io/blog</code>. Sin servidor. Sin base de datos. Sin que nadie registre los clics de mis lectores. Y el plan gratuito aguanta 100.000 peticiones al día.</p><p><strong>Índice</strong></p><ul><li><a href=#c%C3%B3mo-funciona-un-cloudflare-worker>Cómo funciona un Cloudflare Worker</a></li><li><a href=#casos-de-uso-reales-para-homelab-y-sysadmin>Casos de uso reales para homelab y sysadmin</a><ul><li><a href=#webhook-receptor>Webhook receptor</a></li><li><a href=#redirect-inteligente-con-l%C3%B3gica>Redirect inteligente con lógica</a></li><li><a href=#api-proxy-que-oculta-credenciales>API proxy que oculta credenciales</a></li></ul></li><li><a href=#el-acortador-que-constru%C3%AD-gojaimealbertoio>El acortador que construí: go.jaimealberto.io</a><ul><li><a href=#el-c%C3%B3digo-del-worker>El código del Worker</a></li><li><a href=#despliegue-v%C3%ADa-api>Despliegue vía API</a></li><li><a href=#script-para-a%C3%B1adir-slugs>Script para añadir slugs</a></li></ul></li><li><a href=#workers-kv-almacenamiento-clave-valor-en-el-edge>Workers KV: almacenamiento clave-valor en el edge</a></li><li><a href=#plan-gratuito-qu%C3%A9-cubre-y-cu%C3%A1ndo-se-queda-corto>Plan gratuito: qué cubre y cuándo se queda corto</a></li></ul><hr><h2 id=cómo-funciona-un-cloudflare-worker>Cómo funciona un Cloudflare Worker</h2><p>Un Worker es código JavaScript que Cloudflare ejecuta en su propia red. La petición entra, el Worker corre en el nodo más cercano al usuario — normalmente a menos de 20ms de cualquier punto del mundo — y tu servidor no se entera de que esa petición existió.</p><figure><img src=/img/workers_flujo.jpg alt="Cloudflare Workers: serverless en el edge sin servidor que mantener"></figure><p>No arrancas ningún servidor. El Worker responde a la petición y desaparece — nada corre en segundo plano, nada consume recursos en reposo. Olvídate de parchear la máquina, monitorizar procesos o gestionar alertas de OOM a las 3 de la mañana.</p><p>Yo llevo dos años sin tocar la infraestructura del acortador. Ni actualizaciones, ni monitorización, ni un solo reinicio. Eso no pasa con un servidor.</p><p>Para persistencia tienes Workers KV, que es exactamente lo que montamos a continuación.</p><p>El modelo de programación es el de un service worker del navegador: interceptas el evento <code>fetch</code>, procesas la petición y devuelves una respuesta.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;fetch&#39;</span>, <span style=color:#a6e22e>event</span> =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>respondWith</span>(<span style=color:#a6e22e>handleRequest</span>(<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>request</span>))
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handleRequest</span>(<span style=color:#a6e22e>request</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>(<span style=color:#e6db74>&#39;Hola desde el edge&#39;</span>, { <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>200</span> })
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Eso es todo.</p><hr><h2 id=casos-de-uso-reales-para-homelab-y-sysadmin>Casos de uso reales para homelab y sysadmin</h2><p>Un Worker encaja donde necesitas lógica HTTP sin levantar infraestructura:</p><h3 id=webhook-receptor>Webhook receptor</h3><p>Tengo n8n y Gotify corriendo en la red interna, sin exponer ningún puerto. Cuando GitHub necesita notificarme algo, no puede llegar directamente al servidor. El Worker recibe el webhook, valida la firma y lo reenvía vía <a href=/post/75_cloudflare_tunnel/>Cloudflare Tunnel</a>. Ningún servicio expuesto. Nadie sabe que n8n existe.</p><p>Es el patrón que más repito en el homelab: mantener los servicios internos completamente opacos a internet y usar el Worker como portero.</p><h3 id=redirect-inteligente-con-lógica>Redirect inteligente con lógica</h3><p>Un redirect estático lo hace cualquier <code>.htaccess</code>. Un Worker puede hacer redirects con lógica: por user-agent, por geografía, por hora del día, por cualquier cabecera HTTP. Esto me fue genial en un cliente para que la web fuera más rápida según la geolocalización de las IPs que se conectaban a una página de venta online.</p><p>Un <code>.htaccess</code> no sabe quién te llama. Un Worker sí. O para lo que construí a continuación.</p><h3 id=api-proxy-que-oculta-credenciales>API proxy que oculta credenciales</h3><p>Si metes una clave de API en el código del navegador, cualquiera la ve en los devtools. El Worker actúa como proxy: el navegador llama al Worker, el Worker añade la clave — guardada como secreto de Cloudflare, nunca expuesta — y reenvía la llamada. La clave no toca el cliente. Es lo que uso para las APIs externas en jaimealberto.io.</p><hr><h2 id=el-acortador-que-construí-gojaimealbertoio>El acortador que construí: go.jaimealberto.io</h2><p>Quería algo útil de verdad, no un &ldquo;Hello World&rdquo;. Los artículos del blog tienen URLs largas — cuando los comparto en LinkedIn o en otros sitios, <code>https://www.jaimealberto.io/post/78_cloudflare_workers/</code> no es elegante. Un acortador propio, en mi dominio, sin depender de bit.ly ni similares, era el caso perfecto.</p><p>El resultado: <code>go.jaimealberto.io/blog</code>, <code>go.jaimealberto.io/linkedin</code>, <code>go.jaimealberto.io/art78</code>. Todo gestionado desde la API de Cloudflare, sin panel de control, sin base de datos.</p><h3 id=el-código-del-worker>El código del Worker</h3><p>El Worker es deliberadamente simple. Recibe la petición, extrae el slug de la URL, lo busca en KV y redirige:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;fetch&#39;</span>, <span style=color:#a6e22e>event</span> =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>respondWith</span>(<span style=color:#a6e22e>handleRequest</span>(<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>request</span>))
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handleRequest</span>(<span style=color:#a6e22e>request</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>url</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>URL</span>(<span style=color:#a6e22e>request</span>.<span style=color:#a6e22e>url</span>)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>slug</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>url</span>.<span style=color:#a6e22e>pathname</span>.<span style=color:#a6e22e>slice</span>(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>slug</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>redirect</span>(<span style=color:#e6db74>&#39;https://www.jaimealberto.io&#39;</span>, <span style=color:#ae81ff>301</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>target</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>REDIRECTS</span>.<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>slug</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>target</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>redirect</span>(<span style=color:#a6e22e>target</span>, <span style=color:#ae81ff>301</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>(<span style=color:#e6db74>&#39;Not found&#39;</span>, { <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>404</span> })
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><code>REDIRECTS</code> es el binding al KV namespace — Cloudflare lo inyecta en el contexto del Worker automáticamente. No hace falta instalar ningún cliente, configurar URLs de conexión ni gestionar credenciales. La variable simplemente está ahí.</p><h3 id=despliegue-vía-api>Despliegue vía API</h3><p>Lo desplegué sin Wrangler (el CLI oficial de Cloudflare), usando directamente la API REST. Las credenciales viven en un fichero local con permisos 600 y nunca salen de ahí. Tres llamadas en orden: crear el KV namespace, subir el script con su binding, y registrar la ruta DNS.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. KV namespace</span>
+</span></span><span style=display:flex><span>curl -X POST <span style=color:#e6db74>&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style=color:#e6db74>/storage/kv/namespaces&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;X-Auth-Email: </span>$CF_EMAIL<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;Content-Type: application/json&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --data <span style=color:#e6db74>&#39;{&#34;title&#34;: &#34;go-redirects&#34;}&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 2. Worker con binding al KV</span>
+</span></span><span style=display:flex><span>curl -X PUT <span style=color:#e6db74>&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style=color:#e6db74>/workers/scripts/go-jaimealberto&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;X-Auth-Email: </span>$CF_EMAIL<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -F <span style=color:#e6db74>&#34;metadata=@metadata.json;type=application/json&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -F <span style=color:#e6db74>&#34;script=@worker.js;type=application/javascript&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 3. DNS AAAA + ruta de zona</span>
+</span></span><span style=display:flex><span>curl -X POST <span style=color:#e6db74>&#34;https://api.cloudflare.com/client/v4/zones/</span>$CF_ZONE_ID<span style=color:#e6db74>/dns_records&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --data <span style=color:#e6db74>&#39;{&#34;type&#34;:&#34;AAAA&#34;,&#34;name&#34;:&#34;go&#34;,&#34;content&#34;:&#34;100::&#34;,&#34;proxied&#34;:true}&#39;</span>
+</span></span><span style=display:flex><span>curl -X POST <span style=color:#e6db74>&#34;https://api.cloudflare.com/client/v4/zones/</span>$CF_ZONE_ID<span style=color:#e6db74>/workers/routes&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --data <span style=color:#e6db74>&#39;{&#34;pattern&#34;:&#34;go.jaimealberto.io/*&#34;,&#34;script&#34;:&#34;go-jaimealberto&#34;}&#39;</span>
+</span></span></code></pre></div><p>El <code>metadata.json</code> declara el binding entre el script y el KV namespace:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;body_part&#34;</span>: <span style=color:#e6db74>&#34;script&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;bindings&#34;</span>: [
+</span></span><span style=display:flex><span>    { <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;kv_namespace&#34;</span>, <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;REDIRECTS&#34;</span>, <span style=color:#f92672>&#34;namespace_id&#34;</span>: <span style=color:#e6db74>&#34;f2ef42c8...&#34;</span> }
+</span></span><span style=display:flex><span>  ],
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;compatibility_date&#34;</span>: <span style=color:#e6db74>&#34;2024-01-01&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>El DNS AAAA apunta a <code>100::</code>, la dirección anycast de Cloudflare Workers. Con proxy activado y la ruta de zona configurada, <code>go.jaimealberto.io/*</code> ya entra al Worker:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>curl -I https://go.jaimealberto.io/blog
+</span></span><span style=display:flex><span><span style=color:#75715e># HTTP/2 301</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># location: https://www.jaimealberto.io/</span>
+</span></span></code></pre></div><h3 id=script-para-añadir-slugs>Script para añadir slugs</h3><p>Para no tener que recordar los comandos curl, un script de una línea útil:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#75715e># go-add.sh &lt;slug&gt; &lt;url&gt;</span>
+</span></span><span style=display:flex><span>source ~/.config/cloudflare/api_tokens.env
+</span></span><span style=display:flex><span>curl -s -X PUT <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;https://api.cloudflare.com/client/v4/accounts/</span>$CF_ACCOUNT_ID<span style=color:#e6db74>/storage/kv/namespaces/</span>$KV_ID<span style=color:#e6db74>/values/</span>$1<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;X-Auth-Email: </span>$CF_EMAIL<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;X-Auth-Key: </span>$CF_GLOBAL_KEY<span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;Content-Type: text/plain&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --data <span style=color:#e6db74>&#34;</span>$2<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;✓ go.jaimealberto.io/</span>$1<span style=color:#e6db74> → </span>$2<span style=color:#e6db74>&#34;</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>./go-add.sh art78 https://www.jaimealberto.io/post/78_cloudflare_workers/
+</span></span><span style=display:flex><span><span style=color:#75715e># ✓ go.jaimealberto.io/art78 → https://www.jaimealberto.io/post/78_cloudflare_workers/</span>
+</span></span></code></pre></div><hr><h2 id=workers-kv-almacenamiento-clave-valor-en-el-edge>Workers KV: almacenamiento clave-valor en el edge</h2><p>Workers KV es el almacenamiento persistente de Workers. Distribuido globalmente, eventualmente consistente — y aquí viene lo que nadie explica bien — optimizado para lecturas frecuentes y escrituras ocasionales. El patrón exacto de un acortador de URLs: escribes el slug una vez, se lee miles de veces.</p><p>La API es minimalista:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Leer
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>value</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>REDIRECTS</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;clave&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Escribir (desde fuera, vía API REST)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// PUT /accounts/{id}/storage/kv/namespaces/{ns}/values/{key}
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Borrar (desde fuera, vía API REST)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// DELETE /accounts/{id}/storage/kv/namespaces/{ns}/values/{key}
+</span></span></span></code></pre></div><p>Los writes desde el Worker en sí son posibles pero el KV está diseñado para ser escrito desde fuera (API, Wrangler, scripts) y leído desde dentro. Para casos de escritura frecuente desde el propio Worker existe Durable Objects, que es otro producto diferente.</p><p><strong>Cuándo no usar KV:</strong> si necesitas consistencia fuerte, es decir, leer siempre el último valor escrito al instante, KV no es la herramienta. La propagación global puede tardar hasta 60 segundos. Para el acortador no importa. Un slug nuevo tarda un minuto en llegar a todos los edge nodes, y en la práctica ni me he dado cuenta del retraso desde que lo monté.</p><hr><h2 id=plan-gratuito-qué-cubre-y-cuándo-se-queda-corto>Plan gratuito: qué cubre y cuándo se queda corto</h2><p>Para el 95% de lo que monto en el homelab, el plan gratuito da de sobra. Y eso que soy bastante generoso con los casos de uso:</p><figure><img src=/img/workers_plan.jpg alt="Cloudflare Workers plan gratuito: qué incluye y cuándo pagar"></figure><p>Con 100.000 peticiones diarias sirves más tráfico del que genera un blog personal en un mes. Para un acortador, un webhook receptor o un proxy de API, nunca vas a ver el límite.</p><p>Donde se queda corto:</p><ul><li><strong>CPU intensiva:</strong> 10ms de CPU por petición es suficiente para lógica simple, pero no para procesamiento de imágenes, criptografía pesada o parsing de documentos grandes. Para eso existe el plan de pago con 30ms garantizados y opción de burst.</li><li><strong>Escrituras KV frecuentes:</strong> 1.000 escrituras diarias limita los casos de uso donde el Worker escribe en cada petición (contadores, logs). Para eso, Durable Objects.</li><li><strong>Subdominio propio:</strong> en el plan gratuito puedes usar Workers en tus dominios existentes via rutas (como hice aquí), pero el custom domain dedicado al Worker requiere el plan de pago. Con la técnica del DNS AAAA + ruta se evita esta limitación. Si gestionas tu DNS con la API de Cloudflare, el proceso es el mismo que en <a href=/post/73_ddns_gratuito/>DDNS gratuito con Cloudflare</a>.</li></ul><hr><blockquote><p>Las configuraciones y ejemplos de código descritos se han probado en infraestructura propia con el plan gratuito de Cloudflare vigente en la fecha de publicación. Los límites y condiciones del plan pueden cambiar — verifica siempre la documentación oficial antes de usar en producción. El autor no asume responsabilidad por costes inesperados ni por daños derivados de su aplicación sin las adaptaciones necesarias.</p></blockquote><p>Hace unos años, &ldquo;serverless&rdquo; significaba Lambda de AWS y una factura impredecible. Me quedé a cuadros la primera vez que revisé el detalle de costes de un proyecto en producción con Lambda: transferencia de datos, peticiones contadas al milisegundo, redondeos hacia arriba. Cloudflare Workers cambió esa ecuación, me puse con ello y le ahorré dinero a un cliente. La unidad de trabajo es la petición — no el tiempo de servidor encendido esperando. El precio de partida es cero, y el código corre donde está el usuario porque Cloudflare tiene edge nodes a menos de 20ms de cualquier punto del mundo.</p><p>Para el homelab no es la navaja suiza de todos los días — para eso tenemos Proxmox y los contenedores de siempre. Es lo que usas cuando levantar un servidor sería matar moscas a cañonazos. Un acortador de URLs no necesita un contenedor Docker. Para un webhook tampoco tiene sentido levantar un VPS con su systemd, su cron y su cuota mensual.</p><p>La industria sobredimensiona por defecto. Levantamos servidores para lo que cabe en una función, pagamos cuotas mensuales para lo que resuelve un script de 15 líneas. El cañonazo sale caro — en dinero, en tiempo y en complejidad que hay que mantener para siempre.</p><p>A veces la infraestructura correcta es la que no tienes que mantener.</p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/cloudflare/ rel=tag>cloudflare</a></li><li class=tags__item><a class="tags__link btn" href=/tags/cloudflare-workers/ rel=tag>cloudflare workers</a></li><li class=tags__item><a class="tags__link btn" href=/tags/serverless/ rel=tag>serverless</a></li><li class=tags__item><a class="tags__link btn" href=/tags/edge-computing/ rel=tag>edge computing</a></li><li class=tags__item><a class="tags__link btn" href=/tags/javascript/ rel=tag>javascript</a></li><li class=tags__item><a class="tags__link btn" href=/tags/automatizaci%C3%B3n/ rel=tag>automatización</a></li><li class=tags__item><a class="tags__link btn" href=/tags/homelab/ rel=tag>homelab</a></li><li class=tags__item><a class="tags__link btn" href=/tags/sysadmin/ rel=tag>sysadmin</a></li><li class=tags__item><a class="tags__link btn" href=/tags/workers-kv/ rel=tag>workers kv</a></li><li class=tags__item><a class="tags__link btn" href=/tags/acortador-urls/ rel=tag>acortador urls</a></li><li class=tags__item><a class="tags__link btn" href=/tags/acortador-de-url/ rel=tag>acortador de url</a></li><li class=tags__item><a class="tags__link btn" href=/tags/privacidad/ rel=tag>privacidad</a></li><li class=tags__item><a class="tags__link btn" href=/tags/api-rest/ rel=tag>api rest</a></li><li class=tags__item><a class="tags__link btn" href=/tags/webhook/ rel=tag>webhook</a></li><li class=tags__item><a class="tags__link btn" href=/tags/redirect/ rel=tag>redirect</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="JaimeAlberto avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>Sobre el autor JaimeAlberto</span></div><div class=authorbox__description>The BOFH of this Site</div></div><div class=cta><p class=cta__text>¿Te ha resultado útil? Puedes seguirme en LinkedIn para no perderte los próximos artículos, o explorar el código en GitHub.</p><div class=cta__links><a class=cta__btn href=https://linkedin.com/in/jaimealbertoio target=_blank rel="noopener noreferrer">LinkedIn
+</a><a class=cta__btn href=https://github.com/jaimealberto target=_blank rel="noopener noreferrer">GitHub</a></div></div></div></div><footer class=footer><div class="container footer__container flex"><div class=footer__links><a class=footer__link href=/licencia/>Licencia CC BY-NC-SA 4.0</a></div><div class=footer__copyright>&copy; 2026 JaimeAlberto.
+<span class=footer__copyright-credits>Generado con <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> y <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a>.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>

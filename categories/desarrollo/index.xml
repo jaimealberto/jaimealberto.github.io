@@ -1,33 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Desarrollo on JaimeAlberto.io</title>
-    <link>http://localhost:1313/categories/desarrollo/</link>
-    <description>Recent content in Desarrollo on JaimeAlberto.io</description>
-    <generator>Hugo</generator>
-    <language>es</language>
-    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/desarrollo/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Cloudflare Pages: hosting estático gratuito con CI/CD, dominio propio y ancho de banda ilimitado</title>
-      <link>http://localhost:1313/post/77_cloudflare_pages/</link>
-      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/77_cloudflare_pages/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_pages.jpg&#34; alt=&#34;Cloudflare Pages: hosting estático gratuito con CI/CD, dominio propio y ancho de banda ilimitado&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;GitHub Pages es la opción más conocida para alojar sitios estáticos gratis. Cloudflare Pages hace lo mismo pero con ancho de banda ilimitado, deploy previews por cada rama, integración directa con el WAF y la red de Cloudflare detrás.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos</title>
-      <link>http://localhost:1313/post/86_cloudflare_workers_webhook/</link>
-      <pubDate>Sun, 21 Jun 2026 08:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/post/86_cloudflare_workers_webhook/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/workers_webhook.jpg&#34; alt=&#34;Cloudflare Workers como webhook receptor: HMAC, Gotify y cero puertos&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Sun Tzu no esperaba al enemigo en campo abierto. Elegía el terreno y obligaba al adversario a acudir a él. Un sysadmin no debería abrir puertos para que los servicios externos entren. Debería elegir dónde se recibe la llamada.&lt;/p&gt;&#xA;&lt;p&gt;GitHub quiere avisarte cuando alguien hace un push. Stripe quiere avisarte cuando llega un pago. Cualquier servicio externo quiere enviarte un webhook. El problema: para recibirlo necesitas una URL pública. Y una URL pública normalmente significa un puerto abierto en tu router, una IP fija o un servidor en la nube.&lt;/p&gt;&#xA;&lt;p&gt;El Worker actúa como ese punto de recepción elegido: vive en el edge de Cloudflare, verifica que quien llama es quien dice ser mediante firma HMAC, y solo entonces pasa el mensaje al interior de la red — sin que el router abra nada.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cloudflare Workers: serverless en el edge sin servidor que mantener</title>
-      <link>http://localhost:1313/post/78_cloudflare_workers/</link>
-      <pubDate>Sat, 20 Jun 2026 08:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/post/78_cloudflare_workers/</guid>
-      <description>&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/img/cloudflare_workers.jpg&#34; alt=&#34;Cloudflare Workers: serverless en el edge sin servidor que mantener&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Un Jedi no deja que el Imperio controle sus rutas de comunicación.&lt;/p&gt;&#xA;&lt;p&gt;bit.ly no es gratis. Lo pagas con cada clic que pasa por él. Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.&lt;/p&gt;&#xA;&lt;p&gt;Necesitaba acortar URLs para los artículos del blog. La respuesta obvia era bit.ly. La respuesta que usé fue un Worker de Cloudflare.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;go.jaimealberto.io/blog&lt;/code&gt;. Sin servidor. Sin base de datos. Sin que nadie registre los clics de mis lectores. Y el plan gratuito aguanta 100.000 peticiones al día.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Desarrollo on JaimeAlberto.io</title><link>https://jaimealberto.io/categories/desarrollo/</link><description>Recent content in Desarrollo on JaimeAlberto.io</description><generator>Hugo</generator><language>es</language><lastBuildDate>Sat, 20 Jun 2026 08:00:00 +0200</lastBuildDate><atom:link href="https://jaimealberto.io/categories/desarrollo/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloudflare Workers: serverless en el edge sin servidor que mantener</title><link>https://jaimealberto.io/post/78_cloudflare_workers/</link><pubDate>Sat, 20 Jun 2026 08:00:00 +0200</pubDate><guid>https://jaimealberto.io/post/78_cloudflare_workers/</guid><description>&lt;figure&gt;
+ &lt;img src="https://jaimealberto.io/img/cloudflare_workers.jpg" alt="Cloudflare Workers: serverless en el edge sin servidor que mantener"&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Un Jedi no deja que el Imperio controle sus rutas de comunicación.&lt;/p&gt;
+&lt;p&gt;bit.ly no es gratis, lo pagas con tus clics. Registra quién hace clic, desde dónde, en qué dispositivo, a qué hora. Construye un perfil de comportamiento de tu audiencia — que es tuya — y lo vende. El acortador es el producto. Tú eres el canal de adquisición.&lt;/p&gt;
+&lt;p&gt;Necesitaba acortar URLs para los artículos del blog. La respuesta obvia era bit.ly. La respuesta que usé fue un Worker de Cloudflare.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;go.jaimealberto.io/blog&lt;/code&gt;. Sin servidor. Sin base de datos. Sin que nadie registre los clics de mis lectores. Y el plan gratuito aguanta 100.000 peticiones al día.&lt;/p&gt;</description></item></channel></rss>
